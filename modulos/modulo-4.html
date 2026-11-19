@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4: Frameworks Práticos | FEI</title>
+  <meta name="description" content="Frameworks RACE, CRISPE e CLEAR para Engenharia de Intenção - Módulo Completo">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-1 to-nivel-2 bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Início</a>
+          <a href="../niveis/nivel-1.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Nível 1</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-1 hover:text-blue-700">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <a href="../niveis/nivel-1.html" class="text-nivel-1 hover:text-blue-700">Nível 1</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Módulo 4</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-1 to-blue-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Módulo 4
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Frameworks
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        🧰 Frameworks Práticos
+      </h1>
+      <p class="text-xl text-white/90">
+        RACE, CRISPE e CLEAR: metodologias prontas para aplicar
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Download Button -->
+      <div class="flex justify-end mb-6">
+        <a href="../downloads/nivel-1-modulo-4.md" download class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold hover:bg-blue-600 inline-flex items-center gap-2">
+          <span>📥</span>
+          <span>Download MD</span>
+        </a>
+      </div>
+
+      <!-- Introdução -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          🎯 Introdução
+        </h2>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Você já dominou os princípios fundamentais da Engenharia de Intenção. Agora é hora de conhecer <strong>frameworks prontos para usar</strong> — estruturas testadas e validadas que aceleram dramaticamente seu trabalho com IA.
+        </p>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Neste módulo, você aprenderá 3 frameworks práticos: <strong>RACE</strong> (estratégia), <strong>CRISPE</strong> (instrução detalhada) e <strong>CLEAR</strong> (clareza e simplicidade).
+        </p>
+        <div class="bg-nivel-1/10 border-l-4 border-nivel-1 p-6 rounded-lg">
+          <h3 class="font-bold text-nivel-1 mb-2">💡 Por que usar frameworks?</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            Frameworks são <strong>atalhos cognitivos</strong>. Ao invés de pensar "o que incluir?", você preenche uma estrutura pronta. Isso garante <strong>consistência</strong>, <strong>completude</strong> e <strong>resultados previsíveis</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Framework 1: RACE -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🏁 Framework RACE: Para Estratégia e Objetivos
+        </h2>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-2 border-blue-500 mb-6">
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            O que é RACE?
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            RACE é ideal para tarefas <strong>estratégicas e de alto nível</strong> onde você precisa definir objetivos, audiência e critérios de sucesso.
+          </p>
+          <div class="grid md:grid-cols-4 gap-4">
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded-lg">
+              <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">R - Role</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">Papel que a IA deve assumir</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded-lg">
+              <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">A - Audience</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">Para quem é o resultado</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded-lg">
+              <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">C - Context</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">Situação e background</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded-lg">
+              <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">E - Expectation</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">O que você espera receber</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">📝 Template RACE</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-4 rounded">ROLE: Você é [especialista em X]
+
+AUDIENCE: Este trabalho será usado por [descrição da audiência]
+
+CONTEXT:
+- Situação atual: [contexto relevante]
+- Objetivo de negócio: [o que queremos alcançar]
+- Restrições: [limitações ou requisitos]
+
+EXPECTATION:
+- Formato: [como você quer a resposta]
+- Critérios de sucesso: [como julgar qualidade]
+- Próximas ações: [o que fazer com o resultado]</pre>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-500">
+          <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Exemplo Real: Plano de Marketing</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-700 p-4 rounded">ROLE: Você é um estrategista de marketing digital especializado em SaaS B2B
+
+AUDIENCE: Este plano será apresentado para CEO e CMO de startup com 30 funcionários
+
+CONTEXT:
+- Situação: Lançamento de produto SaaS para PMEs brasileiras
+- Orçamento: R$20k para 3 meses
+- Concorrência: 3 players estabelecidos no mercado
+- Diferencial: Único em português com suporte nacional
+
+EXPECTATION:
+- Formato: Tabela com 5 táticas priorizadas + justificativa + métricas
+- Critérios: Ações implementáveis em 30 dias, foco em ROI
+- Próximas ações: Time de marketing executará sem consultoria externa</pre>
+        </div>
+      </div>
+
+      <!-- Framework 2: CRISPE -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🎨 Framework CRISPE: Para Tarefas Detalhadas
+        </h2>
+
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border-2 border-purple-500 mb-6">
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            O que é CRISPE?
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            CRISPE é perfeito para tarefas <strong>criativas ou técnicas</strong> que exigem tom específico, formato rigoroso e personalidade.
+          </p>
+          <div class="grid md:grid-cols-5 gap-3">
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">C - Capacity/Role</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Capacidade técnica</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">R - Insight</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Background relevante</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">I - Input</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Materiais fornecidos</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">S - Statement</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">O que fazer</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">P - Personality</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Tom e estilo</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg col-span-full">
+              <h4 class="font-bold text-purple-600 dark:text-purple-400 text-sm mb-1">E - Experiment</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Solicitar variações ou alternativas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">📝 Template CRISPE</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-4 rounded">CAPACITY: Atue como [especialista com habilidade X]
+
+INSIGHT: Contexto relevante que você precisa saber:
+[Background, situação, histórico]
+
+INPUT: Materiais fornecidos:
+[Documentos, dados, exemplos]
+
+STATEMENT: Tarefa específica:
+[O que criar/analisar/desenvolver]
+
+PERSONALITY: Tom e estilo:
+[Formal/casual, técnico/acessível, direto/narrativo]
+
+EXPERIMENT: Forneça [número] alternativas diferentes explorando [aspecto]</pre>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-500">
+          <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Exemplo Real: Post LinkedIn</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-700 p-4 rounded">CAPACITY: Atue como copywriter especializado em LinkedIn com foco em personal branding para líderes tech
+
+INSIGHT: Acabei de participar de conferência sobre IA generativa onde apresentei case de ROI 300% usando Claude para automação de suporte
+
+INPUT:
+- Título da palestra: "IA Generativa: do Hype ao ROI Real"
+- Métrica principal: Redução de 70% no tempo de resposta
+- Audiência: 500+ líderes de produto e tecnologia
+
+STATEMENT: Crie um post para LinkedIn que compartilhe insights da palestra, destaque a métrica de impacto, e gere engajamento
+
+PERSONALITY:
+- Tom: Profissional mas acessível
+- Estilo: Storytelling com dados concretos
+- Objetivo: Gerar discussão e conexões
+
+EXPERIMENT: Forneça 3 versões:
+1. Focada em storytelling pessoal
+2. Focada em dados e métricas
+3. Focada em provocação e debate</pre>
+        </div>
+      </div>
+
+      <!-- Framework 3: CLEAR -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ✨ Framework CLEAR: Para Clareza Máxima
+        </h2>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-2 border-green-500 mb-6">
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            O que é CLEAR?
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            CLEAR é o framework mais <strong>simples e direto</strong>. Ideal para iniciantes ou quando você precisa de algo rápido sem complexidade.
+          </p>
+          <div class="grid md:grid-cols-5 gap-3">
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-green-600 dark:text-green-400 text-sm mb-1">C - Concise</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Objetivo claro</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-green-600 dark:text-green-400 text-sm mb-1">L - Logical</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Estrutura lógica</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-green-600 dark:text-green-400 text-sm mb-1">E - Explicit</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Explícito no formato</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-green-600 dark:text-green-400 text-sm mb-1">A - Adaptive</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Permite ajustes</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-700 p-3 rounded-lg">
+              <h4 class="font-bold text-green-600 dark:text-green-400 text-sm mb-1">R - Reflective</h4>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">IA reflete antes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">📝 Template CLEAR</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-800 p-4 rounded">CONCISE: [Uma frase: o que você quer]
+
+LOGICAL: [Por que você precisa disso e como será usado]
+
+EXPLICIT: [Formato exato da resposta]
+
+ADAPTIVE: [Se algo não estiver claro, pergunte antes de prosseguir]
+
+REFLECTIVE: [Antes de responder, confirme que entendeu: objetivo, contexto e formato]</pre>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-500">
+          <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Exemplo Real: Análise de Dados</h3>
+          <pre class="text-sm font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap bg-white dark:bg-neutral-700 p-4 rounded">CONCISE: Analisar dados de churn para identificar as 3 principais causas
+
+LOGICAL: Preciso apresentar isso para reunião de estratégia na sexta. O time precisa de ações concretas para reduzir churn que está em 8% ao mês.
+
+EXPLICIT: Tabela com 3 causas ranqueadas + % de impacto + 2 ações específicas para cada causa
+
+ADAPTIVE: Se os dados não forem suficientes para conclusões sólidas, sinalize as lacunas e sugira análises complementares
+
+REFLECTIVE: Antes de iniciar, confirme: você entendeu que busco causas de churn (não apenas descrição), com foco em ações práticas?</pre>
+        </div>
+      </div>
+
+      <!-- Comparação dos Frameworks -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ⚖️ Quando Usar Cada Framework?
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-neutral-300 dark:border-neutral-600">
+                <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Framework</th>
+                <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Melhor Para</th>
+                <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Complexidade</th>
+                <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Exemplo de Uso</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-semibold text-blue-600">RACE</td>
+                <td class="p-3">Estratégia, planejamento, decisões executivas</td>
+                <td class="p-3">Média</td>
+                <td class="p-3">Planos de negócio, estratégias, roadmaps</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-semibold text-purple-600">CRISPE</td>
+                <td class="p-3">Criação de conteúdo, tarefas técnicas</td>
+                <td class="p-3">Alta</td>
+                <td class="p-3">Copywriting, código, design de sistema</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-semibold text-green-600">CLEAR</td>
+                <td class="p-3">Tarefas simples, análises rápidas</td>
+                <td class="p-3">Baixa</td>
+                <td class="p-3">Resumos, análises, respostas diretas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+          <h3 class="font-bold text-nivel-1 mb-2">💡 Dica Pro:</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            Não se prenda rigidamente aos frameworks. Use-os como <strong>guias</strong>, não como prisões. Combine elementos de diferentes frameworks quando fizer sentido.
+          </p>
+        </div>
+      </div>
+
+      <!-- Exercícios -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ✍️ Exercícios Práticos
+        </h2>
+
+        <!-- Exercício 1 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 1</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Iniciante</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Escolha o Framework Certo
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Para cada cenário, identifique qual framework (RACE, CRISPE ou CLEAR) seria mais adequado:
+          </p>
+          <ol class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2 list-decimal list-inside">
+            <li>Criar estratégia de expansão internacional para startup</li>
+            <li>Escrever série de emails de onboarding com tom específico</li>
+            <li>Analisar rapidamente feedback de clientes</li>
+            <li>Desenvolver arquitetura de sistema complexo</li>
+          </ol>
+        </div>
+
+        <!-- Exercício 2 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 2</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Intermediário</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Complete o Framework
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Você precisa criar um webinar sobre produtividade com IA. Complete o framework RACE:
+          </p>
+          <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm font-mono">
+            ROLE: [Complete]<br>
+            AUDIENCE: [Complete]<br>
+            CONTEXT: [Complete]<br>
+            EXPECTATION: [Complete]
+          </div>
+        </div>
+
+        <!-- Exercício 3 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 3</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Avançado</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Framework Híbrido
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Cenário:</strong> Você gerencia uma agência e precisa criar uma proposta técnica para cliente de tecnologia. A proposta precisa ser estratégica (visão executiva) e detalhada (especificações técnicas).
+          </p>
+          <div class="bg-nivel-1/10 p-4 rounded border border-nivel-1">
+            <strong>🎯 Desafio:</strong> Crie uma solicitação que COMBINE elementos de RACE e CRISPE para capturar tanto a visão estratégica quanto os detalhes técnicos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusão -->
+      <div class="bg-gradient-to-r from-nivel-1 to-blue-600 text-white rounded-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">🎓 Conclusão do Módulo</h2>
+        <p class="text-lg mb-6">
+          Você agora possui <strong>3 frameworks prontos</strong> para aplicar imediatamente em qualquer contexto. Esses frameworks são suas ferramentas de trabalho — use-os, adapte-os, combine-os.
+        </p>
+        <div class="bg-white/10 backdrop-blur p-6 rounded-lg mb-6">
+          <h3 class="font-bold text-xl mb-2">✅ O que você dominou:</h3>
+          <ul class="space-y-2">
+            <li>• Framework RACE para estratégia e planejamento</li>
+            <li>• Framework CRISPE para tarefas criativas e técnicas</li>
+            <li>• Framework CLEAR para clareza e simplicidade</li>
+            <li>• Quando usar cada framework e como combiná-los</li>
+          </ul>
+        </div>
+        <div class="flex gap-4">
+          <a href="modulo-3.html" class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 rounded-lg font-semibold">
+            ← Módulo 3
+          </a>
+          <a href="modulo-5.html" class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold">
+            Módulo 5 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-4">FEI - Engenharia de Intenção</h3>
+          <p class="text-sm">Formação completa para dominar a nova era da IA</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Nível 1: Fundamentos</a></li>
+            <li><a href="../niveis/nivel-2.html" class="hover:text-white">Nível 2: Programa Completo</a></li>
+            <li><a href="../niveis/nivel-3a.html" class="hover:text-white">Nível 3A: Agentes</a></li>
+            <li><a href="../niveis/nivel-4s.html" class="hover:text-white">Nível 4S: Sistemas 2026</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-white">Início</a></li>
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Voltar ao Nível 1</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
+        <p>&copy; 2025 FEI - Formação em Engenharia de Intenção.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

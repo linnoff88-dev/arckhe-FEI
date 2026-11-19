@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nível 4S: Sistemas Intencionais Autônomos 2026 | FEI</title>
+  <meta name="description" content="Sistemas Intencionais Autônomos - Estado da Arte 2026">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+            success: '#22C55E',
+            warning: '#F59E0B',
+            error: '#EF4444',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+
+    /* Modal System */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+    .dark .modal-content {
+      background-color: #1f2937;
+    }
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dark .modal-header {
+      border-bottom-color: #374151;
+    }
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .close-modal:hover {
+      color: #ef4444;
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-1 to-nivel-4s bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-4s">Início</a>
+          <a href="../index.html#niveis" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-4s">Níveis</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-neutral-700 dark:text-neutral-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700">
+      <div class="px-4 py-2 space-y-1">
+        <a href="../index.html" class="block px-3 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700">Início</a>
+        <a href="../index.html#niveis" class="block px-3 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700">Níveis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-4s hover:text-orange-700 dark:hover:text-orange-400">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Nível 4S</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-4s to-orange-700 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Super Avançado
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          12 Módulos + 60 Tópicos
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        🟠 Nível 4S: Sistemas Intencionais Autônomos 2026
+      </h1>
+      <p class="text-xl text-white/90 mb-6">
+        Domine a arquitetura mais avançada de IA: sistemas multiagentes com raciocínio contínuo, delegação intencional e governança ética
+      </p>
+      <div class="grid md:grid-cols-4 gap-4 mt-8">
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">12</div>
+          <div class="text-sm text-orange-100">Módulos Completos</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">60</div>
+          <div class="text-sm text-orange-100">Tópicos Interativos</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">5</div>
+          <div class="text-sm text-orange-100">Projetos Real-World</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">2026</div>
+          <div class="text-sm text-orange-100">Estado da Arte</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="bg-nivel-4s/10 dark:bg-nivel-4s/20 border-l-4 border-nivel-4s p-6 rounded-lg mb-8">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+          🎯 Sobre este nível
+        </h2>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Este é o curso mais avançado sobre Sistemas Intencionais Autônomos 2026. Você aprenderá a construir sistemas multiagentes completos com raciocínio contínuo, delegação intencional e governança ética aplicada.
+        </p>
+      </div>
+
+
+      <!-- Módulo 1 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 1
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            A Nova Arquitetura da IA em 2026
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            5 Capabilities Revolucionárias que Mudaram Tudo
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-1')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-1.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-1.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m1-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔥 Raciocínio Contínuo da IA
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> IA que pensa antes, durante e depois de responder. Não gera texto instantaneamente - raciocina de forma iterativa, validando cada etapa do processo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Base de todos os sistemas avançados de 2026. Sem raciocínio contínuo, sua IA é apenas um gerador de texto rápido, não um pensador estratégico.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Chain-of-Thought em tempo real, Validação intermediária de hipóteses, Refinamento iterativo de respostas</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m1-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🛠️ Uso de Ferramentas
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> IA que autonomamente decide quando precisa de ferramentas externas (APIs, bancos de dados, calculadoras) e as usa sem supervisão.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferença entre chatbot burro e agente inteligente. Tool use permite que IA execute ações reais no mundo, não apenas fale sobre elas.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Function calling nativo, Orquestração de múltiplas ferramentas, Error handling automático</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m1-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧠 Memória Contextual Longa
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Capacidade de lembrar e referenciar interações anteriores, construindo contexto acumulativo ao longo de semanas ou meses.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Sem memória, cada interação começa do zero. Com memória contextual, a IA evolui e personaliza respostas baseado em histórico completo.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Janelas de contexto 200K+ tokens, Memória persistente entre sessões, Recuperação semântica eficiente</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m1-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Geração Estruturada
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Output garantido em formato específico (JSON, SQL, XML) sem parsing. LLM respeita schema definido nativamente.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Elimina 80% dos problemas de integração. Saída previsível significa sistemas confiáveis em produção.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> JSON Schema enforcement, Type safety garantido, Zero hallucination em formato</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m1-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📸 Visão Multimodal Nativa
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> IA que entende imagens, PDFs, gráficos e screenshots nativamente, sem necessidade de OCR ou pré-processamento.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Mundo real é visual. Agentes precisam processar documentos, interfaces e dados visuais para serem verdadeiramente autônomos.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Processamento nativo de imagens, Análise de layouts complexos, Extração de dados visuais</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 2 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 2
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            O Conceito de Sistemas Intencionais
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            8 Pilares Fundamentais da ESIA
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-2')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-2.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-2.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m2-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💡 Definição de Intenção
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Objetivo de alto nível que você quer alcançar. Foca no resultado desejado, não nas etapas para chegar lá.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferença entre delegar tarefas e delegar responsabilidades. Intenção clara libera você de microgerenciar cada passo.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Resultado vs Processo, Especificação mensurável, Autonomia com limites claros</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m2-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Ciclo Sense-Think-Act
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Loop contínuo: Perceber contexto, Pensar estrategicamente, Agir de forma deliberada. Repete infinitamente adaptando-se.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Core de qualquer sistema autônomo. Sem esse ciclo, agente é reativo, não proativo.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Percepção contextual, Raciocínio estratégico, Execução deliberada</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m2-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚙️ Decomposição de Objetivos
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Quebrar missão complexa em submetas menores e executáveis. Sistema cria seu próprio plano de ação.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Permite que sistema resolva problemas complexos que você não sabe como resolver manualmente.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Hierarquia de objetivos, Planejamento recursivo, Dependency resolution</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m2-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎓 Aprendizado por Experiência
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sistema que melhora ao longo do tempo, aprendendo com sucessos e falhas anteriores.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferença entre ferramenta estática e sistema que evolui. Aprende seus padrões, preferências e contexto específico.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Reinforcement learning, Pattern recognition, Otimização contínua</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m2-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔐 Alinhamento com Humano
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Garantir que sistema sempre opera de acordo com valores, ética e intenção original do usuário.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Segurança crítica. Sistema autônomo sem alinhamento pode otimizar métricas erradas e causar danos sérios.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Value alignment, Salvaguardas éticas, Supervisão humana</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 3 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 3
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Agentes Autônomos 2.0 (2026)
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            6 Tipos de Agentes da Nova Era
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-3')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-3.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-3.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m3-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔍 Agentes Pesquisadores
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Buscam informações em múltiplas fontes, sintetizam dados e geram insights. Navegam web, APIs, bases de conhecimento.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Automação de research elimina horas de trabalho manual. Encontra informações que você nem sabia que existiam.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Web scraping inteligente, Multi-source aggregation, Insight synthesis</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m3-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ✍️ Agentes Criadores
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Produzem conteúdo original: textos, código, designs, vídeos. Adaptam estilo e tom ao contexto e audiência.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Escala criação de conteúdo 100x sem perder qualidade. Mantém consistência de marca em todos outputs.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Style transfer, Brand voice consistency, Multi-format output</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m3-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🤝 Agentes de Relacionamento
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Gerenciam interações com clientes, leads e stakeholders. Mantém contexto de relacionamento ao longo do tempo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Atendimento 24/7 personalizado. Ninguém fica sem resposta, ninguém recebe resposta genérica.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Memória de contexto pessoal, Personalização de comunicação, Escalação inteligente</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m3-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📊 Agentes Analistas
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Processam dados, identificam padrões, detectam anomalias e geram relatórios executivos automaticamente.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Transforma dados brutos em decisões. Detecta oportunidades e riscos que passariam despercebidos.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Pattern detection, Anomaly alerting, Predictive analytics</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m3-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Agentes Orquestradores
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Coordenam outros agentes, distribuem tarefas, validam resultados e mantém visão macro do sistema.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Cérebro do sistema multiagente. Sem orquestrador, agentes operam em silos sem sinergia.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Task distribution, Result validation, System-wide coordination</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 4 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 4
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Loops Evolutivos de Agentes
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Sistemas que Se Auto-Melhoram
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-4')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-4.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-4.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m4-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Ciclo Execute-Reflect
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Após cada ação, agente reflete sobre resultado, identifica o que funcionou e ajusta abordagem para próxima vez.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Base de qualquer aprendizado. Sem reflexão, agente repete erros indefinidamente.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Post-action analysis, Success pattern extraction, Failure root cause identification</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m4-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📈 Métricas de Performance
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> KPIs objetivos que medem sucesso do agente: taxa de conclusão, qualidade de output, tempo de execução.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Você não pode melhorar o que não mede. Métricas transformam intuição em dados acionáveis.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Quantitative success metrics, Baseline establishment, Continuous tracking</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m4-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Auto-Otimização
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sistema ajusta seus próprios parâmetros, prompts e estratégias baseado em performance histórica.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferença entre ferramenta estática e organismo vivo. Auto-otimização significa melhoria exponencial contínua.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Hyperparameter tuning, A/B testing automático, Performance-based adaptation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m4-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💾 Memória de Experiências
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Banco de dados de ações passadas, resultados obtidos e lições aprendidas. Recupera experiências relevantes quando necessário.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Memória institucional. Sistema aprende não só com ciclo atual, mas com todos os ciclos anteriores.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Experience replay, Case-based reasoning, Knowledge accumulation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m4-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔬 Meta-Aprendizado
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agente que aprende como aprender melhor. Identifica padrões de aprendizado e otimiza o próprio processo de evolução.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Nível mais avançado de autonomia. Sistema que melhora não só performance, mas velocidade de melhoria.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Learning to learn, Transfer learning, Optimization of optimization</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 5 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 5
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Intenção Composta e Persistente
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Objetivos Complexos de Longo Prazo
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-5')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-5.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-5.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m5-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧩 Intenções Compostas
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Múltiplos objetivos interdependentes que precisam ser alcançados em conjunto, não isoladamente.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Mundo real raramente tem objetivos únicos. Sucesso requer balancear múltiplas prioridades simultaneamente.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Multi-objective optimization, Trade-off management, Constraint satisfaction</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m5-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⏳ Persistência Temporal
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Intenção que se mantém ativa por dias, semanas ou meses. Sistema lembra e persegue objetivo continuamente.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferença entre tarefa pontual e responsabilidade contínua. Persistência elimina necessidade de re-delegação constante.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Long-term goal tracking, Continuous execution, State persistence</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m5-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔀 Priorização Dinâmica
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sistema ajusta prioridades baseado em contexto: urgência, impacto, recursos disponíveis, dependências.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Contexto muda constantemente. Priorização estática leva a desperdício de recursos e oportunidades perdidas.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Context-aware prioritization, Real-time reprioritization, Impact vs effort analysis</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m5-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Hierarquia de Metas
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Estrutura de objetivos em camadas: missão macro > objetivos estratégicos > metas táticas > tarefas específicas.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Clareza de propósito. Cada ação menor conecta com objetivo maior, garantindo alinhamento total.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Goal decomposition tree, Alignment cascading, Bottom-up validation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m5-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Adaptação Contextual
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Intenção se adapta quando contexto muda drasticamente, mantendo essência mas ajustando abordagem.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Rigidez mata sistemas. Adaptação contextual permite resposta inteligente a mudanças inesperadas.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Context sensing, Adaptive replanning, Goal preservation</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 6 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 6
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Sistemas Multiagentes (2026)
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            4 Arquiteturas de Coordenação
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-6')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-6.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-6.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m6-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔗 Arquitetura Hierárquica
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agente master coordena agentes workers. Comando centralizado com execução distribuída.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Simplicidade de controle. Ideal para tarefas com clara divisão de responsabilidades.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Master-worker pattern, Centralized coordination, Clear authority chain</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m6-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🤝 Arquitetura Colaborativa
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agentes peers trabalham juntos em problema comum. Decisões por consenso ou votação.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Robustez e criatividade. Múltiplas perspectivas levam a soluções melhores.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Peer-to-peer collaboration, Consensus mechanisms, Distributed decision making</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m6-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎭 Arquitetura Pipeline
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Cada agente especialista processa uma etapa específica. Output de um é input do próximo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Eficiência máxima. Especialização profunda em cada etapa do processo.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Sequential processing, Specialization, Handoff protocols</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m6-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🌐 Arquitetura Federada
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Múltiplos sistemas autônomos que se comunicam quando necessário. Independência com interoperabilidade.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Escalabilidade sem limite. Sistemas crescem sem gargalos centralizados.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Autonomous subsystems, Event-driven communication, Loose coupling</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m6-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Padrões de Comunicação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Protocolos para troca de informações: síncrona, assíncrona, broadcast, pub-sub.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Coordenação eficiente depende de comunicação adequada ao contexto.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Message passing, Event streams, Shared state management</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 7 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 7
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Criação de Agentes com ESIA
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            8 Componentes Essenciais
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-7')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-7.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-7.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m7-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Definição de Intenção
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Primeiro passo: especificar claramente o objetivo de alto nível que agente deve alcançar.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Intenção vaga gera agente confuso. Clareza no objetivo é 50% do sucesso.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Objective specification, Success criteria, Constraint definition</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m7-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧠 Seleção do Modelo Base
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Escolher LLM adequado: Claude Sonnet para raciocínio, GPT-4 para criatividade, Llama para custo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Cada modelo tem pontos fortes. Escolha errada desperdiça dinheiro ou compromete qualidade.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Model capabilities, Cost-performance tradeoff, Latency requirements</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m7-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🛠️ Tool Kit Configuration
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Definir ferramentas que agente pode usar: APIs, bancos de dados, calculadoras, web search.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Agente sem ferramentas é só conversa. Ferramentas certas amplificam capacidade 10x.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Function calling setup, API integrations, Tool permissions</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m7-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💾 Sistema de Memória
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Implementar memória de curto e longo prazo: vetorDB para contexto, cache para performance.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Memória transforma agente burro em assistente inteligente que aprende.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Vector databases, Context windows, Memory retrieval</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m7-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Loop de Execução
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Ciclo principal: recebe input > raciocina > age > observa resultado > repete.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Estrutura do pensamento. Loop bem desenhado garante comportamento previsível.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Main execution loop, State management, Error handling</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 8 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 8
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Sistemas Autônomos para Negócios (2026)
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            4 Casos de Uso Transformadores
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-8')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-8.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-8.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m8-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📧 Email Marketing Autônomo
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sistema que gerencia campanhas end-to-end: segmentação, criação, envio, análise, otimização.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> ROI 5-10x maior que email manual. Personalização em escala impossível humanamente.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Audience segmentation, Content generation, A/B testing automation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m8-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💬 Atendimento ao Cliente 24/7
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agente que resolve 80% dos tickets sem humano: dúvidas técnicas, billing, onboarding.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Custo de suporte cai 70%. Satisfação sobe porque resposta é imediata.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Intent classification, Knowledge base integration, Escalation protocols</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m8-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📊 Análise de Mercado Contínua
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Monitor 24/7 de concorrência, tendências, notícias relevantes. Alertas automáticos de oportunidades.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Vantagem competitiva vem de agir antes. Sistema detecta sinais que humano perderia.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Web scraping, Sentiment analysis, Trend detection</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m8-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ✍️ Criação de Conteúdo em Escala
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Produz artigos, posts, vídeos mantendo tom de marca. 10-50 peças por semana sem perder qualidade.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Presença online exige volume constante. Agente mantém consistência em escala.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Style transfer, Brand voice training, Multi-format output</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m8-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Lead Nurturing Inteligente
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Acompanha cada lead individualmente, personalizando comunicação baseado em comportamento.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Conversão aumenta 3-5x com nurturing personalizado. Impossível fazer manual em escala.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Behavioral tracking, Personalization, Conversion optimization</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 9 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 9
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            A Nova Forma de Delegar
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Da Tarefa para a Intenção
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-9')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-9.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-9.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m9-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Delegação Antiga vs Nova
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Antiga: 'Faça X'. Nova: 'Garanta que Y aconteça, respeitando Z'.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Delegação antiga cria dependência. Nova delegação cria autonomia real.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Outcome-based delegation, Constraint specification, Continuous responsibility</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m9-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📋 Componentes da Delegação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Toda delegação ESIA tem: intenção, métricas de sucesso, limites, nível de autonomia, protocolo de escalação.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Delegação vaga gera frustração. Componentes claros garantem execução previsível.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Intention specification, Success metrics, Autonomy levels</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m9-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Padrões de Delegação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Templates reutilizáveis para cenários comuns: email marketing, suporte, criação de conteúdo, análise.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Não reinvente a roda. Padrões testados aceleram implementação e reduzem erros.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Delegation templates, Best practices, Reusable patterns</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m9-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📊 Ciclo de Feedback
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sistema reporta progresso, você valida alinhamento, sistema ajusta baseado em feedback.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Delegação sem feedback vira caixa preta. Ciclo garante melhoria contínua.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Progress reporting, Alignment validation, Feedback incorporation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m9-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ✅ Checklist da Delegação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Antes de delegar, valide: intenção clara? Métricas definidas? Limites explícitos? Autonomia calibrada?
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Checklist previne 90% dos problemas. Delegação bem feita economiza horas de correção.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Pre-delegation validation, Quality gates, Risk mitigation</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 10 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 10
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            O 'Cérebro Central' do Sistema
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Agente Orquestrador de Alto Nível
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-10')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-10.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-10.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m10-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧠 Papel do Orquestrador
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agente master que coordena todos os outros. Pensa estrategicamente enquanto workers executam taticamente.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Sem orquestrador, sistema é soma de partes. Com orquestrador, torna-se organismo inteligente.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Strategic coordination, Resource allocation, System-wide optimization</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m10-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📋 8 Responsabilidades
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Entender intenção, decompor objetivos, distribuir tarefas, validar resultados, corrigir falhas, buscar dados, evoluir sistema, manter alinhamento.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Estas 8 funções definem um orquestrador completo. Faltando uma, sistema quebra.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Multi-responsibility management, Holistic system view, Adaptive coordination</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m10-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Ciclo de Orquestração
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Recebe missão > analisa > planeja > delega > monitora > valida > ajusta > repete.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Estrutura que garante execução coordenada de sistemas complexos.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Orchestration loop, Delegation patterns, Continuous monitoring</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m10-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Seleção de Agentes
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Para cada tarefa, orquestrador escolhe melhor agente baseado em especialidade, capacidade e histórico.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Delegação inteligente maximiza eficiência. Agente certo para tarefa certa.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Agent matching, Capability assessment, Performance tracking</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m10-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚙️ Padrões de Orquestração
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Sequencial (uma tarefa após outra), Paralelo (múltiplas simultâneas), Hierárquico (sub-orquestradores), Adaptativo (muda baseado em contexto).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Diferentes problemas exigem diferentes estratégias de coordenação.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Execution patterns, Coordination strategies, Adaptive orchestration</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 11 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 11
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            5 Projetos Real-World 2026
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Implementações Práticas Completas
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-11')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-11.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-11.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m11-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📝 Sistema Criação de Conteúdo
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> 5 agentes em pipeline: Pesquisador > Estruturador > Escritor > Revisor > Otimizador SEO.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Aprende arquitetura multiagente na prática. Código pronto para adaptar.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Multi-agent pipeline, Content production, Quality assurance</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m11-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔬 Meta-IA Auto-Melhorador
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Agente que analisa outros agentes, detecta problemas, propõe melhorias, simula impacto.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Meta-aprendizado: sistema que otimiza o próprio sistema. Nível máximo de autonomia.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Performance analysis, Improvement recommendation, Impact simulation</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m11-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⏰ Sistema Autônomo 7 Dias
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Roda ininterruptamente por semana sem supervisão. Auto-correção, monitoramento, relatórios.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Teste real de autonomia. Se sobrevive 7 dias, está pronto para produção.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Continuous operation, Self-healing, Autonomous monitoring</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m11-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎨 Replicador de Estilo
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Analisa seu estilo de escrita, extrai padrões, replica com 90%+ precisão.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Permite delegar criação mantendo sua voz única. Escala você sem perder essência.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Style analysis, Pattern extraction, Voice replication</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m11-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔍 Inteligência Competitiva
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Monitor 24/7 de mercado, concorrência, tendências. Alertas inteligentes, insights automatizados.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Vantagem competitiva vem de informação processada rapidamente. Sistema nunca dorme.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Market monitoring, Competitive analysis, Trend detection</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Módulo 12 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8 border-2 border-transparent hover:border-nivel-4s transition-all">
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 bg-nivel-4s/10 text-nivel-4s rounded-full text-sm font-semibold mb-3">
+            Módulo 12
+          </span>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+            Governança, Segurança e Ética em Sistemas Autônomos
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Pilares da Operação Responsável
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-3 mb-6">
+          <button onclick="openModal('modulo-12')" class="px-6 py-3 bg-nivel-4s text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-4s-modulo-12.html" class="px-6 py-3 bg-transparent border-2 border-nivel-4s text-nivel-4s dark:text-nivel-4s rounded-lg font-semibold hover:bg-nivel-4s hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-4s-modulo-12.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3 text-lg">
+            📚 Tópicos-chave do módulo:
+          </h3>
+
+          <ul class="topics-list space-y-0.5">
+
+            <!-- Tópico 1 -->
+            <li class="topic-item" data-topic="m12-1">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔐 Alinhamento Intencional
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Validação contínua de que sistema opera de acordo com valores e objetivos do usuário.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Sistema autônomo sem alinhamento é perigoso. Pode otimizar métricas erradas causando danos.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Value alignment, Continuous validation, Drift detection</p>
+              </div>
+            </li>
+
+            <!-- Tópico 2 -->
+            <li class="topic-item" data-topic="m12-2">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🚧 Limites de Autonomia
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Definir claramente o que sistema pode fazer sozinho e o que requer aprovação humana.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Autonomia total é irresponsável. Limites calibrados garantem segurança sem travar sistema.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Approval thresholds, Escalation protocols, Action boundaries</p>
+              </div>
+            </li>
+
+            <!-- Tópico 3 -->
+            <li class="topic-item" data-topic="m12-3">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📋 Auditoria e Rastreabilidade
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Log completo de decisões, ações, raciocínios. Capacidade de replay e análise post-mortem.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Transparência é essencial. Sem auditoria, sistema é caixa preta ingovernável.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Decision logging, Action tracking, Audit trails</p>
+              </div>
+            </li>
+
+            <!-- Tópico 4 -->
+            <li class="topic-item" data-topic="m12-4">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚖️ Princípios Éticos
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> 5 pilares: Transparência, Accountability, Justiça, Privacidade, Beneficência.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> IA ética não é opcional em 2026. É requisito legal e social.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Ethical frameworks, Fairness validation, Privacy protection</p>
+              </div>
+            </li>
+
+            <!-- Tópico 5 -->
+            <li class="topic-item" data-topic="m12-5">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ✅ Checklist de Governança
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-nivel-4s">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">O que é:</strong> Antes de produção, validar: alinhamento OK? Limites definidos? Auditoria ativa? Ética validada? Supervisão configurada?
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Por que aprender:</strong> Governança previne desastres. Checklist garante nada crítico foi esquecido.</p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-4s">Conceitos chave:</strong> Pre-production validation, Compliance verification, Risk assessment</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modais -->
+
+  <!-- Modal Módulo 1 -->
+  <div id="modulo-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 1: A Nova Arquitetura da IA em 2026
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          A IA moderna possui 5 capabilities revolucionárias: Raciocínio Contínuo (pensa antes de responder), Uso de Ferramentas (age autonomamente), Memória Contextual (lembra interações), Geração Estruturada (output previsível) e Visão Multimodal (processa imagens nativamente).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Essas capabilities transformaram chatbots passivos em agentes ativos que raciocinam, planejam e executam autonomamente.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 2 -->
+  <div id="modulo-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 2: O Conceito de Sistemas Intencionais
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Sistemas Intencionais operam através de 8 pilares: Intenção clara (resultado desejado, não processo), Ciclo Sense-Think-Act (percebe, pensa, age), Decomposição de Objetivos (quebra complexidade), Aprendizado por Experiência (melhora com uso) e Alinhamento Humano (mantém valores éticos).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          A filosofia ESIA (Engenharia de Sistemas Intencionais Autônomos) unifica arquitetura, comportamento e governança em um framework coeso.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 3 -->
+  <div id="modulo-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 3: Agentes Autônomos 2.0 (2026)
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Agentes 2.0 são classificados por especialização: Pesquisadores (coletam dados), Criadores (geram conteúdo), Relacionamento (interagem com humanos), Analistas (processam informação) e Orquestradores (coordenam outros agentes).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Cada tipo possui capacidades únicas, mas todos compartilham autonomia decisória e raciocínio estratégico.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 4 -->
+  <div id="modulo-4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 4: Loops Evolutivos de Agentes
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Loops Evolutivos permitem que agentes se auto-melhorem através do ciclo Execute-Reflect-Optimize. Métricas de performance guiam otimização automática, enquanto memória de experiências acumula aprendizado.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Meta-aprendizado permite que o sistema aprenda a aprender melhor, criando espiral ascendente de competência.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 5 -->
+  <div id="modulo-5" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 5: Intenção Composta e Persistente
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Intenções Compostas combinam múltiplos objetivos em missões complexas. Persistência Temporal mantém foco em metas de longo prazo (dias/semanas). Priorização Dinâmica adapta planos conforme contexto muda.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Hierarquia de Metas organiza submetas em árvore de dependências, permitindo coordenação sofisticada.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 6 -->
+  <div id="modulo-6" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 6: Sistemas Multiagentes (2026)
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          4 arquiteturas de coordenação: Hierárquica (um líder delega), Colaborativa (pares negociam), Pipeline (cada agente processa sequencialmente) e Federada (grupos autônomos se coordenam).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Padrões de comunicação definem como agentes trocam informação, delegam tarefas e reportam status.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 7 -->
+  <div id="modulo-7" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 7: Criação de Agentes com ESIA
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Criar agente ESIA requer 8 componentes: Definição de Intenção (missão clara), Modelo Base (LLM adequado), Tool Kit (ferramentas necessárias), Sistema de Memória (contexto persistente) e Loop de Execução (ciclo Sense-Think-Act).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Arquitetura ESIA padroniza construção de agentes, garantindo qualidade, manutenibilidade e governança.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 8 -->
+  <div id="modulo-8" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 8: Sistemas Autônomos para Negócios (2026)
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          4 casos transformadores em negócios: Email Marketing Autônomo (nurturing personalizado 24/7), Atendimento Cliente (resolve 80% autonomamente), Análise de Mercado (monitora competição continuamente) e Criação de Conteúdo em Escala (10x output mantendo qualidade).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Sistemas autônomos liberam humanos para estratégia enquanto executam operações repetitivas com excelência.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 9 -->
+  <div id="modulo-9" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 9: A Nova Forma de Delegar
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Nova Delegação muda paradigma: de 'como fazer' para 'o que alcançar'. Componentes incluem Intenção Clara, Autoridade Definida, Recursos Disponíveis e Métricas de Sucesso.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Ciclo de Feedback contínuo permite ajustes sem microgerenciamento. Humano define direção, agente decide execução.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 10 -->
+  <div id="modulo-10" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 10: O 'Cérebro Central' do Sistema
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Orquestrador é o 'cérebro central' responsável por: interpretar intenção humana, decompor em submetas, selecionar agentes especializados, coordenar execução, consolidar resultados e reportar progresso.
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          8 responsabilidades cobrem ciclo completo: planejamento, delegação, monitoramento, ajuste e entrega.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 11 -->
+  <div id="modulo-11" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 11: 5 Projetos Real-World 2026
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          5 Projetos Real-World demonstram aplicação prática: Sistema de Criação de Conteúdo (pesquisa + escrita + SEO), Meta-IA Auto-Melhorador (sistema que se otimiza), Sistema Autônomo 7 Dias (opera sem intervenção), Replicador de Estilo (clona identidade criativa) e Inteligência Competitiva (monitora mercado).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Cada projeto inclui arquitetura completa, código Python pronto e análise de ROI real.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 12 -->
+  <div id="modulo-12" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+          📘 Módulo 12: Governança, Segurança e Ética em Sistemas Autônomos
+        </h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Governança ética é pilar fundamental: Alinhamento Intencional (valores corretos), Limites de Autonomia (o que pode/não pode fazer), Auditoria e Rastreabilidade (transparência total) e Princípios Éticos (responsabilidade).
+        </p>
+        <p class="text-neutral-700 dark:text-neutral-300">
+          Checklist de Governança garante operação responsável: segurança, privacidade, fairness, transparência e accountability.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

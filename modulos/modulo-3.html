@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3: Contexto é Tudo | FEI</title>
+  <meta name="description" content="Dominando contexto rico e técnicas zero-shot vs few-shot - Módulo Completo">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-1 to-nivel-2 bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Início</a>
+          <a href="../niveis/nivel-1.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Nível 1</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-1 hover:text-blue-700">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <a href="../niveis/nivel-1.html" class="text-nivel-1 hover:text-blue-700">Nível 1</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Módulo 3</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-1 to-blue-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Módulo 3
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Técnicas Avançadas
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        🎯 Contexto é Tudo
+      </h1>
+      <p class="text-xl text-white/90">
+        Dominando contexto rico e técnicas zero-shot vs few-shot
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Download Button -->
+      <div class="flex justify-end mb-6">
+        <a href="../downloads/nivel-1-modulo-3.md" download class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold hover:bg-blue-600 inline-flex items-center gap-2">
+          <span>📥</span>
+          <span>Download MD</span>
+        </a>
+      </div>
+
+      <!-- Introdução -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          🎯 Introdução
+        </h2>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Se os 7 pilares são a arquitetura, <strong>contexto é o combustível</strong> que faz a IA funcionar em alto nível. Mas nem todo contexto é igual — existe uma arte em fornecer a quantidade certa, da forma certa, no momento certo.
+        </p>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Neste módulo, você aprenderá as técnicas modernas de contextualização: <strong>zero-shot</strong> (sem exemplos), <strong>few-shot</strong> (com exemplos) e como escolher entre elas.
+        </p>
+        <div class="bg-nivel-1/10 border-l-4 border-nivel-1 p-6 rounded-lg">
+          <h3 class="font-bold text-nivel-1 mb-2">💡 Por que contexto domina em 2025?</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            Modelos modernos têm <strong>janelas de contexto gigantes</strong> (Claude 3.7: 200k tokens, GPT-4: 128k tokens). Isso significa que você pode fornecer documentação completa, exemplos detalhados e histórico extenso — mas precisa saber COMO fazer isso estrategicamente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Revolução do Contexto -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🚀 A Revolução do Contexto (2022 → 2025)
+        </h2>
+
+        <div class="space-y-6">
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border-2 border-red-300">
+            <h3 class="text-xl font-bold text-red-700 dark:text-red-400 mb-3">❌ 2022: Era da Escassez</h3>
+            <ul class="text-neutral-700 dark:text-neutral-300 space-y-2">
+              <li><strong>Limite:</strong> 4k tokens (~3.000 palavras)</li>
+              <li><strong>Estratégia:</strong> Contexto mínimo, super comprimido</li>
+              <li><strong>Problema:</strong> IA não tinha informação suficiente</li>
+              <li><strong>Solução:</strong> Truques e atalhos para economizar tokens</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-2 border-green-500">
+            <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-3">✅ 2025: Era da Abundância</h3>
+            <ul class="text-neutral-700 dark:text-neutral-300 space-y-2">
+              <li><strong>Limite:</strong> 200k tokens (~150.000 palavras = 300 páginas)</li>
+              <li><strong>Estratégia:</strong> Contexto rico, estruturado e relevante</li>
+              <li><strong>Oportunidade:</strong> IA tem contexto suficiente para decisões complexas</li>
+              <li><strong>Desafio:</strong> Organizar contexto para não gerar ruído</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+          <h3 class="font-bold text-nivel-1 mb-2">🎓 Insight Fundamental:</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            O jogo mudou de <strong>"economizar contexto"</strong> para <strong>"estruturar contexto"</strong>. Não é sobre dar menos — é sobre dar MELHOR.
+          </p>
+        </div>
+      </div>
+
+      <!-- Zero-Shot vs Few-Shot -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🎯 Zero-Shot vs Few-Shot: Quando Usar Cada Um
+        </h2>
+
+        <!-- Zero-Shot -->
+        <div class="mb-8 border-l-4 border-blue-500 pl-6 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            🔵 Zero-Shot: Sem Exemplos
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Você descreve o que quer SEM fornecer exemplos. A IA usa seu conhecimento geral para inferir o padrão.
+          </p>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">✅ Quando usar Zero-Shot:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Tarefas comuns e bem conhecidas</li>
+              <li>• Quando você quer flexibilidade criativa</li>
+              <li>• Formato de saída é padrão (resumo, lista, artigo)</li>
+              <li>• Você não tem exemplos prontos</li>
+            </ul>
+          </div>
+
+          <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">📝 Exemplo Zero-Shot:</h4>
+            <pre class="text-xs font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap">Analise o sentimento destes reviews de clientes e classifique como:
+- Positivo
+- Neutro
+- Negativo
+
+Explique brevemente o motivo da classificação.
+
+Reviews:
+1. "Produto chegou rápido mas veio com defeito"
+2. "Excelente qualidade, recomendo!"
+3. "Não atendeu expectativas"</pre>
+          </div>
+        </div>
+
+        <!-- Few-Shot -->
+        <div class="mb-8 border-l-4 border-purple-500 pl-6 bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            🟣 Few-Shot: Com Exemplos
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Você fornece <strong>2-5 exemplos</strong> do que quer, e a IA aprende o padrão específico que você busca.
+          </p>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">✅ Quando usar Few-Shot:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Formato de saída muito específico</li>
+              <li>• Tom ou estilo particular</li>
+              <li>• Padrão personalizado da sua empresa</li>
+              <li>• Tarefa ambígua sem exemplos</li>
+              <li>• Quando zero-shot não funcionou bem</li>
+            </ul>
+          </div>
+
+          <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">📝 Exemplo Few-Shot:</h4>
+            <pre class="text-xs font-mono text-neutral-700 dark:text-neutral-300 whitespace-pre-wrap">Converta descrições de produtos em títulos otimizados para SEO
+seguindo este padrão:
+
+EXEMPLO 1:
+Descrição: "Tênis esportivo para corrida com amortecimento"
+Título: "Tênis Corrida Profissional | Amortecimento Premium | Frete Grátis"
+
+EXEMPLO 2:
+Descrição: "Fone bluetooth com cancelamento de ruído"
+Título: "Fone Bluetooth Premium | Cancelamento de Ruído | 30h Bateria"
+
+EXEMPLO 3:
+Descrição: "Cadeira ergonômica para escritório"
+Título: "Cadeira Ergonômica Office | Suporte Lombar | Até 150kg"
+
+Agora faça para:
+"Mouse sem fio recarregável com alta precisão"</pre>
+          </div>
+        </div>
+
+        <!-- Comparação -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">⚖️ Comparação Direta</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b-2 border-neutral-300 dark:border-neutral-600">
+                  <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Critério</th>
+                  <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Zero-Shot</th>
+                  <th class="text-left p-3 text-neutral-900 dark:text-neutral-100">Few-Shot</th>
+                </tr>
+              </thead>
+              <tbody class="text-neutral-700 dark:text-neutral-300">
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-semibold">Precisão</td>
+                  <td class="p-3">Boa para tarefas comuns</td>
+                  <td class="p-3">Excelente para padrões específicos</td>
+                </tr>
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-semibold">Velocidade</td>
+                  <td class="p-3">Rápido (menos contexto)</td>
+                  <td class="p-3">Mais lento (mais contexto)</td>
+                </tr>
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-semibold">Flexibilidade</td>
+                  <td class="p-3">Alta (IA decide)</td>
+                  <td class="p-3">Baixa (segue exemplos)</td>
+                </tr>
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-semibold">Esforço</td>
+                  <td class="p-3">Mínimo</td>
+                  <td class="p-3">Moderado (criar exemplos)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hierarquia do Contexto -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          📊 Hierarquia do Contexto: O que Incluir e em Que Ordem
+        </h2>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+          A <strong>ordem do contexto importa</strong>. IAs dão mais peso para informações no início e no final (efeito primacy e recency). Use esta hierarquia:
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 bg-nivel-1/10 p-4 rounded-lg border-l-4 border-nivel-1">
+            <span class="text-2xl font-bold text-nivel-1">1</span>
+            <div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1">Objetivo e Intenção</h3>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                SEMPRE no topo. A IA precisa saber O QUE você quer e POR QUÊ antes de qualquer outra coisa.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+            <span class="text-2xl font-bold text-neutral-600 dark:text-neutral-400">2</span>
+            <div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1">Contexto Situacional</h3>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                Cenário, audiência, restrições. O "ambiente" onde a tarefa se insere.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+            <span class="text-2xl font-bold text-neutral-600 dark:text-neutral-400">3</span>
+            <div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1">Exemplos (se Few-Shot)</h3>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                2-5 exemplos bem escolhidos que demonstram o padrão esperado.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+            <span class="text-2xl font-bold text-neutral-600 dark:text-neutral-400">4</span>
+            <div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1">Dados ou Materiais</h3>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                O conteúdo bruto que a IA processará (texto, código, planilhas, etc).
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-nivel-1/10 p-4 rounded-lg border-l-4 border-nivel-1">
+            <span class="text-2xl font-bold text-nivel-1">5</span>
+            <div>
+              <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1">Critérios e Formato</h3>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                No final, reforce COMO você quer a resposta. A IA revisitará isso antes de gerar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-500">
+          <h3 class="font-bold text-yellow-800 dark:text-yellow-400 mb-2">⚡ Dica Pro:</h3>
+          <p class="text-sm text-neutral-700 dark:text-neutral-300">
+            Use <strong>seções com títulos</strong> para organizar contexto longo:
+            <br><code class="text-xs bg-white dark:bg-neutral-700 p-1 rounded">## OBJETIVO:</code>
+            <br><code class="text-xs bg-white dark:bg-neutral-700 p-1 rounded">## CONTEXTO:</code>
+            <br><code class="text-xs bg-white dark:bg-neutral-700 p-1 rounded">## MATERIAIS:</code>
+            <br>Isso facilita para você E para a IA.
+          </p>
+        </div>
+      </div>
+
+      <!-- Técnicas Práticas -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🛠️ Técnicas Práticas de Contextualização
+        </h2>
+
+        <div class="space-y-6">
+
+          <!-- Técnica 1 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-nivel-1 mb-3">1. Context Bracketing</h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Use delimitadores visuais para separar contexto de instrução:
+            </p>
+            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded font-mono text-xs">
+              <pre class="whitespace-pre-wrap">===== CONTEXTO =====
+Somos uma startup B2B SaaS...
+
+===== TAREFA =====
+Crie uma estratégia de marketing...</pre>
+            </div>
+          </div>
+
+          <!-- Técnica 2 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-nivel-1 mb-3">2. Contexto em Camadas</h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Forneça contexto em níveis de detalhe crescente:
+            </p>
+            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded font-mono text-xs">
+              <pre class="whitespace-pre-wrap">Camada 1 (Essencial): Startup de fintech, 50 funcionários
+Camada 2 (Relevante): Produto B2B para PMEs, ARR $2M
+Camada 3 (Detalhe): Stack: React, Node, AWS, time distribuído</pre>
+            </div>
+          </div>
+
+          <!-- Técnica 3 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-nivel-1 mb-3">3. Anti-Contexto (O que NÃO fazer)</h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Às vezes é mais fácil dizer o que evitar:
+            </p>
+            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded font-mono text-xs">
+              <pre class="whitespace-pre-wrap">Critérios:
+✓ Linguagem simples
+✓ Exemplos práticos
+✗ NÃO use jargão técnico
+✗ NÃO seja genérico ou vago</pre>
+            </div>
+          </div>
+
+          <!-- Técnica 4 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-nivel-1 mb-3">4. Contexto Progressivo</h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Em conversas longas, adicione contexto conforme necessário:
+            </p>
+            <div class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded font-mono text-xs">
+              <pre class="whitespace-pre-wrap">Mensagem 1: Objetivo geral
+Mensagem 2: Adiciona detalhes técnicos
+Mensagem 3: Refina com feedback
+Mensagem 4: Ajusta final com novo contexto</pre>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Exercícios -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ✍️ Exercícios Práticos
+        </h2>
+
+        <!-- Exercício 1 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 1</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Iniciante</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Zero-Shot vs Few-Shot
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Para cada tarefa, decida se você usaria zero-shot ou few-shot, e por quê:
+          </p>
+          <ol class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2 mb-4 list-decimal list-inside">
+            <li>Escrever um email de agradecimento formal</li>
+            <li>Converter nomes de produtos em códigos SKU seguindo padrão interno</li>
+            <li>Resumir um artigo científico</li>
+            <li>Gerar posts para Instagram com tom da sua marca específica</li>
+          </ol>
+        </div>
+
+        <!-- Exercício 2 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 2</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Intermediário</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Hierarquia do Contexto
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Este contexto está bagunçado. Reorganize seguindo a hierarquia correta:
+          </p>
+          <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm mb-4 font-mono">
+            "Aqui está a planilha de vendas. Quero um relatório executivo. Somos uma loja online de eletrônicos. As vendas caíram 20%. Preciso apresentar para diretoria sexta-feira. Use gráficos e seja direto."
+          </div>
+        </div>
+
+        <!-- Exercício 3 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 3</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Avançado</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Few-Shot na Prática
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Cenário:</strong> Você precisa que a IA converta descrições técnicas em linguagem acessível para clientes leigos.
+          </p>
+          <div class="bg-nivel-1/10 p-4 rounded border border-nivel-1">
+            <strong>🎯 Desafio:</strong> Crie uma solicitação few-shot com 3 exemplos bem escolhidos que ensinem a IA a fazer isso perfeitamente.
+          </div>
+        </div>
+      </div>
+
+      <!-- Casos Antes/Depois -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ⚡ Poder do Contexto: Transformação Real
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="border-2 border-red-300 rounded-xl p-6 bg-red-50 dark:bg-red-900/20">
+            <h3 class="text-xl font-bold text-red-700 dark:text-red-400 mb-4">❌ Contexto Pobre</h3>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4 font-mono text-sm">
+              "Analise esses dados de vendas e me dê insights"
+            </div>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">
+              <strong>Resultado:</strong> Insights genéricos tipo "as vendas variam ao longo do tempo" 🤦
+            </p>
+          </div>
+
+          <div class="border-2 border-green-500 rounded-xl p-6 bg-green-50 dark:bg-green-900/20">
+            <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Contexto Rico</h3>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4 font-mono text-xs">
+              <strong>OBJETIVO:</strong> Identificar por que vendas caíram 30%<br>
+              <strong>CONTEXTO:</strong> E-commerce moda, público 25-40 anos, Brasil<br>
+              <strong>PERÍODO:</strong> Comparar Q3-2024 vs Q3-2023<br>
+              <strong>FOCO:</strong> Abandono de carrinho, canais de aquisição, produtos<br>
+              <strong>FORMATO:</strong> Top 3 causas + ações corretivas prioritárias
+            </div>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              <strong>Resultado:</strong> Análise cirúrgica com ações específicas implementáveis! ✅
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusão -->
+      <div class="bg-gradient-to-r from-nivel-1 to-blue-600 text-white rounded-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">🎓 Conclusão do Módulo</h2>
+        <p class="text-lg mb-6">
+          Você dominou a arte do <strong>contexto estratégico</strong>. Agora sabe quando usar zero-shot, quando usar few-shot, e como estruturar contexto para máxima eficácia.
+        </p>
+        <div class="bg-white/10 backdrop-blur p-6 rounded-lg mb-6">
+          <h3 class="font-bold text-xl mb-2">✅ O que você dominou:</h3>
+          <ul class="space-y-2">
+            <li>• Diferença fundamental entre zero-shot e few-shot</li>
+            <li>• Hierarquia do contexto e ordem de apresentação</li>
+            <li>• Técnicas práticas de contextualização</li>
+            <li>• Como transformar contexto pobre em contexto rico</li>
+          </ul>
+        </div>
+        <div class="flex gap-4">
+          <a href="modulo-2.html" class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 rounded-lg font-semibold">
+            ← Módulo 2
+          </a>
+          <a href="modulo-4.html" class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold">
+            Módulo 4 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-4">FEI - Engenharia de Intenção</h3>
+          <p class="text-sm">Formação completa para dominar a nova era da IA</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Nível 1: Fundamentos</a></li>
+            <li><a href="../niveis/nivel-2.html" class="hover:text-white">Nível 2: Programa Completo</a></li>
+            <li><a href="../niveis/nivel-3a.html" class="hover:text-white">Nível 3A: Agentes</a></li>
+            <li><a href="../niveis/nivel-4s.html" class="hover:text-white">Nível 4S: Sistemas 2026</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-white">Início</a></li>
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Voltar ao Nível 1</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
+        <p>&copy; 2025 FEI - Formação em Engenharia de Intenção.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

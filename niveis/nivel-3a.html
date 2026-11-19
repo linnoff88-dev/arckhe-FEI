@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nível 3A: Agentes Autônomos | FEI</title>
+  <meta name="description" content="Agentes e Sistemas Autônomos na Engenharia de Intenção">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+            success: '#22C55E',
+            warning: '#F59E0B',
+            error: '#EF4444',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 20px;
+      padding: 0;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      animation: slideUp 0.3s ease-out;
+    }
+
+    .dark .modal-content {
+      background-color: #262626;
+      color: #fafafa;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+      border-bottom: 2px solid #10B981;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: white;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .modal-body {
+      padding: 32px;
+    }
+
+    .close-modal {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 1;
+      color: white;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .close-modal:hover {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Topic expansion */
+    .topic-explanation {
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-2 to-nivel-3a bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-3a">Início</a>
+          <a href="../index.html#niveis" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-3a">Níveis</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-neutral-700 dark:text-neutral-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700">
+      <div class="px-4 py-2 space-y-1">
+        <a href="../index.html" class="block px-3 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700">Início</a>
+        <a href="../index.html#niveis" class="block px-3 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700">Níveis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-3a hover:text-green-700 dark:hover:text-green-400">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Nível 3A</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-3a to-green-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Avançado
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Trilha A - Agentes
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        🟢 Nível 3A: Agentes e Sistemas Autônomos
+      </h1>
+      <p class="text-xl text-white/90 mb-6">
+        Crie agentes especializados, orquestre sistemas multiagentes e construa soluções autônomas completas
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">7 Módulos</div>
+          <div class="text-sm text-green-100">Fundamentos a Produção</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">10 Tipos</div>
+          <div class="text-sm text-green-100">De Agentes Especializados</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-4 rounded-lg">
+          <div class="text-2xl font-bold">4 Projetos</div>
+          <div class="text-sm text-green-100">Práticos Completos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-6 rounded-lg mb-8">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+          🤖 Sobre este nível
+        </h2>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Da IA "respondente" para IA "autônoma". Aprenda a criar agentes especializados, sistemas multiagentes e orquestração de processos complexos com intenção.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <h3 class="font-bold text-nivel-3a mb-2">📚 O que você vai aprender:</h3>
+            <ul class="text-sm space-y-1 text-neutral-700 dark:text-neutral-300">
+              <li>• Fundamentos de agentes autônomos</li>
+              <li>• Engenharia de Intenção aplicada a agentes</li>
+              <li>• 10 tipos de agentes especializados</li>
+              <li>• 5 modelos de sistemas multiagentes</li>
+              <li>• Como criar agentes completos (9 elementos)</li>
+              <li>• Segurança e boas práticas em produção</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <h3 class="font-bold text-nivel-3a mb-2">🎯 Projetos Práticos:</h3>
+            <ul class="text-sm space-y-1 text-neutral-700 dark:text-neutral-300">
+              <li>• Sistema de criação de curso completo</li>
+              <li>• Análise estratégica de negócios</li>
+              <li>• Pipeline de produção de conteúdo diário</li>
+              <li>• Agente autônomo de melhoria contínua</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Módulos -->
+      <div class="space-y-8">
+
+      <!-- Módulo 1 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 1
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Fundamentos de Agentes Modernos
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              A evolução da IA respondente para autônoma
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-1')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-1.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-1.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📅 Da IA Respondente à IA Autônoma
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> A transição histórica de sistemas que respondem perguntas (chatbots) para sistemas que executam tarefas complexas de ponta a ponta (agentes autônomos).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Entender essa evolução permite reconhecer as capacidades e limitações de cada tipo de sistema, escolhendo a ferramenta certa para cada problema.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Chatbots (respondentes), Assistentes (contextuais), Agentes (autônomos), Sistemas Multiagentes (colaborativos)
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🏷️ Chatbots vs Assistentes vs Agentes
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Classificação clara dos 4 níveis de inteligência artificial: chatbots simples, assistentes contextuais, agentes autônomos e sistemas multiagentes.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Saber diferenciar cada tipo evita expectativas erradas e permite projetar soluções adequadas ao nível de autonomia necessário.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Chatbots (sem contexto), Assistentes (com contexto), Agentes (com autonomia), Sistemas (orquestração)
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚙️ Como Agentes Funcionam Por Dentro
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Os 4 componentes fundamentais que fazem um agente funcionar: percepção (inputs), raciocínio (processamento), ação (outputs) e memória (contexto).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Compreender a arquitetura permite debugar problemas, otimizar performance e projetar agentes mais eficientes.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Percepção (sensores), Raciocínio (decisão), Ação (atuadores), Memória (estado/contexto)
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ✅ Os 5 Critérios de um Agente Real
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Os 5 critérios que diferenciam um agente autônomo de um simples script: autonomia, reatividade, proatividade, habilidade social e racionalidade.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Esses critérios são o padrão da indústria para avaliar se você está construindo um agente real ou apenas automatizando tarefas.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Autonomia (independência), Reatividade (resposta ao ambiente), Proatividade (iniciativa), Sociabilidade (colaboração)
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💻 Seus Primeiros Agentes na Prática
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Implementações iniciais de agentes simples: agente de pesquisa, agente de análise de dados e agente de geração de conteúdo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Ver exemplos práticos concretos acelera o aprendizado e fornece templates reutilizáveis para seus próprios projetos.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente Pesquisador, Agente Analista, Agente Escritor, Prompt Engineering para Agentes
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 2 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 2
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Engenharia de Intenção Aplicada a Agentes
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Os 8 elementos que fazem agentes funcionarem
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-2')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-2.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-2.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ❌ Por Que a Maioria dos Agentes Falha
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Os 5 erros mais comuns no design de agentes: objetivo vago, limites indefinidos, falta de validação, ausência de memória e comunicação pobre.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Identificar esses erros permite evitá-los desde o início, economizando tempo e frustrações no desenvolvimento.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Objetivo vago, Limites indefinidos, Falta de validação, Ausência de contexto, Comunicação ambígua
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎯 Elemento 1: Objetivo Primário
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> A definição clara e mensurável do que o agente está tentando alcançar, expresso em termos de resultados desejados.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sem objetivo claro, o agente não consegue avaliar seu próprio sucesso nem priorizar ações corretamente.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Objetivo mensurável, Critérios de sucesso, KPIs do agente, Meta final
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🚧 Elemento 2: Contexto e Restrições
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> O ambiente de operação do agente (onde ele atua) e suas limitações (o que ele NÃO pode fazer).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Contexto adequado melhora decisões; restrições claras evitam comportamentos indesejados e criam previsibilidade.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Contexto de operação, Restrições (guardrails), Limites éticos, Escopo de atuação
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧠 Elemento 3: Processo de Raciocínio
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> O framework mental que o agente usa para tomar decisões: análise de situação, avaliação de opções, seleção de ação.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Processo estruturado de raciocínio torna decisões mais consistentes, auditáveis e confiáveis.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Chain-of-Thought, Raciocínio estruturado, Árvore de decisão, Lógica de priorização
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🛠️ Elementos 4-8: Validação, Ações, Comunicação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Protocolos de qualidade (validação), ferramentas disponíveis (ações), interface humana e colaboração entre agentes (comunicação).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Esses elementos garantem que o agente entrega qualidade, tem capacidades necessárias e se integra bem no sistema maior.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Validação de output, Ferramentas/APIs, Interface humana, Protocolos inter-agentes
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 3 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 3
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Os 10 Tipos de Agentes Especializados
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Arquétipos de agentes e quando usar cada um
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-3')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-3.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-3.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎭 Especialista vs Generalista
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> A diferença entre agentes generalistas (que tentam fazer tudo) e agentes especializados (que dominam uma área específica).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Especialização permite excelência: um agente focado em pesquisa será sempre melhor que um agente genérico tentando pesquisar.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Generalista vs Especialista, Trade-offs de design, Princípio da responsabilidade única
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📊 Agentes de Informação (3 tipos)
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Três tipos especializados em trabalhar com dados: Pesquisador (coleta), Analista (interpreta), Validador (verifica qualidade).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Pipelines de dados precisam dessas três funções distintas para garantir informações confiáveis e acionáveis.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente Pesquisador, Agente Analista, Agente Validador, Pipeline de dados
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎨 Agentes de Criação (3 tipos)
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Três tipos focados em produção criativa: Escritor (conteúdo textual), Designer (elementos visuais), Estrategista (planejamento).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Separar pesquisa/análise de criação permite que cada agente se aprofunde em sua especialidade sem diluir qualidade.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente Escritor, Agente Designer, Agente Estrategista, Produção criativa
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚡ Agentes de Operação (3 tipos)
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Três tipos para operações e performance: Executor (implementa), Monitorador (observa), Otimizador (melhora continuamente).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sistemas em produção precisam não apenas executar, mas também observar e melhorar suas próprias operações ao longo do tempo.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente Executor, Agente Monitorador, Agente Otimizador, Ciclo de melhoria contínua
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🎼 Agente Orquestrador: O Maestro
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> O agente especial que coordena todos os outros, distribui tarefas, resolve conflitos e garante que o sistema atinge objetivos maiores.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Em sistemas multiagentes complexos, alguém precisa ter a visão do todo e garantir que os especialistas trabalhem em harmonia.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente Orquestrador, Coordenação, Resolução de conflitos, Visão sistêmica
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 4 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 4
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              5 Modelos de Sistemas Multiagentes
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Arquiteturas para orquestrar múltiplos agentes
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-4')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-4.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-4.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🚀 Multiagentes > Agente Único
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> A comparação entre usar um agente generalista e usar um sistema de agentes especializados trabalhando em colaboração.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sistemas multiagentes entregam resultados de maior qualidade em menos tempo, pois cada agente se dedica à sua especialização.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Agente único vs Sistema, Especialização, Trabalho paralelo, Qualidade vs velocidade
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ➡️ Modelo 1: Pipeline Linear (A→B→C)
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Arquitetura sequencial onde cada agente processa e passa para o próximo na cadeia (A → B → C → D).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Ideal quando há ordem natural de execução e cada etapa depende da anterior (ex: Pesquisa → Análise → Escrita → Revisão).
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Pipeline linear, Processamento sequencial, Dependências entre etapas, Fluxo unidirecional
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚡ Modelo 2: Paralelo + Integrador
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Múltiplos agentes processam em paralelo, depois um integrador sintetiza resultados (A, B, C → Integrador → Output).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Maximiza velocidade quando tarefas são independentes (ex: 3 pesquisadores em fontes diferentes, depois analista integra tudo).
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Processamento paralelo, Agente integrador, Síntese de múltiplas fontes, Ganho de velocidade
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🏛️ Modelo 3: Hierárquico (Coordenador)
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Um agente coordenador delega tarefas para especialistas, monitora progresso e integra resultados finais.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Melhor para sistemas complexos onde decisões dinâmicas são necessárias (nem sempre usar todos os agentes).
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Hierarquia, Agente coordenador, Delegação dinâmica, Sistemas adaptativos
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🌐 Modelos 4-5: Colaborativo e Auto-Organizante
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Colaborativo: agentes negociam entre si sem líder. Auto-organizante: sistema evolui estrutura baseado em feedback.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Para sistemas avançados que precisam adaptar-se continuamente ou onde não há hierarquia clara.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Colaboração peer-to-peer, Negociação entre agentes, Auto-organização, Sistemas emergentes
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 5 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 5
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Como Criar um Agente Completo
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Guia passo a passo com os 9 elementos essenciais
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-5')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-5.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-5.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📋 A Estrutura de 9 Elementos
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> A estrutura completa que transforma um prompt simples em agente autônomo: Nome, Missão, Intenção, Limites, Processo, Validação, Ações, Comunicação Humana, Comunicação Inter-agentes.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Agentes profissionais que funcionam em produção compartilham esses 9 componentes - menos que isso resulta em inconsistências.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Estrutura de 9 elementos, Design sistemático, Agentes profissionais, Checklist de completude
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🏷️ Elementos 1-3: Identidade e Propósito
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Nome (identidade clara), Missão (porquê de existir) e Intenção (papel no sistema maior).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Esses três elementos criam a base de identidade do agente, definindo quem ele é e por que existe.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Nome descritivo, Missão clara, Papel no sistema, Identidade do agente
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧠 Elementos 4-6: Raciocínio e Qualidade
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Limites (o que NÃO fazer), Processo Interno (como raciocinar) e Protocolos de Validação (garantia de qualidade).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Esses elementos garantem que o agente toma decisões consistentes e entrega resultados confiáveis.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Guardrails, Processo de raciocínio, Validação de qualidade, Consistência
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔧 Elementos 7-9: Ações e Comunicação
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Ações Possíveis (ferramentas/APIs), Comunicação com Usuário (interface humana) e Comunicação com Agentes (protocolos inter-agentes).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Esses elementos dão ao agente capacidades de execução e permitem integração tanto com humanos quanto com outros agentes.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Ferramentas, APIs, Interface humana, Protocolos de comunicação
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💻 Implementação Completa em Python
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Exemplo end-to-end de criação de um agente profissional do zero, incluindo código Python, testes e deployment.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Ver a implementação completa transforma teoria em prática e fornece template reutilizável para seus próprios agentes.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Código Python, Classe de agente, Testes, Deployment, Template reutilizável
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 6 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 6
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              4 Projetos Práticos com Sistemas Multiagentes
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Implementações completas de sistemas reais
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-6')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-6.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-6.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📚 Projeto 1: Sistema de Criação de Curso
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Sistema de 3 agentes em pipeline linear para criar cursos completos: Pesquisador → Estruturador → Escritor.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Demonstra como dividir processo complexo em etapas sequenciais, cada uma executada por especialista.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Pipeline linear, Pesquisador, Estruturador, Escritor, Criação de conteúdo
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                💼 Projeto 2: Análise Estratégica de Negócios
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Sistema paralelo com 4 analistas (Mercado, Concorrentes, Financeiro, SWOT) + Integrador que sintetiza insights.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Mostra poder do processamento paralelo: 4 análises profundas simultâneas, depois síntese inteligente.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Pipeline paralelo, Agente integrador, Análise estratégica, Síntese de múltiplas perspectivas
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📝 Projeto 3: Produção de Conteúdo Diário
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Sistema cíclico com validação: Pesquisador → Escritor → Revisor → (se aprovado: publica, se não: volta para Escritor).
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Demonstra loops de feedback e validação de qualidade em sistemas de produção contínua.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Ciclo iterativo, Validação de qualidade, Feedback loop, Produção contínua
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔄 Projeto 4: Agente de Melhoria Contínua
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Sistema autônomo que executa tarefa → analisa performance → identifica otimizações → implementa melhorias → repete.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sistema auto-evolutivo que melhora continuamente sem intervenção humana - o futuro dos agentes.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Loop autônomo, Auto-melhoria, Análise de performance, Sistema evolutivo
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📊 Quando Usar Cada Arquitetura
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Comparação de quando usar cada arquitetura: linear vs paralelo vs iterativo vs autônomo.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Entender trade-offs permite escolher arquitetura certa para cada problema específico.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Escolha de arquitetura, Trade-offs, Casos de uso, Decision framework
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Módulo 7 -->
+      <div class="chapter-card bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all p-8 border border-neutral-200 dark:border-neutral-700">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="inline-block px-3 py-1 bg-nivel-3a/10 dark:bg-nivel-3a/20 text-nivel-3a rounded-full text-sm font-semibold mb-3">
+              Módulo 7
+            </span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Boas Práticas e Segurança em Sistemas de Agentes
+            </h3>
+            <p class="text-neutral-600 dark:text-neutral-400">
+              Como colocar agentes em produção com confiança
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex flex-wrap gap-3 my-6">
+          <button onclick="openModal('modulo-7')" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+            <span>📖</span>
+            <span>Ver em Modal</span>
+          </button>
+          <a href="../modulos/nivel-3a-modulo-7.html" class="px-6 py-3 bg-transparent border-2 border-nivel-3a text-nivel-3a dark:text-nivel-3a rounded-lg font-semibold hover:bg-nivel-3a hover:text-white transition-all flex items-center gap-2">
+            <span>📄</span>
+            <span>Abrir Página Completa</span>
+          </a>
+          <a href="../downloads/nivel-3a-modulo-7.md" download class="px-6 py-3 bg-transparent border-2 border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 rounded-lg font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-all flex items-center gap-2">
+            <span>📥</span>
+            <span>Download MD</span>
+          </a>
+        </div>
+
+        <!-- Tópicos -->
+        <div class="topics-container">
+          <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">📚 Tópicos-chave do módulo:</h4>
+          <ul class="topics-list space-y-0.5">
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🧪 Pilar 1: Validação e Testes
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Estratégias específicas para testar agentes: testes unitários de componentes, testes de integração entre agentes e testes end-to-end de sistemas completos.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Agentes têm natureza não-determinística, exigindo abordagem diferente de testes tradicionais de software.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Testes unitários, Testes de integração, Testes E2E, Validação de IA
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                📈 Pilar 2: Monitoramento e Observabilidade
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Como instrumentar agentes para observar comportamento em tempo real: logging estruturado, métricas e traces de decisões.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sistemas em produção precisam de visibilidade completa para debugar problemas e otimizar performance.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Logging, Métricas, Traces, Observabilidade, Debugging de agentes
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔒 Pilar 3: Segurança e Privacidade
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Práticas essenciais: validação de inputs, sanitização de outputs, controle de acesso, proteção de dados sensíveis e prevenção de prompt injection.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Agentes autônomos com acesso a ferramentas são alvos de ataque - segurança não é opcional.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Validação de inputs, Sanitização, Controle de acesso, Prompt injection, Proteção de dados
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                ⚡ Pilar 4: Escalabilidade e Performance
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Como fazer sistemas de agentes crescerem: paralelização, caching, rate limiting e otimização de custos de API.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Sistema que funciona para 10 requisições/dia pode quebrar com 10.000 - planeje para escala desde o início.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Paralelização, Caching, Rate limiting, Otimização de custos, Arquitetura escalável
+                </p>
+              </div>
+            </li>
+            <li class="topic-item">
+              <button class="topic-button w-full text-left px-4 py-1 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+                🔧 Pilar 5: Manutenção e Evolução
+              </button>
+              <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-nivel-3a">
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">O que é:</strong> Estratégias para manter sistemas de agentes ao longo do tempo: versionamento, rollback, A/B testing e ciclo de melhoria contínua.
+                </p>
+                <p class="text-sm mb-1.5 text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Por que aprender:</strong> Modelos de IA mudam, requisitos evoluem - sistema precisa ser mantível e evoluível sem quebrar.
+                </p>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong class="text-nivel-3a">Conceitos chave:</strong> Versionamento, Rollback, A/B testing, Melhoria contínua, Evolução de sistema
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-4">FEI - Engenharia de Intenção</h3>
+          <p class="text-sm">Formação completa para dominar a nova era da IA</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="nivel-1.html" class="hover:text-white">Nível 1: Fundamentos</a></li>
+            <li><a href="nivel-2.html" class="hover:text-white">Nível 2: Programa Completo</a></li>
+            <li><a href="nivel-3a.html" class="hover:text-white">Nível 3A: Agentes</a></li>
+            <li><a href="nivel-4s.html" class="hover:text-white">Nível 4S: Sistemas 2026</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-white">Início</a></li>
+            <li><a href="../index.html#niveis" class="hover:text-white">Todos os Níveis</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
+        <p>&copy; 2025 FEI - Formação em Engenharia de Intenção.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+
+  <!-- Modal Módulo 1 -->
+  <div id="modulo-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 1: Fundamentos de Agentes Modernos</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">A evolução da IA respondente para autônoma</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Neste módulo você aprenderá os fundamentos de agentes autônomos, entendendo a evolução da IA de sistemas respondentes para sistemas que executam tarefas complexas de forma independente. Aborda a taxonomia completa (chatbots, assistentes, agentes, sistemas), arquitetura interna de agentes e os 5 critérios que definem um agente de verdade. Inclui implementações práticas iniciais.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-1.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-1.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 2 -->
+  <div id="modulo-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 2: Engenharia de Intenção Aplicada a Agentes</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Os 8 elementos que fazem agentes funcionarem</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Este módulo ensina os 8 elementos fundamentais que todo agente bem projetado precisa ter: objetivo primário, contexto e restrições, processo de raciocínio, protocolos de validação, ações possíveis, comunicação com usuário e comunicação inter-agentes. Aprenda por que a maioria dos agentes falha (problemas de design, não tecnologia) e como aplicar Engenharia de Intenção para criar agentes consistentes e confiáveis.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-2.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-2.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 3 -->
+  <div id="modulo-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 3: Os 10 Tipos de Agentes Especializados</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Arquétipos de agentes e quando usar cada um</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Apresenta os 10 arquétipos fundamentais de agentes especializados, organizados em 4 categorias: Informação (Pesquisador, Analista, Validador), Criação (Escritor, Designer, Estrategista), Operação (Executor, Monitorador, Otimizador) e Coordenação (Orquestrador). Cada tipo tem missão, habilidades, ferramentas e exemplos práticos. Aprenda quando usar cada arquétipo e como combiná-los em sistemas eficazes.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-3.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-3.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 4 -->
+  <div id="modulo-4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 4: 5 Modelos de Sistemas Multiagentes</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Arquiteturas para orquestrar múltiplos agentes</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Apresenta as 5 arquiteturas fundamentais de sistemas multiagentes: Pipeline Linear (sequencial), Pipeline Paralelo + Integrador (velocidade), Hierárquico (coordenador + especialistas), Colaborativo (negociação peer-to-peer) e Auto-organizante (estrutura evolutiva). Cada modelo inclui diagramas, casos de uso ideais, vantagens/desvantagens e exemplos de implementação.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-4.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-4.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 5 -->
+  <div id="modulo-5" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 5: Como Criar um Agente Completo</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Guia passo a passo com os 9 elementos essenciais</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Guia prático completo para construir agentes profissionais usando a estrutura de 9 elementos: Nome, Missão, Intenção, Limites, Processo Interno, Validação, Ações, Comunicação Humana e Comunicação Inter-agentes. Inclui explicação detalhada de cada elemento, exemplos de código Python, testes e template reutilizável para criar seus próprios agentes de forma sistemática.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-5.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-5.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 6 -->
+  <div id="modulo-6" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 6: 4 Projetos Práticos com Sistemas Multiagentes</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Implementações completas de sistemas reais</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Quatro projetos práticos completos com código Python funcional: 1) Sistema de Criação de Curso (pipeline linear), 2) Análise Estratégica de Negócios (paralelo + integrador), 3) Produção de Conteúdo Diário (ciclo iterativo com validação), 4) Agente de Melhoria Contínua (loop autônomo). Cada projeto inclui arquitetura detalhada, código completo, exemplos de execução e análise de quando usar.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-6.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-6.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Módulo 7 -->
+  <div id="modulo-7" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-2xl font-bold">Módulo 7: Boas Práticas e Segurança em Sistemas de Agentes</h3>
+        <span class="close-modal text-4xl">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg mb-4 text-neutral-700 dark:text-neutral-300">Como colocar agentes em produção com confiança</p>
+        <div class="bg-nivel-3a/10 dark:bg-nivel-3a/20 border-l-4 border-nivel-3a p-4 rounded-lg">
+          <p class="text-neutral-800 dark:text-neutral-200">Os 5 pilares para colocar sistemas de agentes em produção: 1) Validação e Testes (unitários, integração, E2E), 2) Monitoramento e Observabilidade (logging, métricas, traces), 3) Segurança e Privacidade (validação, sanitização, controle de acesso), 4) Escalabilidade e Performance (paralelização, caching, custos), 5) Manutenção e Evolução (versionamento, rollback, A/B testing). Inclui checklists práticos e código de exemplo.</p>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <a href="../modulos/nivel-3a-modulo-7.html" class="px-6 py-3 bg-nivel-3a text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+            Abrir Página Completa
+          </a>
+          <a href="../downloads/nivel-3a-modulo-7.md" download class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-600 transition-all">
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

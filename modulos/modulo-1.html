@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1: Entendendo a Evolução | FEI</title>
+  <meta name="description" content="Da Engenharia de Prompts à Engenharia de Intenção - Módulo Completo">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-1 to-nivel-2 bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Início</a>
+          <a href="../niveis/nivel-1.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Nível 1</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-1 hover:text-blue-700">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <a href="../niveis/nivel-1.html" class="text-nivel-1 hover:text-blue-700">Nível 1</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Módulo 1</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-1 to-blue-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Módulo 1
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Fundamentos
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        📘 Entendendo a Evolução
+      </h1>
+      <p class="text-xl text-white/90">
+        Da Engenharia de Prompts à Engenharia de Intenção
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Download Button -->
+      <div class="flex justify-end mb-6">
+        <a href="../downloads/nivel-1-modulo-1.md" download class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold hover:bg-blue-600 inline-flex items-center gap-2">
+          <span>📥</span>
+          <span>Download MD</span>
+        </a>
+      </div>
+
+      <!-- Introdução -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          🎯 Introdução
+        </h2>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Estamos vivendo uma revolução na forma como nos comunicamos com máquinas. O que começou como <strong>Engenharia de Prompts</strong> — a arte de escrever comandos precisos para IAs — está evoluindo para algo muito mais profundo: a <strong>Engenharia de Intenção</strong>.
+        </p>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Neste módulo, você entenderá essa transformação fundamental e por que ela representa o futuro da interação com IA.
+        </p>
+        <div class="bg-nivel-1/10 border-l-4 border-nivel-1 p-6 rounded-lg">
+          <h3 class="font-bold text-nivel-1 mb-2">💡 Por que isso importa?</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            Em 2025, <strong>Andrej Karpathy</strong> cunhou o termo <em>"Vibe Coding"</em> — uma nova forma de criar software através do diálogo com IAs, onde desenvolvedores expressam <strong>intenção</strong> e a IA traduz em código. Este módulo te prepara para esse futuro.
+          </p>
+        </div>
+      </div>
+
+      <!-- Linha do Tempo -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          📅 Linha do Tempo da Evolução
+        </h2>
+
+        <div class="relative border-l-4 border-nivel-1 pl-8 space-y-8">
+
+          <!-- 2021 -->
+          <div class="relative">
+            <div class="absolute -left-10 w-6 h-6 bg-nivel-1 rounded-full border-4 border-white dark:border-neutral-800"></div>
+            <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+              <div class="text-nivel-1 font-bold text-sm mb-1">FINAL DE 2021</div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                Surgimento da IA Generativa
+              </h3>
+              <p class="text-neutral-700 dark:text-neutral-300">
+                Modelos como GPT-3 ganham destaque. O foco está em escrever comandos precisos (prompts) para obter respostas úteis.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2022 -->
+          <div class="relative">
+            <div class="absolute -left-10 w-6 h-6 bg-nivel-1 rounded-full border-4 border-white dark:border-neutral-800"></div>
+            <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+              <div class="text-nivel-1 font-bold text-sm mb-1">NOVEMBRO 2022</div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                Lançamento do ChatGPT
+              </h3>
+              <p class="text-neutral-700 dark:text-neutral-300">
+                OpenAI democratiza o acesso à IA generativa. Surge formalmente a <strong>Engenharia de Prompts</strong> como prática reconhecida.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2023-2024 -->
+          <div class="relative">
+            <div class="absolute -left-10 w-6 h-6 bg-nivel-1 rounded-full border-4 border-white dark:border-neutral-800"></div>
+            <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+              <div class="text-nivel-1 font-bold text-sm mb-1">2023-2024</div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                Expansão e Maturação
+              </h3>
+              <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+                Surgem modelos concorrentes: <strong>Claude (Anthropic)</strong>, <strong>Gemini (Google)</strong>, <strong>DeepSeek</strong>, <strong>LLaMA (Meta)</strong>.
+              </p>
+              <p class="text-neutral-700 dark:text-neutral-300">
+                Técnicas avançadas são desenvolvidas: <strong>Chain-of-Thought</strong>, <strong>Few-Shot Learning</strong>, <strong>Prompt Scaffolding</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2025 -->
+          <div class="relative">
+            <div class="absolute -left-10 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-neutral-800"></div>
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-2 border-green-500">
+              <div class="text-green-600 dark:text-green-400 font-bold text-sm mb-1">2025 - AGORA</div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                Era da Engenharia de Intenção
+              </h3>
+              <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+                <strong>Andrej Karpathy</strong> introduz o termo <em>"Vibe Coding"</em> — criar software através de diálogo expressando intenção.
+              </p>
+              <p class="text-neutral-700 dark:text-neutral-300">
+                A IA passa a <strong>entender a intenção por trás do que você escreve</strong>, não apenas executar comandos literais.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Comparação: Prompts vs Intenção -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ⚖️ Engenharia de Prompts vs Engenharia de Intenção
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Engenharia de Prompts -->
+          <div class="border-2 border-neutral-300 dark:border-neutral-600 rounded-xl p-6">
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
+              <span>🔵</span>
+              <span>Engenharia de Prompts</span>
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">📝 Definição</h4>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  Escrever comandos precisos e estruturados para obter respostas específicas da IA.
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Foco</h4>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong>Instrução literal</strong> — "como" a IA deve executar
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">💡 Exemplo</h4>
+                <div class="bg-neutral-100 dark:bg-neutral-700 p-4 rounded-lg text-sm font-mono">
+                  "Liste 5 benefícios do exercício físico em formato de bullet points, cada um com no máximo 15 palavras."
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">✅ Vantagens</h4>
+                <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+                  <li>• Controle preciso da saída</li>
+                  <li>• Reproduzível e consistente</li>
+                  <li>• Ideal para automação</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">⚠️ Limitações</h4>
+                <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+                  <li>• Requer conhecimento técnico</li>
+                  <li>• Pode ser rígido demais</li>
+                  <li>• Não adapta ao contexto implícito</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engenharia de Intenção -->
+          <div class="border-2 border-nivel-1 dark:border-nivel-1 rounded-xl p-6 bg-nivel-1/5">
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
+              <span>🟢</span>
+              <span>Engenharia de Intenção</span>
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">📝 Definição</h4>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  Comunicar o <strong>objetivo</strong> e <strong>contexto</strong>, permitindo que a IA decida a melhor forma de executar.
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Foco</h4>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                  <strong>Objetivo e contexto</strong> — "por que" e "para quê"
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">💡 Exemplo</h4>
+                <div class="bg-neutral-100 dark:bg-neutral-700 p-4 rounded-lg text-sm font-mono">
+                  "Preciso motivar minha equipe sedentária a se exercitar. Me ajude a criar uma comunicação persuasiva."
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">✅ Vantagens</h4>
+                <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+                  <li>• Natural e intuitivo</li>
+                  <li>• IA adapta ao contexto</li>
+                  <li>• Mais criativo e flexível</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">⚠️ Considerações</h4>
+                <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+                  <li>• Requer clareza de objetivo</li>
+                  <li>• Menos controle do formato</li>
+                  <li>• Pode variar entre execuções</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-6 bg-nivel-1/10 border-l-4 border-nivel-1 p-6 rounded-lg">
+          <h3 class="font-bold text-nivel-1 mb-2">🎓 Insight Fundamental</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            <strong>IA não lê intenção, lê instrução.</strong> Mas quanto mais clara sua intenção, melhor a IA consegue gerar a instrução certa internamente. Engenharia de Intenção é sobre <em>comunicar contexto e objetivo</em> para que a IA use sua capacidade de raciocínio de forma eficaz.
+          </p>
+        </div>
+      </div>
+
+      <!-- Casos Práticos -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          📚 Casos Práticos
+        </h2>
+
+        <!-- Caso 1 -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Caso 1: Criando Conteúdo para Marketing
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 border-red-300">
+              <h4 class="font-bold text-red-700 dark:text-red-400 mb-2">❌ Abordagem de Prompts (Rígida)</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Escreva um post de 280 caracteres sobre nosso produto X com 3 hashtags relacionadas a tecnologia."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Problema:</strong> Não considera audiência, tom ou objetivo da campanha
+              </p>
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 border-green-500">
+              <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">✅ Abordagem de Intenção (Estratégica)</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Estamos lançando um produto X para pequenos empreendedores que têm medo de tecnologia. Precisamos de conteúdo que inspire confiança e mostre simplicidade."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Resultado:</strong> IA cria mensagem alinhada com persona e objetivo de negócio
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Caso 2: Desenvolvendo Software
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 border-red-300">
+              <h4 class="font-bold text-red-700 dark:text-red-400 mb-2">❌ Abordagem de Prompts</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Crie uma função em Python que recebe uma lista e retorna a soma dos elementos."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Problema:</strong> Solução genérica, sem validação ou tratamento de erros
+              </p>
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 border-green-500">
+              <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">✅ Abordagem de Intenção</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Estou processando dados financeiros de usuários. Preciso somar valores, mas pode haver dados inválidos ou None. A função deve ser segura e informar erros claramente."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Resultado:</strong> Código robusto com validação, type hints, docstrings e tratamento de exceções
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 3 -->
+        <div class="border-l-4 border-nivel-1 pl-6">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Caso 3: Análise de Dados
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 border-red-300">
+              <h4 class="font-bold text-red-700 dark:text-red-400 mb-2">❌ Abordagem de Prompts</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Analise esta planilha de vendas e faça um gráfico."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Problema:</strong> Gráfico genérico sem insights acionáveis
+              </p>
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 border-green-500">
+              <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">✅ Abordagem de Intenção</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono mb-3">
+                "Tenho dados de vendas do último trimestre. Preciso identificar produtos com queda de desempenho para reunião com diretoria na sexta. Mostre tendências e recomendações."
+              </p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong>Resultado:</strong> Análise focada em decisão, com visualizações relevantes e insights estratégicos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Técnicas de Transição -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🛠️ 5 Técnicas para Transição
+        </h2>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+          Como começar a pensar em Intenção ao invés de Prompts:
+        </p>
+
+        <div class="space-y-6">
+
+          <div class="bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              1️⃣ Comece com "Por quê?" antes de "Como?"
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Antes de pedir algo, pergunte-se: <em>"Por que preciso disso? Qual o objetivo final?"</em>
+            </p>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded text-sm">
+              <strong>Exemplo:</strong> Ao invés de "Faça um resumo", pense "Preciso apresentar isso para executivos em 5 minutos"
+            </div>
+          </div>
+
+          <div class="bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              2️⃣ Forneça Contexto Rico
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Quem é a audiência? Qual o cenário? Quais as restrições?
+            </p>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded text-sm">
+              <strong>Exemplo:</strong> "Sou professor universitário preparando aula para alunos sem base técnica..."
+            </div>
+          </div>
+
+          <div class="bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              3️⃣ Use Linguagem Natural
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Fale como falaria com um colega especialista. Não precisa ser robótico.
+            </p>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded text-sm">
+              <strong>Ruim:</strong> "Execute análise estatística dataset A"<br>
+              <strong>Bom:</strong> "Esses dados parecem estranhos, pode me ajudar a encontrar outliers?"
+            </div>
+          </div>
+
+          <div class="bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              4️⃣ Itere como em uma Conversa
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              Não espere perfeição na primeira tentativa. Refine, ajuste, aprofunde.
+            </p>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded text-sm">
+              <strong>Fluxo ideal:</strong> Pedido inicial → Feedback → Ajuste → Refinamento
+            </div>
+          </div>
+
+          <div class="bg-nivel-1/10 p-6 rounded-lg border-l-4 border-nivel-1">
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              5️⃣ Defina Sucesso Claramente
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+              O que é um resultado bem-sucedido para você? Como saberá que funcionou?
+            </p>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded text-sm">
+              <strong>Exemplo:</strong> "Preciso que meu time técnico consiga implementar isso em 2 horas sem me perguntar nada"
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Exercícios Práticos -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ✍️ Exercícios Práticos
+        </h2>
+
+        <div class="space-y-6">
+
+          <!-- Exercício 1 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 1</span>
+              <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Iniciante</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+              Reescreva o Prompt como Intenção
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+              Pegue este prompt técnico e transforme em comunicação de intenção:
+            </p>
+            <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded text-sm mb-4 border border-red-300">
+              <strong>Prompt original:</strong><br>
+              "Crie uma tabela com 3 colunas (Nome, Email, Telefone) contendo 5 clientes fictícios"
+            </div>
+            <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm">
+              <strong>✏️ Seu desafio:</strong> Reescreva pensando em contexto e objetivo. Por que você precisa disso? Para que será usado?
+            </div>
+          </div>
+
+          <!-- Exercício 2 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 2</span>
+              <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Intermediário</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+              Contexto é Rei
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+              Você precisa de uma apresentação sobre IA. Compare duas abordagens:
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm">
+                <strong>Versão A:</strong> "Crie uma apresentação sobre IA"
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm">
+                <strong>Versão B:</strong> "Preciso convencer o conselho a investir R$500k em IA. São executivos de 50+ anos, céticos com tecnologia. Tenho 15 minutos."
+              </div>
+            </div>
+            <div class="bg-green-100 dark:bg-green-900/30 p-4 rounded text-sm border border-green-500">
+              <strong>✅ Reflexão:</strong> Qual geraria melhor resultado? Por quê?
+            </div>
+          </div>
+
+          <!-- Exercício 3 -->
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 3</span>
+              <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Avançado</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+              Projeto Real: E-commerce
+            </h3>
+            <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+              <strong>Cenário:</strong> Você gerencia um e-commerce de moda. As vendas caíram 30% no último mês. Você tem acesso aos dados de navegação e abandono de carrinho.
+            </p>
+            <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm mb-4">
+              <strong>🎯 Seu desafio:</strong><br>
+              Escreva uma interação com IA usando <strong>Engenharia de Intenção</strong> para:
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Analisar os dados</li>
+                <li>Identificar problemas</li>
+                <li>Propor soluções acionáveis</li>
+              </ul>
+            </div>
+            <div class="bg-nivel-1/20 p-4 rounded text-sm border border-nivel-1">
+              <strong>💡 Dica:</strong> Pense como se estivesse explicando a situação para um consultor especialista. Qual o contexto? Quais as urgências? O que você já tentou?
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Recursos Complementares -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          📖 Recursos e Referências
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">📚 Leituras Recomendadas</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">Prompt Engineering Guide</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Documentação completa sobre técnicas de prompting</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">Google's Prompt Engineering Best Practices</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Guia oficial do Google sobre engenharia de comandos</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">Anthropic's Claude Documentation</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhores práticas para comunicação com IA</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">🛠️ Ferramentas Úteis</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">ChatGPT (OpenAI)</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Para prática geral de prompting</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">Claude (Anthropic)</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Excelente para conversas longas e contextuais</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-nivel-1 text-xl">•</span>
+                <div>
+                  <strong class="text-neutral-900 dark:text-neutral-100">Prompt Perfect</strong>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Otimizador de prompts para vários modelos</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Conclusão -->
+      <div class="bg-gradient-to-r from-nivel-1 to-blue-600 text-white rounded-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">🎓 Conclusão do Módulo</h2>
+        <p class="text-lg mb-6">
+          Você aprendeu que a verdadeira revolução não está em escrever prompts mais complexos, mas em <strong>comunicar intenção de forma clara e contextual</strong>.
+        </p>
+        <div class="bg-white/10 backdrop-blur p-6 rounded-lg mb-6">
+          <h3 class="font-bold text-xl mb-2">✅ O que você dominou:</h3>
+          <ul class="space-y-2">
+            <li>• A evolução de Prompts para Intenção (2021-2025)</li>
+            <li>• Diferenças fundamentais entre as duas abordagens</li>
+            <li>• Técnicas práticas de transição</li>
+            <li>• Casos reais de aplicação</li>
+          </ul>
+        </div>
+        <div class="flex gap-4">
+          <a href="../niveis/nivel-1.html" class="px-6 py-3 bg-white text-nivel-1 rounded-lg font-semibold hover:bg-neutral-100">
+            ← Voltar ao Nível 1
+          </a>
+          <a href="modulo-2.html" class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold hover:opacity-90">
+            Próximo: Módulo 2 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-4">FEI - Engenharia de Intenção</h3>
+          <p class="text-sm">Formação completa para dominar a nova era da IA</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Nível 1: Fundamentos</a></li>
+            <li><a href="../niveis/nivel-2.html" class="hover:text-white">Nível 2: Programa Completo</a></li>
+            <li><a href="../niveis/nivel-3a.html" class="hover:text-white">Nível 3A: Agentes</a></li>
+            <li><a href="../niveis/nivel-4s.html" class="hover:text-white">Nível 4S: Sistemas 2026</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-white">Início</a></li>
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Voltar ao Nível 1</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
+        <p>&copy; 2025 FEI - Formação em Engenharia de Intenção.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

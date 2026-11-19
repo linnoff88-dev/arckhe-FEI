@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Pilares da Engenharia de Intenção | FEI</title>
+  <meta name="description" content="Os 7 pilares fundamentais da Engenharia de Intenção - Módulo Completo">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'nivel-1': '#3B82F6',
+            'nivel-2': '#9b59b6',
+            'nivel-3a': '#10B981',
+            'nivel-4s': '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+    }
+    .preload * {
+      transition: none !important;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="preload bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-nivel-1 to-nivel-2 bg-clip-text text-transparent">
+            🎓 FEI - Engenharia de Intenção
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Início</a>
+          <a href="../niveis/nivel-1.html" class="text-neutral-700 dark:text-neutral-300 hover:text-nivel-1">Nível 1</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm" aria-label="Breadcrumb">
+        <a href="../index.html" class="text-nivel-1 hover:text-blue-700">Início</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <a href="../niveis/nivel-1.html" class="text-nivel-1 hover:text-blue-700">Nível 1</a>
+        <span class="mx-2 text-neutral-400">/</span>
+        <span class="text-neutral-600 dark:text-neutral-400">Módulo 2</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-nivel-1 to-blue-600 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Módulo 2
+        </span>
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+          Estrutura
+        </span>
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        🏛️ Pilares da Engenharia de Intenção
+      </h1>
+      <p class="text-xl text-white/90">
+        Os 7 pilares que sustentam toda comunicação eficaz com IA
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Download Button -->
+      <div class="flex justify-end mb-6">
+        <a href="../downloads/nivel-1-modulo-2.md" download class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold hover:bg-blue-600 inline-flex items-center gap-2">
+          <span>📥</span>
+          <span>Download MD</span>
+        </a>
+      </div>
+
+      <!-- Introdução -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          🎯 Introdução
+        </h2>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          A Engenharia de Intenção não é mágica — é <strong>arquitetura</strong>. Assim como um prédio precisa de pilares sólidos, toda comunicação eficaz com IA precisa de uma estrutura bem definida.
+        </p>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+          Neste módulo, você aprenderá os <strong>7 pilares fundamentais</strong> que transformam pedidos vagos em resultados excepcionais.
+        </p>
+        <div class="bg-nivel-1/10 border-l-4 border-nivel-1 p-6 rounded-lg">
+          <h3 class="font-bold text-nivel-1 mb-2">💡 Por que isso é crítico?</h3>
+          <p class="text-neutral-700 dark:text-neutral-300">
+            Sem estrutura, você está jogando dados. Com estrutura, você tem <strong>controle</strong>, <strong>previsibilidade</strong> e <strong>qualidade consistente</strong>. Esses pilares são usados por profissionais que dependem de IA para trabalho crítico em 2025.
+          </p>
+        </div>
+      </div>
+
+      <!-- Os 7 Pilares -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          🏛️ Os 7 Pilares Fundamentais
+        </h2>
+
+        <!-- Pilar 1: Objetivo -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">1️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Objetivo
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>O que você realmente quer alcançar?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            O objetivo é a âncora de tudo. Não é "o que fazer", mas <strong>"o que alcançar"</strong>. Um objetivo claro orienta todas as decisões da IA sobre como proceder.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded border border-red-300">
+              <h4 class="font-bold text-red-700 dark:text-red-400 mb-2">❌ Objetivo Vago</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+                "Faça algo sobre marketing digital"
+              </p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded border border-green-500">
+              <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">✅ Objetivo Claro</h4>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+                "Criar uma estratégia de lançamento que gere 500 leads qualificados em 30 dias"
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Perguntas-chave:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• O que define sucesso para este pedido?</li>
+              <li>• Qual resultado específico você quer ver?</li>
+              <li>• Como você saberá que funcionou?</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pilar 2: Intenção -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">2️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Intenção
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Por quê? Para quê? Para quem?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            A intenção revela o <strong>propósito</strong> e o <strong>contexto de uso</strong>. Isso permite que a IA adapte tom, profundidade e abordagem. Um relatório para CEO é diferente de um para equipe técnica.
+          </p>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">📝 Exemplo Comparativo:</h4>
+            <div class="space-y-3">
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Sem intenção:</strong>
+                <p class="text-sm mt-1 font-mono">"Explique blockchain"</p>
+              </div>
+              <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded border border-green-500">
+                <strong class="text-green-700 dark:text-green-400">Com intenção:</strong>
+                <p class="text-sm mt-1 font-mono">"Explique blockchain para investidores não-técnicos que estão considerando investir R$100k em cripto. Eles precisam entender riscos e benefícios sem jargão técnico."</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">💡 Componentes da Intenção:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• <strong>Audiência:</strong> Quem vai consumir isso?</li>
+              <li>• <strong>Propósito:</strong> Para que será usado?</li>
+              <li>• <strong>Impacto:</strong> Que decisão ou ação isso influencia?</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pilar 3: Critérios de Qualidade -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">3️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Critérios de Qualidade
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Como julgar se a resposta é boa?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Sem critérios, "qualidade" é subjetivo. Critérios claros permitem que você e a IA alinhem expectativas. Você quer clareza? Profundidade? Criatividade? Precisão técnica?
+          </p>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">🎨 Exemplos de Critérios:</h4>
+            <div class="grid md:grid-cols-3 gap-3">
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Clareza</strong>
+                <p class="text-xs mt-1">Linguagem simples, sem jargões, exemplos práticos</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Profundidade</strong>
+                <p class="text-xs mt-1">Análise detalhada, múltiplas perspectivas, fundamentação</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Acionabilidade</strong>
+                <p class="text-xs mt-1">Passos concretos, prazos, métricas de sucesso</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">📊 Como definir critérios:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Liste 2-3 qualidades prioritárias</li>
+              <li>• Especifique o nível (iniciante, intermediário, avançado)</li>
+              <li>• Mencione o que evitar (redundância, superficialidade)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pilar 4: Contexto Essencial -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">4️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Contexto Essencial
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>O que a IA precisa saber para fazer um trabalho excelente?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Contexto é o combustível da IA moderna. Mas cuidado: <strong>mais não é sempre melhor</strong>. Dê contexto <em>relevante</em>, não contexto excessivo. Informações demais geram ruído.
+          </p>
+
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded mb-4 border border-yellow-500">
+            <h4 class="font-bold text-yellow-800 dark:text-yellow-400 mb-2">⚡ Regra de Ouro do Contexto:</h4>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              <em>"Se remover essa informação prejudica a qualidade da resposta, ela é essencial. Se não, ela é ruído."</em>
+            </p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">🔍 Tipos de Contexto:</h4>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-start gap-2">
+                <span class="text-nivel-1">•</span>
+                <div>
+                  <strong>Situacional:</strong> Qual a situação atual? (empresa em crise, projeto novo, mercado saturado)
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-nivel-1">•</span>
+                <div>
+                  <strong>Temporal:</strong> Prazos, urgências, momento de mercado
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-nivel-1">•</span>
+                <div>
+                  <strong>Técnico:</strong> Ferramentas disponíveis, limitações técnicas, integrações
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-nivel-1">•</span>
+                <div>
+                  <strong>Histórico:</strong> O que já foi tentado? O que funcionou/falhou?
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">✂️ Contexto Mínimo Viável:</h4>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              Comece com pouco contexto. Se a IA perguntar por mais, você acertou o equilíbrio. Se ela assumir errado, você deu contexto insuficiente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pilar 5: Estratégia de Raciocínio -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">5️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Estratégia de Raciocínio
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Como você quer que a IA pense?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            IAs modernas conseguem raciocinar de diferentes formas. Você pode guiá-las para pensar <strong>criticamente</strong>, <strong>criativamente</strong>, <strong>comparativamente</strong>, ou <strong>sistematicamente</strong>.
+          </p>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">🧠 Estratégias de Raciocínio:</h4>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Crítico</strong>
+                <p class="text-xs mt-1">"Analise prós e contras", "Identifique riscos", "Questione premissas"</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Criativo</strong>
+                <p class="text-xs mt-1">"Explore alternativas não-óbvias", "Pense fora da caixa", "Combine ideias"</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Comparativo</strong>
+                <p class="text-xs mt-1">"Compare opções", "Mostre trade-offs", "Crie matriz de decisão"</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Sistemático</strong>
+                <p class="text-xs mt-1">"Pense passo a passo", "Decomponha o problema", "Siga framework"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded border border-green-500">
+            <h4 class="font-bold text-green-700 dark:text-green-400 mb-2">✅ Exemplo Prático:</h4>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+              "Use raciocínio crítico para avaliar cada opção. Depois, pense criativamente para propor uma quinta alternativa que ninguém ainda considerou."
+            </p>
+          </div>
+        </div>
+
+        <!-- Pilar 6: Delegação Inteligente -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">6️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Delegação Inteligente
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>A IA deve perguntar quando precisar, não assumir.</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Uma das marcas da Engenharia de Intenção é que a IA <strong>colabora ativamente</strong>. Ela não deve adivinhar informações críticas — deve perguntar.
+          </p>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">🤝 Como implementar:</h4>
+            <div class="space-y-3">
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Técnica 1: Instrução Explícita</strong>
+                <p class="text-xs mt-1 font-mono">"Se alguma informação crítica estiver faltando, pergunte antes de prosseguir."</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Técnica 2: Checklist de Validação</strong>
+                <p class="text-xs mt-1 font-mono">"Antes de responder, confirme: você tem clareza sobre [X], [Y] e [Z]?"</p>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded text-sm">
+                <strong class="text-nivel-1">Técnica 3: Modo Consultor</strong>
+                <p class="text-xs mt-1 font-mono">"Atue como consultor especialista. Se detectar lacunas na minha solicitação, sinalize."</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border border-yellow-500">
+            <h4 class="font-bold text-yellow-800 dark:text-yellow-400 mb-2">🎯 Resultado:</h4>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              A IA passa de executora passiva para <strong>parceira estratégica</strong>. Isso economiza tempo e aumenta drasticamente a qualidade das respostas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pilar 7: Formato de Saída -->
+        <div class="mb-8 border-l-4 border-nivel-1 pl-6 bg-nivel-1/5 p-6 rounded-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">7️⃣</span>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+              Formato de Saída
+            </h3>
+          </div>
+          <p class="text-lg text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Como você quer receber a resposta?</strong>
+          </p>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            O formato impacta diretamente a usabilidade. Um relatório executivo precisa ser diferente de um tutorial técnico. Defina estrutura, estilo e organização.
+          </p>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700 p-4 rounded mb-4">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">📋 Formatos Comuns:</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-sm">
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Estruturados:</strong>
+                <ul class="text-xs mt-1 space-y-1">
+                  <li>• Tabelas comparativas</li>
+                  <li>• Listas numeradas</li>
+                  <li>• Diagramas textuais</li>
+                  <li>• JSON/YAML</li>
+                </ul>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Narrativos:</strong>
+                <ul class="text-xs mt-1 space-y-1">
+                  <li>• Artigo completo</li>
+                  <li>• Storytelling</li>
+                  <li>• Caso de estudo</li>
+                  <li>• Tutorial passo a passo</li>
+                </ul>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Executivos:</strong>
+                <ul class="text-xs mt-1 space-y-1">
+                  <li>• Resumo executivo + detalhes</li>
+                  <li>• TL;DR no topo</li>
+                  <li>• Insights + ações</li>
+                  <li>• Visualização de dados</li>
+                </ul>
+              </div>
+              <div class="bg-white dark:bg-neutral-600 p-3 rounded">
+                <strong class="text-nivel-1">Técnicos:</strong>
+                <ul class="text-xs mt-1 space-y-1">
+                  <li>• Código comentado</li>
+                  <li>• Documentação API</li>
+                  <li>• Especificações técnicas</li>
+                  <li>• Diagramas de arquitetura</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-700 p-4 rounded">
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">💡 Dica Profissional:</h4>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              Combine formatos para diferentes audiências: "Forneça um resumo executivo de 1 parágrafo seguido de análise detalhada em seções com bullet points."
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Template Prático -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          📝 Template: Os 7 Pilares na Prática
+        </h2>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-6">
+          Use este template para estruturar qualquer interação com IA:
+        </p>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg font-mono text-sm mb-6">
+          <div class="space-y-4">
+            <div>
+              <strong class="text-nivel-1">1. OBJETIVO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[O que você quer alcançar especificamente]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">2. INTENÇÃO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[Por quê? Para quem? Para quê?]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">3. CRITÉRIOS:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[2-3 qualidades prioritárias]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">4. CONTEXTO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[Informações essenciais que a IA precisa]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">5. RACIOCÍNIO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[Como você quer que a IA pense]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">6. DELEGAÇÃO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[Instrução para perguntar se necessário]</p>
+            </div>
+            <div>
+              <strong class="text-nivel-1">7. FORMATO:</strong>
+              <p class="text-neutral-700 dark:text-neutral-300 ml-4 mt-1">[Como você quer receber a resposta]</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-500">
+          <h3 class="font-bold text-green-700 dark:text-green-400 mb-3">✅ Exemplo Completo:</h3>
+          <div class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+            <p><strong>OBJETIVO:</strong> Criar estratégia de conteúdo para lançar produto SaaS</p>
+            <p><strong>INTENÇÃO:</strong> Para equipe de marketing executar nos próximos 90 dias, visando 1000 usuários beta</p>
+            <p><strong>CRITÉRIOS:</strong> Acionável, mensurável, realista para equipe de 3 pessoas</p>
+            <p><strong>CONTEXTO:</strong> Startup B2B, orçamento R$15k, produto para PMEs brasileiras, concorrentes já estabelecidos</p>
+            <p><strong>RACIOCÍNIO:</strong> Use pensamento crítico para analisar viabilidade, depois criativo para propor ângulos diferenciados</p>
+            <p><strong>DELEGAÇÃO:</strong> Se precisar de mais detalhes sobre produto ou público, pergunte antes de elaborar</p>
+            <p><strong>FORMATO:</strong> Tabela com canais, táticas, métricas e cronograma + resumo executivo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercícios -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ✍️ Exercícios Práticos
+        </h2>
+
+        <!-- Exercício 1 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 1</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Iniciante</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Identifique os Pilares
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Leia este pedido e identifique quais pilares estão presentes e quais estão faltando:
+          </p>
+          <div class="bg-white dark:bg-neutral-600 p-4 rounded text-sm mb-4 font-mono">
+            "Crie um plano de negócios para minha startup de delivery. Quero algo profissional e detalhado."
+          </div>
+          <div class="bg-nivel-1/10 p-4 rounded border border-nivel-1">
+            <strong>🎯 Desafio:</strong> Reescreva usando os 7 pilares explicitamente.
+          </div>
+        </div>
+
+        <!-- Exercício 2 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg mb-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 2</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Intermediário</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Teste de Contexto Essencial
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            Você quer ajuda para preparar uma apresentação. Liste apenas o contexto ESSENCIAL, eliminando informações desnecessárias:
+          </p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1 mb-4">
+            <li>• Apresentação é sobre vendas do Q4</li>
+            <li>• Você gosta de usar templates azuis</li>
+            <li>• Audiência são 20 diretores regionais</li>
+            <li>• Você teve reunião de alinhamento ontem</li>
+            <li>• Vendas caíram 15% vs ano anterior</li>
+            <li>• Você usará Google Slides</li>
+            <li>• Apresentação dura 30 minutos</li>
+          </ul>
+          <div class="bg-nivel-1/10 p-4 rounded border border-nivel-1">
+            <strong>🎯 Pergunta:</strong> Quais 4 informações são essenciais? Por quê?
+          </div>
+        </div>
+
+        <!-- Exercício 3 -->
+        <div class="bg-neutral-50 dark:bg-neutral-700 p-6 rounded-lg">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 bg-nivel-1 text-white rounded-full text-sm font-bold">Exercício 3</span>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">Nível: Avançado</span>
+          </div>
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
+            Construa do Zero
+          </h3>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+            <strong>Cenário:</strong> Você é gerente de produto em uma fintech. Precisa criar uma pesquisa de satisfação para entender por que 40% dos usuários abandonam o app após o primeiro uso.
+          </p>
+          <div class="bg-nivel-1/10 p-4 rounded border border-nivel-1">
+            <strong>🎯 Desafio:</strong> Crie uma solicitação completa para IA usando TODOS os 7 pilares. Seja específico e estratégico.
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparação Antes/Depois -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+          ⚡ O Poder dos 7 Pilares: Antes vs Depois
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Antes -->
+          <div class="border-2 border-red-300 rounded-xl p-6 bg-red-50 dark:bg-red-900/20">
+            <h3 class="text-xl font-bold text-red-700 dark:text-red-400 mb-4">❌ Sem Estrutura</h3>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4 font-mono text-sm">
+              "Me ajude a criar um curso online"
+            </div>
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Problemas:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• IA não sabe o tema do curso</li>
+              <li>• Não sabe o público-alvo</li>
+              <li>• Não sabe o nível de profundidade</li>
+              <li>• Não sabe o formato desejado</li>
+              <li>• Resultado: resposta genérica e inútil</li>
+            </ul>
+          </div>
+
+          <!-- Depois -->
+          <div class="border-2 border-green-500 rounded-xl p-6 bg-green-50 dark:bg-green-900/20">
+            <h3 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">✅ Com 7 Pilares</h3>
+            <div class="bg-white dark:bg-neutral-700 p-4 rounded mb-4 font-mono text-xs">
+              <strong>OBJETIVO:</strong> Criar curso online que gere R$10k/mês em 6 meses<br>
+              <strong>INTENÇÃO:</strong> Para empreendedores iniciantes sem conhecimento técnico<br>
+              <strong>CRITÉRIOS:</strong> Didático, prático, com exercícios reais<br>
+              <strong>CONTEXTO:</strong> Tema: marketing digital, duração 8h, plataforma Hotmart<br>
+              <strong>RACIOCÍNIO:</strong> Estruture pedagogicamente do básico ao avançado<br>
+              <strong>DELEGAÇÃO:</strong> Pergunte se precisar detalhes sobre módulos<br>
+              <strong>FORMATO:</strong> Estrutura completa + outline de cada módulo
+            </div>
+            <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Resultado:</h4>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>✓ Curso completo e estruturado</li>
+              <li>✓ Alinhado com objetivo de faturamento</li>
+              <li>✓ Adequado ao público</li>
+              <li>✓ Pronto para implementar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusão -->
+      <div class="bg-gradient-to-r from-nivel-1 to-blue-600 text-white rounded-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">🎓 Conclusão do Módulo</h2>
+        <p class="text-lg mb-6">
+          Você dominou os <strong>7 pilares</strong> que transformam comunicação casual em <strong>colaboração estratégica</strong> com IA. Esta estrutura é sua base para tudo que virá nos próximos módulos.
+        </p>
+        <div class="bg-white/10 backdrop-blur p-6 rounded-lg mb-6">
+          <h3 class="font-bold text-xl mb-2">✅ O que você dominou:</h3>
+          <ul class="space-y-2">
+            <li>• Os 7 pilares da Engenharia de Intenção</li>
+            <li>• Como aplicar cada pilar na prática</li>
+            <li>• Template estruturado para usar imediatamente</li>
+            <li>• Diferença entre comunicação vaga e estratégica</li>
+          </ul>
+        </div>
+        <div class="flex gap-4">
+          <a href="modulo-1.html" class="px-6 py-3 bg-neutral-200 dark:bg-neutral-700 rounded-lg font-semibold">
+            ← Módulo 1
+          </a>
+          <a href="modulo-3.html" class="px-6 py-3 bg-nivel-1 text-white rounded-lg font-semibold">
+            Módulo 3 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 dark:bg-black text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-4">FEI - Engenharia de Intenção</h3>
+          <p class="text-sm">Formação completa para dominar a nova era da IA</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Níveis</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Nível 1: Fundamentos</a></li>
+            <li><a href="../niveis/nivel-2.html" class="hover:text-white">Nível 2: Programa Completo</a></li>
+            <li><a href="../niveis/nivel-3a.html" class="hover:text-white">Nível 3A: Agentes</a></li>
+            <li><a href="../niveis/nivel-4s.html" class="hover:text-white">Nível 4S: Sistemas 2026</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html" class="hover:text-white">Início</a></li>
+            <li><a href="../niveis/nivel-1.html" class="hover:text-white">Voltar ao Nível 1</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
+        <p>&copy; 2025 FEI - Formação em Engenharia de Intenção.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
