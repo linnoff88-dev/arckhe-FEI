@@ -214,4 +214,4 @@ A jornada não termina aqui — ela está apenas começando. Você tem as funda�
 ---
 
 © 2025 FEI - Formação em Engenharia de Intenção
-https://inematds.github.io/FEI/
+https://linnoff88-dev.github.io/
