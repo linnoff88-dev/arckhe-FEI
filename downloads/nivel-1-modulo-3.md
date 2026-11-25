@@ -1,42 +1,42 @@
 # 📘 Módulo 3: Contexto é Tudo
 ## Dominando contexto rico e técnicas zero-shot vs few-shot
 
-**Nível 1: Fundamentos de Engenharia de Intenção**
-**FEI - Formação em Engenharia de Intenção**
+**Nível 1: Fundamentos de Engenharia de Intençêo**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## 🎯 Introdução
+## 🎯 Introduçêo
 
-Se os 7 pilares são a arquitetura, **contexto é o combustível** que faz a IA funcionar em alto nível. Mas nem todo contexto é igual — existe uma arte em fornecer a quantidade certa, da forma certa, no momento certo.
+Se os 7 pilares sêo a arquitetura, **contexto é o combustível** que faz a IA funcionar em alto nível. Mas nem todo contexto é igual — existe uma arte em fornecer a quantidade certa, da forma certa, no momento certo.
 
-Neste módulo, você aprenderá as técnicas modernas de contextualização: **zero-shot** (sem exemplos), **few-shot** (com exemplos) e como escolher entre elas.
+Neste módulo, você aprenderá as técnicas modernas de contextualizaçêo: **zero-shot** (sem exemplos), **few-shot** (com exemplos) e como escolher entre elas.
 
 ### 💡 Por que contexto domina em 2025?
 
-Modelos modernos têm **janelas de contexto gigantes** (Claude 3.7: 200k tokens, GPT-4: 128k tokens). Isso significa que você pode fornecer documentação completa, exemplos detalhados e histórico extenso — mas precisa saber COMO fazer isso estrategicamente.
+Modelos modernos têm **janelas de contexto gigantes** (Claude 3.7: 200k tokens, GPT-4: 128k tokens). Isso significa que você pode fornecer documentaçêo completa, exemplos detalhados e histórico extenso — mas precisa saber COMO fazer isso estrategicamente.
 
 ---
 
-## 🚀 A Revolução do Contexto (2022 → 2025)
+## 🚀 A Revoluçêo do Contexto (2022 → 2025)
 
 ### ❌ 2022: Era da Escassez
 
 - **Limite:** 4k tokens (~3.000 palavras)
 - **Estratégia:** Contexto mínimo, super comprimido
-- **Problema:** IA não tinha informação suficiente
-- **Solução:** Truques e atalhos para economizar tokens
+- **Problema:** IA nêo tinha informaçêo suficiente
+- **Soluçêo:** Truques e atalhos para economizar tokens
 
 ### ✅ 2025: Era da Abundância
 
 - **Limite:** 200k tokens (~150.000 palavras = 300 páginas)
 - **Estratégia:** Contexto rico, estruturado e relevante
 - **Oportunidade:** IA tem contexto suficiente para decisões complexas
-- **Desafio:** Organizar contexto para não gerar ruído
+- **Desafio:** Organizar contexto para nêo gerar ruído
 
 ### 🎓 Insight Fundamental
 
-O jogo mudou de **"economizar contexto"** para **"estruturar contexto"**. Não é sobre dar menos — é sobre dar MELHOR.
+O jogo mudou de **"economizar contexto"** para **"estruturar contexto"**. Nêo é sobre dar menos — é sobre dar MELHOR.
 
 ---
 
@@ -44,13 +44,13 @@ O jogo mudou de **"economizar contexto"** para **"estruturar contexto"**. Não �
 
 ### 🔵 Zero-Shot: Sem Exemplos
 
-Você descreve o que quer SEM fornecer exemplos. A IA usa seu conhecimento geral para inferir o padrão.
+Você descreve o que quer SEM fornecer exemplos. A IA usa seu conhecimento geral para inferir o padrêo.
 
 **✅ Quando usar Zero-Shot:**
 - Tarefas comuns e bem conhecidas
 - Quando você quer flexibilidade criativa
-- Formato de saída é padrão (resumo, lista, artigo)
-- Você não tem exemplos prontos
+- Formato de saída é padrêo (resumo, lista, artigo)
+- Você nêo tem exemplos prontos
 
 **📝 Exemplo Zero-Shot:**
 ```
@@ -59,55 +59,55 @@ Analise o sentimento destes reviews de clientes e classifique como:
 - Neutro
 - Negativo
 
-Explique brevemente o motivo da classificação.
+Explique brevemente o motivo da classificaçêo.
 
 Reviews:
 1. "Produto chegou rápido mas veio com defeito"
 2. "Excelente qualidade, recomendo!"
-3. "Não atendeu expectativas"
+3. "Nêo atendeu expectativas"
 ```
 
 ---
 
 ### 🟣 Few-Shot: Com Exemplos
 
-Você fornece **2-5 exemplos** do que quer, e a IA aprende o padrão específico que você busca.
+Você fornece **2-5 exemplos** do que quer, e a IA aprende o padrêo específico que você busca.
 
 **✅ Quando usar Few-Shot:**
 - Formato de saída muito específico
 - Tom ou estilo particular
-- Padrão personalizado da sua empresa
+- Padrêo personalizado da sua empresa
 - Tarefa ambígua sem exemplos
-- Quando zero-shot não funcionou bem
+- Quando zero-shot nêo funcionou bem
 
 **📝 Exemplo Few-Shot:**
 ```
 Converta descrições de produtos em títulos otimizados para SEO
-seguindo este padrão:
+seguindo este padrêo:
 
 EXEMPLO 1:
-Descrição: "Tênis esportivo para corrida com amortecimento"
+Descriçêo: "Tênis esportivo para corrida com amortecimento"
 Título: "Tênis Corrida Profissional | Amortecimento Premium | Frete Grátis"
 
 EXEMPLO 2:
-Descrição: "Fone bluetooth com cancelamento de ruído"
+Descriçêo: "Fone bluetooth com cancelamento de ruído"
 Título: "Fone Bluetooth Premium | Cancelamento de Ruído | 30h Bateria"
 
 EXEMPLO 3:
-Descrição: "Cadeira ergonômica para escritório"
+Descriçêo: "Cadeira ergonômica para escritório"
 Título: "Cadeira Ergonômica Office | Suporte Lombar | Até 150kg"
 
 Agora faça para:
-"Mouse sem fio recarregável com alta precisão"
+"Mouse sem fio recarregável com alta precisêo"
 ```
 
 ---
 
-### ⚖️ Comparação Direta
+### ⚖️ Comparaçêo Direta
 
 | Critério | Zero-Shot | Few-Shot |
 |----------|-----------|----------|
-| **Precisão** | Boa para tarefas comuns | Excelente para padrões específicos |
+| **Precisêo** | Boa para tarefas comuns | Excelente para padrões específicos |
 | **Velocidade** | Rápido (menos contexto) | Mais lento (mais contexto) |
 | **Flexibilidade** | Alta (IA decide) | Baixa (segue exemplos) |
 | **Esforço** | Mínimo | Moderado (criar exemplos) |
@@ -116,16 +116,16 @@ Agora faça para:
 
 ## 📊 Hierarquia do Contexto: O que Incluir e em Que Ordem
 
-A **ordem do contexto importa**. IAs dão mais peso para informações no início e no final (efeito primacy e recency). Use esta hierarquia:
+A **ordem do contexto importa**. IAs dêo mais peso para informações no início e no final (efeito primacy e recency). Use esta hierarquia:
 
-### 1. Objetivo e Intenção
+### 1. Objetivo e Intençêo
 SEMPRE no topo. A IA precisa saber O QUE você quer e POR QUÊ antes de qualquer outra coisa.
 
 ### 2. Contexto Situacional
 Cenário, audiência, restrições. O "ambiente" onde a tarefa se insere.
 
 ### 3. Exemplos (se Few-Shot)
-2-5 exemplos bem escolhidos que demonstram o padrão esperado.
+2-5 exemplos bem escolhidos que demonstram o padrêo esperado.
 
 ### 4. Dados ou Materiais
 O conteúdo bruto que a IA processará (texto, código, planilhas, etc).
@@ -144,10 +144,10 @@ Isso facilita para você E para a IA.
 
 ---
 
-## 🛠️ Técnicas Práticas de Contextualização
+## 🛠️ Técnicas Práticas de Contextualizaçêo
 
 ### 1. Context Bracketing
-Use delimitadores visuais para separar contexto de instrução:
+Use delimitadores visuais para separar contexto de instruçêo:
 
 ```
 ===== CONTEXTO =====
@@ -170,15 +170,15 @@ Camada 3 (Detalhe): Stack: React, Node, AWS, time distribuído
 
 ---
 
-### 3. Anti-Contexto (O que NÃO fazer)
+### 3. Anti-Contexto (O que NêO fazer)
 Às vezes é mais fácil dizer o que evitar:
 
 ```
 Critérios:
 ✓ Linguagem simples
 ✓ Exemplos práticos
-✗ NÃO use jargão técnico
-✗ NÃO seja genérico ou vago
+✗ NêO use jargêo técnico
+✗ NêO seja genérico ou vago
 ```
 
 ---
@@ -203,7 +203,7 @@ Mensagem 4: Ajusta final com novo contexto
 Para cada tarefa, decida se você usaria zero-shot ou few-shot, e por quê:
 
 1. Escrever um email de agradecimento formal
-2. Converter nomes de produtos em códigos SKU seguindo padrão interno
+2. Converter nomes de produtos em códigos SKU seguindo padrêo interno
 3. Resumir um artigo científico
 4. Gerar posts para Instagram com tom da sua marca específica
 
@@ -227,11 +227,11 @@ Preciso apresentar para diretoria sexta-feira. Use gráficos e seja direto."
 
 **Cenário:** Você precisa que a IA converta descrições técnicas em linguagem acessível para clientes leigos.
 
-**🎯 Desafio:** Crie uma solicitação few-shot com 3 exemplos bem escolhidos que ensinem a IA a fazer isso perfeitamente.
+**🎯 Desafio:** Crie uma solicitaçêo few-shot com 3 exemplos bem escolhidos que ensinem a IA a fazer isso perfeitamente.
 
 ---
 
-## ⚡ Poder do Contexto: Transformação Real
+## ⚡ Poder do Contexto: Transformaçêo Real
 
 ### ❌ Contexto Pobre
 ```
@@ -244,21 +244,21 @@ Preciso apresentar para diretoria sexta-feira. Use gráficos e seja direto."
 OBJETIVO: Identificar por que vendas caíram 30%
 CONTEXTO: E-commerce moda, público 25-40 anos, Brasil
 PERÍODO: Comparar Q3-2024 vs Q3-2023
-FOCO: Abandono de carrinho, canais de aquisição, produtos
+FOCO: Abandono de carrinho, canais de aquisiçêo, produtos
 FORMATO: Top 3 causas + ações corretivas prioritárias
 ```
 **Resultado:** Análise cirúrgica com ações específicas implementáveis!
 
 ---
 
-## 🎓 Conclusão do Módulo
+## 🎓 Conclusêo do Módulo
 
 Você dominou a arte do **contexto estratégico**. Agora sabe quando usar zero-shot, quando usar few-shot, e como estruturar contexto para máxima eficácia.
 
 ### ✅ O que você dominou:
 - Diferença fundamental entre zero-shot e few-shot
-- Hierarquia do contexto e ordem de apresentação
-- Técnicas práticas de contextualização
+- Hierarquia do contexto e ordem de apresentaçêo
+- Técnicas práticas de contextualizaçêo
 - Como transformar contexto pobre em contexto rico
 
 ---
@@ -268,5 +268,5 @@ Continue para o Módulo 4 para aprender sobre **Frameworks Práticos** (RACE, CR
 
 ---
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo
 https://linnoff88-dev.github.io/

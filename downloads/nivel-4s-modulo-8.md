@@ -6,7 +6,7 @@
 
 ### Sistema 1: Agência de Marketing Autônoma
 
-**Missão:** Criar e executar campanhas de marketing de alta conversão de forma autônoma.
+**Missêo:** Criar e executar campanhas de marketing de alta conversêo de forma autônoma.
 
 ```python
 from dataclasses import dataclass, field
@@ -17,7 +17,7 @@ class StatusCampanha(Enum):
     PESQUISA = "pesquisando mercado"
     PLANEJAMENTO = "planejando estratégia"
     CRIACAO = "criando conteúdo"
-    REVISAO = "em revisão"
+    REVISAO = "em revisêo"
     APROVADO = "aprovado"
     PUBLICADO = "publicado"
 
@@ -80,13 +80,13 @@ class AgenteEstrategia:
     def criar_estrategia(self, pesquisa: Dict) -> Dict:
         """Cria estratégia baseada na pesquisa"""
         return {
-            "objetivo": "geração de leads qualificados",
-            "meta": "500 leads/mês com conversão 3%",
+            "objetivo": "geraçêo de leads qualificados",
+            "meta": "500 leads/mês com conversêo 3%",
             "posicionamento": "premium acessível com suporte ágil",
             "angulo_principal": "resultados rápidos com suporte dedicado",
             "canais": [
                 {"canal": "Instagram", "budget": 0.4, "foco": "awareness"},
-                {"canal": "LinkedIn", "budget": 0.3, "foco": "conversão"},
+                {"canal": "LinkedIn", "budget": 0.3, "foco": "conversêo"},
                 {"canal": "YouTube", "budget": 0.3, "foco": "autoridade"}
             ],
             "funil": {
@@ -103,7 +103,7 @@ class AgenteRoteirista:
     def criar_roteiro_video(self, estrategia: Dict, duracao: int = 60) -> Dict:
         """Cria roteiro para vídeo curto"""
         return {
-            "formato": "problema-agitação-solução",
+            "formato": "problema-agitaçêo-soluçêo",
             "duracao_segundos": duracao,
             "estrutura": [
                 {
@@ -124,7 +124,7 @@ class AgenteRoteirista:
                 {
                     "secao": "solucao",
                     "tempo": "30-50s",
-                    "texto": "Falta um sistema de intenção clara. Em vez de criar aleatório, use ESIA..."
+                    "texto": "Falta um sistema de intençêo clara. Em vez de criar aleatório, use ESIA..."
                 },
                 {
                     "secao": "cta",
@@ -145,17 +145,17 @@ class AgenteCopywriter:
         if plataforma == "Instagram":
             return {
                 "headline": "De 50 para 500 leads/mês em 90 dias",
-                "body": """Você não precisa de mais tráfego.
+                "body": """Você nêo precisa de mais tráfego.
 
 Você precisa de um SISTEMA que converte o tráfego que você já tem.
 
 ESIA é a metodologia de 2026 que grandes players já usam:
 
-✓ Intenção clara em cada peça
+✓ Intençêo clara em cada peça
 ✓ Agentes trabalhando 24/7
 ✓ Loops de melhoria contínua
 
-Resultado: 10x mais conversão com mesmo orçamento.
+Resultado: 10x mais conversêo com mesmo orçamento.
 
 Clique e pegue o guia gratuito 👇""",
                 "cta": "Quero o Guia ESIA Gratuito",
@@ -193,7 +193,7 @@ class AgenteAuditor:
     """Valida qualidade final"""
 
     def auditar_campanha(self, campanha: Dict) -> Dict:
-        """Auditoria completa pré-publicação"""
+        """Auditoria completa pré-publicaçêo"""
         checklist = {
             "pesquisa_feita": True,
             "estrategia_clara": True,
@@ -201,7 +201,7 @@ class AgenteAuditor:
             "copy_revisado": True,
             "assets_prontos": True,
             "tracking_configurado": True,
-            "budget_aprovado": False  # Requer aprovação humana
+            "budget_aprovado": False  # Requer aprovaçêo humana
         }
 
         bloqueios = [k for k, v in checklist.items() if not v]
@@ -223,7 +223,7 @@ class AgenciaMarketingAutonoma:
     auditor: AgenteAuditor
 
     def criar_campanha_completa(self, nicho: str, produto: str) -> Dict:
-        """Pipeline completo de criação de campanha"""
+        """Pipeline completo de criaçêo de campanha"""
 
         # 1. Pesquisa
         pesquisa_publico = self.pesquisador.pesquisar_publico(nicho)
@@ -240,7 +240,7 @@ class AgenciaMarketingAutonoma:
         roteiro_video = self.roteirista.criar_roteiro_video(estrategia)
         copy_anuncio = self.copywriter.criar_copy_anuncio(estrategia, "Instagram")
 
-        # 4. Revisão
+        # 4. Revisêo
         revisao = self.editor.revisar_copy(copy_anuncio)
 
         # 5. Auditoria
@@ -283,7 +283,7 @@ print(f"Auditoria: {campanha['auditoria']}")
 
 ### Sistema 2: Consultoria Estratégica Autônoma
 
-**Missão:** Fornecer análises e recomendações estratégicas de alto nível.
+**Missêo:** Fornecer análises e recomendações estratégicas de alto nível.
 
 ```python
 from dataclasses import dataclass
@@ -295,7 +295,7 @@ class AgenteLeituraCenario:
     """Analisa cenário atual da empresa"""
 
     def analisar_situacao_atual(self, dados_empresa: Dict) -> Dict:
-        """Análise 360° da situação"""
+        """Análise 360° da situaçêo"""
         return {
             "financeiro": {
                 "receita_atual": dados_empresa.get("receita_mensal", 0),
@@ -306,7 +306,7 @@ class AgenteLeituraCenario:
             },
             "operacional": {
                 "eficiencia": 0.72,
-                "gargalos": ["contratação", "processos manuais"],
+                "gargalos": ["contrataçêo", "processos manuais"],
                 "capacidade_atual": "75%",
                 "tempo_medio_entrega": "5 dias"
             },
@@ -334,7 +334,7 @@ class AgentePrevisaoTendencias:
             "pessimista": {
                 "probabilidade": 0.15,
                 "receita_12m": situacao["financeiro"]["receita_atual"] * 0.8,
-                "eventos": ["recessão", "perda cliente chave"],
+                "eventos": ["recessêo", "perda cliente chave"],
                 "acao_preventiva": "reduzir custos 20%, diversificar clientes"
             },
             "base": {
@@ -346,12 +346,12 @@ class AgentePrevisaoTendencias:
             "otimista": {
                 "probabilidade": 0.20,
                 "receita_12m": situacao["financeiro"]["receita_atual"] * 3.0,
-                "eventos": ["viralização", "parceria estratégica"],
+                "eventos": ["viralizaçêo", "parceria estratégica"],
                 "acao_necessaria": "escalar rápido, captar investimento"
             },
             "tendencias_mercado": [
                 "AI agêntica vai dominar (já começou)",
-                "Automação de processos conhecidos (commodity em 2026)",
+                "Automaçêo de processos conhecidos (commodity em 2026)",
                 "Sistemas intencionais = diferencial competitivo"
             ]
         }
@@ -380,7 +380,7 @@ class AgenteModelagemRisco:
                     "risco": "Perda de talentos-chave",
                     "impacto": "alto",
                     "probabilidade": 0.15,
-                    "mitigacao": "Documentar conhecimento, criar sucessão"
+                    "mitigacao": "Documentar conhecimento, criar sucessêo"
                 }
             ],
             "score_risco_geral": 6.2,  # de 0-10
@@ -409,19 +409,19 @@ class AgenteCriacaoPlano:
             ],
             "iniciativas_estrategicas": [
                 {
-                    "nome": "Adoção ESIA Completa",
+                    "nome": "Adoçêo ESIA Completa",
                     "prazo": "Q1-Q2 2026",
                     "budget": "15% da receita",
                     "impacto_esperado": "+40% eficiência operacional"
                 },
                 {
-                    "nome": "Expansão Base Clientes",
+                    "nome": "Expansêo Base Clientes",
                     "prazo": "Q1-Q4 2026",
                     "budget": "20% da receita",
                     "impacto_esperado": "35 novos clientes"
                 },
                 {
-                    "nome": "Automação Interna",
+                    "nome": "Automaçêo Interna",
                     "prazo": "Q2-Q3 2026",
                     "budget": "10% da receita",
                     "impacto_esperado": "liberar 30% do tempo do time"
@@ -429,7 +429,7 @@ class AgenteCriacaoPlano:
             ],
             "marcos_trimestrais": {
                 "Q1": "ESIA implementado + 10 novos clientes",
-                "Q2": "Automação 50% completa + receita 1.5x",
+                "Q2": "Automaçêo 50% completa + receita 1.5x",
                 "Q3": "25 clientes ativos + team 18 pessoas",
                 "Q4": "50 clientes + receita 2x + NPS 70"
             }
@@ -487,27 +487,27 @@ class AgenteRecomendacaoFinal:
         alternativas: Dict,
         riscos: Dict
     ) -> Dict:
-        """Recomendação final estruturada"""
+        """Recomendaçêo final estruturada"""
         return {
             "resumo_executivo": """
-Empresa em posição sólida (crescimento 15%/mês, margem 35%, runway 18m).
+Empresa em posiçêo sólida (crescimento 15%/mês, margem 35%, runway 18m).
 
-RECOMENDAÇÃO: Crescimento orgânico acelerado via ESIA.
+RECOMENDAÇêO: Crescimento orgânico acelerado via ESIA.
 
 RACIONAL: Momento de mercado favorável, tecnologia madura, riscos mitigáveis.
 
 AÇÕES IMEDIATAS (30 dias):
 1. Implementar ESIA core (agentes de vendas + suporte)
 2. Contratar head de produto
-3. Iniciar automação processos manuais
-4. Lançar campanha captação 20 novos clientes
+3. Iniciar automaçêo processos manuais
+4. Lançar campanha captaçêo 20 novos clientes
 
 RESULTADO ESPERADO 12M: Receita 2x, eficiência +40%, churn -1.5pp
 """,
             "proximos_passos": [
                 {"acao": "Aprovar budget Q1", "responsavel": "CEO", "prazo": "7 dias"},
                 {"acao": "Contratar consultoria ESIA", "responsavel": "CTO", "prazo": "15 dias"},
-                {"acao": "Kickoff projeto automação", "responsavel": "COO", "prazo": "30 dias"}
+                {"acao": "Kickoff projeto automaçêo", "responsavel": "COO", "prazo": "30 dias"}
             ],
             "kpis_acompanhamento": [
                 "Receita mensal",
@@ -535,7 +535,7 @@ class ConsultoriaEstrategicaAutonoma:
         # 1. Leitura de cenário
         situacao = self.leitor.analisar_situacao_atual(dados_empresa)
 
-        # 2. Previsão
+        # 2. Previsêo
         cenarios = self.previsor.prever_cenarios(situacao)
 
         # 3. Riscos
@@ -547,7 +547,7 @@ class ConsultoriaEstrategicaAutonoma:
         # 5. Alternativas
         alternativas = self.analisador.comparar_alternativas(plano)
 
-        # 6. Recomendação
+        # 6. Recomendaçêo
         recomendacao = self.consultor.gerar_recomendacao_executiva(plano, alternativas, riscos)
 
         return {
@@ -576,12 +576,12 @@ diagnostico = consultoria.gerar_diagnostico_completo({
     "team_size": 12
 })
 
-print(f"Recomendação:\n{diagnostico['recomendacao_final']['resumo_executivo']}")
+print(f"Recomendaçêo:\n{diagnostico['recomendacao_final']['resumo_executivo']}")
 ```
 
 ### Sistema 3: Criador de Curso Autônomo
 
-**Missão:** Criar cursos completos de alta qualidade de forma autônoma.
+**Missêo:** Criar cursos completos de alta qualidade de forma autônoma.
 
 ```python
 from dataclasses import dataclass
@@ -603,7 +603,7 @@ class AgentePesquisadorConteudo:
                 "Exercícios e projetos"
             ],
             "nivel_dificuldade": "intermediário",
-            "prerequisitos": ["programação básica", "lógica"],
+            "prerequisitos": ["programaçêo básica", "lógica"],
             "duracao_estimada": "40 horas",
             "tendencias_mercado": "alta demanda, mercado aquecido"
         }
@@ -636,7 +636,7 @@ class AgenteEstruturadorPedagogico:
                 {
                     "numero": 3,
                     "titulo": "Aplicações Avançadas",
-                    "objetivos": ["Arquiteturas complexas", "Otimização"],
+                    "objetivos": ["Arquiteturas complexas", "Otimizaçêo"],
                     "aulas": 8,
                     "duracao_horas": 6,
                     "projeto": "Projeto real de portfólio"
@@ -647,7 +647,7 @@ class AgenteEstruturadorPedagogico:
                     "objetivos": ["Integrar conhecimentos", "Publicar projeto"],
                     "aulas": 3,
                     "duracao_horas": 4,
-                    "projeto": "Aplicação completa deploy"
+                    "projeto": "Aplicaçêo completa deploy"
                 }
             ],
             "metodologia": "aprenda fazendo + projetos reais",
@@ -675,7 +675,7 @@ Ao final, você terá construído: {estrutura_modulo['projeto']}
                 {
                     "numero": i+1,
                     "titulo": f"Aula {i+1}: Conceito {i+1}",
-                    "conteudo": "Explicação teórica + exemplos práticos + exercícios",
+                    "conteudo": "Explicaçêo teórica + exemplos práticos + exercícios",
                     "codigo_exemplo": "print('exemplo funcional')",
                     "exercicios": 3,
                     "duracao_min": 45
@@ -697,10 +697,10 @@ Ao final, você terá construído: {estrutura_modulo['projeto']}
 
 @dataclass
 class AgenteRevisorTecnico:
-    """Revisa precisão técnica"""
+    """Revisa precisêo técnica"""
 
     def revisar_conteudo(self, modulo: Dict) -> Dict:
-        """Valida correção técnica"""
+        """Valida correçêo técnica"""
         issues = []
 
         # Valida código de exemplo
@@ -723,7 +723,7 @@ class AgenteRevisorTecnico:
 
 @dataclass
 class AgentePadronizadorEstilo:
-    """Padroniza linguagem e formatação"""
+    """Padroniza linguagem e formataçêo"""
 
     def padronizar_curso(self, modulos: List[Dict]) -> Dict:
         """Garante consistência em todo curso"""
@@ -733,7 +733,7 @@ class AgentePadronizadorEstilo:
                 "Formato: markdown com code blocks",
                 "Estrutura: teoria → exemplo → exercício",
                 "Código: comentado e explicado",
-                "Progressão: simples → complexo"
+                "Progressêo: simples → complexo"
             ],
             "guia_estilo": {
                 "voz": "segunda pessoa (você)",
@@ -748,7 +748,7 @@ class AgentePadronizadorEstilo:
 
 @dataclass
 class CriadorCursoAutonomo:
-    """Sistema completo de criação de curso"""
+    """Sistema completo de criaçêo de curso"""
     pesquisador: AgentePesquisadorConteudo
     estruturador: AgenteEstruturadorPedagogico
     escritor: AgenteEscritorModulos
@@ -756,12 +756,12 @@ class CriadorCursoAutonomo:
     padronizador: AgentePadronizadorEstilo
 
     def criar_curso_completo(self, tema: str) -> Dict:
-        """Pipeline completo de criação"""
+        """Pipeline completo de criaçêo"""
 
         # 1. Pesquisa
         pesquisa = self.pesquisador.pesquisar_tema(tema)
 
-        # 2. Estruturação
+        # 2. Estruturaçêo
         estrutura = self.estruturador.criar_estrutura_curso(pesquisa)
 
         # 3. Escrita
@@ -776,7 +776,7 @@ class CriadorCursoAutonomo:
                 "aprovado": revisao["aprovado"]
             })
 
-        # 4. Padronização
+        # 4. Padronizaçêo
         padronizacao = self.padronizador.padronizar_curso([m["modulo"] for m in modulos])
 
         return {
@@ -816,7 +816,7 @@ print(f"Pronto: {curso['pronto_publicar']}")
 
 ### Sistema 4: Operações Empresariais Inteligentes
 
-**Missão:** Gerenciar e otimizar operações do dia a dia autonomamente.
+**Missêo:** Gerenciar e otimizar operações do dia a dia autonomamente.
 
 ```python
 from dataclasses import dataclass
@@ -834,7 +834,7 @@ class AgentePlanejamentoEstrategico:
             "objetivos_operacionais": [
                 {"meta": "Processar 1000 pedidos", "atual": 650, "gap": 350},
                 {"meta": "Reduzir SLA para 24h", "atual": "48h", "gap": "50%"},
-                {"meta": "Satisfação 4.5/5", "atual": 4.1, "gap": 0.4}
+                {"meta": "Satisfaçêo 4.5/5", "atual": 4.1, "gap": 0.4}
             ],
             "iniciativas": [
                 {
@@ -850,7 +850,7 @@ class AgentePlanejamentoEstrategico:
                     "recursos": "budget $15k/mês"
                 }
             ],
-            "riscos": ["atraso contratação", "bugs automação"],
+            "riscos": ["atraso contrataçêo", "bugs automaçêo"],
             "plano_contingencia": "overtime temporário se necessário"
         }
 
@@ -904,8 +904,8 @@ class AgenteCorrecaoDesvios:
             "desvios_encontrados": len(desvios),
             "desvios": desvios,
             "acoes_automaticas": [
-                "Realocação temporária de recursos",
-                "Notificação para supervisor"
+                "Realocaçêo temporária de recursos",
+                "Notificaçêo para supervisor"
             ],
             "acoes_requerem_aprovacao": [
                 "Overtime para equipe"
@@ -913,11 +913,11 @@ class AgenteCorrecaoDesvios:
         }
 
     def aplicar_correcoes_auto(self, correcoes: List[Dict]) -> Dict:
-        """Aplica correções que não requerem aprovação"""
+        """Aplica correções que nêo requerem aprovaçêo"""
         aplicadas = 0
         for correcao in correcoes:
             if correcao.get("automatica", False):
-                # Aplica correção
+                # Aplica correçêo
                 aplicadas += 1
 
         return {
@@ -935,7 +935,7 @@ class AgenteAutomacaoProcessos:
         return {
             "processos_candidatos": [
                 {
-                    "processo": "Validação de pedidos",
+                    "processo": "Validaçêo de pedidos",
                     "frequencia_dia": 45,
                     "tempo_manual_min": 15,
                     "economia_potencial_horas_mes": 337.5,
@@ -980,7 +980,7 @@ class OperacoesEmpresariaisInteligentes:
         # 2. Monitoramento
         situacao_atual = self.monitor.monitorar_metricas()
 
-        # 3. Correção de desvios
+        # 3. Correçêo de desvios
         analise_desvios = self.corretor.analisar_desvios(situacao_atual, plano)
 
         if analise_desvios["desvios_encontrados"] > 0:
@@ -988,7 +988,7 @@ class OperacoesEmpresariaisInteligentes:
         else:
             correcoes = {"correcoes_aplicadas": 0}
 
-        # 4. Oportunidades de automação
+        # 4. Oportunidades de automaçêo
         oportunidades = self.automatizador.identificar_oportunidades(situacao_atual)
 
         return {
@@ -1033,21 +1033,21 @@ print(f"Desvios: {ciclo['desvios_e_correcoes']['analise']['desvios_encontrados']
 print(f"Automações possíveis: {len(ciclo['automacao']['processos_candidatos'])}")
 ```
 
-## Conclusão: De Teoria à Prática
+## Conclusêo: De Teoria à Prática
 
 **Você acabou de ver 4 sistemas autônomos completos funcionando.**
 
 Cada um demonstra:
 - Múltiplos agentes especializados trabalhando juntos
-- Pipelines de decisão automatizados
-- Validação e auditoria em cada etapa
-- Correção automática de problemas
-- Escalação para humanos quando necessário
+- Pipelines de decisêo automatizados
+- Validaçêo e auditoria em cada etapa
+- Correçêo automática de problemas
+- Escalaçêo para humanos quando necessário
 
-**Isso não é ficção. É padrão 2026.**
+**Isso nêo é ficçêo. É padrêo 2026.**
 
-Empresas que implementarem esses sistemas terão vantagem competitiva impossível de alcançar com métodos tradicionais.
+Empresas que implementarem esses sistemas terêo vantagem competitiva impossível de alcançar com métodos tradicionais.
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

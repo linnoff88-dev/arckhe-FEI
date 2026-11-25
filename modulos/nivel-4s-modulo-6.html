@@ -134,9 +134,9 @@
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
           Modelo 1: Pipeline Inteligente
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Conceito:</strong> Cada agente passa para o próximo com validação interna. Processo sequencial otimizado.</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Conceito:</strong> Cada agente passa para o próximo com validaçêo interna. Processo sequencial otimizado.</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Quando usar:</strong> Tarefas que têm dependências claras e sequenciais</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementação:</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementaçêo:</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass
 from typing import List, Dict, Callable
@@ -257,10 +257,10 @@ class AgenteRedator(AgentePipeline):
         return &quot;conteudo&quot; in resultado and len(resultado[&quot;conteudo&quot;]) &gt; 50
 
 # Exemplo de uso
-pipeline = PipelineInteligente(&quot;Criação de Conteúdo&quot;)
+pipeline = PipelineInteligente(&quot;Criaçêo de Conteúdo&quot;)
 pipeline.adicionar_agente(AgentePesquisador(&quot;Pesquisa&quot;))
 pipeline.adicionar_agente(AgenteAnalisador(&quot;Análise&quot;))
-pipeline.adicionar_agente(AgenteRedator(&quot;Redação&quot;))
+pipeline.adicionar_agente(AgenteRedator(&quot;Redaçêo&quot;))
 
 resultado = pipeline.executar({&quot;topico&quot;: &quot;IA em 2026&quot;})
 print(f&quot;Pipeline: {resultado['status']}&quot;)
@@ -362,8 +362,8 @@ forcaTarefa.adicionar_agente(AgenteParalelo(
 ))
 
 forcaTarefa.adicionar_agente(AgenteParalelo(
-    &quot;Pesquisador Educação&quot;,
-    lambda x: {&quot;topico&quot;: &quot;Educação&quot;, &quot;casos&quot;: 12}
+    &quot;Pesquisador Educaçêo&quot;,
+    lambda x: {&quot;topico&quot;: &quot;Educaçêo&quot;, &quot;casos&quot;: 12}
 ))
 
 resultado = forcaTarefa.executar_paralelo({&quot;contexto&quot;: &quot;IA 2026&quot;})
@@ -375,8 +375,8 @@ print(f&quot;Força-Tarefa: {resultado['total_agentes']} agentes executados em p
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
           Modelo 3: Hierarquia
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Conceito:</strong> Agente "chefão" gerencia sub-agentes. Coordenação centralizada.</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Quando usar:</strong> Projetos complexos que precisam de coordenação central</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Conceito:</strong> Agente "chefêo" gerencia sub-agentes. Coordenaçêo centralizada.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Quando usar:</strong> Projetos complexos que precisam de coordenaçêo central</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 class AgenteSubordinado:
     &quot;&quot;&quot;Agente que responde a um supervisor&quot;&quot;&quot;
@@ -409,7 +409,7 @@ class AgenteSupervisor:
     def delegar_tarefa(self, tarefa: Dict, agente_nome: str) -&gt; Dict:
         &quot;&quot;&quot;Delega tarefa para subordinado específico&quot;&quot;&quot;
         if agente_nome not in self.subordinados:
-            return {&quot;erro&quot;: f&quot;Agente {agente_nome} não encontrado&quot;}
+            return {&quot;erro&quot;: f&quot;Agente {agente_nome} nêo encontrado&quot;}
 
         agente = self.subordinados[agente_nome]
         resultado = agente.executar_tarefa(tarefa)
@@ -452,7 +452,7 @@ class AgenteSupervisor:
             if agente.especialidade == especialidade_necessaria:
                 return agente
 
-        # Se não encontrar especialista, retorna primeiro disponível
+        # Se nêo encontrar especialista, retorna primeiro disponível
         return list(self.subordinados.values())[0] if self.subordinados else None
 
 # Exemplo
@@ -483,7 +483,7 @@ print(f&quot;Hierarquia: {resultado['total_tarefas']} tarefas delegadas&quot;)
           Modelo 4: Consciência Distribuída
         </h2>
         <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Conceito:</strong> Todos os agentes acessam memória central e colaboram. Inteligência coletiva.</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Quando usar:</strong> Problemas complexos que requerem colaboração dinâmica</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Quando usar:</strong> Problemas complexos que requerem colaboraçêo dinâmica</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 class MemoriaCentral:
     &quot;&quot;&quot;Memória compartilhada entre agentes&quot;&quot;&quot;
@@ -609,7 +609,7 @@ sistema = SistemaConscienciaDistribuida()
 
 # Adiciona agentes
 a1 = sistema.adicionar_agente(&quot;Especialista IA&quot;)
-a2 = sistema.adicionar_agente(&quot;Especialista Educação&quot;)
+a2 = sistema.adicionar_agente(&quot;Especialista Educaçêo&quot;)
 a3 = sistema.adicionar_agente(&quot;Especialista UX&quot;)
 
 # Agentes contribuem conhecimento inicial
@@ -626,7 +626,7 @@ print(f&quot;Conhecimento coletivo: {resultado['total_conhecimento']} itens&quot
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Comparação dos 4 Modelos
+          Comparaçêo dos 4 Modelos
         </h2>
         <p class="text-neutral-700 dark:text-neutral-300 mb-4">| Modelo | Velocidade | Complexidade | Autonomia | Uso Ideal |</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">|--------|-----------|--------------|-----------|-----------|</p>
@@ -638,21 +638,21 @@ print(f&quot;Conhecimento coletivo: {resultado['total_conhecimento']} itens&quot
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Conclusão
+          Conclusêo
         </h2>
         <p class="text-neutral-700 dark:text-neutral-300 mb-4">Você dominou os 4 modelos fundamentais de sistemas multiagentes de 2026.</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">O que você dominou:</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Pipeline Inteligente: coordenação sequencial com validação</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Força-Tarefa Paralela: execução simultânea e integração</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Hierarquia: coordenação centralizada com delegação</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Consciência Distribuída: colaboração via memória compartilhada</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementação completa de cada arquitetura em Python</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Pipeline Inteligente: coordenaçêo sequencial com validaçêo</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Força-Tarefa Paralela: execuçêo simultânea e integraçêo</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Hierarquia: coordenaçêo centralizada com delegaçêo</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Consciência Distribuída: colaboraçêo via memória compartilhada</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementaçêo completa de cada arquitetura em Python</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Quando usar cada modelo</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Vantagens e desvantagens de cada abordagem</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Como combinar modelos para sistemas híbridos</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Próximo módulo:</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">No Módulo 7, você vai aprender <strong>Criação de Agentes com ESIA</strong>: os 8 componentes essenciais que todo agente avançado de 2026 deve possuir.</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formação em Engenharia de Intenção</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">No Módulo 7, você vai aprender <strong>Criaçêo de Agentes com ESIA</strong>: os 8 componentes essenciais que todo agente avançado de 2026 deve possuir.</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formaçêo em Engenharia de Intençêo</p>
       </div>
 
       <!-- Conclusao -->

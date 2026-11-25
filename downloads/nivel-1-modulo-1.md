@@ -1,24 +1,24 @@
-# 📘 Módulo 1: Entendendo a Evolução
-## Da Engenharia de Prompts à Engenharia de Intenção
+# 📘 Módulo 1: Entendendo a Evoluçêo
+## Da Engenharia de Prompts à Engenharia de Intençêo
 
-**Nível 1: Fundamentos de Engenharia de Intenção**
-**FEI - Formação em Engenharia de Intenção**
+**Nível 1: Fundamentos de Engenharia de Intençêo**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## 🎯 Introdução
+## 🎯 Introduçêo
 
-Estamos vivendo uma revolução na forma como nos comunicamos com máquinas. O que começou como **Engenharia de Prompts** — a arte de escrever comandos precisos para IAs — está evoluindo para algo muito mais profundo: a **Engenharia de Intenção**.
+Estamos vivendo uma revoluçêo na forma como nos comunicamos com máquinas. O que começou como **Engenharia de Prompts** — a arte de escrever comandos precisos para IAs — está evoluindo para algo muito mais profundo: a **Engenharia de Intençêo**.
 
-Neste módulo, você entenderá essa transformação fundamental e por que ela representa o futuro da interação com IA.
+Neste módulo, você entenderá essa transformaçêo fundamental e por que ela representa o futuro da interaçêo com IA.
 
 ### 💡 Por que isso importa?
 
-Em 2025, **Andrej Karpathy** cunhou o termo *"Vibe Coding"* — uma nova forma de criar software através do diálogo com IAs, onde desenvolvedores expressam **intenção** e a IA traduz em código. Este módulo te prepara para esse futuro.
+Em 2025, **Andrej Karpathy** cunhou o termo *"Vibe Coding"* — uma nova forma de criar software através do diálogo com IAs, onde desenvolvedores expressam **intençêo** e a IA traduz em código. Este módulo te prepara para esse futuro.
 
 ---
 
-## 📅 Linha do Tempo da Evolução
+## 📅 Linha do Tempo da Evoluçêo
 
 ### FINAL DE 2021 | Surgimento da IA Generativa
 Modelos como GPT-3 ganham destaque. O foco está em escrever comandos precisos (prompts) para obter respostas úteis.
@@ -26,25 +26,25 @@ Modelos como GPT-3 ganham destaque. O foco está em escrever comandos precisos (
 ### NOVEMBRO 2022 | Lançamento do ChatGPT
 OpenAI democratiza o acesso à IA generativa. Surge formalmente a **Engenharia de Prompts** como prática reconhecida.
 
-### 2023-2024 | Expansão e Maturação
+### 2023-2024 | Expansêo e Maturaçêo
 - Surgem modelos concorrentes: **Claude (Anthropic)**, **Gemini (Google)**, **DeepSeek**, **LLaMA (Meta)**
-- Técnicas avançadas são desenvolvidas: **Chain-of-Thought**, **Few-Shot Learning**, **Prompt Scaffolding**
+- Técnicas avançadas sêo desenvolvidas: **Chain-of-Thought**, **Few-Shot Learning**, **Prompt Scaffolding**
 
-### 2025 - AGORA | Era da Engenharia de Intenção
-- **Andrej Karpathy** introduz o termo *"Vibe Coding"* — criar software através de diálogo expressando intenção
-- A IA passa a **entender a intenção por trás do que você escreve**, não apenas executar comandos literais
+### 2025 - AGORA | Era da Engenharia de Intençêo
+- **Andrej Karpathy** introduz o termo *"Vibe Coding"* — criar software através de diálogo expressando intençêo
+- A IA passa a **entender a intençêo por trás do que você escreve**, nêo apenas executar comandos literais
 
 ---
 
-## ⚖️ Engenharia de Prompts vs Engenharia de Intenção
+## ⚖️ Engenharia de Prompts vs Engenharia de Intençêo
 
 ### 🔵 Engenharia de Prompts
 
-**📝 Definição**
+**📝 Definiçêo**
 Escrever comandos precisos e estruturados para obter respostas específicas da IA.
 
 **🎯 Foco**
-**Instrução literal** — "como" a IA deve executar
+**Instruçêo literal** — "como" a IA deve executar
 
 **💡 Exemplo**
 ```
@@ -55,18 +55,18 @@ cada um com no máximo 15 palavras."
 **✅ Vantagens**
 - Controle preciso da saída
 - Reproduzível e consistente
-- Ideal para automação
+- Ideal para automaçêo
 
 **⚠️ Limitações**
 - Requer conhecimento técnico
 - Pode ser rígido demais
-- Não adapta ao contexto implícito
+- Nêo adapta ao contexto implícito
 
 ---
 
-### 🟢 Engenharia de Intenção
+### 🟢 Engenharia de Intençêo
 
-**📝 Definição**
+**📝 Definiçêo**
 Comunicar o **objetivo** e **contexto**, permitindo que a IA decida a melhor forma de executar.
 
 **🎯 Foco**
@@ -75,7 +75,7 @@ Comunicar o **objetivo** e **contexto**, permitindo que a IA decida a melhor for
 **💡 Exemplo**
 ```
 "Preciso motivar minha equipe sedentária a se exercitar.
-Me ajude a criar uma comunicação persuasiva."
+Me ajude a criar uma comunicaçêo persuasiva."
 ```
 
 **✅ Vantagens**
@@ -92,7 +92,7 @@ Me ajude a criar uma comunicação persuasiva."
 
 ### 🎓 Insight Fundamental
 
-**IA não lê intenção, lê instrução.** Mas quanto mais clara sua intenção, melhor a IA consegue gerar a instrução certa internamente. Engenharia de Intenção é sobre *comunicar contexto e objetivo* para que a IA use sua capacidade de raciocínio de forma eficaz.
+**IA nêo lê intençêo, lê instruçêo.** Mas quanto mais clara sua intençêo, melhor a IA consegue gerar a instruçêo certa internamente. Engenharia de Intençêo é sobre *comunicar contexto e objetivo* para que a IA use sua capacidade de raciocínio de forma eficaz.
 
 ---
 
@@ -105,9 +105,9 @@ Me ajude a criar uma comunicação persuasiva."
 "Escreva um post de 280 caracteres sobre nosso produto X
 com 3 hashtags relacionadas a tecnologia."
 ```
-**Problema:** Não considera audiência, tom ou objetivo da campanha
+**Problema:** Nêo considera audiência, tom ou objetivo da campanha
 
-**✅ Abordagem de Intenção (Estratégica)**
+**✅ Abordagem de Intençêo (Estratégica)**
 ```
 "Estamos lançando um produto X para pequenos empreendedores
 que têm medo de tecnologia. Precisamos de conteúdo que inspire
@@ -121,18 +121,18 @@ confiança e mostre simplicidade."
 
 **❌ Abordagem de Prompts**
 ```
-"Crie uma função em Python que recebe uma lista
+"Crie uma funçêo em Python que recebe uma lista
 e retorna a soma dos elementos."
 ```
-**Problema:** Solução genérica, sem validação ou tratamento de erros
+**Problema:** Soluçêo genérica, sem validaçêo ou tratamento de erros
 
-**✅ Abordagem de Intenção**
+**✅ Abordagem de Intençêo**
 ```
 "Estou processando dados financeiros de usuários. Preciso somar valores,
-mas pode haver dados inválidos ou None. A função deve ser segura e
+mas pode haver dados inválidos ou None. A funçêo deve ser segura e
 informar erros claramente."
 ```
-**Resultado:** Código robusto com validação, type hints, docstrings e tratamento de exceções
+**Resultado:** Código robusto com validaçêo, type hints, docstrings e tratamento de exceções
 
 ---
 
@@ -144,17 +144,17 @@ informar erros claramente."
 ```
 **Problema:** Gráfico genérico sem insights acionáveis
 
-**✅ Abordagem de Intenção**
+**✅ Abordagem de Intençêo**
 ```
 "Tenho dados de vendas do último trimestre. Preciso identificar
-produtos com queda de desempenho para reunião com diretoria na sexta.
+produtos com queda de desempenho para reuniêo com diretoria na sexta.
 Mostre tendências e recomendações."
 ```
-**Resultado:** Análise focada em decisão, com visualizações relevantes e insights estratégicos
+**Resultado:** Análise focada em decisêo, com visualizações relevantes e insights estratégicos
 
 ---
 
-## 🛠️ 5 Técnicas para Transição
+## 🛠️ 5 Técnicas para Transiçêo
 
 ### 1️⃣ Comece com "Por quê?" antes de "Como?"
 Antes de pedir algo, pergunte-se: *"Por que preciso disso? Qual o objetivo final?"*
@@ -171,7 +171,7 @@ Quem é a audiência? Qual o cenário? Quais as restrições?
 ---
 
 ### 3️⃣ Use Linguagem Natural
-Fale como falaria com um colega especialista. Não precisa ser robótico.
+Fale como falaria com um colega especialista. Nêo precisa ser robótico.
 
 **Ruim:** "Execute análise estatística dataset A"
 **Bom:** "Esses dados parecem estranhos, pode me ajudar a encontrar outliers?"
@@ -179,7 +179,7 @@ Fale como falaria com um colega especialista. Não precisa ser robótico.
 ---
 
 ### 4️⃣ Itere como em uma Conversa
-Não espere perfeição na primeira tentativa. Refine, ajuste, aprofunde.
+Nêo espere perfeiçêo na primeira tentativa. Refine, ajuste, aprofunde.
 
 **Fluxo ideal:** Pedido inicial → Feedback → Ajuste → Refinamento
 
@@ -194,7 +194,7 @@ O que é um resultado bem-sucedido para você? Como saberá que funcionou?
 
 ## ✍️ Exercícios Práticos
 
-### Exercício 1: Reescreva o Prompt como Intenção
+### Exercício 1: Reescreva o Prompt como Intençêo
 **Nível:** Iniciante
 
 **Prompt original:**
@@ -210,28 +210,28 @@ contendo 5 clientes fictícios"
 ### Exercício 2: Contexto é Rei
 **Nível:** Intermediário
 
-Você precisa de uma apresentação sobre IA. Compare:
+Você precisa de uma apresentaçêo sobre IA. Compare:
 
-**Versão A:** "Crie uma apresentação sobre IA"
+**Versêo A:** "Crie uma apresentaçêo sobre IA"
 
-**Versão B:** "Preciso convencer o conselho a investir R$500k em IA. São executivos de 50+ anos, céticos com tecnologia. Tenho 15 minutos."
+**Versêo B:** "Preciso convencer o conselho a investir R$500k em IA. Sêo executivos de 50+ anos, céticos com tecnologia. Tenho 15 minutos."
 
-**✅ Reflexão:** Qual geraria melhor resultado? Por quê?
+**✅ Reflexêo:** Qual geraria melhor resultado? Por quê?
 
 ---
 
 ### Exercício 3: Projeto Real - E-commerce
 **Nível:** Avançado
 
-**Cenário:** Você gerencia um e-commerce de moda. As vendas caíram 30% no último mês. Você tem acesso aos dados de navegação e abandono de carrinho.
+**Cenário:** Você gerencia um e-commerce de moda. As vendas caíram 30% no último mês. Você tem acesso aos dados de navegaçêo e abandono de carrinho.
 
 **🎯 Seu desafio:**
-Escreva uma interação com IA usando **Engenharia de Intenção** para:
+Escreva uma interaçêo com IA usando **Engenharia de Intençêo** para:
 - Analisar os dados
 - Identificar problemas
 - Propor soluções acionáveis
 
-**💡 Dica:** Pense como se estivesse explicando a situação para um consultor especialista. Qual o contexto? Quais as urgências? O que você já tentou?
+**💡 Dica:** Pense como se estivesse explicando a situaçêo para um consultor especialista. Qual o contexto? Quais as urgências? O que você já tentou?
 
 ---
 
@@ -240,13 +240,13 @@ Escreva uma interação com IA usando **Engenharia de Intenção** para:
 ### 📚 Leituras Recomendadas
 
 - **Prompt Engineering Guide**
-  Documentação completa sobre técnicas de prompting
+  Documentaçêo completa sobre técnicas de prompting
 
 - **Google's Prompt Engineering Best Practices**
   Guia oficial do Google sobre engenharia de comandos
 
 - **Anthropic's Claude Documentation**
-  Melhores práticas para comunicação com IA
+  Melhores práticas para comunicaçêo com IA
 
 ### 🛠️ Ferramentas Úteis
 
@@ -261,22 +261,22 @@ Escreva uma interação com IA usando **Engenharia de Intenção** para:
 
 ---
 
-## 🎓 Conclusão do Módulo
+## 🎓 Conclusêo do Módulo
 
-Você aprendeu que a verdadeira revolução não está em escrever prompts mais complexos, mas em **comunicar intenção de forma clara e contextual**.
+Você aprendeu que a verdadeira revoluçêo nêo está em escrever prompts mais complexos, mas em **comunicar intençêo de forma clara e contextual**.
 
 ### ✅ O que você dominou:
-- A evolução de Prompts para Intenção (2021-2025)
+- A evoluçêo de Prompts para Intençêo (2021-2025)
 - Diferenças fundamentais entre as duas abordagens
-- Técnicas práticas de transição
-- Casos reais de aplicação
+- Técnicas práticas de transiçêo
+- Casos reais de aplicaçêo
 
 ---
 
 **Próximos Passos:**
-Continue para o Módulo 2 para aprender sobre os **Pilares da Engenharia de Intenção**
+Continue para o Módulo 2 para aprender sobre os **Pilares da Engenharia de Intençêo**
 
 ---
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo
 https://linnoff88-dev.github.io/

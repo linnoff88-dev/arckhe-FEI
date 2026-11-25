@@ -4,7 +4,7 @@
 
 **Cada projeto inclui código-base completo e funcional que você pode adaptar.**
 
-### Projeto 1: Sistema Multiagente Completo para Criação de Conteúdo
+### Projeto 1: Sistema Multiagente Completo para Criaçêo de Conteúdo
 
 **Objetivo:** Criar sistema com 5 agentes especializados que produz conteúdo de alta qualidade autonomamente.
 
@@ -18,9 +18,9 @@ class SistemaConteudoAutonomo:
     """Sistema completo com 5 agentes especializados"""
 
     def executar_pipeline_completo(self, tema: str, publico: str) -> Dict:
-        """Pipeline: Pesquisa → Estrutura → Escrita → Revisão → SEO"""
+        """Pipeline: Pesquisa → Estrutura → Escrita → Revisêo → SEO"""
 
-        print(f"🚀 Iniciando criação de conteúdo sobre: {tema}")
+        print(f"🚀 Iniciando criaçêo de conteúdo sobre: {tema}")
 
         # Agente 1: Pesquisador
         pesquisa = self._agente_pesquisador(tema, publico)
@@ -36,7 +36,7 @@ class SistemaConteudoAutonomo:
 
         # Agente 4: Revisor
         revisao = self._agente_revisor(conteudo)
-        print(f"✅ Revisão completa: score {revisao['qualidade']:.2f}")
+        print(f"✅ Revisêo completa: score {revisao['qualidade']:.2f}")
 
         # Agente 5: Otimizador SEO
         final = self._agente_seo(revisao, tema)
@@ -79,9 +79,9 @@ class SistemaConteudoAutonomo:
         return {
             "titulo": f"Guia Completo: {pesquisa['tema']}",
             "secoes": [
-                {"ordem": 1, "titulo": "Introdução", "objetivo": "engajar leitor"},
+                {"ordem": 1, "titulo": "Introduçêo", "objetivo": "engajar leitor"},
                 {"ordem": 2, "titulo": "Fundamentos", "objetivo": "educar"},
-                {"ordem": 3, "titulo": "Aplicação Prática", "objetivo": "demonstrar"},
+                {"ordem": 3, "titulo": "Aplicaçêo Prática", "objetivo": "demonstrar"},
                 {"ordem": 4, "titulo": "Casos Reais", "objetivo": "inspirar"},
                 {"ordem": 5, "titulo": "Próximos Passos", "objetivo": "converter"}
             ],
@@ -145,7 +145,7 @@ print(f"📊 Métricas: {resultado['metricas']}")
 **Entrega esperada:**
 - [ ] Sistema com 5 agentes funcionando
 - [ ] Pipeline completo end-to-end
-- [ ] Demonstração gerando 3 artigos diferentes
+- [ ] Demonstraçêo gerando 3 artigos diferentes
 - [ ] Métricas de qualidade > 0.8
 
 ---
@@ -181,7 +181,7 @@ class AgenteMetaIA:
         # Propõe melhorias
         melhorias = self._propor_melhorias(problemas, metricas)
 
-        # Simula implementação
+        # Simula implementaçêo
         resultado_simulacao = self._simular_melhorias(metricas, melhorias)
 
         return {
@@ -218,12 +218,12 @@ class AgenteMetaIA:
         """Identifica padrões no comportamento"""
         padroes = []
 
-        # Padrão 1: Falhas em tarefas complexas
+        # Padrêo 1: Falhas em tarefas complexas
         complexas = [t for t in tarefas if t.get("complexidade") == "alta"]
         if complexas and mean([t.get("sucesso", 0) for t in complexas]) < 0.7:
             padroes.append("falha_tarefas_complexas")
 
-        # Padrão 2: Degradação ao longo do tempo
+        # Padrêo 2: Degradaçêo ao longo do tempo
         if len(tarefas) >= 10:
             primeira_metade = tarefas[:len(tarefas)//2]
             segunda_metade = tarefas[len(tarefas)//2:]
@@ -234,7 +234,7 @@ class AgenteMetaIA:
             if qual_final < qual_inicial * 0.9:
                 padroes.append("degradacao_performance")
 
-        # Padrão 3: Inconsistência
+        # Padrêo 3: Inconsistência
         qualidades = [t.get("qualidade", 0) for t in tarefas]
         if len(qualidades) > 1 and stdev(qualidades) > 0.2:
             padroes.append("alta_variabilidade")
@@ -265,7 +265,7 @@ class AgenteMetaIA:
             problemas.append({
                 "tipo": "degradacao_ao_longo_tempo",
                 "severidade": "alta",
-                "acao": "necessita manutenção ou reset"
+                "acao": "necessita manutençêo ou reset"
             })
 
         if "alta_variabilidade" in padroes:
@@ -285,7 +285,7 @@ class AgenteMetaIA:
             if problema["tipo"] == "taxa_sucesso_baixa":
                 melhorias.append({
                     "problema": problema["tipo"],
-                    "melhoria": "Adicionar validação prévia de requisitos",
+                    "melhoria": "Adicionar validaçêo prévia de requisitos",
                     "implementacao": "validar_antes_executar",
                     "impacto_esperado": "+15% taxa sucesso"
                 })
@@ -299,7 +299,7 @@ class AgenteMetaIA:
             elif problema["tipo"] == "qualidade_insuficiente":
                 melhorias.append({
                     "problema": problema["tipo"],
-                    "melhoria": "Adicionar validação de qualidade intermediária",
+                    "melhoria": "Adicionar validaçêo de qualidade intermediária",
                     "implementacao": "checkpoint_qualidade_cada_etapa",
                     "impacto_esperado": "+0.10 qualidade média"
                 })
@@ -315,7 +315,7 @@ class AgenteMetaIA:
             elif problema["tipo"] == "inconsistencia":
                 melhorias.append({
                     "problema": problema["tipo"],
-                    "melhoria": "Padronizar processo de execução",
+                    "melhoria": "Padronizar processo de execuçêo",
                     "implementacao": "template_execucao_obrigatorio",
                     "impacto_esperado": "-50% variabilidade"
                 })
@@ -352,12 +352,12 @@ class AgenteMetaIA:
         }
 
     def _gerar_recomendacao(self, melhorias: List[Dict], simulacao: Dict) -> str:
-        """Gera recomendação executiva"""
+        """Gera recomendaçêo executiva"""
         if not melhorias:
             return "✅ Agente operando em performance ótima. Manter monitoramento."
 
         return f"""
-🎯 RECOMENDAÇÃO META-IA:
+🎯 RECOMENDAÇêO META-IA:
 
 Implementar {len(melhorias)} melhorias identificadas:
 {chr(10).join(f"- {m['melhoria']}" for m in melhorias[:3])}
@@ -365,7 +365,7 @@ Implementar {len(melhorias)} melhorias identificadas:
 Impacto esperado: {simulacao['ganho_estimado']}
 Viabilidade: {simulacao['viabilidade']}
 
-Ação: {"Implementar imediatamente" if simulacao['viabilidade'] == 'alta' else "Testar em ambiente controlado primeiro"}
+Açêo: {"Implementar imediatamente" if simulacao['viabilidade'] == 'alta' else "Testar em ambiente controlado primeiro"}
 """
 
 # Exemplo de uso
@@ -394,13 +394,13 @@ print(f"Melhorias propostas: {len(analise['melhorias_propostas'])}")
 - [ ] Meta-IA funcionando e analisando outros agentes
 - [ ] Sistema detecta >= 3 tipos de problemas
 - [ ] Propõe melhorias com impacto quantificado
-- [ ] Demonstração com antes/depois
+- [ ] Demonstraçêo com antes/depois
 
 ---
 
 ### Projeto 3: Sistema Autônomo Operando 7 Dias Contínuos
 
-**Objetivo:** Sistema que roda 24/7 por uma semana sem intervenção humana.
+**Objetivo:** Sistema que roda 24/7 por uma semana sem intervençêo humana.
 
 ```python
 from dataclasses import dataclass, field
@@ -422,20 +422,20 @@ class SistemaAutonomo7Dias:
         ciclo = 0
 
         print(f"🚀 Sistema autônomo iniciado: {self.inicio_operacao}")
-        print(f"⏰ Duração programada: {duracao_dias} dias")
-        print(f"🎯 Finalização prevista: {fim_operacao}\n")
+        print(f"⏰ Duraçêo programada: {duracao_dias} dias")
+        print(f"🎯 Finalizaçêo prevista: {fim_operacao}\n")
 
         while datetime.now() < fim_operacao and self.estado_sistema == "operando":
             ciclo += 1
 
-            # Executa operação do ciclo
+            # Executa operaçêo do ciclo
             operacao = self._executar_operacao_ciclo(ciclo)
             self.operacoes_realizadas.append(operacao)
 
             # Monitora saúde
             saude = self._monitorar_saude_sistema()
 
-            # Auto-correção se necessário
+            # Auto-correçêo se necessário
             if saude["status"] != "saudavel":
                 self._auto_corrigir(saude)
 
@@ -443,14 +443,14 @@ class SistemaAutonomo7Dias:
             if ciclo % 100 == 0:
                 self._gerar_relatorio_intermediario(ciclo)
 
-            # Pausa entre ciclos (em produção seria baseado em eventos)
+            # Pausa entre ciclos (em produçêo seria baseado em eventos)
             time.sleep(0.01)  # Simula intervalo
 
         # Relatório final
         return self._gerar_relatorio_final()
 
     def _executar_operacao_ciclo(self, numero_ciclo: int) -> Dict:
-        """Executa uma operação do ciclo"""
+        """Executa uma operaçêo do ciclo"""
         # Simula diferentes tipos de operações
         tipos = ["monitoramento", "processamento", "analise", "otimizacao"]
         tipo = tipos[numero_ciclo % len(tipos)]
@@ -478,9 +478,9 @@ class SistemaAutonomo7Dias:
         }
 
     def _auto_corrigir(self, saude: Dict):
-        """Implementa auto-correção"""
-        print(f"⚠️ Auto-correção ativada: {saude['status']}")
-        # Implementaria lógica de correção real
+        """Implementa auto-correçêo"""
+        print(f"⚠️ Auto-correçêo ativada: {saude['status']}")
+        # Implementaria lógica de correçêo real
 
     def _gerar_relatorio_intermediario(self, ciclo: int):
         """Gera relatório parcial"""
@@ -505,8 +505,8 @@ class SistemaAutonomo7Dias:
             "conclusao": "Sistema operou autonomamente com sucesso por 7 dias"
         }
 
-# Demonstração (versão acelerada para teste)
-print("Demonstração do Sistema Autônomo (versão acelerada)\n")
+# Demonstraçêo (versêo acelerada para teste)
+print("Demonstraçêo do Sistema Autônomo (versêo acelerada)\n")
 sistema = SistemaAutonomo7Dias()
 sistema.estado_sistema = "operando"
 
@@ -529,14 +529,14 @@ print(f"Disponibilidade: {relatorio['disponibilidade']}")
 **Entrega esperada:**
 - [ ] Sistema roda por 7 dias reais ininterruptos
 - [ ] Log detalhado de todas operações
-- [ ] Auto-correção funcionando
+- [ ] Auto-correçêo funcionando
 - [ ] Relatório final com métricas de uptime
 
 ---
 
 ### Projeto 4: Agente que Aprende e Replica Seu Estilo
 
-**Objetivo:** Sistema que analisa seu estilo de comunicação e o replica com 90%+ precisão.
+**Objetivo:** Sistema que analisa seu estilo de comunicaçêo e o replica com 90%+ precisêo.
 
 ```python
 from dataclasses import dataclass
@@ -545,7 +545,7 @@ from collections import Counter
 
 @dataclass
 class AgenteReplicadorEstilo:
-    """Aprende e replica estilo de comunicação"""
+    """Aprende e replica estilo de comunicaçêo"""
 
     def analisar_estilo(self, textos_referencia: List[str]) -> Dict:
         """Analisa características do estilo"""
@@ -607,7 +607,7 @@ class AgenteReplicadorEstilo:
         }
 
     def _analisar_tom(self, textos: List[str]) -> Dict:
-        """Analisa tom de comunicação"""
+        """Analisa tom de comunicaçêo"""
         # Análise simplificada de tom
         indicadores_formal = ["portanto", "assim", "desta forma", "ademais"]
         indicadores_informal = ["tipo", "meio que", "cara", "né"]
@@ -648,9 +648,9 @@ class AgenteReplicadorEstilo:
         tamanho_frase = int(perfil_estilo["estrutura"]["palavras_por_frase_media"])
         tom = perfil_estilo["tom"]["formalidade"]
 
-        # Geração simplificada (em produção usaria LLM com o perfil)
+        # Geraçêo simplificada (em produçêo usaria LLM com o perfil)
         if tom == "informal":
-            texto = f"Então, sobre {assunto}... Tipo, é importante entender que..."
+            texto = f"Entêo, sobre {assunto}... Tipo, é importante entender que..."
         else:
             texto = f"Relativamente a {assunto}, é fundamental compreender que..."
 
@@ -665,8 +665,8 @@ replicador = AgenteReplicadorEstilo()
 
 # Textos de exemplo do seu estilo
 meus_textos = [
-    "Sistemas intencionais são o futuro da IA. Ponto final. 🚀",
-    "**ESIA** muda tudo. Não é hype, é padrão 2026.",
+    "Sistemas intencionais sêo o futuro da IA. Ponto final. 🚀",
+    "**ESIA** muda tudo. Nêo é hype, é padrêo 2026.",
     "Você precisa entender: agentes autônomos ≠ chatbots."
 ]
 
@@ -677,15 +677,15 @@ print(f"Tom: {perfil['tom']['formalidade']}")
 print(f"Padrões únicos: {perfil['padroes_unicos']}")
 
 # Replica estilo
-novo_texto = replicador.replicar_estilo("delegação moderna", perfil)
+novo_texto = replicador.replicar_estilo("delegaçêo moderna", perfil)
 print(f"\nTexto gerado no seu estilo:\n{novo_texto}")
 ```
 
 **Entrega esperada:**
 - [ ] Análise de >= 50 textos seus
 - [ ] Perfil de estilo com 10+ características
-- [ ] Geração de textos com 90%+ similaridade
-- [ ] Teste cego: humanos não distinguem original de réplica
+- [ ] Geraçêo de textos com 90%+ similaridade
+- [ ] Teste cego: humanos nêo distinguem original de réplica
 
 ---
 
@@ -765,10 +765,10 @@ class SistemaInteligenciaCompetitiva:
                 "oportunidade": "Posicionar como early adopter"
             },
             {
-                "tendencia": "Regulação de IA em discussão",
+                "tendencia": "Regulaçêo de IA em discussêo",
                 "velocidade": "moderado",
                 "impacto": "Compliance será diferencial",
-                "acao": "Preparar certificação antecipadamente"
+                "acao": "Preparar certificaçêo antecipadamente"
             }
         ]
 
@@ -780,7 +780,7 @@ class SistemaInteligenciaCompetitiva:
         if float(mercado["crescimento_anual"].strip("%")) > 20:
             insights.append({
                 "tipo": "oportunidade_mercado",
-                "titulo": "Mercado em expansão acelerada",
+                "titulo": "Mercado em expansêo acelerada",
                 "descricao": f"Crescimento de {mercado['crescimento_anual']} abre espaço para novos players",
                 "acao_sugerida": "Acelerar go-to-market"
             })
@@ -806,7 +806,7 @@ class SistemaInteligenciaCompetitiva:
         return insights
 
     def _detectar_alertas_criticos(self, insights: List[Dict]) -> List[Dict]:
-        """Detecta situações que requerem atenção imediata"""
+        """Detecta situações que requerem atençêo imediata"""
         alertas = []
 
         for insight in insights:
@@ -838,7 +838,7 @@ sistema_ic = SistemaInteligenciaCompetitiva()
 resultado = sistema_ic.monitorar_continuamente()
 
 print("📊 DASHBOARD DE INTELIGÊNCIA COMPETITIVA\n")
-print(f"Última atualização: {resultado['ultima_atualizacao']}")
+print(f"Última atualizaçêo: {resultado['ultima_atualizacao']}")
 print(f"Insights novos: {resultado['insights_novos']}")
 print(f"Alertas críticos: {resultado['alertas_criticos']}")
 print(f"\n{resultado['dashboard']['resumo_executivo']}")
@@ -851,21 +851,21 @@ for acao in resultado['dashboard']['proximas_acoes']:
 - [ ] Sistema monitora >= 10 fontes diferentes
 - [ ] Dashboard atualizado a cada hora
 - [ ] Sistema de alertas funcionando
-- [ ] Demonstração com insights reais do seu mercado
+- [ ] Demonstraçêo com insights reais do seu mercado
 
 ---
 
-## Conclusão dos Projetos
+## Conclusêo dos Projetos
 
 **Completar estes 5 projetos significa que você domina:**
 - Sistemas multiagentes coordenados
-- Meta-aprendizado e auto-otimização
-- Operação autônoma contínua
-- Replicação de padrões complexos
+- Meta-aprendizado e auto-otimizaçêo
+- Operaçêo autônoma contínua
+- Replicaçêo de padrões complexos
 - Inteligência competitiva automatizada
 
 **Você está pronto para construir sistemas de IA de nível enterprise em 2026.**
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

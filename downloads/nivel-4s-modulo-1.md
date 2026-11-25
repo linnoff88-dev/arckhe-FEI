@@ -7,13 +7,13 @@
 
 ## A Grande Mudança de 2025-2026
 
-2026 marca a **ruptura definitiva** na forma como entendemos inteligência artificial. Não falamos mais de modelos que "respondem bem" - falamos de **sistemas que pensam, planejam e executam ao longo de semanas ou meses**.
+2026 marca a **ruptura definitiva** na forma como entendemos inteligência artificial. Nêo falamos mais de modelos que "respondem bem" - falamos de **sistemas que pensam, planejam e executam ao longo de semanas ou meses**.
 
-A Engenharia de Intenção evolui para algo maior:
+A Engenharia de Intençêo evolui para algo maior:
 
 ### Engenharia de Sistemas Intencionais Autônomos (ESIA)
 
-A disciplina que projeta, instrui e governa redes de agentes com propósito de longo prazo, memória persistente e capacidade de evolução autônoma.
+A disciplina que projeta, instrui e governa redes de agentes com propósito de longo prazo, memória persistente e capacidade de evoluçêo autônoma.
 
 ---
 
@@ -21,7 +21,7 @@ A disciplina que projeta, instrui e governa redes de agentes com propósito de l
 
 ### 1. Raciocínio Contínuo
 
-A IA não apenas responde - ela **pensa antes de agir**. Modelos modernos processam internamente cenários, avaliam opções e validam lógica antes de apresentar resultados.
+A IA nêo apenas responde - ela **pensa antes de agir**. Modelos modernos processam internamente cenários, avaliam opções e validam lógica antes de apresentar resultados.
 
 **Exemplo Prático:**
 
@@ -73,25 +73,25 @@ class SistemaRaciocinioContinuo:
         """Gera múltiplas opções baseado na análise"""
         opcoes = []
 
-        # Opção conservadora
+        # Opçêo conservadora
         opcoes.append(Opcao(
             descricao="Abordagem incremental segura",
-            vantagens=["Baixo risco", "Validação contínua", "Fácil rollback"],
+            vantagens=["Baixo risco", "Validaçêo contínua", "Fácil rollback"],
             desvantagens=["Mais lento", "Pode perder momentum"],
             impacto_estimado=0.6,
             riscos=["Competidor pode nos ultrapassar"]
         ))
 
-        # Opção agressiva
+        # Opçêo agressiva
         opcoes.append(Opcao(
-            descricao="Implementação rápida completa",
+            descricao="Implementaçêo rápida completa",
             vantagens=["Rápido time-to-market", "Vantagem competitiva"],
-            desvantagens=["Alto risco", "Difícil correção"],
+            desvantagens=["Alto risco", "Difícil correçêo"],
             impacto_estimado=0.9,
             riscos=["Falhas podem ser críticas", "Custo alto se errar"]
         ))
 
-        # Opção balanceada
+        # Opçêo balanceada
         opcoes.append(Opcao(
             descricao="MVP com iterações rápidas",
             vantagens=["Balanço risco/velocidade", "Feedback contínuo"],
@@ -108,7 +108,7 @@ class SistemaRaciocinioContinuo:
         return opcoes
 
     def avaliar_cenarios(self, opcoes: List[Opcao], contexto: Dict) -> Dict:
-        """Avalia cada opção em diferentes cenários"""
+        """Avalia cada opçêo em diferentes cenários"""
         avaliacoes = {}
 
         for i, opcao in enumerate(opcoes):
@@ -138,7 +138,7 @@ class SistemaRaciocinioContinuo:
         return avaliacoes
 
     def validar_logica(self, opcao: Opcao, contexto: Dict) -> bool:
-        """Valida se a decisão faz sentido logicamente"""
+        """Valida se a decisêo faz sentido logicamente"""
         checks = []
 
         # Check 1: Recursos suficientes?
@@ -179,7 +179,7 @@ class SistemaRaciocinioContinuo:
         # 3. Avalia cenários
         avaliacoes = self.avaliar_cenarios(opcoes, contexto)
 
-        # 4. Seleciona melhor opção
+        # 4. Seleciona melhor opçêo
         melhor = max(
             avaliacoes.items(),
             key=lambda x: x[1]["score_final"]
@@ -215,25 +215,25 @@ contexto = {
     "recursos": {"equipe": 5, "tempo": "curto", "budget": "medio"},
     "restricoes": ["Qualidade mínima", "Compliance LGPD"],
     "prazo": "3 meses",
-    "criterios_sucesso": ["NPS > 8", "Conversão > 5%", "Zero bugs críticos"]
+    "criterios_sucesso": ["NPS > 8", "Conversêo > 5%", "Zero bugs críticos"]
 }
 
 decisao = sistema.decidir(problema, contexto)
 
-print("DECISÃO FINAL:")
-print(f"Opção: {decisao['opcao_escolhida']}")
+print("DECISêO FINAL:")
+print(f"Opçêo: {decisao['opcao_escolhida']}")
 print(f"Score: {decisao['score']:.2f}")
-print(f"Validação: {'✅' if decisao['validacao_logica'] else '❌'}")
+print(f"Validaçêo: {'✅' if decisao['validacao_logica'] else '❌'}")
 print(f"Justificativa: {decisao['justificativa']}")
 print(f"\nO sistema pensou em {decisao['passos_raciocinio']} passos antes de decidir")
 ```
 
 **Saída:**
 ```
-DECISÃO FINAL:
-Opção: MVP com iterações rápidas
+DECISêO FINAL:
+Opçêo: MVP com iterações rápidas
 Score: 0.78
-Validação: ✅
+Validaçêo: ✅
 Justificativa: Melhor balanço entre impacto (0.75) e riscos (1 identificados)
 
 O sistema pensou em 5 passos antes de decidir
@@ -245,7 +245,7 @@ O sistema pensou em 5 passos antes de decidir
 
 Sistemas modernos **lembram de você**. Suas preferências, estilo de trabalho, projetos em andamento e aprendizados ao longo do tempo.
 
-**Implementação Completa:**
+**Implementaçêo Completa:**
 
 ```python
 from datetime import datetime
@@ -264,7 +264,7 @@ class MemoriaPersistente:
         self.contexto_sessao: Dict = {}
 
     def registrar_interacao(self, tipo: str, conteudo: str, feedback: str = None):
-        """Registra cada interação para aprendizado"""
+        """Registra cada interaçêo para aprendizado"""
         interacao = {
             "timestamp": datetime.now().isoformat(),
             "tipo": tipo,
@@ -426,7 +426,7 @@ print(f"   Formato: {formato_preferido}")
 
 ---
 
-### 3. Delegação Interna
+### 3. Delegaçêo Interna
 
 Um sistema pode criar **sub-agentes especializados** para diferentes partes de um problema complexo, coordenando o trabalho entre eles.
 
@@ -476,7 +476,7 @@ class AgenteEstruturador(AgenteEspecializado):
         pesquisa = input_data["pesquisa"]
 
         estrutura = {
-            "introducao": "Contextualização do tema",
+            "introducao": "Contextualizaçêo do tema",
             "fundamentos": "Conceitos básicos",
             "implementacao": "Como aplicar na prática",
             "casos_estudo": "Exemplos reais",
@@ -533,7 +533,7 @@ class OrquestradorAgentes:
 
         for nome_agente, transformacao in pipeline:
             if nome_agente not in self.agentes:
-                raise ValueError(f"Agente {nome_agente} não registrado")
+                raise ValueError(f"Agente {nome_agente} nêo registrado")
 
             agente = self.agentes[nome_agente]
 
@@ -547,7 +547,7 @@ class OrquestradorAgentes:
             if not agente.validar_resultado(resultado):
                 raise ValueError(f"Resultado do agente {nome_agente} inválido")
 
-            # Registra execução
+            # Registra execuçêo
             self.historico_execucoes.append({
                 "agente": nome_agente,
                 "input": input_agente,
@@ -560,7 +560,7 @@ class OrquestradorAgentes:
         return resultado_atual
 
 
-# Exemplo completo de delegação
+# Exemplo completo de delegaçêo
 orquestrador = OrquestradorAgentes()
 
 # Registra agentes especializados
@@ -583,7 +583,7 @@ input_inicial = {
 
 resultado_final = orquestrador.executar_pipeline(pipeline, input_inicial)
 
-print("PIPELINE DE DELEGAÇÃO EXECUTADO:")
+print("PIPELINE DE DELEGAÇêO EXECUTADO:")
 print(f"✅ Pesquisa: {resultado_final['fontes_encontradas']}")
 print(f"✅ Estrutura: {resultado_final['total_secoes']} seções")
 print(f"✅ Conteúdo: {resultado_final['total_palavras']} palavras")
@@ -592,7 +592,7 @@ print(f"\nTotal de agentes utilizados: {len(orquestrador.historico_execucoes)}")
 
 ---
 
-### 4. Autocorreção Pré-Saída
+### 4. Autocorreçêo Pré-Saída
 
 Antes de entregar qualquer resultado, o sistema **valida a própria saída**, verifica consistência, qualidade e alinhamento com o objetivo.
 
@@ -615,7 +615,7 @@ class SistemaAutocorrecao:
         self.tentativas_correcao = 3
 
     def adicionar_regra(self, regra: RegraValidacao):
-        """Adiciona regra de validação"""
+        """Adiciona regra de validaçêo"""
         self.regras.append(regra)
 
     def validar(self, conteudo: Dict) -> tuple[bool, List[str]]:
@@ -653,7 +653,7 @@ class SistemaAutocorrecao:
         return conteudo_corrigido
 
     def processar_com_validacao(self, conteudo: Dict) -> Dict:
-        """Processa com validação e autocorreção"""
+        """Processa com validaçêo e autocorreçêo"""
         tentativa = 0
         conteudo_atual = conteudo
 
@@ -694,7 +694,7 @@ class SistemaAutocorrecao:
 # Exemplo de uso
 sistema = SistemaAutocorrecao()
 
-# Define regras de validação
+# Define regras de validaçêo
 sistema.adicionar_regra(RegraValidacao(
     nome="Tamanho Mínimo",
     descricao="Conteúdo deve ter pelo menos 500 palavras",
@@ -733,7 +733,7 @@ conteudo_inicial = {
 resultado = sistema.processar_com_validacao(conteudo_inicial)
 
 print(f"STATUS: {resultado['status']}")
-print(f"Tentativas de correção: {resultado['tentativas']}")
+print(f"Tentativas de correçêo: {resultado['tentativas']}")
 if resultado['status'] == "aprovado":
     print("✅ Conteúdo validado e aprovado!")
     print(f"Tags adicionadas: {resultado['conteudo'].get('tags', [])}")
@@ -922,7 +922,7 @@ if ajustes:
 
 ---
 
-## A Grande Mudança: Do Comando para a Intenção
+## A Grande Mudança: Do Comando para a Intençêo
 
 ### ANTES (2020-2023): Modelo de Comando
 
@@ -939,7 +939,7 @@ IA: [Publica]
 
 **Problema:** Você precisa gerenciar cada etapa manualmente.
 
-### AGORA (2025-2026): Modelo de Intenção
+### AGORA (2025-2026): Modelo de Intençêo
 
 "O que você quer construir nas próximas semanas?"
 
@@ -956,30 +956,30 @@ Sistema:
 - Ajusta estratégia baseado em resultados
 ```
 
-**Revolução:** Você define o objetivo, o sistema gerencia o processo completo.
+**Revoluçêo:** Você define o objetivo, o sistema gerencia o processo completo.
 
 ---
 
-## Conclusão
+## Conclusêo
 
-Você entendeu a revolução de 2026: IA deixou de ser ferramenta de resposta para se tornar sistema de execução intencional autônoma.
+Você entendeu a revoluçêo de 2026: IA deixou de ser ferramenta de resposta para se tornar sistema de execuçêo intencional autônoma.
 
 ### O que você dominou:
 
-✅ As 6 capacidades fundamentais da IA moderna (raciocínio, memória, delegação, autocorreção, planejamento, especialização)
+✅ As 6 capacidades fundamentais da IA moderna (raciocínio, memória, delegaçêo, autocorreçêo, planejamento, especializaçêo)
 ✅ Raciocínio contínuo com código Python funcional
 ✅ Memória persistente que aprende sobre o usuário
-✅ Delegação interna com orquestração de agentes
-✅ Autocorreção pré-saída com sistema de validação
+✅ Delegaçêo interna com orquestraçêo de agentes
+✅ Autocorreçêo pré-saída com sistema de validaçêo
 ✅ Planejamento de longo prazo adaptativo
-✅ A mudança de modelo de comando para modelo de intenção
-✅ Como funciona a execução baseada em intenção composta
+✅ A mudança de modelo de comando para modelo de intençêo
+✅ Como funciona a execuçêo baseada em intençêo composta
 ✅ Por que 2026 marca uma ruptura definitiva na IA
 
 ### Próximo módulo:
 
-No Módulo 2, você vai aprender o conceito completo de **Sistemas Intencionais**: estruturas que vão além de agentes isolados, operando com missão de longo prazo, evolução própria e autonomia supervisionada.
+No Módulo 2, você vai aprender o conceito completo de **Sistemas Intencionais**: estruturas que vêo além de agentes isolados, operando com missêo de longo prazo, evoluçêo própria e autonomia supervisionada.
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

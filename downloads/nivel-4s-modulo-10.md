@@ -4,15 +4,15 @@
 
 O componente mais importante de qualquer sistema intencional é o **Agente Orquestrador**.
 
-**Enquanto outros agentes são especialistas, o Orquestrador é o gerente geral que coordena tudo.**
+**Enquanto outros agentes sêo especialistas, o Orquestrador é o gerente geral que coordena tudo.**
 
 ### As 8 Responsabilidades do Orquestrador
 
-**1. Entender Intenção Macro**
+**1. Entender Intençêo Macro**
 Traduz objetivos de alto nível em estratégias executáveis.
 
 **2. Quebrar em Objetivos**
-Decompõe missão complexa em metas intermediárias e microtarefas.
+Decompõe missêo complexa em metas intermediárias e microtarefas.
 
 **3. Distribuir Entre Agentes**
 Delega tarefas para agentes especializados baseado em competências.
@@ -30,9 +30,9 @@ Identifica quando precisa de informações adicionais e busca autonomamente.
 Aprende padrões, otimiza processos e sugere melhorias.
 
 **8. Manter Alinhamento com o Humano**
-Garante que o sistema sempre opera de acordo com intenção do usuário.
+Garante que o sistema sempre opera de acordo com intençêo do usuário.
 
-## Implementação Completa do Orquestrador
+## Implementaçêo Completa do Orquestrador
 
 ```python
 from dataclasses import dataclass, field
@@ -42,11 +42,11 @@ from datetime import datetime
 import json
 
 class StatusTarefa(Enum):
-    PENDENTE = "aguardando execução"
-    EM_PROGRESSO = "em execução"
+    PENDENTE = "aguardando execuçêo"
+    EM_PROGRESSO = "em execuçêo"
     BLOQUEADA = "bloqueada por dependência"
     CONCLUIDA = "concluída com sucesso"
-    FALHA = "falhou na execução"
+    FALHA = "falhou na execuçêo"
     CANCELADA = "cancelada"
 
 class PrioridadeTarefa(Enum):
@@ -86,21 +86,21 @@ class AgenteOrquestrador:
     agentes_disponiveis: List[AgenteEspecializado]
     tarefas: List[Tarefa] = field(default_factory=list)
     historico_decisoes: List[Dict] = field(default_factory=list)
-    alinhamento_humano: float = 1.0  # Grau de alinhamento com intenção humana
+    alinhamento_humano: float = 1.0  # Grau de alinhamento com intençêo humana
 
     def receber_intencao(self, intencao: str, contexto: Dict) -> Dict:
-        """1. Recebe e entende intenção de alto nível"""
+        """1. Recebe e entende intençêo de alto nível"""
         self.missao_macro = intencao
 
-        print(f"📥 Intenção recebida: {intencao}")
+        print(f"📥 Intençêo recebida: {intencao}")
 
-        # Analisa intenção
+        # Analisa intençêo
         analise = self._analisar_intencao(intencao, contexto)
 
         # Quebra em objetivos
         objetivos = self._decompo_em_objetivos(analise)
 
-        # Cria plano de execução
+        # Cria plano de execuçêo
         plano = self._criar_plano_execucao(objetivos)
 
         self._registrar_decisao("receber_intencao", {
@@ -117,7 +117,7 @@ class AgenteOrquestrador:
         }
 
     def _analisar_intencao(self, intencao: str, contexto: Dict) -> Dict:
-        """Analisa e estrutura a intenção"""
+        """Analisa e estrutura a intençêo"""
         return {
             "intencao_original": intencao,
             "objetivo_principal": self._extrair_objetivo_principal(intencao),
@@ -128,13 +128,13 @@ class AgenteOrquestrador:
         }
 
     def _extrair_objetivo_principal(self, intencao: str) -> str:
-        """Extrai objetivo principal da intenção"""
-        # Em implementação real, usaria LLM para análise semântica
+        """Extrai objetivo principal da intençêo"""
+        # Em implementaçêo real, usaria LLM para análise semântica
         return intencao.split(".")[0] if "." in intencao else intencao
 
     def _identificar_metricas(self, intencao: str) -> List[str]:
-        """Identifica métricas mencionadas na intenção"""
-        metricas_conhecidas = ["conversão", "engajamento", "receita", "satisfação", "eficiência"]
+        """Identifica métricas mencionadas na intençêo"""
+        metricas_conhecidas = ["conversêo", "engajamento", "receita", "satisfaçêo", "eficiência"]
         return [m for m in metricas_conhecidas if m in intencao.lower()]
 
     def _estimar_complexidade(self, intencao: str) -> str:
@@ -148,7 +148,7 @@ class AgenteOrquestrador:
             return "complexa"
 
     def _decompo_em_objetivos(self, analise: Dict) -> List[Dict]:
-        """2. Quebra missão complexa em objetivos menores"""
+        """2. Quebra missêo complexa em objetivos menores"""
         objetivo_principal = analise["objetivo_principal"]
         complexidade = analise["complexidade"]
 
@@ -159,7 +159,7 @@ class AgenteOrquestrador:
         return [
             {"objetivo": "Pesquisar e reunir informações", "prioridade": PrioridadeTarefa.ALTA},
             {"objetivo": "Elaborar estratégia", "prioridade": PrioridadeTarefa.ALTA},
-            {"objetivo": "Executar implementação", "prioridade": PrioridadeTarefa.MEDIA},
+            {"objetivo": "Executar implementaçêo", "prioridade": PrioridadeTarefa.MEDIA},
             {"objetivo": "Validar e ajustar", "prioridade": PrioridadeTarefa.MEDIA},
             {"objetivo": "Documentar e reportar", "prioridade": PrioridadeTarefa.BAIXA}
         ]
@@ -226,7 +226,7 @@ class AgenteOrquestrador:
 
     def executar_plano(self) -> Dict:
         """Executa plano orquestrando todos os agentes"""
-        print(f"\n🎯 Iniciando execução do plano ({len(self.tarefas)} tarefas)")
+        print(f"\n🎯 Iniciando execuçêo do plano ({len(self.tarefas)} tarefas)")
 
         resultados = []
 
@@ -301,7 +301,7 @@ class AgenteOrquestrador:
         tarefa.inicio = datetime.now()
         tarefa.tentativas += 1
 
-        # Simula execução do agente (em produção, delegaria de verdade)
+        # Simula execuçêo do agente (em produçêo, delegaria de verdade)
         import random
         sucesso = random.random() > 0.2  # 80% de chance de sucesso
 
@@ -315,7 +315,7 @@ class AgenteOrquestrador:
         else:
             resultado = {
                 "sucesso": False,
-                "erro": "Falha na execução",
+                "erro": "Falha na execuçêo",
                 "qualidade": 0.0
             }
             tarefa.status = StatusTarefa.FALHA
@@ -335,7 +335,7 @@ class AgenteOrquestrador:
         if not resultado.get("sucesso"):
             return {
                 "aprovado": False,
-                "razao": "Tarefa falhou na execução"
+                "razao": "Tarefa falhou na execuçêo"
             }
 
         qualidade = resultado.get("qualidade", 0)
@@ -365,7 +365,7 @@ class AgenteOrquestrador:
             self._escalar_para_humano(tarefa, validacao)
 
     def _escalar_para_humano(self, tarefa: Tarefa, motivo: Dict):
-        """Escala problema para supervisão humana"""
+        """Escala problema para supervisêo humana"""
         self._registrar_decisao("escalacao_humano", {
             "tarefa_id": tarefa.id,
             "descricao": tarefa.descricao,
@@ -374,7 +374,7 @@ class AgenteOrquestrador:
         })
 
     def _registrar_decisao(self, tipo: str, detalhes: Dict):
-        """Registra decisão para auditoria e aprendizado"""
+        """Registra decisêo para auditoria e aprendizado"""
         self.historico_decisoes.append({
             "timestamp": datetime.now().isoformat(),
             "tipo": tipo,
@@ -385,7 +385,7 @@ class AgenteOrquestrador:
         """6. Busca informações externas quando necessário"""
         print(f"🔍 Buscando dados externos: {necessidade}")
 
-        # Em produção, integraria com APIs, bancos de dados, web scraping, etc
+        # Em produçêo, integraria com APIs, bancos de dados, web scraping, etc
         return {
             "fonte": "api_externa",
             "dados": {"exemplo": "dados relevantes"},
@@ -439,7 +439,7 @@ class AgenteOrquestrador:
 
         if analise["taxa_sucesso_geral"] < 0.8:
             melhorias.append("Aumentar número de tentativas permitidas")
-            melhorias.append("Adicionar validação intermediária")
+            melhorias.append("Adicionar validaçêo intermediária")
 
         if analise["tipo_tarefa_mais_falha"]:
             melhorias.append(f"Criar agente especializado em {analise['tipo_tarefa_mais_falha']}")
@@ -447,7 +447,7 @@ class AgenteOrquestrador:
         return melhorias
 
     def verificar_alinhamento_humano(self) -> Dict:
-        """8. Garante alinhamento com intenção humana"""
+        """8. Garante alinhamento com intençêo humana"""
         return {
             "alinhamento_atual": self.alinhamento_humano,
             "desvios_detectados": self.alinhamento_humano < 0.9,
@@ -463,7 +463,7 @@ class AgenteOrquestrador:
         relatorio = f"""
 📊 RELATÓRIO EXECUTIVO DO ORQUESTRADOR
 
-Missão: {self.missao_macro}
+Missêo: {self.missao_macro}
 
 📈 Progresso:
 - Total de tarefas: {total_tarefas}
@@ -512,9 +512,9 @@ orquestrador = AgenteOrquestrador(
     agentes_disponiveis=agentes
 )
 
-# Recebe intenção de alto nível
+# Recebe intençêo de alto nível
 intencao = """Criar campanha de marketing digital para lançamento de produto,
-com foco em conversão acima de 3% e geração de 500 leads qualificados em 30 dias"""
+com foco em conversêo acima de 3% e geraçêo de 500 leads qualificados em 30 dias"""
 
 plano = orquestrador.receber_intencao(intencao, {
     "restricoes": ["budget máximo R$10k", "sem promessas falsas"],
@@ -529,7 +529,7 @@ resultado_execucao = orquestrador.executar_plano()
 print(f"\n{orquestrador.gerar_relatorio_executivo()}")
 ```
 
-## Padrões de Orquestração
+## Padrões de Orquestraçêo
 
 ```python
 from enum import Enum
@@ -542,7 +542,7 @@ class PadraoOrquestracao(Enum):
 
 @dataclass
 class ConfiguracaoOrquestracao:
-    """Configuração do comportamento do orquestrador"""
+    """Configuraçêo do comportamento do orquestrador"""
     padrao: PadraoOrquestracao
     max_tarefas_paralelas: int = 3
     timeout_tarefa_minutos: int = 30
@@ -550,19 +550,19 @@ class ConfiguracaoOrquestracao:
     escalacao_automatica: bool = True
     aprendizado_continuo: bool = True
 
-# Orquestração Sequencial: Cada tarefa após a anterior
+# Orquestraçêo Sequencial: Cada tarefa após a anterior
 config_sequencial = ConfiguracaoOrquestracao(
     padrao=PadraoOrquestracao.SEQUENCIAL,
     max_tarefas_paralelas=1
 )
 
-# Orquestração Paralela: Máximo de tarefas simultâneas
+# Orquestraçêo Paralela: Máximo de tarefas simultâneas
 config_paralela = ConfiguracaoOrquestracao(
     padrao=PadraoOrquestracao.PARALELO,
     max_tarefas_paralelas=5
 )
 
-# Orquestração Adaptativa: Ajusta baseado em performance
+# Orquestraçêo Adaptativa: Ajusta baseado em performance
 config_adaptativa = ConfiguracaoOrquestracao(
     padrao=PadraoOrquestracao.ADAPTATIVO,
     max_tarefas_paralelas=3,
@@ -576,8 +576,8 @@ config_adaptativa = ConfiguracaoOrquestracao(
 
 | Aspecto | Agente Especialista | Orquestrador |
 |---------|---------------------|--------------|
-| Foco | Tarefa específica | Coordenação global |
-| Escopo | Domínio restrito | Visão macro |
+| Foco | Tarefa específica | Coordenaçêo global |
+| Escopo | Domínio restrito | Visêo macro |
 | Decisões | Táticas | Estratégicas |
 | Autonomia | Executa o que recebe | Decide o que fazer |
 | Relacionamento | Recebe ordens | Delega tarefas |
@@ -587,4 +587,4 @@ config_adaptativa = ConfiguracaoOrquestracao(
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

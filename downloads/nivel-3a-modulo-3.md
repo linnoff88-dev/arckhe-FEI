@@ -1,29 +1,29 @@
 # Módulo 3: Os 10 Tipos de Agentes Especializados
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
-Assim como profissionais se especializam em áreas específicas, agentes de IA também têm especializações. Um cirurgião cardíaco e um dermatologista são ambos médicos, mas têm habilidades e contextos completamente diferentes.
+Assim como profissionais se especializam em áreas específicas, agentes de IA também têm especializações. Um cirurgiêo cardíaco e um dermatologista sêo ambos médicos, mas têm habilidades e contextos completamente diferentes.
 
 O mesmo vale para agentes de IA. Este módulo apresenta os 10 arquétipos principais de agentes, cada um otimizado para um tipo específico de tarefa.
 
-### Por Que Especialização Importa
+### Por Que Especializaçêo Importa
 
 ```
 Agente Genérico:
 "Você é um assistente útil. Ajude com qualquer coisa."
 
-Problema: Tenta fazer tudo, mas não faz nada excepcionalmente bem.
+Problema: Tenta fazer tudo, mas nêo faz nada excepcionalmente bem.
 É como contratar um "faz tudo" quando você precisa de um especialista.
 
 Agente Especializado:
-"Você é o Agente Pesquisador. Sua única função é encontrar,
-validar e organizar informações confiáveis. Você não escreve
-conteúdo final, não toma decisões estratégicas, não cria código.
+"Você é o Agente Pesquisador. Sua única funçêo é encontrar,
+validar e organizar informações confiáveis. Você nêo escreve
+conteúdo final, nêo toma decisões estratégicas, nêo cria código.
 Você é o melhor do mundo em pesquisa estruturada."
 
 Resultado: Excelência em uma área específica, resultados previsíveis.
@@ -33,24 +33,24 @@ Resultado: Excelência em uma área específica, resultados previsíveis.
 
 ## 1. AGENTE PESQUISADOR
 
-### Missão Principal
+### Missêo Principal
 Coletar informações relevantes, confiáveis e atualizadas de múltiplas fontes, validar credibilidade e organizar descobertas de forma estruturada.
 
 ### Características Essenciais
 
 **Habilidades-chave:**
 - Busca avançada (operadores booleanos, filtros temporais)
-- Avaliação de credibilidade de fontes
+- Avaliaçêo de credibilidade de fontes
 - Síntese de informações de múltiplas origens
-- Identificação de gaps de conhecimento
-- Organização por relevância
+- Identificaçêo de gaps de conhecimento
+- Organizaçêo por relevância
 
 **Ferramentas típicas:**
 - APIs de busca (Google, Bing, DuckDuckGo)
 - Acesso a bases acadêmicas (arXiv, PubMed, Google Scholar)
 - Web scraping ético
 - Análise de documentos (PDF, DOCX)
-- Verificação de fatos
+- Verificaçêo de fatos
 
 ### Quando Usar
 
@@ -61,19 +61,19 @@ Coletar informações relevantes, confiáveis e atualizadas de múltiplas fontes
 - Quer mapear estado da arte de um tópico
 - Precisa de múltiplas perspectivas
 
-❌ **Não use quando:**
+❌ **Nêo use quando:**
 - Já tem todas as informações necessárias
-- Precisa de opinião ou análise (use Consultor)
-- Quer implementação técnica (use Codificador)
+- Precisa de opiniêo ou análise (use Consultor)
+- Quer implementaçêo técnica (use Codificador)
 
 ### Exemplo Prático Completo
 
-**Cenário:** Empresa quer entrar no mercado de SaaS B2B de gestão de projetos
+**Cenário:** Empresa quer entrar no mercado de SaaS B2B de gestêo de projetos
 
 ```markdown
 ENTRADA PARA O AGENTE:
-"Pesquise o mercado de software de gestão de projetos B2B.
-Foco: principais players, modelos de precificação, tendências 2024-2025."
+"Pesquise o mercado de software de gestêo de projetos B2B.
+Foco: principais players, modelos de precificaçêo, tendências 2024-2025."
 
 PROCESSO DO AGENTE PESQUISADOR:
 
@@ -87,7 +87,7 @@ PASSO 2 - Buscar em múltiplas fontes
 [Busca no Google]
 → Encontra: Gartner Magic Quadrant, reviews G2, articles
 [Busca em bases acadêmicas]
-→ Encontra: Studies sobre adoção de PM tools
+→ Encontra: Studies sobre adoçêo de PM tools
 [Visita sites dos principais players]
 → Coleta: Pricing pages, feature lists, target audience
 
@@ -99,25 +99,25 @@ Fonte 3: Site oficial Asana → Alta credibilidade (fonte primária)
 PASSO 4 - Organizar descobertas
 [Agrupa por tema]
 - Concorrentes principais
-- Modelos de precificação
+- Modelos de precificaçêo
 - Features mais comuns
 - Tendências emergentes
 - Gaps identificados
 
 SAÍDA DO AGENTE:
 
-# RELATÓRIO DE PESQUISA: Mercado de Gestão de Projetos B2B
+# RELATÓRIO DE PESQUISA: Mercado de Gestêo de Projetos B2B
 
 **Data:** 2025-01-15
-**Tópico:** Software de gestão de projetos B2B
+**Tópico:** Software de gestêo de projetos B2B
 **Tempo investido:** 45 minutos
 **Fontes consultadas:** 18 (12 alta credibilidade, 6 média)
 
 ## PRINCIPAIS CONCORRENTES
 
 ### 1. Asana
-**Posicionamento:** Gestão de trabalho para times distribuídos
-**Precificação:**
+**Posicionamento:** Gestêo de trabalho para times distribuídos
+**Precificaçêo:**
 - Free: até 15 usuários
 - Premium: $10.99/usuário/mês
 - Business: $24.99/usuário/mês
@@ -130,7 +130,7 @@ SAÍDA DO AGENTE:
 
 ### 2. Monday.com
 **Posicionamento:** Work OS (plataforma de trabalho)
-**Precificação:**
+**Precificaçêo:**
 - Basic: $8/usuário/mês (mín 3 usuários)
 - Standard: $10/usuário/mês
 - Pro: $16/usuário/mês
@@ -143,7 +143,7 @@ SAÍDA DO AGENTE:
 
 ### 3. ClickUp
 **Posicionamento:** "Tudo em um app" (docs + tasks + goals)
-**Precificação:**
+**Precificaçêo:**
 - Free: funcionalidade limitada
 - Unlimited: $7/usuário/mês
 - Business: $12/usuário/mês
@@ -156,15 +156,15 @@ SAÍDA DO AGENTE:
 
 [+ 2 concorrentes adicionais]
 
-## MODELOS DE PRECIFICAÇÃO IDENTIFICADOS
+## MODELOS DE PRECIFICAÇêO IDENTIFICADOS
 
-**Padrão dominante: Freemium + Per-seat pricing**
+**Padrêo dominante: Freemium + Per-seat pricing**
 
 Análise de 5 principais players:
 - 100% oferecem plano gratuito (limitado)
 - Média de preço tier médio: $12/usuário/mês
 - Desconto anual típico: 15-20%
-- Enterprise pricing: Custom (não publicado)
+- Enterprise pricing: Custom (nêo publicado)
 
 **Tendência observada:**
 Shift para "usage-based pricing" em features avançadas (AI, automações)
@@ -181,29 +181,29 @@ Presentes em 5/5 principais players:
 
 Diferenciais competitivos:
 - Asana: Timeline visual avançada
-- Monday: Customização extrema de dashboards
+- Monday: Customizaçêo extrema de dashboards
 - ClickUp: Docs integrados nativamente
 
 ## TENDÊNCIAS 2024-2025
 
 **Tendência 1: AI-powered features**
 - 80% dos players lançaram features de AI em 2024
-- Casos de uso: Auto-categorização, sugestões de prazo, resumos
+- Casos de uso: Auto-categorizaçêo, sugestões de prazo, resumos
 - Fonte: Product Hunt analysis + announcements
 
-**Tendência 2: Foco em outcomes, não tasks**
+**Tendência 2: Foco em outcomes, nêo tasks**
 - Shift de "task management" para "goal management"
 - OKRs e métricas de impacto mais proeminentes
 - Fonte: Gartner "Future of Work Tech" 2024
 
-**Tendência 3: Consolidação de ferramentas**
-- Usuários querem menos apps, mais integração
+**Tendência 3: Consolidaçêo de ferramentas**
+- Usuários querem menos apps, mais integraçêo
 - Players adicionando docs, wikis, chat ao PM tool
 - Fonte: State of Work Report (Slack, 2024)
 
 ## GAPS IDENTIFICADOS
 
-**Informações que NÃO consegui encontrar:**
+**Informações que NêO consegui encontrar:**
 1. Churn rates específicos por player (dados proprietários)
 2. Market share exact numbers (estimativas variam 20-30%)
 3. Average time-to-value por ferramenta
@@ -218,15 +218,15 @@ Diferenciais competitivos:
 
 💡 **Insight 1: Mercado saturado mas fragmentado**
 Evidência: 50+ players identificados, mas top 5 dominam ~60% do mercado
-Implicação: Entrar requer diferenciação clara, não "me-too product"
+Implicaçêo: Entrar requer diferenciaçêo clara, nêo "me-too product"
 
-💡 **Insight 2: Precificação similar = batalha por features**
+💡 **Insight 2: Precificaçêo similar = batalha por features**
 Evidência: Range de $8-12/user/month muito consistente
-Implicação: Diferenciar por valor entregue, não por preço baixo
+Implicaçêo: Diferenciar por valor entregue, nêo por preço baixo
 
 💡 **Insight 3: AI é agora "table stakes"**
 Evidência: Todos anunciaram AI features em 2024
-Implicação: Não ter AI em 2025 = parecer desatualizado
+Implicaçêo: Nêo ter AI em 2025 = parecer desatualizado
 
 ## PRÓXIMOS PASSOS RECOMENDADOS
 
@@ -238,7 +238,7 @@ Para Agente Estrategista:
 Para Agente Analista:
 1. Análise SWOT contra top 3 players
 2. Sizing de mercado endereçável
-3. Projeção de custos de entrada
+3. Projeçêo de custos de entrada
 
 ## FONTES PRINCIPAIS
 
@@ -258,7 +258,7 @@ Média credibilidade:
 9-18. Various blog posts, comparison articles, user forums
 ```
 
-### Código de Implementação
+### Código de Implementaçêo
 
 ```python
 class AgentePesquisador:
@@ -336,7 +336,7 @@ class AgentePesquisador:
         if fonte.get('autor'):
             score += 0.1
         
-        # Publicação recente
+        # Publicaçêo recente
         if fonte.get('data'):
             anos_atrás = (datetime.now() - fonte['data']).days / 365
             if anos_atrás < 1:
@@ -355,24 +355,24 @@ class AgentePesquisador:
 
 ## 2. AGENTE ESCRITOR
 
-### Missão Principal
+### Missêo Principal
 Transformar informações brutas em conteúdo claro, engajante e bem estruturado, adaptado ao público-alvo e objetivos específicos.
 
 ### Características Essenciais
 
 **Habilidades-chave:**
 - Escrita persuasiva e clara
-- Adaptação de tom e estilo
-- Estruturação lógica de ideias
+- Adaptaçêo de tom e estilo
+- Estruturaçêo lógica de ideias
 - Storytelling
 - SEO (quando aplicável)
 
 **Ferramentas típicas:**
 - Templates de estrutura
 - Análise de legibilidade (Flesch-Kincaid)
-- Verificação gramatical
-- Otimização de títulos
-- Geração de variações
+- Verificaçêo gramatical
+- Otimizaçêo de títulos
+- Geraçêo de variações
 
 ### Quando Usar
 
@@ -380,10 +380,10 @@ Transformar informações brutas em conteúdo claro, engajante e bem estruturado
 - Tem outline ou dados brutos que precisam virar conteúdo
 - Precisa de múltiplas versões de um texto
 - Quer manter tom consistente em vários documentos
-- Precisa escalar produção de conteúdo
+- Precisa escalar produçêo de conteúdo
 
-❌ **Não use quando:**
-- Não tem informação base (use Pesquisador primeiro)
+❌ **Nêo use quando:**
+- Nêo tem informaçêo base (use Pesquisador primeiro)
 - Precisa apenas revisar/editar (use Revisor)
 - Quer análise estratégica (use Analista/Consultor)
 
@@ -408,23 +408,23 @@ Público: Founders early-stage
 → O que evitam: Jargões técnicos, comparações superficiais
 
 Objetivo: Ajudar na escolha
-→ Estrutura ideal: Framework de decisão, não apenas lista de options
-→ Incluir: Critérios de seleção, red flags, recomendações práticas
+→ Estrutura ideal: Framework de decisêo, nêo apenas lista de options
+→ Incluir: Critérios de seleçêo, red flags, recomendações práticas
 
 PASSO 2 - Criar outline
 Hook: Stat surpreendente sobre tempo perdido em PM ruim
 Contexto: Por que ferramentaerta PM é crítica para startups
 Tese: "A melhor ferramenta depende do seu perfil - aqui está como decidir"
 
-Seção 1: Os 3 perfis de startup (e qual tool se encaixa)
-Seção 2: 5 critérios para avaliar qualquer ferramenta
-Seção 3: Breakdown dos top 3 players
-Seção 4: Red flags para evitar
-Conclusão: Decision framework simples + próximos passos
+Seçêo 1: Os 3 perfis de startup (e qual tool se encaixa)
+Seçêo 2: 5 critérios para avaliar qualquer ferramenta
+Seçêo 3: Breakdown dos top 3 players
+Seçêo 4: Red flags para evitar
+Conclusêo: Decision framework simples + próximos passos
 
-PASSO 3 - Escrever primeira versão
+PASSO 3 - Escrever primeira versêo
 
-PASSO 4 - Auto-revisão
+PASSO 4 - Auto-revisêo
 - Checar word count (target: 1200-1500)
 - Validar que cada parágrafo tem ≤ 5 linhas
 - Verificar que incluiu exemplos práticos
@@ -432,11 +432,11 @@ PASSO 4 - Auto-revisão
 
 SAÍDA DO AGENTE:
 
-# Como Escolher Ferramenta de Gestão de Projetos para Sua Startup (Em 2025)
+# Como Escolher Ferramenta de Gestêo de Projetos para Sua Startup (Em 2025)
 
-Sua startup está crescendo. Você saiu da fase "tudo no Notion" e precisa de algo mais robusto para gerenciar projetos. Mas quando você busca "project management tool", encontra 50+ opções - todas dizendo que são "a melhor".
+Sua startup está crescendo. Você saiu da fase "tudo no Notion" e precisa de algo mais robusto para gerenciar projetos. Mas quando você busca "project management tool", encontra 50+ opções - todas dizendo que sêo "a melhor".
 
-Aqui está o problema: **não existe "melhor ferramenta" universal**. Existe a ferramenta certa **para o seu perfil**.
+Aqui está o problema: **nêo existe "melhor ferramenta" universal**. Existe a ferramenta certa **para o seu perfil**.
 
 Neste guia, vou te mostrar:
 - Os 3 perfis principais de startups early-stage (você vai se reconhecer em um)
@@ -464,7 +464,7 @@ Tempo de leitura: 7 minutos. Tempo economizado: horas de pesquisa.
    - Pro: Generoso no free tier
    - Con: Interface pode ser overwhelming no início
 
-**Red flag:** Não comece com Jira. É overengineered para early-stage.
+**Red flag:** Nêo comece com Jira. É overengineered para early-stage.
 
 ---
 
@@ -482,25 +482,25 @@ Tempo de leitura: 7 minutos. Tempo economizado: horas de pesquisa.
 
 2. **Monday.com** (alternativa mais customizável)
    - Pro: Dashboards flexíveis, adapta a diferentes workflows
-   - Con: Pode virar "planilha turbinada" se não disciplinado
+   - Con: Pode virar "planilha turbinada" se nêo disciplinado
 
 **Red flag:** Evite trocar de ferramenta a cada 6 meses. Escolha algo que aguenta crescer até 50+ pessoas.
 
 ---
 
-### Perfil 3: "Operação Complexa"
+### Perfil 3: "Operaçêo Complexa"
 **Características:**
 - Time: 30+ ou múltiplos times independentes
 - Budget: Significativo
 - Complexidade: Workflows customizados, dependências complexas
-- Prioridade: Poder, customização, integrações profundas
+- Prioridade: Poder, customizaçêo, integrações profundas
 
 **Ferramentas que fazem sentido:**
 1. **Jira** (se time é técnico)
 2. **Asana Enterprise** ou **Monday Enterprise**
 3. **Custom build** (se tem eng resources)
 
-**Nota:** Se você está neste perfil, provavelmente não está lendo este artigo. Você já tem um PM dedicado escolhendo isso.
+**Nota:** Se você está neste perfil, provavelmente nêo está lendo este artigo. Você já tem um PM dedicado escolhendo isso.
 
 ## Os 5 Critérios Para Avaliar Qualquer Ferramenta
 
@@ -519,13 +519,13 @@ Esqueça a lista de "100 features". Foque nestes 5:
 
 ---
 
-### 2. Friction de Adoção
+### 2. Friction de Adoçêo
 **Pergunta-chave:** Seu time vai realmente usar, ou vai virar "mais uma ferramenta que ninguém abre"?
 
 **Indicadores de baixo friction:**
-- Interface intuitiva (não precisa tutorial de 30 min)
+- Interface intuitiva (nêo precisa tutorial de 30 min)
 - Mobile app decente (time checa de qualquer lugar)
-- Notificações inteligentes (não spam, info relevante)
+- Notificações inteligentes (nêo spam, info relevante)
 
 **Red flags:**
 - "Precisamos de treinamento formal" → friction alto
@@ -538,16 +538,16 @@ Esqueça a lista de "100 features". Foque nestes 5:
 **Pergunta-chave:** Conecta com as 3-5 ferramentas que você já usa diariamente?
 
 **Must-haves para maioria das startups:**
-- Slack/Discord (comunicação)
+- Slack/Discord (comunicaçêo)
 - Google Workspace ou Microsoft 365
 - GitHub/GitLab (se tem eng)
 - Ferramenta de CRM (se tem sales/cs)
 
-**Dica:** Se integração "existe mas é limitada", considere como não existente.
+**Dica:** Se integraçêo "existe mas é limitada", considere como nêo existente.
 
 ---
 
-### 4. Pricing Real (Não Só Headline)
+### 4. Pricing Real (Nêo Só Headline)
 **Pergunta-chave:** Quanto vai custar REALMENTE quando você crescer?
 
 **Armadilhas comuns:**
@@ -557,7 +557,7 @@ Esqueça a lista de "100 features". Foque nestes 5:
 
 **Como avaliar:**
 1. Calcule custo com 2x seu time atual
-2. Veja se features críticas estão disponíveis no tier que cabe no budget
+2. Veja se features críticas estêo disponíveis no tier que cabe no budget
 3. Confirme se pode pagar mensal (flexibilidade > desconto anual)
 
 ---
@@ -570,7 +570,7 @@ Esqueça a lista de "100 features". Foque nestes 5:
 - Formato do export é utilizável? (JSON/CSV ou algo proprietário?)
 - Tem API decente para integrar/migrar?
 
-**Dica:** Ferramentas que dificultam migração são red flag enorme.
+**Dica:** Ferramentas que dificultam migraçêo sêo red flag enorme.
 
 ## Breakdown Honesto dos Top 3
 
@@ -584,7 +584,7 @@ Esqueça a lista de "100 features". Foque nestes 5:
 **Evite se:**
 - Time muito pequeno (< 5 pessoas) → overkill
 - Orçamento apertado → existem opções mais baratas
-- Precisa customização extrema → Monday é mais flexível
+- Precisa customizaçêo extrema → Monday é mais flexível
 
 **Custo real:**
 - Premium ($11/user/mês): Suficiente para maioria
@@ -598,11 +598,11 @@ Esqueça a lista de "100 features". Foque nestes 5:
 
 **Use se:**
 - Gosta de customizar tudo
-- Tem workflows únicos (não cabe em template padrão)
+- Tem workflows únicos (nêo cabe em template padrêo)
 - Quer usar para PM + outras coisas (CRM, hiring, etc)
 
 **Evite se:**
-- Time não é disciplinado → vira bagunça de dashboards
+- Time nêo é disciplinado → vira bagunça de dashboards
 - Quer algo "plug and play" → setup leva mais tempo
 - Orçamento muito apertado
 
@@ -636,17 +636,17 @@ Esqueça a lista de "100 features". Foque nestes 5:
 
 Cuidado com ferramentas que:
 
-1. **Não têm trial real** (só demo agendada com vendedor)
+1. **Nêo têm trial real** (só demo agendada com vendedor)
    → Indica que confiam mais em sales do que no produto
 
 2. **Pricing "entre em contato"**
-   → Geralmente = caro + negociação desgastante
+   → Geralmente = caro + negociaçêo desgastante
 
 3. **Reviews mencionam "support lento"**
    → Quando algo quebrar (e vai quebrar), você ficará travado
 
 4. **Prometem "AI revolucionária"**
-   → Se todo o pitch é AI, provavelmente o core product não se sustenta
+   → Se todo o pitch é AI, provavelmente o core product nêo se sustenta
 
 5. **"Configuramos tudo pra você"**
    → Dependência de setup services = ferramenta complexa demais
@@ -656,28 +656,28 @@ Cuidado com ferramentas que:
 **Passo 1:** Qual seu perfil?
 - [ ] Mínimo Viável (3-8 pessoas, budget apertado)
 - [ ] Crescimento Rápido (10-30 pessoas, escalando)
-- [ ] Operação Complexa (30+ pessoas, workflows custom)
+- [ ] Operaçêo Complexa (30+ pessoas, workflows custom)
 
 **Passo 2:** Quais suas 3 prioridades?
 Ranqueie:
 - [ ] Custo baixo
 - [ ] Setup rápido (<1 dia)
 - [ ] Escalabilidade
-- [ ] Customização
+- [ ] Customizaçêo
 - [ ] Integrações específicas
 - [ ] Mobile-first
 
 **Passo 3:** Teste os top 2 que se encaixam
 - Trial de 7-14 dias
-- Use em projeto real (não "brincar")
+- Use em projeto real (nêo "brincar")
 - Envolva 2-3 pessoas além de você
-- Avalie friction real de adoção
+- Avalie friction real de adoçêo
 
 **Passo 4:** Decida e commit
-- Não procrastine (custo de não ter PM > custo de escolher "segunda melhor")
+- Nêo procrastine (custo de nêo ter PM > custo de escolher "segunda melhor")
 - Reavalie em 12 meses (ok mudar se context mudou)
 
-## Conclusão: Escolha Rápido, Iterate Depois
+## Conclusêo: Escolha Rápido, Iterate Depois
 
 A verdade inconveniente: **você vai gastar mais tempo decidindo do que o custo de escolher "errado"**.
 
@@ -689,15 +689,15 @@ Qualquer uma das 3 ferramentas acima é infinitamente melhor que:
 **Meu conselho:**
 - Se time < 10 e budget apertado → **ClickUp Free** (teste 2 semanas)
 - Se time 10-30 e crescendo → **Asana Premium** (trial 30 dias)
-- Se precisa de customização extrema → **Monday Standard** (teste use cases específicos)
+- Se precisa de customizaçêo extrema → **Monday Standard** (teste use cases específicos)
 
-Não gaste 40 horas decidindo entre ferramentas que diferem em 15%. **Escolha uma hoje, aprenda na prática, ajuste depois**.
+Nêo gaste 40 horas decidindo entre ferramentas que diferem em 15%. **Escolha uma hoje, aprenda na prática, ajuste depois**.
 
 ---
 
 **Próximo passo:** Crie trial da ferramenta que faz mais sentido pro seu perfil. Convide time. Use em 1 projeto real esta semana.
 
-Se em 2 semanas não estiver sendo usado → wasn't the right fit, tente a próxima. **Velocity > perfeição**.
+Se em 2 semanas nêo estiver sendo usado → wasn't the right fit, tente a próxima. **Velocity > perfeiçêo**.
 
 ---
 **Sobre os dados:** Este artigo foi baseado em pesquisa de mercado de Jan/2025, análise de 18 fontes, e experiência prática testando as 3 plataformas.
@@ -714,7 +714,7 @@ METADADOS DO ARTIGO:
 - SEO: Keywords naturalmente distribuídas ✅
 ```
 
-### Código de Implementação
+### Código de Implementaçêo
 
 ```python
 class AgenteEscritor:
@@ -734,7 +734,7 @@ class AgenteEscritor:
             "persuasivo": {
                 "tom": "confiante e motivador",
                 "vocabulário": "impactante",
-                "estrutura": "problema-solução"
+                "estrutura": "problema-soluçêo"
             }
         }
     
@@ -759,24 +759,24 @@ class AgenteEscritor:
             guidelines.get('tom', 'profissional')
         )
         
-        # PASSO 3: Desenvolver cada seção
+        # PASSO 3: Desenvolver cada seçêo
         seções_desenvolvidas = []
-        for seção in outline['seções']:
-            conteúdo = self._desenvolver_seção(
-                seção,
+        for seçêo in outline['seções']:
+            conteúdo = self._desenvolver_seçêo(
+                seçêo,
                 estilo,
                 perfil_audiência
             )
             seções_desenvolvidas.append(conteúdo)
         
-        # PASSO 4: Escrever introdução e conclusão
-        intro = self._escrever_introdução(
+        # PASSO 4: Escrever introduçêo e conclusêo
+        intro = self._escrever_introduçêo(
             outline['título'],
             outline.get('hook'),
             seções_desenvolvidas
         )
         
-        conclusão = self._escrever_conclusão(
+        conclusêo = self._escrever_conclusêo(
             seções_desenvolvidas,
             guidelines.get('call_to_action')
         )
@@ -785,10 +785,10 @@ class AgenteEscritor:
         artigo = self._montar_artigo(
             intro,
             seções_desenvolvidas,
-            conclusão
+            conclusêo
         )
         
-        # PASSO 6: Auto-revisão
+        # PASSO 6: Auto-revisêo
         artigo = self._auto_revisar(
             artigo,
             guidelines.get('target_words', 1000),
@@ -797,27 +797,27 @@ class AgenteEscritor:
         
         return artigo
     
-    def _desenvolver_seção(self, seção, estilo, audiência):
+    def _desenvolver_seçêo(self, seçêo, estilo, audiência):
         """
         Transforma key points em prosa completa
         """
-        conteúdo = f"## {seção['heading']}\n\n"
+        conteúdo = f"## {seçêo['heading']}\n\n"
         
         # Desenvolve cada key point
-        for i, point in enumerate(seção['key_points'], 1):
+        for i, point in enumerate(seçêo['key_points'], 1):
             # Adiciona contexto
             contexto = self._adicionar_contexto(point, audiência)
             conteúdo += f"{contexto}\n\n"
             
             # Adiciona exemplo se disponível
-            if seção.get('exemplos') and len(seção['exemplos']) > i-1:
-                exemplo = self._formatar_exemplo(seção['exemplos'][i-1])
+            if seçêo.get('exemplos') and len(seçêo['exemplos']) > i-1:
+                exemplo = self._formatar_exemplo(seçêo['exemplos'][i-1])
                 conteúdo += f"{exemplo}\n\n"
             
-            # Adiciona transição para próximo ponto
-            if i < len(seção['key_points']):
-                transição = self._gerar_transição()
-                conteúdo += f"{transição}\n\n"
+            # Adiciona transiçêo para próximo ponto
+            if i < len(seçêo['key_points']):
+                transiçêo = self._gerar_transiçêo()
+                conteúdo += f"{transiçêo}\n\n"
         
         return conteúdo
     
@@ -850,36 +850,36 @@ class AgenteEscritor:
 Devido ao tamanho, vou resumir os próximos agentes com estrutura similar:
 
 ## 3. AGENTE ANALISTA DE DADOS
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 4. AGENTE PLANEJADOR ESTRATÉGICO
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 5. AGENTE CONSULTOR
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 6. AGENTE CODIFICADOR
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 7. AGENTE OTIMIZADOR
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 8. AGENTE PROFESSOR/MENTOR
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## 9. AGENTE ORGANIZADOR/ORQUESTRADOR
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
-## 10. AGENTE DE TOMADA DE DECISÃO
-[Missão, características, quando usar, exemplo completo, código - ~3KB]
+## 10. AGENTE DE TOMADA DE DECISêO
+[Missêo, características, quando usar, exemplo completo, código - ~3KB]
 
 ## Tabela Comparativa Completa
 [Matriz de quando usar cada tipo - 1KB]
 
 ## Exercícios Práticos
-[3 exercícios para praticar identificação e criação de agentes - 1KB]
+[3 exercícios para praticar identificaçêo e criaçêo de agentes - 1KB]
 
-## Conclusão do Módulo 3
+## Conclusêo do Módulo 3
 [Resumo + checklist - 1KB]
 
 ---
@@ -887,4 +887,4 @@ Devido ao tamanho, vou resumir os próximos agentes com estrutura similar:
 **Tamanho estimado:** ~30KB
 **Status:** Módulo 3 completo
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo

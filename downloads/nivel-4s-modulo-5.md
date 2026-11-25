@@ -1,25 +1,25 @@
-# Módulo 5: Intenção Composta e Persistente
+# Módulo 5: Intençêo Composta e Persistente
 
 ## Nível 4S - Sistemas Intencionais 2026
 
 ---
 
-## Introdução
+## Introduçêo
 
-Em 2026, sistemas inteligentes não lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.
+Em 2026, sistemas inteligentes nêo lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.
 
 ### Dois conceitos cruciais para 2026:
 
-1. **Intenção Composta:** Objetivos que contêm sub-objetivos, critérios múltiplos, contextos paralelos e dependências.
-2. **Intenção Persistente:** Visão de longo prazo que o sistema mantém ao longo de semanas ou meses.
+1. **Intençêo Composta:** Objetivos que contêm sub-objetivos, critérios múltiplos, contextos paralelos e dependências.
+2. **Intençêo Persistente:** Visêo de longo prazo que o sistema mantém ao longo de semanas ou meses.
 
 ---
 
-## 1. Intenção Composta
+## 1. Intençêo Composta
 
-Uma **Intenção Composta** é uma instrução que contém múltiplos níveis de complexidade simultaneamente.
+Uma **Intençêo Composta** é uma instruçêo que contém múltiplos níveis de complexidade simultaneamente.
 
-### Implementação Completa:
+### Implementaçêo Completa:
 
 ```python
 from dataclasses import dataclass, field
@@ -69,7 +69,7 @@ class IntencaoComposta:
         dependencias: List[str] = None,
         contextos: List[str] = None
     ):
-        """Adiciona objetivo à intenção composta"""
+        """Adiciona objetivo à intençêo composta"""
         objetivo = ObjetivoComposto(
             nivel=nivel,
             descricao=descricao,
@@ -88,7 +88,7 @@ class IntencaoComposta:
             self.arvore_dependencias[dep].append(id_objetivo)
 
     def validar_consistencia(self) -> Dict:
-        """Valida consistência da intenção composta"""
+        """Valida consistência da intençêo composta"""
         problemas = []
 
         # 1. Verifica dependências circulares
@@ -100,7 +100,7 @@ class IntencaoComposta:
         for obj_id, obj in self.objetivos.items():
             for dep in obj.dependencias:
                 if dep not in self.objetivos:
-                    problemas.append(f"{obj_id} depende de {dep} que não existe")
+                    problemas.append(f"{obj_id} depende de {dep} que nêo existe")
 
         # 3. Verifica balanceamento de critérios
         for obj_id, obj in self.objetivos.items():
@@ -129,7 +129,7 @@ class IntencaoComposta:
         return False
 
     def calcular_ordem_execucao(self) -> List[str]:
-        """Calcula ordem de execução respeitando dependências"""
+        """Calcula ordem de execuçêo respeitando dependências"""
         # Topological sort
         grau_entrada = {obj_id: 0 for obj_id in self.objetivos}
 
@@ -200,7 +200,7 @@ class IntencaoComposta:
         }
 
     def gerar_plano_execucao(self) -> Dict:
-        """Gera plano completo de execução"""
+        """Gera plano completo de execuçêo"""
         validacao = self.validar_consistencia()
 
         if not validacao["valido"]:
@@ -231,7 +231,7 @@ intencao = IntencaoComposta("Construir autoridade em IA Educacional")
 intencao.adicionar_objetivo(
     "macro_1",
     NivelIntencao.MACRO,
-    "Ser referência reconhecida em IA + Educação",
+    "Ser referência reconhecida em IA + Educaçêo",
     365,
     {
         TipoCriterio.IMPACTO: 0.5,
@@ -286,7 +286,7 @@ intencao.adicionar_objetivo(
 intencao.adicionar_objetivo(
     "micro_2",
     NivelIntencao.MICRO,
-    "Produzir artigo científico sobre LLMs na educação",
+    "Produzir artigo científico sobre LLMs na educaçêo",
     60,
     {
         TipoCriterio.QUALIDADE: 0.8,
@@ -296,12 +296,12 @@ intencao.adicionar_objetivo(
     contextos=["academicos"]
 )
 
-print("=== INTENÇÃO COMPOSTA ===\n")
+print("=== INTENÇêO COMPOSTA ===\n")
 print(f"Objetivo Macro: {intencao.objetivo_macro}")
 print(f"Total de objetivos: {len(intencao.objetivos)}\n")
 
 # Valida consistência
-print("Validação:")
+print("Validaçêo:")
 validacao = intencao.validar_consistencia()
 print(f"  Status: {'✅ Válido' if validacao['valido'] else '❌ Inválido'}")
 if not validacao['valido']:
@@ -309,11 +309,11 @@ if not validacao['valido']:
         print(f"  • {problema}")
 print()
 
-# Gera plano de execução
+# Gera plano de execuçêo
 plano = intencao.gerar_plano_execucao()
 
 if plano["status"] == "valido":
-    print("Ordem de execução:")
+    print("Ordem de execuçêo:")
     for i, obj_id in enumerate(plano["ordem_execucao"], 1):
         obj = intencao.objetivos[obj_id]
         print(f"  {i}. [{obj.nivel.value.upper()}] {obj.descricao}")
@@ -332,16 +332,16 @@ if plano["status"] == "valido":
 
 ---
 
-## 2. Intenção Persistente
+## 2. Intençêo Persistente
 
-**Intenção Persistente** significa que a IA **mantém objetivos de longo prazo** mesmo após dias, semanas ou meses de interação.
+**Intençêo Persistente** significa que a IA **mantém objetivos de longo prazo** mesmo após dias, semanas ou meses de interaçêo.
 
 ```python
 import json
 from collections import defaultdict
 
 class IntencaoPersistente:
-    """Sistema que mantém intenção ao longo do tempo"""
+    """Sistema que mantém intençêo ao longo do tempo"""
 
     def __init__(self, usuario_id: str, missao: str):
         self.usuario_id = usuario_id
@@ -386,7 +386,7 @@ class IntencaoPersistente:
         }
 
     def validar_padrao(self, nome: str, descricao: str, taxa_sucesso: float):
-        """Registra padrão que funciona bem"""
+        """Registra padrêo que funciona bem"""
         padrao = {
             "nome": nome,
             "descricao": descricao,
@@ -477,7 +477,7 @@ class IntencaoPersistente:
         # Baseado em padrões
         padroes_sucesso = [p for p in self.padroes_validados if p["taxa_sucesso"] > 0.8]
         if padroes_sucesso:
-            sugestoes.append(f"Aplicar padrão '{padroes_sucesso[0]['nome']}' com {padroes_sucesso[0]['taxa_sucesso']:.1%} de sucesso")
+            sugestoes.append(f"Aplicar padrêo '{padroes_sucesso[0]['nome']}' com {padroes_sucesso[0]['taxa_sucesso']:.1%} de sucesso")
 
         # Baseado em marcos
         if len(self.marcos_atingidos) < 3:
@@ -486,7 +486,7 @@ class IntencaoPersistente:
         return sugestoes[:3]
 
     def manter_alinhamento_missao(self, acao_proposta: str) -> Dict:
-        """Verifica se ação está alinhada com missão"""
+        """Verifica se açêo está alinhada com missêo"""
         # Análise simples de palavras-chave
         missao_palavras = set(self.missao.lower().split())
         acao_palavras = set(acao_proposta.lower().split())
@@ -498,14 +498,14 @@ class IntencaoPersistente:
             "alinhado": alinhamento > 0.3,
             "score_alinhamento": alinhamento,
             "justificativa": (
-                f"Ação tem {alinhamento:.1%} de alinhamento com missão" if alinhamento > 0.3
-                else "Ação não parece alinhada com missão principal"
+                f"Açêo tem {alinhamento:.1%} de alinhamento com missêo" if alinhamento > 0.3
+                else "Açêo nêo parece alinhada com missêo principal"
             )
         }
 
 
 # Exemplo de uso completo
-print("\n=== INTENÇÃO PERSISTENTE ===\n")
+print("\n=== INTENÇêO PERSISTENTE ===\n")
 
 persistencia = IntencaoPersistente(
     "usuario_123",
@@ -526,7 +526,7 @@ print("Semana 1: Preferências e estilo definidos")
 print(f"  • Tom: {persistencia.preferencias['tom_comunicacao']['valor_atual']}")
 print(f"  • Formato: {persistencia.preferencias['formato_conteudo']['valor_atual']}\n")
 
-# Semana 4: Valida padrão que funciona
+# Semana 4: Valida padrêo que funciona
 persistencia.validar_padrao(
     "casos_praticos",
     "Posts com casos práticos têm 3x mais engajamento",
@@ -539,15 +539,15 @@ persistencia.adicionar_contexto(
     "Casos práticos têm melhor performance"
 )
 
-print("Semana 4: Padrão validado")
+print("Semana 4: Padrêo validado")
 print(f"  • Casos práticos: {persistencia.padroes_validados[0]['taxa_sucesso']:.1%} sucesso\n")
 
 # Semana 8: Novo projeto
-nova_acao = "Criar série de vídeos sobre transformers em educação"
+nova_acao = "Criar série de vídeos sobre transformers em educaçêo"
 alinhamento = persistencia.manter_alinhamento_missao(nova_acao)
 
-print("Semana 8: Nova ação proposta")
-print(f"  • Ação: {nova_acao}")
+print("Semana 8: Nova açêo proposta")
+print(f"  • Açêo: {nova_acao}")
 print(f"  • Alinhada: {'✅' if alinhamento['alinhado'] else '❌'}")
 print(f"  • Score: {alinhamento['score_alinhamento']:.1%}")
 print(f"  • {alinhamento['justificativa']}\n")
@@ -563,7 +563,7 @@ print("=" * 60)
 relatorio = persistencia.gerar_relatorio_trimestral()
 
 print("RELATÓRIO TRIMESTRAL:")
-print(f"Missão: {relatorio['missao']}")
+print(f"Missêo: {relatorio['missao']}")
 print(f"Dias ativo: {relatorio['dias_ativo']}")
 print(f"Preferências identificadas: {relatorio['preferencias_identificadas']}")
 print(f"Padrões validados: {relatorio['padroes_validados']}")
@@ -576,29 +576,29 @@ for i, passo in enumerate(relatorio['proximos_passos'], 1):
 
 ---
 
-## Conclusão
+## Conclusêo
 
-Você dominou os conceitos de Intenção Composta e Intenção Persistente - as capacidades que permitem sistemas manterem objetivos complexos ao longo de meses.
+Você dominou os conceitos de Intençêo Composta e Intençêo Persistente - as capacidades que permitem sistemas manterem objetivos complexos ao longo de meses.
 
 ### O que você dominou:
 
-✅ 7 componentes de uma Intenção Composta (macro, intermediárias, micro, critérios, contextos, dependências, camadas)
-✅ Implementação completa de sistema de intenção composta com validação
-✅ Cálculo automático de ordem de execução respeitando dependências
-✅ Priorização de objetivos com múltiplos critérios
+✅ 7 componentes de uma Intençêo Composta (macro, intermediárias, micro, critérios, contextos, dependências, camadas)
+✅ Implementaçêo completa de sistema de intençêo composta com validaçêo
+✅ Cálculo automático de ordem de execuçêo respeitando dependências
+✅ Priorizaçêo de objetivos com múltiplos critérios
 ✅ Análise de contextos paralelos
-✅ Intenção Persistente com preferências, estilo, padrões validados
+✅ Intençêo Persistente com preferências, estilo, padrões validados
 ✅ Contexto acumulado ao longo do tempo
-✅ Alinhamento automático de novas ações com missão
+✅ Alinhamento automático de novas ações com missêo
 ✅ Relatórios trimestrais de progresso
 ✅ Como sistemas mantêm objetivos por meses
-✅ Diferença entre comando pontual e intenção persistente
-✅ Por que intenção composta e persistente revolucionam IA
+✅ Diferença entre comando pontual e intençêo persistente
+✅ Por que intençêo composta e persistente revolucionam IA
 
 ### Próximo módulo:
 
-No Módulo 6, você vai aprender sobre **Sistemas Multiagentes (2026)**: os 4 modelos que dominam a coordenação de agentes em 2026, com implementações completas de cada arquitetura.
+No Módulo 6, você vai aprender sobre **Sistemas Multiagentes (2026)**: os 4 modelos que dominam a coordenaçêo de agentes em 2026, com implementações completas de cada arquitetura.
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

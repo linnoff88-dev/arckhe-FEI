@@ -1,10 +1,10 @@
-# Módulo 7: Criação de Agentes com ESIA
+# Módulo 7: Criaçêo de Agentes com ESIA
 
 ## Os 8 Componentes Essenciais de um Agente Avançado
 
 **A diferença entre agente básico e agente profissional está na completude dos componentes.**
 
-### 1. Missão Funcional
+### 1. Missêo Funcional
 
 **Propósito claro e específico do agente.**
 
@@ -14,11 +14,11 @@ from typing import Dict, List
 from enum import Enum
 
 class TipoImpacto(Enum):
-    CRIACAO = "criação"
-    TRANSFORMACAO = "transformação"
+    CRIACAO = "criaçêo"
+    TRANSFORMACAO = "transformaçêo"
     ANALISE = "análise"
-    COORDENACAO = "coordenação"
-    VALIDACAO = "validação"
+    COORDENACAO = "coordenaçêo"
+    VALIDACAO = "validaçêo"
 
 @dataclass
 class MissaoFuncional:
@@ -32,7 +32,7 @@ class MissaoFuncional:
     contexto_atuacao: Dict
 
     def validar_missao(self) -> Dict:
-        """Valida se a missão está bem definida"""
+        """Valida se a missêo está bem definida"""
         return {
             "missao_clara": len(self.verbo_principal) > 0 and len(self.objeto_trabalho) > 0,
             "resultado_mensuravel": len(self.metricas_sucesso) >= 2,
@@ -53,7 +53,7 @@ class MissaoFuncional:
 
 # Exemplo prático
 missao_copywriter = MissaoFuncional(
-    nome_agente="Copywriter de Alta Conversão",
+    nome_agente="Copywriter de Alta Conversêo",
     verbo_principal="criar",
     objeto_trabalho="textos persuasivos para produtos digitais",
     resultado_esperado="copy que converte mínimo 3% do tráfego em vendas",
@@ -72,12 +72,12 @@ missao_copywriter = MissaoFuncional(
     }
 )
 
-print(f"Validação: {missao_copywriter.validar_missao()}")
+print(f"Validaçêo: {missao_copywriter.validar_missao()}")
 ```
 
-### 2. Intenção Estratégica
+### 2. Intençêo Estratégica
 
-**Objetivos de médio prazo alinhados com missão macro.**
+**Objetivos de médio prazo alinhados com missêo macro.**
 
 ```python
 from dataclasses import dataclass, field
@@ -147,8 +147,8 @@ intencao_crescimento = IntencaoEstrategica(
     objetivo_principal="Tornar-se referência em copy de lançamentos digitais",
     horizonte_temporal=90,
     sub_objetivos=[
-        "Criar 15 páginas de vendas de alta conversão",
-        "Alcançar taxa média de conversão de 4%",
+        "Criar 15 páginas de vendas de alta conversêo",
+        "Alcançar taxa média de conversêo de 4%",
         "Desenvolver 3 templates reutilizáveis",
         "Documentar padrões de sucesso"
     ],
@@ -158,10 +158,10 @@ intencao_crescimento = IntencaoEstrategica(
         "templates_prontos": 3,
         "documentacao_completa": 1.0
     },
-    alinhamento_missao="Cada página criada aprimora a capacidade de conversão",
+    alinhamento_missao="Cada página criada aprimora a capacidade de conversêo",
     restricoes=[
         "Manter ética em todas as páginas",
-        "Não usar gatilhos manipulativos",
+        "Nêo usar gatilhos manipulativos",
         "Validar claims com dados reais"
     ]
 )
@@ -176,12 +176,12 @@ progresso = intencao_crescimento.avaliar_progresso(
         "documentacao_completa": 0.4
     }
 )
-print(f"Avaliação dia 45: {progresso}")
+print(f"Avaliaçêo dia 45: {progresso}")
 ```
 
 ### 3. Domínio de Responsabilidade
 
-**Escopo claro de atuação e autoridade.**
+**Escopo claro de atuaçêo e autoridade.**
 
 ```python
 from dataclasses import dataclass
@@ -189,9 +189,9 @@ from typing import List, Dict, Set
 from enum import Enum
 
 class NivelAutoridade(Enum):
-    EXECUCAO = "pode executar sem aprovação"
-    SUGESTAO = "sugere, mas requer aprovação"
-    CONSULTA = "apenas fornece informação"
+    EXECUCAO = "pode executar sem aprovaçêo"
+    SUGESTAO = "sugere, mas requer aprovaçêo"
+    CONSULTA = "apenas fornece informaçêo"
     VETO = "pode bloquear ações"
 
 @dataclass
@@ -205,12 +205,12 @@ class DominioResponsabilidade:
     interfaces_externas: Dict[str, str]
 
     def pode_executar(self, acao: str) -> Dict:
-        """Verifica se pode executar determinada ação"""
+        """Verifica se pode executar determinada açêo"""
         # Verifica se está em área proibida
         if acao in self.areas_proibidas:
             return {
                 "permitido": False,
-                "razao": "ação em área proibida",
+                "razao": "açêo em área proibida",
                 "nivel": None
             }
 
@@ -218,22 +218,22 @@ class DominioResponsabilidade:
         if acao in self.decisoes_autonomas:
             return {
                 "permitido": True,
-                "razao": "decisão autônoma",
+                "razao": "decisêo autônoma",
                 "nivel": NivelAutoridade.EXECUCAO
             }
 
         if acao in self.decisoes_requerem_aprovacao:
             return {
                 "permitido": False,
-                "razao": "requer aprovação externa",
+                "razao": "requer aprovaçêo externa",
                 "nivel": NivelAutoridade.SUGESTAO,
-                "proximo_passo": "solicitar aprovação do supervisor"
+                "proximo_passo": "solicitar aprovaçêo do supervisor"
             }
 
-        # Se não está definido, assume consulta
+        # Se nêo está definido, assume consulta
         return {
             "permitido": False,
-            "razao": "ação não mapeada no domínio",
+            "razao": "açêo nêo mapeada no domínio",
             "nivel": NivelAutoridade.CONSULTA,
             "proximo_passo": "consultar supervisor sobre escopo"
         }
@@ -289,7 +289,7 @@ dominio_copywriter = DominioResponsabilidade(
     interfaces_externas={
         "supervisor": "aprovar decisões críticas",
         "designer": "solicitar assets visuais",
-        "analista": "obter dados de conversão"
+        "analista": "obter dados de conversêo"
     }
 )
 
@@ -306,7 +306,7 @@ print(f"\nRelatório: {dominio_copywriter.gerar_relatorio_fronteiras()}")
 
 ### 4. Limites Claros
 
-**O que pode e não pode fazer autonomamente.**
+**O que pode e nêo pode fazer autonomamente.**
 
 ```python
 from dataclasses import dataclass
@@ -315,7 +315,7 @@ from enum import Enum
 
 class TipoLimite(Enum):
     FINANCEIRO = "limite de valor monetário"
-    TEMPORAL = "limite de tempo de execução"
+    TEMPORAL = "limite de tempo de execuçêo"
     QUALITATIVO = "limite de qualidade mínima"
     VOLUMETRICO = "limite de quantidade"
     SEGURANCA = "limite de segurança e privacidade"
@@ -330,7 +330,7 @@ class SistemaLimites:
     escalation_rules: Dict[str, str]
 
     def validar_acao(self, acao: str, parametros: Dict[str, Any]) -> Dict:
-        """Valida se ação respeita todos os limites"""
+        """Valida se açêo respeita todos os limites"""
         violacoes = []
         warnings = []
 
@@ -347,15 +347,15 @@ class SistemaLimites:
             if not funcao_validacao(parametros):
                 violacoes.append(f"Falha no critério qualitativo: {criterio}")
 
-        # Verifica se é ação crítica
+        # Verifica se é açêo crítica
         if acao in self.acoes_criticas:
-            warnings.append(f"Ação '{acao}' é crítica - requer atenção extra")
+            warnings.append(f"Açêo '{acao}' é crítica - requer atençêo extra")
 
         # Verifica validações obrigatórias
         if acao in self.validacoes_obrigatorias:
             for validacao in self.validacoes_obrigatorias[acao]:
                 if validacao not in parametros:
-                    violacoes.append(f"Validação obrigatória ausente: {validacao}")
+                    violacoes.append(f"Validaçêo obrigatória ausente: {validacao}")
 
         return {
             "permitido": len(violacoes) == 0,
@@ -366,7 +366,7 @@ class SistemaLimites:
         }
 
     def registrar_violacao(self, acao: str, violacao: Dict) -> Dict:
-        """Registra tentativa de violação de limite"""
+        """Registra tentativa de violaçêo de limite"""
         return {
             "timestamp": "2025-11-13T10:30:00",
             "acao_bloqueada": acao,
@@ -375,14 +375,14 @@ class SistemaLimites:
             "notificacao_enviada": violacao.get("escalar_para", "supervisor")
         }
 
-# Funções de validação qualitativa
+# Funções de validaçêo qualitativa
 def validar_qualidade_texto(params: Dict) -> bool:
     """Texto deve ter qualidade mínima"""
     texto = params.get("texto", "")
     return len(texto) >= 100 and len(texto.split()) >= 20
 
 def validar_conversao_minima(params: Dict) -> bool:
-    """Histórico de conversão deve ser positivo"""
+    """Histórico de conversêo deve ser positivo"""
     return params.get("conversao_esperada", 0) >= 0.02
 
 # Exemplo prático
@@ -419,7 +419,7 @@ teste_ok = limites_copywriter.validar_acao(
     "criar_copy",
     {
         "palavras_headline": 12,
-        "texto": "Este é um texto de exemplo com mais de cem caracteres e pelo menos vinte palavras para passar na validação de qualidade mínima estabelecida.",
+        "texto": "Este é um texto de exemplo com mais de cem caracteres e pelo menos vinte palavras para passar na validaçêo de qualidade mínima estabelecida.",
         "conversao_esperada": 0.03
     }
 )
@@ -428,12 +428,12 @@ teste_violacao = limites_copywriter.validar_acao(
     "publicar_pagina",
     {
         "palavras_headline": 20,  # Excede limite
-        "texto": "Texto curto"  # Não passa validação qualitativa
+        "texto": "Texto curto"  # Nêo passa validaçêo qualitativa
     }
 )
 
 print(f"Teste OK: {teste_ok}")
-print(f"\nTeste Violação: {teste_violacao}")
+print(f"\nTeste Violaçêo: {teste_violacao}")
 ```
 
 ### 5. Plano de Raciocínio Interno
@@ -476,7 +476,7 @@ class PlanoRaciocinio:
             })
             estado_atual = resultado_etapa
 
-        # Decisão final
+        # Decisêo final
         decisao = self._tomar_decisao(estado_atual)
 
         return {
@@ -501,12 +501,12 @@ class PlanoRaciocinio:
             return funcao(entrada)
 
     def _tomar_decisao(self, estado_final: Dict) -> Dict:
-        """Toma decisão baseada no raciocínio completo"""
+        """Toma decisêo baseada no raciocínio completo"""
         opcoes = estado_final.get("opcoes", [])
         if not opcoes:
-            return {"erro": "nenhuma opção gerada"}
+            return {"erro": "nenhuma opçêo gerada"}
 
-        # Aplica critérios de decisão
+        # Aplica critérios de decisêo
         scores = []
         for opcao in opcoes:
             score = sum(
@@ -531,11 +531,11 @@ class PlanoRaciocinio:
         return sum(confiancas) / len(confiancas)
 
     def _gerar_explicacao(self, historico: List[Dict], decisao: Dict) -> str:
-        """Gera explicação textual do raciocínio"""
+        """Gera explicaçêo textual do raciocínio"""
         partes = ["Raciocínio completo:"]
         for i, etapa in enumerate(historico, 1):
             partes.append(f"{i}. {etapa['etapa']} ({etapa['tipo'].value})")
-        partes.append(f"\nDecisão: {decisao['opcao_escolhida'].get('nome', 'N/A')}")
+        partes.append(f"\nDecisêo: {decisao['opcao_escolhida'].get('nome', 'N/A')}")
         return "\n".join(partes)
 
 # Funções de raciocínio
@@ -606,7 +606,7 @@ print(f"\nConfiança: {resultado['confianca_final']:.2f}")
 print(f"\n{resultado['explicacao']}")
 ```
 
-### 6. Protocolos de Comunicação
+### 6. Protocolos de Comunicaçêo
 
 **Como interage com outros agentes e usuários.**
 
@@ -617,10 +617,10 @@ from enum import Enum
 from datetime import datetime
 
 class TipoMensagem(Enum):
-    SOLICITACAO = "pede ação ou informação"
-    RESPOSTA = "responde solicitação"
+    SOLICITACAO = "pede açêo ou informaçêo"
+    RESPOSTA = "responde solicitaçêo"
     NOTIFICACAO = "informa evento"
-    VALIDACAO = "pede confirmação"
+    VALIDACAO = "pede confirmaçêo"
     ERRO = "reporta problema"
 
 class FormatoSaida(Enum):
@@ -682,9 +682,9 @@ class ProtocoloComunicacao:
     def _formatar_markdown(self, tipo: TipoMensagem, conteudo: Dict) -> str:
         """Formata em markdown profissional"""
         if tipo == TipoMensagem.SOLICITACAO:
-            return f"### Solicitação\n\n{conteudo.get('descricao', '')}\n\n**Prazo:** {conteudo.get('prazo', 'não especificado')}"
+            return f"### Solicitaçêo\n\n{conteudo.get('descricao', '')}\n\n**Prazo:** {conteudo.get('prazo', 'nêo especificado')}"
         elif tipo == TipoMensagem.ERRO:
-            return f"⚠️ **Erro Detectado**\n\n```\n{conteudo.get('erro', '')}\n```\n\n**Ação:** {conteudo.get('acao', '')}"
+            return f"⚠️ **Erro Detectado**\n\n```\n{conteudo.get('erro', '')}\n```\n\n**Açêo:** {conteudo.get('acao', '')}"
         else:
             return str(conteudo)
 
@@ -731,8 +731,8 @@ protocolo_copywriter = ProtocoloComunicacao(
     templates_mensagem={
         TipoMensagem.SOLICITACAO: "Preciso de: {recurso}\nPara: {finalidade}\nAté: {prazo}",
         TipoMensagem.RESPOSTA: "Concluído: {tarefa}\nResultado: {resultado}",
-        TipoMensagem.NOTIFICACAO: "Atualização: {evento}",
-        TipoMensagem.ERRO: "Problema: {descricao}\nAção tomada: {acao}"
+        TipoMensagem.NOTIFICACAO: "Atualizaçêo: {evento}",
+        TipoMensagem.ERRO: "Problema: {descricao}\nAçêo tomada: {acao}"
     },
     regras_escalacao=[
         {"tipo": TipoMensagem.ERRO, "prioridade": "alta", "escalar_para": "supervisor"},
@@ -744,7 +744,7 @@ protocolo_copywriter = ProtocoloComunicacao(
     }
 )
 
-# Testa comunicação
+# Testa comunicaçêo
 msg1 = protocolo_copywriter.enviar_mensagem(
     destinatario="designer",
     tipo=TipoMensagem.SOLICITACAO,
@@ -759,8 +759,8 @@ msg2 = protocolo_copywriter.enviar_mensagem(
     destinatario="supervisor",
     tipo=TipoMensagem.ERRO,
     conteudo={
-        "erro": "Taxa de conversão abaixo de 2% em teste A/B",
-        "acao": "Revisei headline e CTA, nova versão em análise"
+        "erro": "Taxa de conversêo abaixo de 2% em teste A/B",
+        "acao": "Revisei headline e CTA, nova versêo em análise"
     },
     prioridade="alta"
 )
@@ -780,10 +780,10 @@ from typing import Dict, List, Callable, Any
 from enum import Enum
 
 class NivelSeveridade(Enum):
-    CRITICO = "bloqueia publicação"
-    ALTO = "requer correção"
-    MEDIO = "recomenda revisão"
-    BAIXO = "sugestão de melhoria"
+    CRITICO = "bloqueia publicaçêo"
+    ALTO = "requer correçêo"
+    MEDIO = "recomenda revisêo"
+    BAIXO = "sugestêo de melhoria"
 
 @dataclass
 class CriterioAuditoria:
@@ -796,7 +796,7 @@ class CriterioAuditoria:
 
 @dataclass
 class SistemaAuditoriaInterna:
-    """Sistema de validação de qualidade"""
+    """Sistema de validaçêo de qualidade"""
     criterios: List[CriterioAuditoria]
     score_minimo_publicacao: float
     checklists: Dict[str, List[str]]
@@ -849,7 +849,7 @@ class SistemaAuditoriaInterna:
         }
 
     def _recomendar_acao(self, aprovado: bool, criticos: List, score: float) -> str:
-        """Recomenda próxima ação"""
+        """Recomenda próxima açêo"""
         if not aprovado and criticos:
             return f"BLOQUEADO: Corrigir {len(criticos)} problema(s) crítico(s)"
         elif not aprovado:
@@ -857,13 +857,13 @@ class SistemaAuditoriaInterna:
         elif score < 0.9:
             return "Aprovado, mas há espaço para melhorias"
         else:
-            return "Excelente qualidade, aprovado para publicação"
+            return "Excelente qualidade, aprovado para publicaçêo"
 
     def executar_checklist(self, tipo_saida: str, output: Dict) -> Dict:
         """Executa checklist específico"""
         checklist = self.checklists.get(tipo_saida, [])
         if not checklist:
-            return {"erro": f"Checklist '{tipo_saida}' não encontrado"}
+            return {"erro": f"Checklist '{tipo_saida}' nêo encontrado"}
 
         resultados = []
         for item in checklist:
@@ -884,7 +884,7 @@ class SistemaAuditoriaInterna:
             "detalhes": resultados
         }
 
-# Funções de validação
+# Funções de validaçêo
 def validar_clareza_mensagem(output: Dict) -> Dict:
     """Mensagem deve ser clara"""
     texto = output.get("texto", "")
@@ -908,7 +908,7 @@ def validar_clareza_mensagem(output: Dict) -> Dict:
     }
 
 def validar_conversao_esperada(output: Dict) -> Dict:
-    """Elementos de conversão presentes"""
+    """Elementos de conversêo presentes"""
     elementos = output.get("elementos", [])
     elementos_essenciais = {"headline", "cta", "beneficios", "prova_social"}
     presentes = set(elementos) & elementos_essenciais
@@ -921,7 +921,7 @@ def validar_conversao_esperada(output: Dict) -> Dict:
     }
 
 def validar_etica(output: Dict) -> Dict:
-    """Não usa táticas antiéticas"""
+    """Nêo usa táticas antiéticas"""
     texto = output.get("texto", "").lower()
     palavras_proibidas = ["garantido", "milagre", "segredo", "hack"]
     violacoes = [p for p in palavras_proibidas if p in texto]
@@ -944,7 +944,7 @@ auditoria_copywriter = SistemaAuditoriaInterna(
             score_minimo=0.7
         ),
         CriterioAuditoria(
-            nome="Elementos de Conversão",
+            nome="Elementos de Conversêo",
             descricao="Deve ter headline, CTA, benefícios e prova social",
             funcao_validacao=validar_conversao_esperada,
             severidade=NivelSeveridade.CRITICO,
@@ -952,7 +952,7 @@ auditoria_copywriter = SistemaAuditoriaInterna(
         ),
         CriterioAuditoria(
             nome="Ética e Transparência",
-            descricao="Não usa promessas falsas ou manipulação",
+            descricao="Nêo usa promessas falsas ou manipulaçêo",
             funcao_validacao=validar_etica,
             severidade=NivelSeveridade.CRITICO,
             score_minimo=1.0
@@ -987,7 +987,7 @@ checklist = auditoria_copywriter.executar_checklist("pagina_vendas", output_test
 print(f"\nChecklist: {checklist['concluidos']}/{checklist['total_itens']} ({checklist['percentual']:.0f}%)")
 ```
 
-### 8. Modo de Falha e Recuperação
+### 8. Modo de Falha e Recuperaçêo
 
 **Como detecta problemas e se recupera.**
 
@@ -999,17 +999,17 @@ from datetime import datetime
 
 class TipoFalha(Enum):
     ENTRADA_INVALIDA = "dados de entrada incorretos"
-    TIMEOUT = "operação excedeu tempo limite"
-    RECURSO_INDISPONIVEL = "dependência não disponível"
-    QUALIDADE_BAIXA = "saída abaixo do padrão"
-    ERRO_LOGICA = "erro na execução"
+    TIMEOUT = "operaçêo excedeu tempo limite"
+    RECURSO_INDISPONIVEL = "dependência nêo disponível"
+    QUALIDADE_BAIXA = "saída abaixo do padrêo"
+    ERRO_LOGICA = "erro na execuçêo"
 
 class EstrategiaRecuperacao(Enum):
     RETRY = "tentar novamente"
     FALLBACK = "usar alternativa"
     DEGRADACAO = "modo degradado"
     ESCALACAO = "pedir ajuda humana"
-    ABORT = "cancelar operação"
+    ABORT = "cancelar operaçêo"
 
 @dataclass
 class PlanoRecuperacao:
@@ -1023,25 +1023,25 @@ class PlanoRecuperacao:
 
 @dataclass
 class SistemaFalhaRecuperacao:
-    """Sistema completo de detecção e recuperação"""
+    """Sistema completo de detecçêo e recuperaçêo"""
     planos_recuperacao: Dict[TipoFalha, PlanoRecuperacao]
     historico_falhas: List[Dict] = field(default_factory=list)
     modo_degradado: bool = False
 
     def detectar_e_recuperar(self, operacao: Callable, contexto: Dict) -> Dict:
-        """Executa operação com detecção e recuperação automática"""
+        """Executa operaçêo com detecçêo e recuperaçêo automática"""
         tentativas = 0
         max_tentativas = 3
         ultima_falha = None
 
         while tentativas < max_tentativas:
             try:
-                # Tenta executar operação
+                # Tenta executar operaçêo
                 resultado = operacao(contexto)
 
                 # Valida qualidade
                 if not self._validar_qualidade(resultado):
-                    raise Exception("Qualidade abaixo do padrão")
+                    raise Exception("Qualidade abaixo do padrêo")
 
                 # Sucesso!
                 if tentativas > 0:
@@ -1072,7 +1072,7 @@ class SistemaFalhaRecuperacao:
 
         return {
             "sucesso": False,
-            "erro": "Não foi possível recuperar",
+            "erro": "Nêo foi possível recuperar",
             "tentativas": tentativas,
             "ultima_falha": ultima_falha.value if ultima_falha else "desconhecida"
         }
@@ -1134,7 +1134,7 @@ class SistemaFalhaRecuperacao:
         })
 
     def _registrar_recuperacao_sucesso(self, tipo_falha: TipoFalha, tentativas: int):
-        """Registra recuperação bem-sucedida"""
+        """Registra recuperaçêo bem-sucedida"""
         if self.historico_falhas:
             self.historico_falhas[-1]["recuperado"] = True
             self.historico_falhas[-1]["tentativas_ate_sucesso"] = tentativas
@@ -1158,8 +1158,8 @@ class SistemaFalhaRecuperacao:
         }
 
     def _escalar_para_humano(self, tipo_falha: TipoFalha, contexto: Dict):
-        """Escala problema para supervisão humana"""
-        print(f"🚨 ESCALAÇÃO: {tipo_falha.value}")
+        """Escala problema para supervisêo humana"""
+        print(f"🚨 ESCALAÇêO: {tipo_falha.value}")
         print(f"Contexto: {contexto}")
 
     def gerar_relatorio_saude(self) -> Dict:
@@ -1211,13 +1211,13 @@ sistema_recuperacao = SistemaFalhaRecuperacao(
     }
 )
 
-# Simula operação com falha e recuperação
+# Simula operaçêo com falha e recuperaçêo
 def operacao_copy_instavel(contexto: Dict) -> Dict:
-    """Simula criação de copy que pode falhar"""
+    """Simula criaçêo de copy que pode falhar"""
     import random
     if random.random() < 0.3:  # 30% chance de sucesso
         return {"texto": "Copy criado", "score": 0.85}
-    raise Exception("Qualidade abaixo do padrão")
+    raise Exception("Qualidade abaixo do padrêo")
 
 resultado = sistema_recuperacao.detectar_e_recuperar(
     operacao_copy_instavel,
@@ -1228,21 +1228,21 @@ print(f"Resultado: {resultado}")
 print(f"\nSaúde do sistema: {sistema_recuperacao.gerar_relatorio_saude()}")
 ```
 
-## Conclusão: O Checklist do Agente Completo
+## Conclusêo: O Checklist do Agente Completo
 
-Antes de publicar um agente em produção, valide os 8 componentes:
+Antes de publicar um agente em produçêo, valide os 8 componentes:
 
-✅ **Missão Funcional** - Sabe exatamente o que faz e por quê
-✅ **Intenção Estratégica** - Tem objetivos de médio prazo claros
-✅ **Domínio de Responsabilidade** - Sabe onde atua e onde não atua
+✅ **Missêo Funcional** - Sabe exatamente o que faz e por quê
+✅ **Intençêo Estratégica** - Tem objetivos de médio prazo claros
+✅ **Domínio de Responsabilidade** - Sabe onde atua e onde nêo atua
 ✅ **Limites Claros** - Conhece suas cercas de segurança
 ✅ **Plano de Raciocínio** - Pensa de forma estruturada e explicável
-✅ **Protocolos de Comunicação** - Sabe como se comunicar com todos
+✅ **Protocolos de Comunicaçêo** - Sabe como se comunicar com todos
 ✅ **Auditoria Interna** - Valida qualidade da própria saída
-✅ **Recuperação de Falhas** - Sabe detectar e corrigir problemas
+✅ **Recuperaçêo de Falhas** - Sabe detectar e corrigir problemas
 
-**Isso é padrão 2026.**
+**Isso é padrêo 2026.**
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

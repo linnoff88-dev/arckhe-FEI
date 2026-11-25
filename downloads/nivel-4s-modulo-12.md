@@ -2,7 +2,7 @@
 
 ## Pilares da Governança de Sistemas Autônomos
 
-**Governança não é opcional. É mandatório para sistemas de produção.**
+**Governança nêo é opcional. É mandatório para sistemas de produçêo.**
 
 ### 1. Alinhamento Intencional
 
@@ -21,7 +21,7 @@ class SistemaAlinhamentoIntencional:
     desvios_detectados: List[Dict] = field(default_factory=list)
 
     def validar_acao_contra_valores(self, acao: Dict) -> Dict:
-        """Valida se ação está alinhada com valores"""
+        """Valida se açêo está alinhada com valores"""
 
         violacoes = []
 
@@ -34,7 +34,7 @@ class SistemaAlinhamentoIntencional:
                     "severidade": "alta"
                 })
 
-        # Verifica alinhamento com missão
+        # Verifica alinhamento com missêo
         if not self._alinhado_com_missao(acao):
             violacoes.append({
                 "tipo": "desvio_missao",
@@ -56,8 +56,8 @@ class SistemaAlinhamentoIntencional:
         }
 
     def _acao_respeita_valor(self, acao: Dict, valor: str) -> bool:
-        """Verifica se ação respeita valor específico"""
-        # Implementação simplificada
+        """Verifica se açêo respeita valor específico"""
+        # Implementaçêo simplificada
         conteudo = str(acao).lower()
 
         if valor == "transparencia" and "ocultar" in conteudo:
@@ -70,9 +70,9 @@ class SistemaAlinhamentoIntencional:
         return True
 
     def _alinhado_com_missao(self, acao: Dict) -> bool:
-        """Verifica alinhamento com missão original"""
+        """Verifica alinhamento com missêo original"""
         # Análise simplificada
-        return True  # Em produção, usaria similaridade semântica
+        return True  # Em produçêo, usaria similaridade semântica
 
     def gerar_relatorio_alinhamento(self) -> Dict:
         """Gera relatório de alinhamento"""
@@ -83,7 +83,7 @@ class SistemaAlinhamentoIntencional:
             "desvios_total": total_desvios,
             "desvios_criticos": len([d for d in self.desvios_detectados
                                       if any(v["severidade"] == "alta" for v in d["violacoes"])]),
-            "recomendacao": "Revisar valores e missão" if total_desvios > 5 else "Manter curso"
+            "recomendacao": "Revisar valores e missêo" if total_desvios > 5 else "Manter curso"
         }
 
 # Uso
@@ -99,13 +99,13 @@ acao_teste = {
 }
 
 validacao = alinhamento.validar_acao_contra_valores(acao_teste)
-print(f"Ação aprovada: {validacao['aprovado']}")
+print(f"Açêo aprovada: {validacao['aprovado']}")
 print(f"Violações: {validacao['violacoes']}")
 ```
 
 ### 2. Limites de Autonomia
 
-Definir claramente o que sistema pode fazer sem aprovação.
+Definir claramente o que sistema pode fazer sem aprovaçêo.
 
 ```python
 from dataclasses import dataclass
@@ -113,9 +113,9 @@ from typing import Dict, List, Set
 from enum import Enum
 
 class NivelAprovacao(Enum):
-    AUTONOMO = "executa sem aprovação"
+    AUTONOMO = "executa sem aprovaçêo"
     NOTIFICA = "executa e notifica depois"
-    SOLICITA = "solicita aprovação antes"
+    SOLICITA = "solicita aprovaçêo antes"
     BLOQUEADO = "nunca pode executar"
 
 @dataclass
@@ -126,7 +126,7 @@ class SistemaLimitesAutonomia:
     topicos_sensiveis: List[str]
 
     def pode_executar_autonomamente(self, acao: str, valor_monetario: float = 0) -> Dict:
-        """Verifica se pode executar sem aprovação"""
+        """Verifica se pode executar sem aprovaçêo"""
 
         # Verifica limite financeiro
         if valor_monetario > 0:
@@ -149,26 +149,26 @@ class SistemaLimitesAutonomia:
                     "proximo_passo": "solicitar_aprovacao_humana"
                 }
 
-        # Verifica nível de aprovação da ação
+        # Verifica nível de aprovaçêo da açêo
         for nivel, acoes in self.acoes_por_nivel.items():
             if any(a in acao.lower() for a in acoes):
                 return {
                     "pode_executar": nivel in [NivelAprovacao.AUTONOMO, NivelAprovacao.NOTIFICA],
                     "nivel": nivel,
-                    "razao": f"Ação classificada como {nivel.value}",
+                    "razao": f"Açêo classificada como {nivel.value}",
                     "proximo_passo": self._definir_proximo_passo(nivel)
                 }
 
-        # Padrão: solicita aprovação
+        # Padrêo: solicita aprovaçêo
         return {
             "pode_executar": False,
             "nivel": NivelAprovacao.SOLICITA,
-            "razao": "Ação não mapeada - princípio da precaução",
+            "razao": "Açêo nêo mapeada - princípio da precauçêo",
             "proximo_passo": "solicitar_aprovacao_humana"
         }
 
     def _definir_proximo_passo(self, nivel: NivelAprovacao) -> str:
-        """Define próxima ação baseado no nível"""
+        """Define próxima açêo baseado no nível"""
         if nivel == NivelAprovacao.AUTONOMO:
             return "executar_imediatamente"
         elif nivel == NivelAprovacao.NOTIFICA:
@@ -218,14 +218,14 @@ class TipoConflito(Enum):
 
 @dataclass
 class SistemaGovernancaCompleta:
-    """Sistema integrado de governança, auditoria e supervisão"""
+    """Sistema integrado de governança, auditoria e supervisêo"""
     log_acoes: List[Dict] = field(default_factory=list)
     log_decisoes: List[Dict] = field(default_factory=list)
 
     def protocolar_decisao(self, decisao: Dict) -> str:
-        """Documenta decisão importante com rastreabilidade total"""
+        """Documenta decisêo importante com rastreabilidade total"""
         protocolo = f"""
-📋 PROTOCOLO DE DECISÃO #{decisao.get('id', 'N/A')}
+📋 PROTOCOLO DE DECISêO #{decisao.get('id', 'N/A')}
 
 Data: {decisao.get('timestamp', datetime.now().isoformat())}
 Contexto: {decisao.get('contexto', 'N/A')}
@@ -233,10 +233,10 @@ Contexto: {decisao.get('contexto', 'N/A')}
 Opções Consideradas:
 {chr(10).join(f"- {o}" for o in decisao.get('opcoes', []))}
 
-Critérios de Decisão:
+Critérios de Decisêo:
 {chr(10).join(f"- {k}: {v}" for k, v in decisao.get('criterios', {}).items())}
 
-Decisão Tomada: {decisao.get('escolhida', 'N/A')}
+Decisêo Tomada: {decisao.get('escolhida', 'N/A')}
 
 Justificativa: {decisao.get('justificativa', 'N/A')}
 
@@ -279,7 +279,7 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def _resolver_por_votacao(self, conflito: Dict) -> Dict:
-        """Resolve por votação ponderada"""
+        """Resolve por votaçêo ponderada"""
         agentes = conflito.get("agentes", [])
 
         votos = {}
@@ -298,7 +298,7 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def _escalar_para_humano(self, conflito: Dict) -> Dict:
-        """Escala para decisão humana"""
+        """Escala para decisêo humana"""
         return {
             "resolucao": "escalacao_humana",
             "motivo": "Conflito de valores detectado",
@@ -307,14 +307,14 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def gerar_relatorio_supervisao_semanal(self, metricas: Dict) -> str:
-        """Gera relatório automático para supervisão humana"""
+        """Gera relatório automático para supervisêo humana"""
 
         relatorio = f"""
-📊 RELATÓRIO SEMANAL DE SUPERVISÃO
+📊 RELATÓRIO SEMANAL DE SUPERVISêO
 
 Período: {metricas.get('periodo', 'última semana')}
 
-=== OPERAÇÃO ===
+=== OPERAÇêO ===
 Total de ações executadas: {metricas.get('total_acoes', 0)}
 Taxa de sucesso: {metricas.get('taxa_sucesso', 0)*100:.1f}%
 Disponibilidade do sistema: {metricas.get('uptime', 0)*100:.1f}%
@@ -341,7 +341,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
         return relatorio
 
     def _gerar_alertas(self, metricas: Dict) -> str:
-        """Gera seção de alertas"""
+        """Gera seçêo de alertas"""
         alertas = []
 
         if metricas.get("taxa_sucesso", 1.0) < 0.9:
@@ -358,7 +358,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
     def _determinar_status_geral(self, metricas: Dict) -> str:
         """Determina status geral do sistema"""
         if metricas.get("violacoes", 0) > 0:
-            return "🔴 ATENÇÃO: Sistema requer revisão de governança"
+            return "🔴 ATENÇêO: Sistema requer revisêo de governança"
         elif metricas.get("taxa_sucesso", 1.0) < 0.85:
             return "🟡 CUIDADO: Performance abaixo do esperado"
         else:
@@ -367,7 +367,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
 # Uso
 governanca = SistemaGovernancaCompleta()
 
-# Protocolação
+# Protocolaçêo
 decisao = {
     "id": "DEC-2026-001",
     "timestamp": "2026-01-15T14:30:00",
@@ -382,7 +382,7 @@ decisao = {
 protocolo = governanca.protocolar_decisao(decisao)
 print(protocolo)
 
-# Resolução de conflitos
+# Resoluçêo de conflitos
 conflito = {
     "tipo": "decisoes",
     "agentes": [
@@ -423,11 +423,11 @@ print(f"\n{relatorio}")
 
 1. **Transparência:** Sistema explica suas ações
 2. **Accountability:** Responsabilidade clara por decisões
-3. **Justiça:** Evitar vieses e discriminação
-4. **Privacidade:** Proteção de dados sensíveis
+3. **Justiça:** Evitar vieses e discriminaçêo
+4. **Privacidade:** Proteçêo de dados sensíveis
 5. **Beneficência:** Agir no melhor interesse do usuário
 
-**Implementação prática:**
+**Implementaçêo prática:**
 
 ```python
 @dataclass
@@ -435,7 +435,7 @@ class SistemaEtica:
     """Implementa princípios éticos em IA"""
 
     def validar_etica(self, acao: Dict) -> Dict:
-        """Valida ação contra princípios éticos"""
+        """Valida açêo contra princípios éticos"""
 
         validacoes = {
             "transparencia": self._validar_transparencia(acao),
@@ -453,12 +453,12 @@ class SistemaEtica:
         }
 
     def _validar_transparencia(self, acao: Dict) -> Dict:
-        """Ação é transparente?"""
+        """Açêo é transparente?"""
         tem_justificativa = "raciocinio" in acao
         return {"ok": tem_justificativa, "principio": "transparencia"}
 
     def _validar_justica(self, acao: Dict) -> Dict:
-        """Ação é justa e sem vieses?"""
+        """Açêo é justa e sem vieses?"""
         # Verificaria vieses em dados, decisões, etc
         return {"ok": True, "principio": "justica"}
 
@@ -475,26 +475,26 @@ class SistemaEtica:
 etica = SistemaEtica()
 acao = {"descricao": "recomendar produto", "raciocinio": "baseado em histórico"}
 validacao = etica.validar_etica(acao)
-print(f"Ação ética: {validacao['etico']}")
+print(f"Açêo ética: {validacao['etico']}")
 ```
 
 ## Checklist Final de Governança
 
-Antes de colocar um sistema autônomo em produção, valide:
+Antes de colocar um sistema autônomo em produçêo, valide:
 
 ✅ **Alinhamento Intencional**
 - [ ] Valores fundamentais documentados
-- [ ] Missão clara e mensurável
-- [ ] Sistema de validação ativo
+- [ ] Missêo clara e mensurável
+- [ ] Sistema de validaçêo ativo
 
 ✅ **Limites de Autonomia**
 - [ ] Limites financeiros definidos
-- [ ] Ações por nível de aprovação mapeadas
+- [ ] Ações por nível de aprovaçêo mapeadas
 - [ ] Tópicos sensíveis identificados
 
 ✅ **Salvaguardas**
 - [ ] Lista de bloqueio configurada
-- [ ] Checkpoints de reversão habilitados
+- [ ] Checkpoints de reversêo habilitados
 - [ ] Validadores customizados ativos
 
 ✅ **Auditoria**
@@ -502,7 +502,7 @@ Antes de colocar um sistema autônomo em produção, valide:
 - [ ] Rastreabilidade de decisões
 - [ ] Métricas de performance ativas
 
-✅ **Supervisão Humana**
+✅ **Supervisêo Humana**
 - [ ] Relatórios semanais automatizados
 - [ ] Sistema de alertas configurado
 - [ ] Override manual disponível
@@ -514,9 +514,9 @@ Antes de colocar um sistema autônomo em produção, valide:
 
 ---
 
-## Conclusão Final do Nível 4S
+## Conclusêo Final do Nível 4S
 
-**Você completou a formação mais avançada em Engenharia de Sistemas Intencionais Autônomos (ESIA).**
+**Você completou a formaçêo mais avançada em Engenharia de Sistemas Intencionais Autônomos (ESIA).**
 
 ### Você agora domina:
 
@@ -524,11 +524,11 @@ Antes de colocar um sistema autônomo em produção, valide:
 ✅ **Módulo 2:** Sistemas Intencionais (8 pilares fundamentais)
 ✅ **Módulo 3:** 6 tipos de agentes autônomos 2.0
 ✅ **Módulo 4:** Loops evolutivos e auto-melhoria
-✅ **Módulo 5:** Intenção composta e persistente
+✅ **Módulo 5:** Intençêo composta e persistente
 ✅ **Módulo 6:** 4 arquiteturas de sistemas multiagentes
-✅ **Módulo 7:** Criação de agentes com 8 componentes ESIA
+✅ **Módulo 7:** Criaçêo de agentes com 8 componentes ESIA
 ✅ **Módulo 8:** 4 sistemas autônomos para negócios
-✅ **Módulo 9:** Delegação moderna e intencional
+✅ **Módulo 9:** Delegaçêo moderna e intencional
 ✅ **Módulo 10:** Orquestrador (cérebro central)
 ✅ **Módulo 11:** 5 projetos real-world 2026
 ✅ **Módulo 12:** Governança, segurança e ética
@@ -537,11 +537,11 @@ Antes de colocar um sistema autônomo em produção, valide:
 
 - **365KB+** de código Python funcional
 - **12 módulos completos** com teoria + prática
-- **40+ sistemas implementados** prontos para produção
-- **Padrão 2026** de IA empresarial
+- **40+ sistemas implementados** prontos para produçêo
+- **Padrêo 2026** de IA empresarial
 
 **Você está pronto para a nova era da IA.**
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

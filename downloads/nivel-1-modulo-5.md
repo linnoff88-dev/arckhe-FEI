@@ -1,20 +1,20 @@
-# 📘 Módulo 5: Iteração e Refinamento
-## Prompt Chaining, Refinamento Iterativo e Co-criação Estratégica
+# 📘 Módulo 5: Iteraçêo e Refinamento
+## Prompt Chaining, Refinamento Iterativo e Co-criaçêo Estratégica
 
-**Nível 1: Fundamentos de Engenharia de Intenção**
-**FEI - Formação em Engenharia de Intenção**
+**Nível 1: Fundamentos de Engenharia de Intençêo**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## 🎯 Introdução
+## 🎯 Introduçêo
 
-A Engenharia de Intenção não é um processo de **"perguntar uma vez e pronto"**. É uma **conversa estratégica** onde você e a IA co-criam soluções progressivamente melhores através de ciclos de refinamento.
+A Engenharia de Intençêo nêo é um processo de **"perguntar uma vez e pronto"**. É uma **conversa estratégica** onde você e a IA co-criam soluções progressivamente melhores através de ciclos de refinamento.
 
-Neste módulo, você aprenderá as técnicas avançadas de **prompt chaining** (encadear comandos), **refinamento iterativo** (melhorar progressivamente) e **co-criação** (trabalhar colaborativamente com IA).
+Neste módulo, você aprenderá as técnicas avançadas de **prompt chaining** (encadear comandos), **refinamento iterativo** (melhorar progressivamente) e **co-criaçêo** (trabalhar colaborativamente com IA).
 
-### 💡 Por que iteração é o futuro?
+### 💡 Por que iteraçêo é o futuro?
 
-Profissionais de elite em 2025 não tentam criar o prompt perfeito na primeira vez. Eles criam **fluxos de trabalho iterativos** onde cada resposta da IA informa a próxima pergunta. Isso multiplica a qualidade do resultado final.
+Profissionais de elite em 2025 nêo tentam criar o prompt perfeito na primeira vez. Eles criam **fluxos de trabalho iterativos** onde cada resposta da IA informa a próxima pergunta. Isso multiplica a qualidade do resultado final.
 
 ---
 
@@ -22,19 +22,19 @@ Profissionais de elite em 2025 não tentam criar o prompt perfeito na primeira v
 
 ### ❌ Mentalidade "One-Shot"
 - Tentar criar o prompt perfeito de primeira
-- Frustração quando resultado não é ideal
+- Frustraçêo quando resultado nêo é ideal
 - Desistir ou aceitar qualidade medíocre
-- Culpar a IA por não "entender"
+- Culpar a IA por nêo "entender"
 
 ### ✅ Mentalidade Iterativa
-- Começar com versão "boa o suficiente"
+- Começar com versêo "boa o suficiente"
 - Ver primeira resposta como rascunho
 - Refinar progressivamente com feedback específico
 - Colaborar com IA como parceiro criativo
 
 ### 🎓 Princípio Fundamental
 
-> "A primeira resposta da IA é o ponto de partida, não o destino final."
+> "A primeira resposta da IA é o ponto de partida, nêo o destino final."
 
 ---
 
@@ -45,7 +45,7 @@ Refinamento progressivo significa **melhorar a resposta em camadas**, cada vez f
 ### 📋 Fluxo de Refinamento em 4 Camadas
 
 **1. Camada: Estrutura**
-- "A estrutura está correta, mas preciso de mais profundidade na seção X"
+- "A estrutura está correta, mas preciso de mais profundidade na seçêo X"
 
 **2. Camada: Conteúdo**
 - "Ótimo! Agora adicione exemplos práticos em cada tópico"
@@ -54,30 +54,30 @@ Refinamento progressivo significa **melhorar a resposta em camadas**, cada vez f
 - "Perfeito! Agora ajuste o tom para ser mais acessível para iniciantes"
 
 **4. Camada: Polimento**
-- "Excelente! Última revisão: reduza redundâncias e adicione transições"
+- "Excelente! Última revisêo: reduza redundâncias e adicione transições"
 
 ---
 
 ### ✅ Exemplo Real: Criando Artigo
 
-**Iteração 1 (Estrutura):**
+**Iteraçêo 1 (Estrutura):**
 ```
 "Crie outline de artigo sobre produtividade com IA para profissionais"
 ```
 
-**Iteração 2 (Conteúdo):**
+**Iteraçêo 2 (Conteúdo):**
 ```
 "Ótimo! Agora desenvolva as seções 2 e 4 com exemplos práticos de ferramentas"
 ```
 
-**Iteração 3 (Aprofundamento):**
+**Iteraçêo 3 (Aprofundamento):**
 ```
-"Perfeito! Na seção 4, adicione estudo de caso real com ROI mensurável"
+"Perfeito! Na seçêo 4, adicione estudo de caso real com ROI mensurável"
 ```
 
-**Iteração 4 (Tom):**
+**Iteraçêo 4 (Tom):**
 ```
-"Excelente! Ajuste introdução para ser mais provocativa e gerar curiosidade"
+"Excelente! Ajuste introduçêo para ser mais provocativa e gerar curiosidade"
 ```
 
 ---
@@ -91,23 +91,23 @@ Prompt Chaining é dividir uma tarefa complexa em **várias subtarefas sequencia
 - **Foco:** IA concentra recursos em uma coisa por vez
 - **Qualidade:** Cada etapa é otimizada individualmente
 - **Controle:** Você valida cada passo antes do próximo
-- **Flexibilidade:** Pode ajustar direção no meio do caminho
+- **Flexibilidade:** Pode ajustar direçêo no meio do caminho
 
 ---
 
 ### 📋 Estrutura de Prompt Chain
 
 ```
-Prompt 1 (Exploração):
+Prompt 1 (Exploraçêo):
 "Liste 10 ideias de [X]"
           ↓
-Prompt 2 (Seleção):
+Prompt 2 (Seleçêo):
 "Das ideias acima, escolha as 3 mais viáveis e explique por quê"
           ↓
 Prompt 3 (Desenvolvimento):
-"Desenvolva a ideia #2 em um plano de ação detalhado"
+"Desenvolva a ideia #2 em um plano de açêo detalhado"
           ↓
-Prompt 4 (Validação):
+Prompt 4 (Validaçêo):
 "Identifique riscos deste plano e sugira mitigações"
 ```
 
@@ -127,9 +127,9 @@ Prompt 4 (Validação):
 
 ---
 
-## 🤝 Técnica 3: Co-criação Estratégica
+## 🤝 Técnica 3: Co-criaçêo Estratégica
 
-Co-criação é tratar a IA como **parceiro colaborativo**, não como ferramenta passiva. Você fornece visão, a IA fornece execução, e vocês refinam juntos.
+Co-criaçêo é tratar a IA como **parceiro colaborativo**, nêo como ferramenta passiva. Você fornece visêo, a IA fornece execuçêo, e vocês refinam juntos.
 
 ### 🚫 Modo Ferramenta vs ✅ Modo Parceiro
 
@@ -147,22 +147,22 @@ Co-criação é tratar a IA como **parceiro colaborativo**, não como ferramenta
 
 ---
 
-### 🔄 Ciclo de Co-criação
+### 🔄 Ciclo de Co-criaçêo
 
-**1. Você:** Define visão e objetivo
+**1. Você:** Define visêo e objetivo
 - "Quero criar curso sobre X para público Y"
 
 **2. IA:** Propõe estrutura e alternativas
 - "Sugiro 3 abordagens: Teórica, Prática ou Híbrida"
 
-**3. Você:** Escolhe direção e adiciona nuances
+**3. Você:** Escolhe direçêo e adiciona nuances
 - "Híbrida, mas com foco 70% prático. Adicione estudos de caso"
 
 **4. IA:** Desenvolve e questiona
 - "Criei outline. Prefere estudos reais ou simulados?"
 
 **5. Você:** Refina e expande
-- "Reais. E adicione seção de erros comuns"
+- "Reais. E adicione seçêo de erros comuns"
 
 ---
 
@@ -181,16 +181,16 @@ Isso ativa o modo colaborativo da IA.
 Como você dá feedback determina a qualidade do refinamento.
 
 ### ✅ Feedback Específico
-"A seção 2 está ótima. Expanda a seção 3 com dados quantitativos."
+"A seçêo 2 está ótima. Expanda a seçêo 3 com dados quantitativos."
 
 ### ✅ Feedback Comparativo
-"Gostei mais do tom da versão A, mas prefiro a estrutura da versão B. Combine."
+"Gostei mais do tom da versêo A, mas prefiro a estrutura da versêo B. Combine."
 
 ### ✅ Feedback Incremental
 "Muito bom! Agora, mantendo tudo isso, adicione exemplos visuais."
 
 ### ❌ Feedback Vago
-"Não ficou bom. Faça melhor."
+"Nêo ficou bom. Faça melhor."
 
 ### ❌ Feedback Contraditório
 "Quero mais detalhes mas mais curto também."
@@ -218,23 +218,23 @@ Projete uma cadeia de 5 prompts para criar uma estratégia de conteúdo completa
 
 ---
 
-### Exercício 3: Co-criação Completa
+### Exercício 3: Co-criaçêo Completa
 **Nível:** Avançado
 
-**Cenário:** Você precisa criar um modelo de pricing para seu SaaS. Use co-criação para explorar modelos, validar com IA, e refinar baseado em feedback.
+**Cenário:** Você precisa criar um modelo de pricing para seu SaaS. Use co-criaçêo para explorar modelos, validar com IA, e refinar baseado em feedback.
 
-**🎯 Desafio:** Documente todo o diálogo co-criativo (pelo menos 8 trocas) mostrando como vocês construíram a solução juntos.
+**🎯 Desafio:** Documente todo o diálogo co-criativo (pelo menos 8 trocas) mostrando como vocês construíram a soluçêo juntos.
 
 ---
 
-## 🎓 Conclusão do Módulo
+## 🎓 Conclusêo do Módulo
 
-Você dominou a arte da **iteração estratégica**. Agora sabe como transformar respostas básicas em trabalhos excepcionais através de refinamento, encadeamento e co-criação.
+Você dominou a arte da **iteraçêo estratégica**. Agora sabe como transformar respostas básicas em trabalhos excepcionais através de refinamento, encadeamento e co-criaçêo.
 
 ### ✅ O que você dominou:
 - Refinamento progressivo em camadas
 - Prompt chaining para tarefas complexas
-- Co-criação estratégica com IA
+- Co-criaçêo estratégica com IA
 - Padrões de feedback eficaz
 
 ---
@@ -244,5 +244,5 @@ Continue para o Módulo 6 para aprender sobre **Casos de Uso Reais**
 
 ---
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo
 https://linnoff88-dev.github.io/

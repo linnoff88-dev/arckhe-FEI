@@ -1,20 +1,20 @@
 
 
-# ⚙️ **MÓDULO EXTRA — AGENTES E SISTEMAS AUTÔNOMOS NA ENGENHARIA DE INTENÇÃO**
+# ⚙️ **MÓDULO EXTRA — AGENTES E SISTEMAS AUTÔNOMOS NA ENGENHARIA DE INTENÇêO**
 
 ## **Objetivos de Aprendizagem**
 
-* Entender o que são agentes modernos e como funcionam.
-* Criar agentes orientados por intenção.
+* Entender o que sêo agentes modernos e como funcionam.
+* Criar agentes orientados por intençêo.
 * Organizar sistemas multiagentes para tarefas complexas.
 * Aprender a delegar processos inteiros para a IA.
-* Dominar a estrutura de “papéis funcionais” orientados por intenção.
+* Dominar a estrutura de “papéis funcionais” orientados por intençêo.
 
 ---
 
 ## **Conteúdo do Módulo**
 
-### 🔹 **1. O que são agentes modernos?**
+### 🔹 **1. O que sêo agentes modernos?**
 
 * Da IA “respondente” para IA “autônoma”.
 * Diferença entre:
@@ -28,18 +28,18 @@
 
 ---
 
-### 🔹 **2. A Engenharia de Intenção aplicada a agentes**
+### 🔹 **2. A Engenharia de Intençêo aplicada a agentes**
 
 Cada agente precisa de:
 
 1. **Objetivo primário**
-2. **Intenção (qual o papel dele no sistema)**
+2. **Intençêo (qual o papel dele no sistema)**
 3. **Critérios de qualidade**
 4. **Contexto funcional**
 5. **Responsabilidades claras**
-6. **Limites de atuação**
-7. **Formatos de saída padrão**
-8. **Protocolos de colaboração com outros agentes**
+6. **Limites de atuaçêo**
+7. **Formatos de saída padrêo**
+8. **Protocolos de colaboraçêo com outros agentes**
 
 ---
 
@@ -54,7 +54,7 @@ Cada agente precisa de:
 * Agente otimizador
 * Agente professor/mentor
 * Agente organizador (orquestrador)
-* Agente de tomada de decisão
+* Agente de tomada de decisêo
 
 ---
 
@@ -63,24 +63,24 @@ Cada agente precisa de:
 * Pipeline linear
 * Pipeline paralelo
 * Sistema hierárquico (chefe → especialistas)
-* Ciclo iterativo controlado por intenção
-* Delegação cruzada
+* Ciclo iterativo controlado por intençêo
+* Delegaçêo cruzada
 
 ---
 
-### 🔹 **5. Como criar um agente com Engenharia de Intenção**
+### 🔹 **5. Como criar um agente com Engenharia de Intençêo**
 
 Estrutura:
 
 1. **Nome do agente**
-2. **Missão**
-3. **Intenção**
+2. **Missêo**
+3. **Intençêo**
 4. **Limites**
 5. **Processo interno de raciocínio**
-6. **Protocolos de validação**
+6. **Protocolos de validaçêo**
 7. **Ações possíveis**
-8. **Comunicação com o usuário**
-9. **Comunicação com outros agentes**
+8. **Comunicaçêo com o usuário**
+9. **Comunicaçêo com outros agentes**
 
 ---
 
@@ -96,7 +96,7 @@ Estrutura:
 
 * Agente de análise de mercado
 * Agente de estratégia
-* Agente de execução
+* Agente de execuçêo
 * Agente de métricas
 
 #### **Projeto 3 — Pipeline multiagente para conteúdo diário**
@@ -114,20 +114,20 @@ Estrutura:
 
 ### 🔹 **7. Boas práticas e segurança**
 
-* Controle de intenção
-* Verificação de coerência
-* Supervisão humana
-* Limitação de escopo
+* Controle de intençêo
+* Verificaçêo de coerência
+* Supervisêo humana
+* Limitaçêo de escopo
 * Critérios de parada
 
 ---
 
 # 🎉 **O resultado final:**
 
-Seu curso não será só sobre “como pedir coisas para a IA”, mas sim:
+Seu curso nêo será só sobre “como pedir coisas para a IA”, mas sim:
 
 👉 **Como construir sistemas inteligentes completos**, profissionais, escaláveis e replicáveis.
 
-Isso transforma sua formação em algo muito mais valioso.
+Isso transforma sua formaçêo em algo muito mais valioso.
 
 ---

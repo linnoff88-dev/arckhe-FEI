@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Módulo 12: Governança, Segurança e Ética em Sistemas Autônomos | FEI Nível 4S</title>
-  <meta name="description" content="Governança não é opcional. É mandatório para sistemas de produção.">
+  <meta name="description" content="Governança nêo é opcional. É mandatório para sistemas de produçêo.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -106,7 +106,7 @@
         Governança, Segurança e Ética em Sistemas Autônomos
       </h1>
       <p class="text-xl text-white/90">
-        Governança não é opcional. É mandatório para sistemas de produção.
+        Governança nêo é opcional. É mandatório para sistemas de produçêo.
       </p>
     </div>
   </section>
@@ -127,7 +127,7 @@
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
           Pilares da Governança de Sistemas Autônomos
         </h2>
-        <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Governança não é opcional. É mandatório para sistemas de produção.</p>
+        <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Governança nêo é opcional. É mandatório para sistemas de produçêo.</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">1. Alinhamento Intencional</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">Garantir que o sistema sempre opera de acordo com valores e objetivos do usuário.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
@@ -143,7 +143,7 @@ class SistemaAlinhamentoIntencional:
     desvios_detectados: List[Dict] = field(default_factory=list)
 
     def validar_acao_contra_valores(self, acao: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Valida se ação está alinhada com valores&quot;&quot;&quot;
+        &quot;&quot;&quot;Valida se açêo está alinhada com valores&quot;&quot;&quot;
 
         violacoes = []
 
@@ -156,7 +156,7 @@ class SistemaAlinhamentoIntencional:
                     &quot;severidade&quot;: &quot;alta&quot;
                 })
 
-        # Verifica alinhamento com missão
+        # Verifica alinhamento com missêo
         if not self._alinhado_com_missao(acao):
             violacoes.append({
                 &quot;tipo&quot;: &quot;desvio_missao&quot;,
@@ -178,8 +178,8 @@ class SistemaAlinhamentoIntencional:
         }
 
     def _acao_respeita_valor(self, acao: Dict, valor: str) -&gt; bool:
-        &quot;&quot;&quot;Verifica se ação respeita valor específico&quot;&quot;&quot;
-        # Implementação simplificada
+        &quot;&quot;&quot;Verifica se açêo respeita valor específico&quot;&quot;&quot;
+        # Implementaçêo simplificada
         conteudo = str(acao).lower()
 
         if valor == &quot;transparencia&quot; and &quot;ocultar&quot; in conteudo:
@@ -192,9 +192,9 @@ class SistemaAlinhamentoIntencional:
         return True
 
     def _alinhado_com_missao(self, acao: Dict) -&gt; bool:
-        &quot;&quot;&quot;Verifica alinhamento com missão original&quot;&quot;&quot;
+        &quot;&quot;&quot;Verifica alinhamento com missêo original&quot;&quot;&quot;
         # Análise simplificada
-        return True  # Em produção, usaria similaridade semântica
+        return True  # Em produçêo, usaria similaridade semântica
 
     def gerar_relatorio_alinhamento(self) -&gt; Dict:
         &quot;&quot;&quot;Gera relatório de alinhamento&quot;&quot;&quot;
@@ -205,7 +205,7 @@ class SistemaAlinhamentoIntencional:
             &quot;desvios_total&quot;: total_desvios,
             &quot;desvios_criticos&quot;: len([d for d in self.desvios_detectados
                                       if any(v[&quot;severidade&quot;] == &quot;alta&quot; for v in d[&quot;violacoes&quot;])]),
-            &quot;recomendacao&quot;: &quot;Revisar valores e missão&quot; if total_desvios &gt; 5 else &quot;Manter curso&quot;
+            &quot;recomendacao&quot;: &quot;Revisar valores e missêo&quot; if total_desvios &gt; 5 else &quot;Manter curso&quot;
         }
 
 # Uso
@@ -221,20 +221,20 @@ acao_teste = {
 }
 
 validacao = alinhamento.validar_acao_contra_valores(acao_teste)
-print(f&quot;Ação aprovada: {validacao['aprovado']}&quot;)
+print(f&quot;Açêo aprovada: {validacao['aprovado']}&quot;)
 print(f&quot;Violações: {validacao['violacoes']}&quot;)
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">2. Limites de Autonomia</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">Definir claramente o que sistema pode fazer sem aprovação.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">Definir claramente o que sistema pode fazer sem aprovaçêo.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass
 from typing import Dict, List, Set
 from enum import Enum
 
 class NivelAprovacao(Enum):
-    AUTONOMO = &quot;executa sem aprovação&quot;
+    AUTONOMO = &quot;executa sem aprovaçêo&quot;
     NOTIFICA = &quot;executa e notifica depois&quot;
-    SOLICITA = &quot;solicita aprovação antes&quot;
+    SOLICITA = &quot;solicita aprovaçêo antes&quot;
     BLOQUEADO = &quot;nunca pode executar&quot;
 
 @dataclass
@@ -245,7 +245,7 @@ class SistemaLimitesAutonomia:
     topicos_sensiveis: List[str]
 
     def pode_executar_autonomamente(self, acao: str, valor_monetario: float = 0) -&gt; Dict:
-        &quot;&quot;&quot;Verifica se pode executar sem aprovação&quot;&quot;&quot;
+        &quot;&quot;&quot;Verifica se pode executar sem aprovaçêo&quot;&quot;&quot;
 
         # Verifica limite financeiro
         if valor_monetario &gt; 0:
@@ -268,26 +268,26 @@ class SistemaLimitesAutonomia:
                     &quot;proximo_passo&quot;: &quot;solicitar_aprovacao_humana&quot;
                 }
 
-        # Verifica nível de aprovação da ação
+        # Verifica nível de aprovaçêo da açêo
         for nivel, acoes in self.acoes_por_nivel.items():
             if any(a in acao.lower() for a in acoes):
                 return {
                     &quot;pode_executar&quot;: nivel in [NivelAprovacao.AUTONOMO, NivelAprovacao.NOTIFICA],
                     &quot;nivel&quot;: nivel,
-                    &quot;razao&quot;: f&quot;Ação classificada como {nivel.value}&quot;,
+                    &quot;razao&quot;: f&quot;Açêo classificada como {nivel.value}&quot;,
                     &quot;proximo_passo&quot;: self._definir_proximo_passo(nivel)
                 }
 
-        # Padrão: solicita aprovação
+        # Padrêo: solicita aprovaçêo
         return {
             &quot;pode_executar&quot;: False,
             &quot;nivel&quot;: NivelAprovacao.SOLICITA,
-            &quot;razao&quot;: &quot;Ação não mapeada - princípio da precaução&quot;,
+            &quot;razao&quot;: &quot;Açêo nêo mapeada - princípio da precauçêo&quot;,
             &quot;proximo_passo&quot;: &quot;solicitar_aprovacao_humana&quot;
         }
 
     def _definir_proximo_passo(self, nivel: NivelAprovacao) -&gt; str:
-        &quot;&quot;&quot;Define próxima ação baseado no nível&quot;&quot;&quot;
+        &quot;&quot;&quot;Define próxima açêo baseado no nível&quot;&quot;&quot;
         if nivel == NivelAprovacao.AUTONOMO:
             return &quot;executar_imediatamente&quot;
         elif nivel == NivelAprovacao.NOTIFICA:
@@ -335,14 +335,14 @@ class TipoConflito(Enum):
 
 @dataclass
 class SistemaGovernancaCompleta:
-    &quot;&quot;&quot;Sistema integrado de governança, auditoria e supervisão&quot;&quot;&quot;
+    &quot;&quot;&quot;Sistema integrado de governança, auditoria e supervisêo&quot;&quot;&quot;
     log_acoes: List[Dict] = field(default_factory=list)
     log_decisoes: List[Dict] = field(default_factory=list)
 
     def protocolar_decisao(self, decisao: Dict) -&gt; str:
-        &quot;&quot;&quot;Documenta decisão importante com rastreabilidade total&quot;&quot;&quot;
+        &quot;&quot;&quot;Documenta decisêo importante com rastreabilidade total&quot;&quot;&quot;
         protocolo = f&quot;&quot;&quot;
-📋 PROTOCOLO DE DECISÃO #{decisao.get('id', 'N/A')}
+📋 PROTOCOLO DE DECISêO #{decisao.get('id', 'N/A')}
 
 Data: {decisao.get('timestamp', datetime.now().isoformat())}
 Contexto: {decisao.get('contexto', 'N/A')}
@@ -350,10 +350,10 @@ Contexto: {decisao.get('contexto', 'N/A')}
 Opções Consideradas:
 {chr(10).join(f&quot;- {o}&quot; for o in decisao.get('opcoes', []))}
 
-Critérios de Decisão:
+Critérios de Decisêo:
 {chr(10).join(f&quot;- {k}: {v}&quot; for k, v in decisao.get('criterios', {}).items())}
 
-Decisão Tomada: {decisao.get('escolhida', 'N/A')}
+Decisêo Tomada: {decisao.get('escolhida', 'N/A')}
 
 Justificativa: {decisao.get('justificativa', 'N/A')}
 
@@ -396,7 +396,7 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def _resolver_por_votacao(self, conflito: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Resolve por votação ponderada&quot;&quot;&quot;
+        &quot;&quot;&quot;Resolve por votaçêo ponderada&quot;&quot;&quot;
         agentes = conflito.get(&quot;agentes&quot;, [])
 
         votos = {}
@@ -415,7 +415,7 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def _escalar_para_humano(self, conflito: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Escala para decisão humana&quot;&quot;&quot;
+        &quot;&quot;&quot;Escala para decisêo humana&quot;&quot;&quot;
         return {
             &quot;resolucao&quot;: &quot;escalacao_humana&quot;,
             &quot;motivo&quot;: &quot;Conflito de valores detectado&quot;,
@@ -424,14 +424,14 @@ Aprovado por: {decisao.get('aprovador', 'Sistema Autônomo')}
         }
 
     def gerar_relatorio_supervisao_semanal(self, metricas: Dict) -&gt; str:
-        &quot;&quot;&quot;Gera relatório automático para supervisão humana&quot;&quot;&quot;
+        &quot;&quot;&quot;Gera relatório automático para supervisêo humana&quot;&quot;&quot;
 
         relatorio = f&quot;&quot;&quot;
-📊 RELATÓRIO SEMANAL DE SUPERVISÃO
+📊 RELATÓRIO SEMANAL DE SUPERVISêO
 
 Período: {metricas.get('periodo', 'última semana')}
 
-=== OPERAÇÃO ===
+=== OPERAÇêO ===
 Total de ações executadas: {metricas.get('total_acoes', 0)}
 Taxa de sucesso: {metricas.get('taxa_sucesso', 0)*100:.1f}%
 Disponibilidade do sistema: {metricas.get('uptime', 0)*100:.1f}%
@@ -458,7 +458,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
         return relatorio
 
     def _gerar_alertas(self, metricas: Dict) -&gt; str:
-        &quot;&quot;&quot;Gera seção de alertas&quot;&quot;&quot;
+        &quot;&quot;&quot;Gera seçêo de alertas&quot;&quot;&quot;
         alertas = []
 
         if metricas.get(&quot;taxa_sucesso&quot;, 1.0) &lt; 0.9:
@@ -475,7 +475,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
     def _determinar_status_geral(self, metricas: Dict) -&gt; str:
         &quot;&quot;&quot;Determina status geral do sistema&quot;&quot;&quot;
         if metricas.get(&quot;violacoes&quot;, 0) &gt; 0:
-            return &quot;🔴 ATENÇÃO: Sistema requer revisão de governança&quot;
+            return &quot;🔴 ATENÇêO: Sistema requer revisêo de governança&quot;
         elif metricas.get(&quot;taxa_sucesso&quot;, 1.0) &lt; 0.85:
             return &quot;🟡 CUIDADO: Performance abaixo do esperado&quot;
         else:
@@ -484,7 +484,7 @@ Reversões executadas: {metricas.get('reversoes', 0)}
 # Uso
 governanca = SistemaGovernancaCompleta()
 
-# Protocolação
+# Protocolaçêo
 decisao = {
     &quot;id&quot;: &quot;DEC-2026-001&quot;,
     &quot;timestamp&quot;: &quot;2026-01-15T14:30:00&quot;,
@@ -499,7 +499,7 @@ decisao = {
 protocolo = governanca.protocolar_decisao(decisao)
 print(protocolo)
 
-# Resolução de conflitos
+# Resoluçêo de conflitos
 conflito = {
     &quot;tipo&quot;: &quot;decisoes&quot;,
     &quot;agentes&quot;: [
@@ -542,17 +542,17 @@ print(f&quot;\n{relatorio}&quot;)
         <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Os 5 Princípios Éticos Fundamentais</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">1. <strong>Transparência:</strong> Sistema explica suas ações</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">2. <strong>Accountability:</strong> Responsabilidade clara por decisões</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">3. <strong>Justiça:</strong> Evitar vieses e discriminação</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">4. <strong>Privacidade:</strong> Proteção de dados sensíveis</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">3. <strong>Justiça:</strong> Evitar vieses e discriminaçêo</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">4. <strong>Privacidade:</strong> Proteçêo de dados sensíveis</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">5. <strong>Beneficência:</strong> Agir no melhor interesse do usuário</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementação prática:</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementaçêo prática:</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 @dataclass
 class SistemaEtica:
     &quot;&quot;&quot;Implementa princípios éticos em IA&quot;&quot;&quot;
 
     def validar_etica(self, acao: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Valida ação contra princípios éticos&quot;&quot;&quot;
+        &quot;&quot;&quot;Valida açêo contra princípios éticos&quot;&quot;&quot;
 
         validacoes = {
             &quot;transparencia&quot;: self._validar_transparencia(acao),
@@ -570,12 +570,12 @@ class SistemaEtica:
         }
 
     def _validar_transparencia(self, acao: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Ação é transparente?&quot;&quot;&quot;
+        &quot;&quot;&quot;Açêo é transparente?&quot;&quot;&quot;
         tem_justificativa = &quot;raciocinio&quot; in acao
         return {&quot;ok&quot;: tem_justificativa, &quot;principio&quot;: &quot;transparencia&quot;}
 
     def _validar_justica(self, acao: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Ação é justa e sem vieses?&quot;&quot;&quot;
+        &quot;&quot;&quot;Açêo é justa e sem vieses?&quot;&quot;&quot;
         # Verificaria vieses em dados, decisões, etc
         return {&quot;ok&quot;: True, &quot;principio&quot;: &quot;justica&quot;}
 
@@ -592,7 +592,7 @@ class SistemaEtica:
 etica = SistemaEtica()
 acao = {&quot;descricao&quot;: &quot;recomendar produto&quot;, &quot;raciocinio&quot;: &quot;baseado em histórico&quot;}
 validacao = etica.validar_etica(acao)
-print(f&quot;Ação ética: {validacao['etico']}&quot;)
+print(f&quot;Açêo ética: {validacao['etico']}&quot;)
 </code></pre>
       </div>
 
@@ -600,24 +600,24 @@ print(f&quot;Ação ética: {validacao['etico']}&quot;)
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
           Checklist Final de Governança
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Antes de colocar um sistema autônomo em produção, valide:</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Antes de colocar um sistema autônomo em produçêo, valide:</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Alinhamento Intencional</strong></p>
 <li class="mb-2">[ ] Valores fundamentais documentados</li>
-<li class="mb-2">[ ] Missão clara e mensurável</li>
-<li class="mb-2">[ ] Sistema de validação ativo</li>
+<li class="mb-2">[ ] Missêo clara e mensurável</li>
+<li class="mb-2">[ ] Sistema de validaçêo ativo</li>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Limites de Autonomia</strong></p>
 <li class="mb-2">[ ] Limites financeiros definidos</li>
-<li class="mb-2">[ ] Ações por nível de aprovação mapeadas</li>
+<li class="mb-2">[ ] Ações por nível de aprovaçêo mapeadas</li>
 <li class="mb-2">[ ] Tópicos sensíveis identificados</li>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Salvaguardas</strong></p>
 <li class="mb-2">[ ] Lista de bloqueio configurada</li>
-<li class="mb-2">[ ] Checkpoints de reversão habilitados</li>
+<li class="mb-2">[ ] Checkpoints de reversêo habilitados</li>
 <li class="mb-2">[ ] Validadores customizados ativos</li>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Auditoria</strong></p>
 <li class="mb-2">[ ] Logs de ações completos</li>
 <li class="mb-2">[ ] Rastreabilidade de decisões</li>
 <li class="mb-2">[ ] Métricas de performance ativas</li>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Supervisão Humana</strong></p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Supervisêo Humana</strong></p>
 <li class="mb-2">[ ] Relatórios semanais automatizados</li>
 <li class="mb-2">[ ] Sistema de alertas configurado</li>
 <li class="mb-2">[ ] Override manual disponível</li>
@@ -629,29 +629,29 @@ print(f&quot;Ação ética: {validacao['etico']}&quot;)
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Conclusão Final do Nível 4S
+          Conclusêo Final do Nível 4S
         </h2>
-        <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Você completou a formação mais avançada em Engenharia de Sistemas Intencionais Autônomos (ESIA).</p>
+        <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Você completou a formaçêo mais avançada em Engenharia de Sistemas Intencionais Autônomos (ESIA).</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Você agora domina:</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 1:</strong> Arquitetura de IA 2026 (5 capabilities revolucionárias)</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 2:</strong> Sistemas Intencionais (8 pilares fundamentais)</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 3:</strong> 6 tipos de agentes autônomos 2.0</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 4:</strong> Loops evolutivos e auto-melhoria</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 5:</strong> Intenção composta e persistente</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 5:</strong> Intençêo composta e persistente</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 6:</strong> 4 arquiteturas de sistemas multiagentes</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 7:</strong> Criação de agentes com 8 componentes ESIA</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 7:</strong> Criaçêo de agentes com 8 componentes ESIA</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 8:</strong> 4 sistemas autônomos para negócios</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 9:</strong> Delegação moderna e intencional</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 9:</strong> Delegaçêo moderna e intencional</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 10:</strong> Orquestrador (cérebro central)</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 11:</strong> 5 projetos real-world 2026</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ <strong>Módulo 12:</strong> Governança, segurança e ética</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Resultados Concretos:</h3>
 <li class="mb-2"><strong>365KB+</strong> de código Python funcional</li>
 <li class="mb-2"><strong>12 módulos completos</strong> com teoria + prática</li>
-<li class="mb-2"><strong>40+ sistemas implementados</strong> prontos para produção</li>
-<li class="mb-2"><strong>Padrão 2026</strong> de IA empresarial</li>
+<li class="mb-2"><strong>40+ sistemas implementados</strong> prontos para produçêo</li>
+<li class="mb-2"><strong>Padrêo 2026</strong> de IA empresarial</li>
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Você está pronto para a nova era da IA.</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formação em Engenharia de Intenção</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formaçêo em Engenharia de Intençêo</p>
       </div>
 
       <!-- Conclusao -->

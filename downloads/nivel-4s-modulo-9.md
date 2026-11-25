@@ -2,31 +2,31 @@
 
 ## A Chave da Nova Era
 
-> Você não diz **o que fazer**.
+> Você nêo diz **o que fazer**.
 > Você diz **o que deve ser garantido**.
 
 **A mudança fundamental:** De microgerenciamento para governança por resultados.
 
-### Comparação
+### Comparaçêo
 
-**❌ Delegação Antiga:**
+**❌ Delegaçêo Antiga:**
 "Faça um post no Instagram."
 
-**✔ Delegação Moderna:**
-"Mantenha minha presença ativa no Instagram com conteúdo alinhado à minha marca e programação semanal, pedindo aprovação quando houver temas sensíveis."
+**✔ Delegaçêo Moderna:**
+"Mantenha minha presença ativa no Instagram com conteúdo alinhado à minha marca e programaçêo semanal, pedindo aprovaçêo quando houver temas sensíveis."
 
-## Os 3 Princípios da Delegação Moderna
+## Os 3 Princípios da Delegaçêo Moderna
 
 ### 1. Intencional
-Foco no resultado desejado, não no processo.
+Foco no resultado desejado, nêo no processo.
 
 ### 2. Contínua
-Não é pontual - é um comportamento persistente.
+Nêo é pontual - é um comportamento persistente.
 
 ### 3. Evolutiva
 O sistema aprende e melhora ao longo do tempo.
 
-## Sistema de Delegação Intencional
+## Sistema de Delegaçêo Intencional
 
 ```python
 from dataclasses import dataclass, field
@@ -36,19 +36,19 @@ from datetime import datetime, timedelta
 
 class TipoDelegacao(Enum):
     PONTUAL = "tarefa única"
-    RECORRENTE = "repetição programada"
+    RECORRENTE = "repetiçêo programada"
     CONTINUA = "comportamento persistente"
     ADAPTATIVA = "evolui com feedback"
 
 class NivelAutonomia(Enum):
-    SUPERVISIONADO = "aprovação em cada ação"
-    SEMI_AUTONOMO = "aprovação em decisões críticas"
+    SUPERVISIONADO = "aprovaçêo em cada açêo"
+    SEMI_AUTONOMO = "aprovaçêo em decisões críticas"
     AUTONOMO = "opera independentemente dentro dos limites"
     EVOLUTIVO = "adapta limites baseado em performance"
 
 @dataclass
 class DelegacaoIntencional:
-    """Define delegação baseada em objetivos, não tarefas"""
+    """Define delegaçêo baseada em objetivos, nêo tarefas"""
     nome: str
     intencao_principal: str
     resultados_esperados: List[str]
@@ -61,11 +61,11 @@ class DelegacaoIntencional:
     prazo: Optional[datetime] = None
 
     def validar_delegacao(self) -> Dict:
-        """Valida se delegação está bem definida"""
+        """Valida se delegaçêo está bem definida"""
         issues = []
 
         if not self.intencao_principal or len(self.intencao_principal) < 20:
-            issues.append("Intenção muito vaga - seja mais específico")
+            issues.append("Intençêo muito vaga - seja mais específico")
 
         if len(self.resultados_esperados) < 1:
             issues.append("Defina pelo menos um resultado esperado")
@@ -74,20 +74,20 @@ class DelegacaoIntencional:
             issues.append("Defina pelo menos 2 métricas mensuráveis")
 
         if not self.restricoes:
-            issues.append("Defina limites claros (o que NÃO pode fazer)")
+            issues.append("Defina limites claros (o que NêO pode fazer)")
 
         return {
             "valida": len(issues) == 0,
             "issues": issues,
             "score_clareza": self._calcular_clareza(),
-            "recomendacao": "Revisar delegação" if issues else "Delegação clara, pode prosseguir"
+            "recomendacao": "Revisar delegaçêo" if issues else "Delegaçêo clara, pode prosseguir"
         }
 
     def _calcular_clareza(self) -> float:
-        """Calcula quão clara está a delegação"""
+        """Calcula quêo clara está a delegaçêo"""
         score = 0.0
 
-        # Intenção clara (0-0.3)
+        # Intençêo clara (0-0.3)
         if len(self.intencao_principal) > 50:
             score += 0.3
         elif len(self.intencao_principal) > 20:
@@ -101,7 +101,7 @@ class DelegacaoIntencional:
 
         return min(1.0, score)
 
-# Exemplo de delegação antiga (errado)
+# Exemplo de delegaçêo antiga (errado)
 delegacao_antiga = DelegacaoIntencional(
     nome="Post Instagram",
     intencao_principal="Fazer post",
@@ -114,17 +114,17 @@ delegacao_antiga = DelegacaoIntencional(
     contexto_operacao={}
 )
 
-# Exemplo de delegação moderna (correto)
+# Exemplo de delegaçêo moderna (correto)
 delegacao_moderna = DelegacaoIntencional(
-    nome="Gestão de Presença no Instagram",
+    nome="Gestêo de Presença no Instagram",
     intencao_principal="""Manter presença ativa e alinhada com minha marca no Instagram,
     publicando conteúdo de valor que engaja meu público-alvo (empreendedores 25-45 anos)
-    e fortalece meu posicionamento como especialista em IA e automação""",
+    e fortalece meu posicionamento como especialista em IA e automaçêo""",
     resultados_esperados=[
         "Engajamento médio acima de 3% por post",
         "Crescimento orgânico de 5-10% ao mês",
         "Conteúdo consistente com valores da marca",
-        "Programação regular (mínimo 3x/semana)"
+        "Programaçêo regular (mínimo 3x/semana)"
     ],
     metricas_sucesso={
         "taxa_engajamento": 0.03,
@@ -133,8 +133,8 @@ delegacao_moderna = DelegacaoIntencional(
         "alinhamento_marca": 0.9
     },
     restricoes=[
-        "Nunca postar sobre política ou religião",
-        "Não fazer promessas financeiras específicas",
+        "Nunca postar sobre política ou religiêo",
+        "Nêo fazer promessas financeiras específicas",
         "Manter tom profissional e inspirador",
         "Respeitar propriedade intelectual"
     ],
@@ -155,13 +155,13 @@ delegacao_moderna = DelegacaoIntencional(
     }
 )
 
-print("Delegação Antiga:")
+print("Delegaçêo Antiga:")
 print(delegacao_antiga.validar_delegacao())
-print(f"\nDelegação Moderna:")
+print(f"\nDelegaçêo Moderna:")
 print(delegacao_moderna.validar_delegacao())
 ```
 
-## Padrões de Delegação por Cenário
+## Padrões de Delegaçêo por Cenário
 
 ```python
 from dataclasses import dataclass
@@ -169,7 +169,7 @@ from typing import Dict, List
 
 @dataclass
 class PadraoDelegacao:
-    """Template de delegação para cenários comuns"""
+    """Template de delegaçêo para cenários comuns"""
     cenario: str
     delegacao_modelo: DelegacaoIntencional
 
@@ -179,7 +179,7 @@ padroes_delegacao = {
         cenario="Gerenciar campanhas de email",
         delegacao_modelo=DelegacaoIntencional(
             nome="Email Marketing Autônomo",
-            intencao_principal="""Gerencie comunicação por email mantendo relacionamento
+            intencao_principal="""Gerencie comunicaçêo por email mantendo relacionamento
             com lista, enviando conteúdo relevante que educa e converte, respeitando
             frequência ideal e mantendo métricas de engajamento saudáveis""",
             resultados_esperados=[
@@ -196,9 +196,9 @@ padroes_delegacao = {
             },
             restricoes=[
                 "Nunca enviar mais de 2 emails/semana",
-                "Não fazer spam ou promessas falsas",
+                "Nêo fazer spam ou promessas falsas",
                 "Respeitar horário comercial",
-                "Sempre incluir opção de descadastro clara"
+                "Sempre incluir opçêo de descadastro clara"
             ],
             tipo=TipoDelegacao.CONTINUA,
             nivel_autonomia=NivelAutonomia.SEMI_AUTONOMO,
@@ -221,11 +221,11 @@ padroes_delegacao = {
             nome="Suporte Autônomo 24/7",
             intencao_principal="""Forneça suporte rápido e eficaz aos clientes,
             resolvendo dúvidas técnicas e problemas comuns de forma autônoma,
-            mantendo alto nível de satisfação e escalando para humano quando necessário""",
+            mantendo alto nível de satisfaçêo e escalando para humano quando necessário""",
             resultados_esperados=[
                 "Tempo resposta < 5 minutos",
-                "Taxa resolução primeira interação > 70%",
-                "Satisfação cliente > 4.5/5",
+                "Taxa resoluçêo primeira interaçêo > 70%",
+                "Satisfaçêo cliente > 4.5/5",
                 "Disponibilidade 24/7"
             ],
             metricas_sucesso={
@@ -235,8 +235,8 @@ padroes_delegacao = {
                 "disponibilidade": 1.0
             },
             restricoes=[
-                "Nunca prometer funcionalidades não existentes",
-                "Não oferecer descontos sem autorização",
+                "Nunca prometer funcionalidades nêo existentes",
+                "Nêo oferecer descontos sem autorizaçêo",
                 "Manter tom respeitoso mesmo com clientes difíceis",
                 "Proteger informações confidenciais"
             ],
@@ -251,14 +251,14 @@ padroes_delegacao = {
             contexto_operacao={
                 "canais": ["chat", "email", "whatsapp"],
                 "horario": "24/7",
-                "base_conhecimento": "documentação do produto",
+                "base_conhecimento": "documentaçêo do produto",
                 "idiomas": ["português", "inglês"]
             }
         )
     ),
 
     "criacao_conteudo": PadraoDelegacao(
-        cenario="Produção de conteúdo educativo",
+        cenario="Produçêo de conteúdo educativo",
         delegacao_modelo=DelegacaoIntencional(
             nome="Criador de Conteúdo Autônomo",
             intencao_principal="""Produza conteúdo educativo de qualidade que posiciona
@@ -279,7 +279,7 @@ padroes_delegacao = {
             restricoes=[
                 "Nunca plagiar conteúdo",
                 "Citar fontes de dados e estatísticas",
-                "Manter tom educativo, não vendedor",
+                "Manter tom educativo, nêo vendedor",
                 "Revisar fatos antes de publicar"
             ],
             tipo=TipoDelegacao.CONTINUA,
@@ -291,7 +291,7 @@ padroes_delegacao = {
             ],
             contexto_operacao={
                 "plataformas": ["blog", "linkedin", "medium"],
-                "temas": ["IA", "automação", "produtividade"],
+                "temas": ["IA", "automaçêo", "produtividade"],
                 "formato": "artigos 1000-1500 palavras",
                 "tom": "profissional e didático"
             }
@@ -301,10 +301,10 @@ padroes_delegacao = {
 
 # Uso dos padrões
 def criar_delegacao_a_partir_padrao(tipo: str, customizacoes: Dict) -> DelegacaoIntencional:
-    """Cria delegação customizada a partir de padrão"""
+    """Cria delegaçêo customizada a partir de padrêo"""
     padrao = padroes_delegacao.get(tipo)
     if not padrao:
-        raise ValueError(f"Padrão '{tipo}' não encontrado")
+        raise ValueError(f"Padrêo '{tipo}' nêo encontrado")
 
     delegacao = padrao.delegacao_modelo
 
@@ -329,11 +329,11 @@ minha_delegacao = criar_delegacao_a_partir_padrao(
     }
 )
 
-print(f"Delegação customizada: {minha_delegacao.nome}")
-print(f"Validação: {minha_delegacao.validar_delegacao()}")
+print(f"Delegaçêo customizada: {minha_delegacao.nome}")
+print(f"Validaçêo: {minha_delegacao.validar_delegacao()}")
 ```
 
-## Delegação com Ciclo de Feedback
+## Delegaçêo com Ciclo de Feedback
 
 ```python
 from dataclasses import dataclass, field
@@ -342,7 +342,7 @@ from datetime import datetime
 
 @dataclass
 class FeedbackDelegacao:
-    """Feedback sobre execução da delegação"""
+    """Feedback sobre execuçêo da delegaçêo"""
     data: datetime
     metricas_alcancadas: Dict[str, float]
     desvios: List[Dict]
@@ -357,14 +357,14 @@ class SistemaDelegacaoEvolutiva:
     ajustes_automaticos: bool = True
 
     def registrar_feedback(self, feedback: FeedbackDelegacao):
-        """Registra feedback de execução"""
+        """Registra feedback de execuçêo"""
         self.historico_feedback.append(feedback)
 
         if self.ajustes_automaticos:
             self._ajustar_delegacao_automaticamente(feedback)
 
     def _ajustar_delegacao_automaticamente(self, feedback: FeedbackDelegacao):
-        """Ajusta delegação baseado em performance"""
+        """Ajusta delegaçêo baseado em performance"""
         # Se está indo muito bem, aumenta autonomia
         metricas_ok = all(
             feedback.metricas_alcancadas.get(k, 0) >= v
@@ -392,7 +392,7 @@ class SistemaDelegacaoEvolutiva:
                 print("⚠️ Sistema reduzido para SEMI-AUTÔNOMO (múltiplos desvios detectados)")
 
     def gerar_relatorio_evolucao(self) -> Dict:
-        """Gera relatório de evolução da delegação"""
+        """Gera relatório de evoluçêo da delegaçêo"""
         if not self.historico_feedback:
             return {"erro": "Sem feedback registrado ainda"}
 
@@ -470,48 +470,48 @@ for i in range(5):
     sistema.registrar_feedback(feedback)
 
 relatorio = sistema.gerar_relatorio_evolucao()
-print(f"\nRelatório de Evolução:")
+print(f"\nRelatório de Evoluçêo:")
 print(f"Ciclos: {relatorio['total_ciclos']}")
 print(f"Autonomia: {relatorio['nivel_autonomia_atual']}")
 print(f"Performance: {relatorio['performance_ultimos_30_dias']}")
 ```
 
-## Checklist da Delegação Perfeita
+## Checklist da Delegaçêo Perfeita
 
 Antes de delegar qualquer tarefa ou responsabilidade para um sistema autônomo, valide:
 
-✅ **Intenção Clara**
-- [ ] Objetivo está explicitamente definido (não implícito)
+✅ **Intençêo Clara**
+- [ ] Objetivo está explicitamente definido (nêo implícito)
 - [ ] Resultado esperado é mensurável
 - [ ] Prazo ou frequência está especificado
 
 ✅ **Métricas Quantificadas**
 - [ ] Pelo menos 2 métricas objetivas definidas
 - [ ] Valores-alvo especificados
-- [ ] Forma de medição está clara
+- [ ] Forma de mediçêo está clara
 
 ✅ **Limites Explícitos**
-- [ ] O que NÃO pode fazer está documentado
+- [ ] O que NêO pode fazer está documentado
 - [ ] Áreas sensíveis identificadas
 - [ ] Valores/princípios inegociáveis definidos
 
 ✅ **Autonomia Calibrada**
 - [ ] Nível de autonomia adequado ao risco
-- [ ] Pontos de aprovação humana definidos
-- [ ] Protocolo de escalação estabelecido
+- [ ] Pontos de aprovaçêo humana definidos
+- [ ] Protocolo de escalaçêo estabelecido
 
 ✅ **Contexto Completo**
 - [ ] Ferramentas/recursos disponíveis listados
 - [ ] Padrões de qualidade especificados
-- [ ] Tom/estilo de comunicação definido
+- [ ] Tom/estilo de comunicaçêo definido
 
 ✅ **Ciclo de Feedback**
 - [ ] Frequência de relatórios definida
-- [ ] Métricas serão revisadas periodicamente
+- [ ] Métricas serêo revisadas periodicamente
 - [ ] Sistema pode evoluir baseado em resultados
 
-**Se todos os itens acima estão marcados, sua delegação está pronta para 2026.**
+**Se todos os itens acima estêo marcados, sua delegaçêo está pronta para 2026.**
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

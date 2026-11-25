@@ -1,13 +1,13 @@
 # Módulo 5: Como Criar um Agente Completo
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
-Agora que você entende o que são agentes e como eles funcionam, chegou o momento de **construir seus próprios agentes profissionais**. Este não é um módulo sobre teoria - é um guia prático, passo a passo, para criar agentes que realmente funcionam.
+Agora que você entende o que sêo agentes e como eles funcionam, chegou o momento de **construir seus próprios agentes profissionais**. Este nêo é um módulo sobre teoria - é um guia prático, passo a passo, para criar agentes que realmente funcionam.
 
 ### O Que Você Vai Aprender
 
@@ -20,14 +20,14 @@ Depois de analisar centenas de agentes bem-sucedidos (e muitos que falharam), id
 ### Estrutura Deste Módulo
 
 1. **Nome do Agente** - Identidade e propósito
-2. **Missão** - O "porquê" da existência
-3. **Intenção** - O papel no sistema
-4. **Limites** - O que NÃO fazer
+2. **Missêo** - O "porquê" da existência
+3. **Intençêo** - O papel no sistema
+4. **Limites** - O que NêO fazer
 5. **Processo Interno** - Como raciocinar
-6. **Protocolos de Validação** - Garantia de qualidade
+6. **Protocolos de Validaçêo** - Garantia de qualidade
 7. **Ações Possíveis** - Ferramentas e capacidades
-8. **Comunicação com Usuário** - Interface humana
-9. **Comunicação com Agentes** - Colaboração inter-agentes
+8. **Comunicaçêo com Usuário** - Interface humana
+9. **Comunicaçêo com Agentes** - Colaboraçêo inter-agentes
 
 **Meta de profundidade:** ~35KB de conteúdo rico, exemplos completos, código Python.
 
@@ -37,13 +37,13 @@ Depois de analisar centenas de agentes bem-sucedidos (e muitos que falharam), id
 
 ### 1.1 Por Que o Nome Importa
 
-O nome do agente não é apenas um rótulo. É a primeira camada de identidade que:
-- Define o escopo de atuação
-- Ancora a intenção do sistema
-- Facilita comunicação entre agentes
+O nome do agente nêo é apenas um rótulo. É a primeira camada de identidade que:
+- Define o escopo de atuaçêo
+- Ancora a intençêo do sistema
+- Facilita comunicaçêo entre agentes
 - Cria clareza mental para quem usa
 
-**Regra de ouro:** O nome deve revelar a função principal em 1-3 palavras.
+**Regra de ouro:** O nome deve revelar a funçêo principal em 1-3 palavras.
 
 ### 1.2 Anatomia de um Bom Nome
 
@@ -55,7 +55,7 @@ O nome do agente não é apenas um rótulo. É a primeira camada de identidade q
 ❌ "Bot_01"
 ```
 
-**Por que são ruins:** Genéricos, sem função clara, não transmitem intenção.
+**Por que sêo ruins:** Genéricos, sem funçêo clara, nêo transmitem intençêo.
 
 #### Exemplos Bons
 ```
@@ -65,25 +65,25 @@ O nome do agente não é apenas um rótulo. É a primeira camada de identidade q
 ✅ "Otimizador de Processos"
 ```
 
-**Por que são bons:** Específicos, revelam função, transmitem expertise.
+**Por que sêo bons:** Específicos, revelam funçêo, transmitem expertise.
 
 ### 1.3 Padrões de Nomenclatura
 
-#### Padrão 1: [Função] + [Domínio]
+#### Padrêo 1: [Funçêo] + [Domínio]
 ```
 "Revisor de Código Python"
 "Planejador de Marketing Digital"
 "Consultor Jurídico Tributário"
 ```
 
-#### Padrão 2: [Ação] + [Objeto]
+#### Padrêo 2: [Açêo] + [Objeto]
 ```
 "Sintetizador de Artigos"
 "Extrator de Insights"
 "Gerador de Relatórios"
 ```
 
-#### Padrão 3: [Papel Profissional]
+#### Padrêo 3: [Papel Profissional]
 ```
 "Analista Financeiro"
 "Professor de Matemática"
@@ -97,7 +97,7 @@ from datetime import datetime
 from typing import Optional, List
 
 class AgentConfig:
-    """Configuração base para agentes profissionais."""
+    """Configuraçêo base para agentes profissionais."""
 
     def __init__(self, name: str, domain: Optional[str] = None):
         self.name = name
@@ -142,7 +142,7 @@ print(f"Nome Completo: {agent.full_name}")
 print(f"ID: {agent.id}")
 
 validation = agent.validate_name()
-print(f"\nValidação: {validation['valid']}")
+print(f"\nValidaçêo: {validation['valid']}")
 print(f"Score: {validation['score']:.1%}")
 print("\nDetalhes dos checks:")
 for check, passed in validation['checks'].items():
@@ -153,7 +153,7 @@ for check, passed in validation['checks'].items():
 # Nome Completo: Pesquisador Científico - Biotecnologia
 # ID: a3f29c4b
 #
-# Validação: True
+# Validaçêo: True
 # Score: 100.0%
 #
 # Detalhes dos checks:
@@ -204,7 +204,7 @@ class AgentNamingSystem:
             for agent_id, info in self.agents.items()
         ]
 
-# Exemplo: Sistema de criação de conteúdo
+# Exemplo: Sistema de criaçêo de conteúdo
 content_system = AgentNamingSystem("ContentCreation")
 
 # Registrar agentes
@@ -240,38 +240,38 @@ Crie nomes apropriados para estes cenários:
 
 ---
 
-## 2. Missão: O "Porquê" da Existência
+## 2. Missêo: O "Porquê" da Existência
 
-### 2.1 O Que É Missão vs. Nome
+### 2.1 O Que É Missêo vs. Nome
 
 **Nome** = QUEM você é
-**Missão** = POR QUE você existe
+**Missêo** = POR QUE você existe
 
-A missão é a declaração de propósito que guia todas as decisões do agente.
+A missêo é a declaraçêo de propósito que guia todas as decisões do agente.
 
-### 2.2 Estrutura de Uma Missão Eficaz
+### 2.2 Estrutura de Uma Missêo Eficaz
 
-Uma missão forte tem 3 componentes:
+Uma missêo forte tem 3 componentes:
 
 1. **Objetivo Final** - O resultado desejado
 2. **Valor Agregado** - O benefício específico
-3. **Contexto de Aplicação** - Onde/quando atua
+3. **Contexto de Aplicaçêo** - Onde/quando atua
 
 **Template:**
 ```
 "[Objetivo Final] para [Beneficiário], garantindo [Valor Agregado]
-através de [Contexto de Aplicação]"
+através de [Contexto de Aplicaçêo]"
 ```
 
 ### 2.3 Exemplos Comparativos
 
-#### Missão Fraca
+#### Missêo Fraca
 ```
 ❌ "Ajudar com análise de dados"
 ```
 **Problemas:** Vago, sem benefício claro, sem contexto.
 
-#### Missão Forte
+#### Missêo Forte
 ```
 ✅ "Transformar dados brutos de vendas em insights acionáveis
 para gerentes comerciais, garantindo decisões baseadas em evidências
@@ -288,9 +288,9 @@ através de análises estatísticas rigorosas e visualizações claras."
 
 #### Agente Pesquisador
 ```
-"Coletar e sintetizar informação relevante de fontes confiáveis
+"Coletar e sintetizar informaçêo relevante de fontes confiáveis
 para profissionais ocupados, garantindo economia de tempo e
-precisão factual através de validação cruzada e citação adequada."
+precisêo factual através de validaçêo cruzada e citaçêo adequada."
 ```
 
 #### Agente Escritor
@@ -303,7 +303,7 @@ explicações didáticas e código funcional."
 #### Agente Analista
 ```
 "Extrair padrões e anomalias de grandes volumes de dados para
-tomadores de decisão, garantindo previsibilidade e controle de riscos
+tomadores de decisêo, garantindo previsibilidade e controle de riscos
 através de análises estatísticas avançadas e alertas proativos."
 ```
 
@@ -315,7 +315,7 @@ from typing import List, Dict, Optional
 
 @dataclass
 class Mission:
-    """Define a missão completa de um agente."""
+    """Define a missêo completa de um agente."""
 
     objective: str          # O que fazer
     beneficiary: str        # Para quem
@@ -323,18 +323,18 @@ class Mission:
     context: str           # Como/onde aplicar
 
     def to_prompt(self) -> str:
-        """Converte missão em texto para prompt."""
+        """Converte missêo em texto para prompt."""
         return f"""
-MISSÃO PRIMÁRIA:
+MISSêO PRIMÁRIA:
 {self.objective} para {self.beneficiary}, garantindo
 {self.value_proposition} através de {self.context}.
 
-Esta missão guia TODAS as suas decisões e ações.
-Quando enfrentar escolhas ambíguas, consulte esta missão para decidir.
+Esta missêo guia TODAS as suas decisões e ações.
+Quando enfrentar escolhas ambíguas, consulte esta missêo para decidir.
         """.strip()
 
     def validate_mission(self) -> Dict[str, any]:
-        """Valida se a missão está completa e bem estruturada."""
+        """Valida se a missêo está completa e bem estruturada."""
         issues = []
 
         if len(self.objective) < 20:
@@ -363,7 +363,7 @@ Quando enfrentar escolhas ambíguas, consulte esta missão para decidir.
         }
 
     def get_decision_criteria(self) -> List[str]:
-        """Extrai critérios de decisão baseados na missão."""
+        """Extrai critérios de decisêo baseados na missêo."""
         criteria = [
             f"Priorizar ações que servem {self.beneficiary}",
             f"Focar em entregar {self.value_proposition}",
@@ -374,8 +374,8 @@ Quando enfrentar escolhas ambíguas, consulte esta missão para decidir.
 
 # Exemplo 1: Agente Pesquisador
 research_mission = Mission(
-    objective="Coletar e sintetizar informação científica atual e relevante",
-    beneficiary="pesquisadores e estudantes de pós-graduação",
+    objective="Coletar e sintetizar informaçêo científica atual e relevante",
+    beneficiary="pesquisadores e estudantes de pós-graduaçêo",
     value_proposition="acesso rápido a conhecimento validado e atualizado",
     context="busca em bases acadêmicas, análise crítica de fontes e resumos estruturados"
 )
@@ -386,7 +386,7 @@ print("=" * 70)
 print(research_mission.to_prompt())
 
 validation = research_mission.validate_mission()
-print(f"\nValidação: {'✓ Válida' if validation['valid'] else '✗ Inválida'}")
+print(f"\nValidaçêo: {'✓ Válida' if validation['valid'] else '✗ Inválida'}")
 print(f"Score de Completude: {validation['completeness_score']:.0%}")
 
 if validation['issues']:
@@ -394,7 +394,7 @@ if validation['issues']:
     for issue in validation['issues']:
         print(f"  - {issue}")
 
-print("\nCritérios de Decisão:")
+print("\nCritérios de Decisêo:")
 for i, criterion in enumerate(research_mission.get_decision_criteria(), 1):
     print(f"  {i}. {criterion}")
 
@@ -402,7 +402,7 @@ for i, criterion in enumerate(research_mission.get_decision_criteria(), 1):
 finance_mission = Mission(
     objective="Detectar anomalias e padrões em transações financeiras",
     beneficiary="equipes de compliance e gestores de risco",
-    value_proposition="prevenção proativa de fraudes e compliance regulatório",
+    value_proposition="prevençêo proativa de fraudes e compliance regulatório",
     context="análise em tempo real, machine learning e alertas inteligentes"
 )
 
@@ -411,7 +411,7 @@ print("AGENTE ANALISTA FINANCEIRO")
 print("=" * 70)
 print(finance_mission.to_prompt())
 
-# Exemplo 3: Missão ruim para demonstrar validação
+# Exemplo 3: Missêo ruim para demonstrar validaçêo
 bad_mission = Mission(
     objective="Ajudar",
     beneficiary="usuários",
@@ -420,37 +420,37 @@ bad_mission = Mission(
 )
 
 print("\n" + "=" * 70)
-print("EXEMPLO DE MISSÃO RUIM")
+print("EXEMPLO DE MISSêO RUIM")
 print("=" * 70)
 validation_bad = bad_mission.validate_mission()
-print(f"Validação: {'✓ Válida' if validation_bad['valid'] else '✗ Inválida'}")
+print(f"Validaçêo: {'✓ Válida' if validation_bad['valid'] else '✗ Inválida'}")
 print(f"Score: {validation_bad['completeness_score']:.0%}")
 print("\nProblemas:")
 for issue in validation_bad['issues']:
     print(f"  ✗ {issue}")
 ```
 
-### 2.6 Como a Missão Afeta o Comportamento
+### 2.6 Como a Missêo Afeta o Comportamento
 
-Uma missão bem definida atua como "bússola interna" do agente:
+Uma missêo bem definida atua como "bússola interna" do agente:
 
 **Exemplo prático:**
 
 Agente: "Analista de Dados Financeiros"
-Missão: "Detectar anomalias e padrões em transações financeiras para equipes de compliance, garantindo prevenção de fraudes através de análise em tempo real."
+Missêo: "Detectar anomalias e padrões em transações financeiras para equipes de compliance, garantindo prevençêo de fraudes através de análise em tempo real."
 
-**Situação 1:** Usuário pede para fazer análise de marketing.
+**Situaçêo 1:** Usuário pede para fazer análise de marketing.
 ```python
 class AgentDecisionMaker:
-    """Sistema de decisão baseado em missão."""
+    """Sistema de decisêo baseado em missêo."""
 
     def __init__(self, mission: Mission):
         self.mission = mission
 
     def should_accept_task(self, task_description: str) -> Dict[str, any]:
-        """Decide se deve aceitar uma tarefa baseado na missão."""
+        """Decide se deve aceitar uma tarefa baseado na missêo."""
 
-        # Palavras-chave da missão
+        # Palavras-chave da missêo
         mission_keywords = set(self.mission.objective.lower().split() +
                               self.mission.context.lower().split())
 
@@ -461,7 +461,7 @@ class AgentDecisionMaker:
         overlap = mission_keywords.intersection(task_keywords)
         alignment_score = len(overlap) / max(len(mission_keywords), len(task_keywords))
 
-        # Decisão
+        # Decisêo
         should_accept = alignment_score > 0.2
 
         return {
@@ -473,9 +473,9 @@ class AgentDecisionMaker:
 
     def _generate_reasoning(self, accepted: bool, task: str) -> str:
         if accepted:
-            return f"Esta tarefa está alinhada com minha missão de {self.mission.objective}."
+            return f"Esta tarefa está alinhada com minha missêo de {self.mission.objective}."
         else:
-            return f"Esta tarefa não está alinhada com minha missão. Meu foco é {self.mission.objective}, não '{task}'."
+            return f"Esta tarefa nêo está alinhada com minha missêo. Meu foco é {self.mission.objective}, nêo '{task}'."
 
     def _suggest_alternative(self, task: str) -> str:
         """Sugere alternativa quando tarefa está fora do escopo."""
@@ -484,9 +484,9 @@ class AgentDecisionMaker:
         elif "vendas" in task.lower():
             return "Considere consultar o 'Analista de Vendas' para esta tarefa."
         else:
-            return "Esta tarefa requer um agente com especialização diferente."
+            return "Esta tarefa requer um agente com especializaçêo diferente."
 
-# Teste do sistema de decisão
+# Teste do sistema de decisêo
 finance_agent = AgentDecisionMaker(finance_mission)
 
 # Tarefa alinhada
@@ -494,7 +494,7 @@ task1 = "Analisar transações do último mês e identificar padrões suspeitos"
 decision1 = finance_agent.should_accept_task(task1)
 
 print("\nTarefa 1:", task1)
-print(f"Decisão: {'ACEITAR' if decision1['accept'] else 'RECUSAR'}")
+print(f"Decisêo: {'ACEITAR' if decision1['accept'] else 'RECUSAR'}")
 print(f"Alinhamento: {decision1['alignment_score']:.0%}")
 print(f"Raciocínio: {decision1['reasoning']}")
 
@@ -504,34 +504,34 @@ decision2 = finance_agent.should_accept_task(task2)
 
 print("\n" + "-" * 70)
 print("Tarefa 2:", task2)
-print(f"Decisão: {'ACEITAR' if decision2['accept'] else 'RECUSAR'}")
+print(f"Decisêo: {'ACEITAR' if decision2['accept'] else 'RECUSAR'}")
 print(f"Alinhamento: {decision2['alignment_score']:.0%}")
 print(f"Raciocínio: {decision2['reasoning']}")
 if decision2['alternative']:
-    print(f"Sugestão: {decision2['alternative']}")
+    print(f"Sugestêo: {decision2['alternative']}")
 ```
 
-A missão cria **foco** e **limitação saudável**, evitando que o agente tente fazer tudo e acabe fazendo nada bem.
+A missêo cria **foco** e **limitaçêo saudável**, evitando que o agente tente fazer tudo e acabe fazendo nada bem.
 
 ---
 
-## 3. Intenção: O Papel no Sistema
+## 3. Intençêo: O Papel no Sistema
 
-### 3.1 Missão vs. Intenção
+### 3.1 Missêo vs. Intençêo
 
-**Missão** = Por que você existe (propósito geral)
-**Intenção** = Qual seu papel específico neste sistema (função contextual)
+**Missêo** = Por que você existe (propósito geral)
+**Intençêo** = Qual seu papel específico neste sistema (funçêo contextual)
 
-A intenção é especialmente crítica em sistemas multiagentes.
+A intençêo é especialmente crítica em sistemas multiagentes.
 
-### 3.2 Componentes da Intenção
+### 3.2 Componentes da Intençêo
 
-1. **Papel Primário** - Sua função principal
+1. **Papel Primário** - Sua funçêo principal
 2. **Responsabilidades** - O que você deve fazer
-3. **Não-Responsabilidades** - O que você NÃO deve fazer
+3. **Nêo-Responsabilidades** - O que você NêO deve fazer
 4. **Colaborações** - Com quem você trabalha
 
-### 3.3 Código: Sistema de Intenção
+### 3.3 Código: Sistema de Intençêo
 
 ```python
 from typing import List, Dict, Optional
@@ -539,14 +539,14 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Collaboration:
-    """Define colaboração com outro agente."""
+    """Define colaboraçêo com outro agente."""
     agent_name: str
     interaction_type: str  # "sends_to", "receives_from", "collaborates_with"
     data_exchanged: str
     frequency: str  # "always", "when_needed", "scheduled"
 
 class AgentIntention:
-    """Define a intenção específica do agente no sistema."""
+    """Define a intençêo específica do agente no sistema."""
 
     def __init__(self, role: str, agent_name: str):
         self.role = role
@@ -565,7 +565,7 @@ class AgentIntention:
         })
 
     def add_non_responsibility(self, non_resp: str, reason: str = ""):
-        """Define o que NÃO é responsabilidade do agente."""
+        """Define o que NêO é responsabilidade do agente."""
         self.non_responsibilities.append({
             "description": non_resp,
             "reason": reason
@@ -584,7 +584,7 @@ class AgentIntention:
         self.escalation_triggers.append(trigger)
 
     def to_prompt(self) -> str:
-        """Gera o prompt de intenção."""
+        """Gera o prompt de intençêo."""
         prompt = f"{'=' * 70}\n"
         prompt += f"PAPEL NO SISTEMA: {self.role}\n"
         prompt += f"IDENTIDADE: {self.agent_name}\n"
@@ -595,11 +595,11 @@ class AgentIntention:
             priority_icon = "🔴" if resp['priority'] == "high" else "🟡" if resp['priority'] == "medium" else "🟢"
             prompt += f"{i}. {priority_icon} {resp['description']}\n"
 
-        prompt += "\nO QUE NÃO É SUA RESPONSABILIDADE:\n"
+        prompt += "\nO QUE NêO É SUA RESPONSABILIDADE:\n"
         for i, non_resp in enumerate(self.non_responsibilities, 1):
             prompt += f"{i}. ✗ {non_resp['description']}\n"
             if non_resp['reason']:
-                prompt += f"   Razão: {non_resp['reason']}\n"
+                prompt += f"   Razêo: {non_resp['reason']}\n"
 
         if self.decision_authority:
             prompt += "\nDECISÕES QUE VOCÊ PODE TOMAR AUTONOMAMENTE:\n"
@@ -623,7 +623,7 @@ class AgentIntention:
 
     def can_handle_task(self, task: str) -> Dict[str, any]:
         """Verifica se tarefa está dentro das responsabilidades."""
-        # Simplificado - em produção, usaria NLP
+        # Simplificado - em produçêo, usaria NLP
         task_lower = task.lower()
 
         # Verifica responsabilidades
@@ -633,7 +633,7 @@ class AgentIntention:
             for keyword in resp['description'].lower().split()
         )
 
-        # Verifica não-responsabilidades
+        # Verifica nêo-responsabilidades
         matches_non_responsibility = any(
             keyword in task_lower
             for non_resp in self.non_responsibilities
@@ -641,7 +641,7 @@ class AgentIntention:
         )
 
         if matches_non_responsibility:
-            # Encontra qual não-responsabilidade foi violada
+            # Encontra qual nêo-responsabilidade foi violada
             violated = next(
                 nr for nr in self.non_responsibilities
                 if any(kw in task_lower for kw in nr['description'].lower().split())
@@ -660,14 +660,14 @@ class AgentIntention:
 
         return {
             "can_handle": False,
-            "reason": "Tarefa não corresponde a nenhuma responsabilidade definida"
+            "reason": "Tarefa nêo corresponde a nenhuma responsabilidade definida"
         }
 
-# Exemplo: Sistema de criação de conteúdo com 3 agentes
+# Exemplo: Sistema de criaçêo de conteúdo com 3 agentes
 
 # Agente 1: Pesquisador
 researcher = AgentIntention(
-    role="Pesquisador Primário - Responsável pela coleta e validação de informações",
+    role="Pesquisador Primário - Responsável pela coleta e validaçêo de informações",
     agent_name="Pesquisador de Conteúdo"
 )
 
@@ -684,7 +684,7 @@ researcher.add_responsibility(
     priority="medium"
 )
 researcher.add_responsibility(
-    "Identificar lacunas de informação que precisam ser preenchidas",
+    "Identificar lacunas de informaçêo que precisam ser preenchidas",
     priority="medium"
 )
 
@@ -701,11 +701,11 @@ researcher.add_non_responsibility(
     reason="Isso é responsabilidade do Orquestrador"
 )
 
-researcher.add_decision_authority("Rejeitar fontes não confiáveis")
+researcher.add_decision_authority("Rejeitar fontes nêo confiáveis")
 researcher.add_decision_authority("Priorizar informações mais recentes")
 researcher.add_decision_authority("Solicitar clarificações sobre tópico")
 
-researcher.add_escalation_trigger("Quando não encontrar informações suficientes após 3 buscas")
+researcher.add_escalation_trigger("Quando nêo encontrar informações suficientes após 3 buscas")
 researcher.add_escalation_trigger("Quando tópico envolver informações sensíveis ou controversas")
 
 researcher.add_collaboration(Collaboration(
@@ -730,22 +730,22 @@ print("=" * 70)
 
 for task in test_tasks:
     result = researcher.can_handle_task(task)
-    status = "✓ PODE" if result['can_handle'] else "✗ NÃO PODE"
+    status = "✓ PODE" if result['can_handle'] else "✗ NêO PODE"
     print(f"\nTarefa: {task}")
-    print(f"Decisão: {status}")
-    print(f"Razão: {result['reason']}")
+    print(f"Decisêo: {status}")
+    print(f"Razêo: {result['reason']}")
     if 'suggestion' in result and result['suggestion']:
-        print(f"Sugestão: {result['suggestion']}")
+        print(f"Sugestêo: {result['suggestion']}")
 ```
 
-### 3.4 Por Que Definir Não-Responsabilidades
+### 3.4 Por Que Definir Nêo-Responsabilidades
 
-Muitos agentes falham porque tentam fazer **tudo**. Definir o que NÃO é responsabilidade:
+Muitos agentes falham porque tentam fazer **tudo**. Definir o que NêO é responsabilidade:
 
 1. **Previne sobrecarga** - Agente mantém foco
-2. **Clarifica colaboração** - Outros agentes sabem seu limite
-3. **Evita redundância** - Reduz duplicação de trabalho
-4. **Melhora qualidade** - Especialização gera excelência
+2. **Clarifica colaboraçêo** - Outros agentes sabem seu limite
+3. **Evita redundância** - Reduz duplicaçêo de trabalho
+4. **Melhora qualidade** - Especializaçêo gera excelência
 
 **Exemplo prático completo:**
 
@@ -763,11 +763,11 @@ structurer.add_responsibility(
     priority="high"
 )
 structurer.add_responsibility(
-    "Criar progressão didática (do básico ao avançado)",
+    "Criar progressêo didática (do básico ao avançado)",
     priority="high"
 )
 structurer.add_responsibility(
-    "Definir objetivos de aprendizagem para cada seção",
+    "Definir objetivos de aprendizagem para cada seçêo",
     priority="medium"
 )
 structurer.add_responsibility(
@@ -776,7 +776,7 @@ structurer.add_responsibility(
 )
 
 structurer.add_non_responsibility(
-    "Pesquisar informações novas não fornecidas",
+    "Pesquisar informações novas nêo fornecidas",
     reason="Isso é responsabilidade do Pesquisador"
 )
 structurer.add_non_responsibility(
@@ -825,7 +825,7 @@ writer.add_non_responsibility(
     reason="Isso é responsabilidade do Estruturador"
 )
 writer.add_non_responsibility(
-    "Validar precisão técnica de informações",
+    "Validar precisêo técnica de informações",
     reason="Se houver dúvida, retornar ao Pesquisador"
 )
 
@@ -842,7 +842,7 @@ writer.add_collaboration(Collaboration(
     frequency="when_needed"
 ))
 
-# Visualização do sistema
+# Visualizaçêo do sistema
 print("\n" + "=" * 70)
 print("SISTEMA MULTIAGENTE - FLUXO DE TRABALHO")
 print("=" * 70)
@@ -865,17 +865,17 @@ Veja como cada agente tem **foco claro**, **limites definidos** e **colaboraçõ
 
 ---
 
-## 4. Limites: O Que NÃO Fazer
+## 4. Limites: O Que NêO Fazer
 
-### 4.1 Por Que Limites São Críticos
+### 4.1 Por Que Limites Sêo Críticos
 
 Agentes sem limites claros:
 - Tentam fazer coisas fora de sua expertise
 - Geram resultados de baixa qualidade
-- Criam confusão em sistemas multiagentes
+- Criam confusêo em sistemas multiagentes
 - Desperdiçam recursos computacionais
 
-**Limites não são restrições negativas - são foco estratégico.**
+**Limites nêo sêo restrições negativas - sêo foco estratégico.**
 
 ### 4.2 Tipos de Limites
 
@@ -886,7 +886,7 @@ from typing import List, Dict, Optional
 from enum import Enum
 
 class ScopeDecision(Enum):
-    """Tipos de decisão de escopo."""
+    """Tipos de decisêo de escopo."""
     ALLOWED = "permitido"
     FORBIDDEN = "proibido"
     GREY_AREA = "área cinzenta"
@@ -930,7 +930,7 @@ class ScopeLimits:
                     "decision": ScopeDecision.FORBIDDEN,
                     "allowed": False,
                     "reason": forbidden["reason"],
-                    "recommendation": "Escalar para agente apropriado ou solicitar supervisão humana"
+                    "recommendation": "Escalar para agente apropriado ou solicitar supervisêo humana"
                 }
 
         # Verifica permissões
@@ -950,15 +950,15 @@ class ScopeLimits:
                     "decision": ScopeDecision.GREY_AREA,
                     "allowed": "requires_approval",
                     "approval_rule": grey["approval_rule"],
-                    "recommendation": "Solicitar aprovação antes de prosseguir"
+                    "recommendation": "Solicitar aprovaçêo antes de prosseguir"
                 }
 
-        # Domínio não reconhecido
+        # Domínio nêo reconhecido
         return {
             "decision": ScopeDecision.UNKNOWN,
             "allowed": False,
             "reason": "Domínio fora da expertise definida",
-            "recommendation": "Solicitar clarificação ou escalar para supervisor"
+            "recommendation": "Solicitar clarificaçêo ou escalar para supervisor"
         }
 
     def to_prompt(self) -> str:
@@ -973,10 +973,10 @@ class ScopeLimits:
         prompt += "\nDOMÍNIOS PROIBIDOS (fora da sua expertise):\n"
         for i, forbidden in enumerate(self.forbidden_domains, 1):
             prompt += f"{i}. ✗ {forbidden['domain']}\n"
-            prompt += f"   Razão: {forbidden['reason']}\n"
+            prompt += f"   Razêo: {forbidden['reason']}\n"
 
         if self.grey_areas:
-            prompt += "\nÁREAS CINZENTAS (requerem aprovação):\n"
+            prompt += "\nÁREAS CINZENTAS (requerem aprovaçêo):\n"
             for i, grey in enumerate(self.grey_areas, 1):
                 prompt += f"{i}. ⚠ {grey['area']}\n"
                 prompt += f"   Regra: {grey['approval_rule']}\n"
@@ -1003,7 +1003,7 @@ financial_analyst.add_allowed_domain(
 # Domínios proibidos
 financial_analyst.add_forbidden_domain(
     "consultoria jurídica",
-    "Não sou advogado. Questões legais devem ser encaminhadas para departamento jurídico"
+    "Nêo sou advogado. Questões legais devem ser encaminhadas para departamento jurídico"
 )
 financial_analyst.add_forbidden_domain(
     "análise de marketing",
@@ -1021,7 +1021,7 @@ financial_analyst.add_grey_area(
 )
 financial_analyst.add_grey_area(
     "análise de risco operacional",
-    "Posso analisar impacto financeiro de riscos, mas identificação de riscos operacionais deve envolver Gestor de Operações"
+    "Posso analisar impacto financeiro de riscos, mas identificaçêo de riscos operacionais deve envolver Gestor de Operações"
 )
 
 print(financial_analyst.to_prompt())
@@ -1033,7 +1033,7 @@ print("=" * 70)
 
 test_cases = [
     "análise de DRE do último trimestre",
-    "revisão de contrato de fornecedor",
+    "revisêo de contrato de fornecedor",
     "análise financeira para M&A",
     "estratégia de conteúdo para redes sociais"
 ]
@@ -1041,20 +1041,20 @@ test_cases = [
 for test in test_cases:
     result = financial_analyst.check_domain(test)
     print(f"\nTarefa: {test}")
-    print(f"Decisão: {result['decision'].value.upper()}")
+    print(f"Decisêo: {result['decision'].value.upper()}")
     print(f"Permitido: {result['allowed']}")
     if 'reason' in result:
-        print(f"Razão: {result['reason']}")
+        print(f"Razêo: {result['reason']}")
     if 'description' in result:
         print(f"Detalhes: {result['description']}")
-    print(f"Recomendação: {result['recommendation']}")
+    print(f"Recomendaçêo: {result['recommendation']}")
 ```
 
-#### 2. Limites de Ação
+#### 2. Limites de Açêo
 
 ```python
 class ActionLimits:
-    """Define limites de ação para o agente."""
+    """Define limites de açêo para o agente."""
 
     def __init__(self, agent_name: str):
         self.agent_name = agent_name
@@ -1082,7 +1082,7 @@ class ActionLimits:
         })
 
     def can_execute_action(self, action: str) -> Dict:
-        """Verifica se pode executar uma ação."""
+        """Verifica se pode executar uma açêo."""
         action_lower = action.lower()
 
         # Verifica proibições
@@ -1092,7 +1092,7 @@ class ActionLimits:
                     "can_execute": False,
                     "type": "forbidden",
                     "reason": forbidden["reason"],
-                    "alternative": "Solicitar que ação seja executada por agente/humano com permissões adequadas"
+                    "alternative": "Solicitar que açêo seja executada por agente/humano com permissões adequadas"
                 }
 
         # Verifica condicionais
@@ -1103,7 +1103,7 @@ class ActionLimits:
                     "type": "conditional",
                     "condition": conditional["condition"],
                     "approval_level": conditional["approval_level"],
-                    "next_step": f"Solicitar aprovação de {conditional['approval_level']}"
+                    "next_step": f"Solicitar aprovaçêo de {conditional['approval_level']}"
                 }
 
         # Verifica permissões
@@ -1113,20 +1113,20 @@ class ActionLimits:
                     "can_execute": True,
                     "type": "allowed",
                     "description": allowed["description"],
-                    "next_step": "Prosseguir com execução"
+                    "next_step": "Prosseguir com execuçêo"
                 }
 
-        # Ação não reconhecida
+        # Açêo nêo reconhecida
         return {
             "can_execute": False,
             "type": "unknown",
-            "reason": "Ação não está na lista de ações definidas",
-            "next_step": "Solicitar clarificação ou adicionar à lista de ações"
+            "reason": "Açêo nêo está na lista de ações definidas",
+            "next_step": "Solicitar clarificaçêo ou adicionar à lista de ações"
         }
 
     def to_prompt(self) -> str:
-        """Gera prompt de limites de ação."""
-        prompt = f"LIMITES DE AÇÃO PARA {self.agent_name}\n\n"
+        """Gera prompt de limites de açêo."""
+        prompt = f"LIMITES DE AÇêO PARA {self.agent_name}\n\n"
 
         prompt += "VOCÊ PODE EXECUTAR:\n"
         for i, action in enumerate(self.allowed_actions, 1):
@@ -1134,17 +1134,17 @@ class ActionLimits:
             if action['description']:
                 prompt += f"   → {action['description']}\n"
 
-        prompt += "\nVOCÊ NÃO PODE EXECUTAR:\n"
+        prompt += "\nVOCÊ NêO PODE EXECUTAR:\n"
         for i, action in enumerate(self.forbidden_actions, 1):
             prompt += f"{i}. ✗ {action['action']}\n"
-            prompt += f"   Razão: {action['reason']}\n"
+            prompt += f"   Razêo: {action['reason']}\n"
 
         if self.conditional_actions:
-            prompt += "\nVOCÊ PODE EXECUTAR (com aprovação):\n"
+            prompt += "\nVOCÊ PODE EXECUTAR (com aprovaçêo):\n"
             for i, action in enumerate(self.conditional_actions, 1):
                 prompt += f"{i}. ⚠ {action['action']}\n"
-                prompt += f"   Condição: {action['condition']}\n"
-                prompt += f"   Aprovação de: {action['approval_level']}\n"
+                prompt += f"   Condiçêo: {action['condition']}\n"
+                prompt += f"   Aprovaçêo de: {action['approval_level']}\n"
 
         return prompt
 
@@ -1172,11 +1172,11 @@ cs_agent.add_allowed_action(
 # Ações proibidas
 cs_agent.add_forbidden_action(
     "Oferecer descontos acima de 10%",
-    "Requer aprovação de supervisor. Descontos maiores afetam margem"
+    "Requer aprovaçêo de supervisor. Descontos maiores afetam margem"
 )
 cs_agent.add_forbidden_action(
     "Compartilhar dados de outros clientes",
-    "Violação de privacidade e LGPD"
+    "Violaçêo de privacidade e LGPD"
 )
 cs_agent.add_forbidden_action(
     "Prometer prazos de entrega específicos",
@@ -1184,7 +1184,7 @@ cs_agent.add_forbidden_action(
 )
 cs_agent.add_forbidden_action(
     "Deletar pedidos ou dados do cliente",
-    "Ação irreversível que requer múltiplas aprovações"
+    "Açêo irreversível que requer múltiplas aprovações"
 )
 
 # Ações condicionais
@@ -1195,11 +1195,11 @@ cs_agent.add_conditional_action(
 )
 cs_agent.add_conditional_action(
     "Escalar para supervisor",
-    "Se cliente solicitar explicitamente OU problema não resolver em 2 interações OU envolver reclamação grave",
+    "Se cliente solicitar explicitamente OU problema nêo resolver em 2 interações OU envolver reclamaçêo grave",
     approval_level="supervisor"
 )
 cs_agent.add_conditional_action(
-    "Oferecer compensação (crédito, brinde)",
+    "Oferecer compensaçêo (crédito, brinde)",
     "Para falhas comprovadas da empresa, valor até R$ 100",
     approval_level="supervisor"
 )
@@ -1208,7 +1208,7 @@ print(cs_agent.to_prompt())
 
 # Teste do sistema
 print("\n" + "=" * 70)
-print("TESTE DO SISTEMA DE LIMITES DE AÇÃO")
+print("TESTE DO SISTEMA DE LIMITES DE AÇêO")
 print("=" * 70)
 
 test_actions = [
@@ -1220,14 +1220,14 @@ test_actions = [
 
 for action in test_actions:
     result = cs_agent.can_execute_action(action)
-    print(f"\nAção: {action}")
+    print(f"\nAçêo: {action}")
     print(f"Pode executar: {result['can_execute']}")
     print(f"Tipo: {result['type']}")
 
     if 'reason' in result:
-        print(f"Razão: {result['reason']}")
+        print(f"Razêo: {result['reason']}")
     if 'condition' in result:
-        print(f"Condição: {result['condition']}")
+        print(f"Condiçêo: {result['condition']}")
     print(f"Próximo passo: {result['next_step']}")
 ```
 
@@ -1237,7 +1237,7 @@ for action in test_actions:
 from enum import Enum
 
 class ViolationSeverity(Enum):
-    """Severidade de violação ética."""
+    """Severidade de violaçêo ética."""
     CRITICAL = "crítica"
     HIGH = "alta"
     MEDIUM = "média"
@@ -1271,7 +1271,7 @@ class EthicalLimits:
         })
 
     def evaluate_action_ethics(self, action_description: str) -> Dict:
-        """Avalia se uma ação respeita limites éticos."""
+        """Avalia se uma açêo respeita limites éticos."""
         violations = []
 
         # Palavras-chave de risco ético
@@ -1283,7 +1283,7 @@ class EthicalLimits:
         # Palavras-chave de risco de segurança
         safety_red_flags = [
             "deletar", "remover permanentemente", "desabilitar segurança",
-            "bypass", "ignorar validação"
+            "bypass", "ignorar validaçêo"
         ]
 
         # Palavras-chave de risco de privacidade
@@ -1300,7 +1300,7 @@ class EthicalLimits:
                 violations.append({
                     "type": "ethical",
                     "severity": ViolationSeverity.HIGH,
-                    "description": f"Ação contém termo de risco ético: '{flag}'"
+                    "description": f"Açêo contém termo de risco ético: '{flag}'"
                 })
 
         # Verifica violações de segurança
@@ -1309,7 +1309,7 @@ class EthicalLimits:
                 violations.append({
                     "type": "safety",
                     "severity": ViolationSeverity.HIGH,
-                    "description": f"Ação contém termo de risco de segurança: '{flag}'"
+                    "description": f"Açêo contém termo de risco de segurança: '{flag}'"
                 })
 
         # Verifica violações de privacidade
@@ -1318,7 +1318,7 @@ class EthicalLimits:
                 violations.append({
                     "type": "privacy",
                     "severity": ViolationSeverity.CRITICAL,
-                    "description": f"Ação contém termo de risco de privacidade: '{flag}'"
+                    "description": f"Açêo contém termo de risco de privacidade: '{flag}'"
                 })
 
         max_severity = max(
@@ -1330,8 +1330,8 @@ class EthicalLimits:
             "approved": len(violations) == 0,
             "violations": violations,
             "max_severity": max_severity,
-            "recommendation": "BLOQUEAR AÇÃO" if max_severity == ViolationSeverity.CRITICAL else
-                            "Solicitar revisão" if violations else "Prosseguir"
+            "recommendation": "BLOQUEAR AÇêO" if max_severity == ViolationSeverity.CRITICAL else
+                            "Solicitar revisêo" if violations else "Prosseguir"
         }
 
     def to_prompt(self) -> str:
@@ -1350,7 +1350,7 @@ class EthicalLimits:
             prompt += f"{i}. {icon} {rule['rule']}\n"
             prompt += f"   Severidade: {rule['severity'].value}\n"
 
-        prompt += "\nPROTEÇÃO DE PRIVACIDADE (LGPD/GDPR):\n"
+        prompt += "\nPROTEÇêO DE PRIVACIDADE (LGPD/GDPR):\n"
         for i, rule in enumerate(self.privacy_rules, 1):
             prompt += f"{i}. 🔴 {rule['rule']}\n"
             prompt += f"   Severidade: {rule['severity'].value}\n"
@@ -1362,7 +1362,7 @@ data_analyst = EthicalLimits("Analista de Dados")
 
 # Ética
 data_analyst.add_ethical_rule(
-    "Nunca manipular dados para favorecer conclusão específica",
+    "Nunca manipular dados para favorecer conclusêo específica",
     ViolationSeverity.CRITICAL
 )
 data_analyst.add_ethical_rule(
@@ -1370,7 +1370,7 @@ data_analyst.add_ethical_rule(
     ViolationSeverity.HIGH
 )
 data_analyst.add_ethical_rule(
-    "Recusar análises que possam discriminar grupos protegidos (raça, gênero, religião)",
+    "Recusar análises que possam discriminar grupos protegidos (raça, gênero, religiêo)",
     ViolationSeverity.CRITICAL
 )
 data_analyst.add_ethical_rule(
@@ -1380,7 +1380,7 @@ data_analyst.add_ethical_rule(
 
 # Segurança
 data_analyst.add_safety_rule(
-    "Não executar queries que possam deletar ou modificar dados de produção",
+    "Nêo executar queries que possam deletar ou modificar dados de produçêo",
     ViolationSeverity.CRITICAL
 )
 data_analyst.add_safety_rule(
@@ -1402,7 +1402,7 @@ data_analyst.add_privacy_rule(
     ViolationSeverity.CRITICAL
 )
 data_analyst.add_privacy_rule(
-    "Não armazenar dados além do tempo necessário para análise",
+    "Nêo armazenar dados além do tempo necessário para análise",
     ViolationSeverity.CRITICAL
 )
 data_analyst.add_privacy_rule(
@@ -1416,13 +1416,13 @@ data_analyst.add_privacy_rule(
 
 print(data_analyst.to_prompt())
 
-# Teste de avaliação ética
+# Teste de avaliaçêo ética
 print("\n" + "=" * 70)
-print("TESTE DE AVALIAÇÃO ÉTICA")
+print("TESTE DE AVALIAÇêO ÉTICA")
 print("=" * 70)
 
 test_actions = [
-    "Analisar padrões de compra para segmentação de clientes",
+    "Analisar padrões de compra para segmentaçêo de clientes",
     "Modificar dados para mostrar tendência mais favorável",
     "Compartilhar relatório com dados anonimizados",
     "Deletar registros antigos do banco de dados principal"
@@ -1430,17 +1430,17 @@ test_actions = [
 
 for action in test_actions:
     result = data_analyst.evaluate_action_ethics(action)
-    print(f"\nAção: {action}")
-    print(f"Aprovada: {'SIM' if result['approved'] else 'NÃO'}")
+    print(f"\nAçêo: {action}")
+    print(f"Aprovada: {'SIM' if result['approved'] else 'NêO'}")
 
     if result['violations']:
         print(f"Violações encontradas: {len(result['violations'])}")
         for v in result['violations']:
             print(f"  - Tipo: {v['type']}")
-            print(f"    Descrição: {v['description']}")
+            print(f"    Descriçêo: {v['description']}")
             print(f"    Severidade: {v['severity'].value}")
 
-    print(f"Recomendação: {result['recommendation']}")
+    print(f"Recomendaçêo: {result['recommendation']}")
 ```
 
 ---
@@ -1449,7 +1449,7 @@ for action in test_actions:
 
 ### 5.1 O Que É Processo Interno
 
-É o "algoritmo mental" que o agente segue para completar tarefas. Sem processo definido, agentes são inconsistentes e imprevisíveis.
+É o "algoritmo mental" que o agente segue para completar tarefas. Sem processo definido, agentes sêo inconsistentes e imprevisíveis.
 
 ### 5.2 Estrutura de Processo
 
@@ -1457,9 +1457,9 @@ Um bom processo interno tem:
 
 1. **Passos sequenciais claros**
 2. **Decisões condicionais (if/then)**
-3. **Loops de validação**
-4. **Pontos de verificação**
-5. **Critérios de conclusão**
+3. **Loops de validaçêo**
+4. **Pontos de verificaçêo**
+5. **Critérios de conclusêo**
 
 ### 5.3 Exemplo Completo: Agente Pesquisador
 
@@ -1473,10 +1473,10 @@ class ResearchStage(Enum):
     """Estágios do processo de pesquisa."""
     PLANNING = "planejamento"
     SEARCHING = "busca"
-    VALIDATION = "validação"
+    VALIDATION = "validaçêo"
     SYNTHESIS = "síntese"
-    REVIEW = "revisão"
-    COMPLETION = "conclusão"
+    REVIEW = "revisêo"
+    COMPLETION = "conclusêo"
 
 @dataclass
 class ProcessStep:
@@ -1520,15 +1520,15 @@ class ResearchProcess:
             search_results = self._stage_searching(plan["search_terms"])
             result["log"].append(search_results)
 
-            # Estágio 3: Validação
-            self._log("Iniciando estágio: VALIDAÇÃO")
+            # Estágio 3: Validaçêo
+            self._log("Iniciando estágio: VALIDAÇêO")
             validation = self._stage_validation(search_results["sources"])
             result["log"].append(validation)
 
-            # Se validação falhou, parar aqui
+            # Se validaçêo falhou, parar aqui
             if not validation["passed"]:
                 result["success"] = False
-                result["output"] = "Falha na validação de fontes - fontes insuficientes ou não confiáveis"
+                result["output"] = "Falha na validaçêo de fontes - fontes insuficientes ou nêo confiáveis"
                 result["metrics"] = self._calculate_metrics()
                 return result
 
@@ -1537,15 +1537,15 @@ class ResearchProcess:
             synthesis = self._stage_synthesis(validation["validated_sources"])
             result["log"].append(synthesis)
 
-            # Estágio 5: Revisão
-            self._log("Iniciando estágio: REVISÃO")
+            # Estágio 5: Revisêo
+            self._log("Iniciando estágio: REVISêO")
             review = self._stage_review(synthesis["content"])
             result["log"].append(review)
 
-            # Se revisão requer ajustes, tentar re-síntese (máximo 2 vezes)
+            # Se revisêo requer ajustes, tentar re-síntese (máximo 2 vezes)
             retry_count = 0
             while review["requires_adjustment"] and retry_count < 2:
-                self._log(f"Revisão requer ajustes. Tentativa {retry_count + 1}/2")
+                self._log(f"Revisêo requer ajustes. Tentativa {retry_count + 1}/2")
                 synthesis = self._stage_synthesis(
                     validation["validated_sources"],
                     improvements=review["suggestions"]
@@ -1553,7 +1553,7 @@ class ResearchProcess:
                 review = self._stage_review(synthesis["content"])
                 retry_count += 1
 
-            # Estágio 6: Conclusão
+            # Estágio 6: Conclusêo
             self.current_stage = ResearchStage.COMPLETION
             self._log("Pesquisa concluída")
 
@@ -1602,7 +1602,7 @@ class ResearchProcess:
         sources_found = []
 
         for term in search_terms:
-            # Simula busca (em implementação real, chamaria APIs)
+            # Simula busca (em implementaçêo real, chamaria APIs)
             self._log(f"Buscando: {term}")
             sources = self._search_term(term)
             sources_found.extend(sources)
@@ -1667,7 +1667,7 @@ class ResearchProcess:
         # Adicionar citações
         cited_content = self._add_citations(organized_content, sources)
 
-        # Adicionar contexto e introdução
+        # Adicionar contexto e introduçêo
         final_content = self._add_context(cited_content, self.topic)
 
         return {
@@ -1721,7 +1721,7 @@ class ResearchProcess:
         """Gera termos de busca estratégicos."""
         terms = [
             topic,
-            f"{topic} definição",
+            f"{topic} definiçêo",
             f"{topic} aplicações práticas",
             f"{topic} exemplos"
         ]
@@ -1749,12 +1749,12 @@ class ResearchProcess:
             "recency": "Preferir fontes dos últimos 2 anos",
             "authority": "Priorizar fontes reconhecidas e especializadas",
             "depth": "Mínimo 500 palavras de conteúdo útil",
-            "citations": "Pelo menos uma citação a cada 200 palavras"
+            "citations": "Pelo menos uma citaçêo a cada 200 palavras"
         }
 
     def _search_term(self, term: str) -> List[Dict]:
-        """Simula busca por termo (em produção, chamaria APIs reais)."""
-        # Simulação - retorna resultados fictícios
+        """Simula busca por termo (em produçêo, chamaria APIs reais)."""
+        # Simulaçêo - retorna resultados fictícios
         return [
             {
                 "title": f"Artigo sobre {term}",
@@ -1768,7 +1768,7 @@ class ResearchProcess:
                 "url": f"http://guide.com/{term.replace(' ', '-')}",
                 "authority_score": 0.75,
                 "recency_score": 0.7,
-                "content_preview": f"Explicação detalhada de {term}..."
+                "content_preview": f"Explicaçêo detalhada de {term}..."
             }
         ]
 
@@ -1803,7 +1803,7 @@ class ResearchProcess:
 
     def _extract_key_points(self, source: Dict) -> List[str]:
         """Extrai pontos-chave de uma fonte."""
-        # Simulação - em produção, usaria NLP
+        # Simulaçêo - em produçêo, usaria NLP
         return [
             f"Ponto principal extraído de '{source['title']}'",
             f"Insight secundário de '{source['title']}'"
@@ -1836,7 +1836,7 @@ class ResearchProcess:
         return cited_content
 
     def _add_context(self, content: str, topic: str) -> str:
-        """Adiciona contexto e introdução."""
+        """Adiciona contexto e introduçêo."""
         intro = f"# Pesquisa: {topic}\n\n"
         intro += f"Esta pesquisa foi conduzida utilizando múltiplas fontes validadas.\n\n"
         intro += "---\n\n"
@@ -1854,8 +1854,8 @@ class ResearchProcess:
         return sum(checks) / len(checks)
 
     def _check_accuracy(self, content: str) -> float:
-        """Verifica precisão (simplificado)."""
-        # Em produção, usaria fact-checking mais sofisticado
+        """Verifica precisêo (simplificado)."""
+        # Em produçêo, usaria fact-checking mais sofisticado
         has_citations = "Fontes" in content
         return 0.9 if has_citations else 0.6
 
@@ -1865,12 +1865,12 @@ class ResearchProcess:
         words = content.split()
         avg_word_length = sum(len(w) for w in words) / len(words) if words else 0
 
-        # Palavras mais curtas = mais clareza (simplificação)
+        # Palavras mais curtas = mais clareza (simplificaçêo)
         clarity_score = max(0, 1 - (avg_word_length - 5) / 10)
         return min(1.0, clarity_score)
 
     def _check_citations(self, content: str) -> float:
-        """Verifica adequação de citações."""
+        """Verifica adequaçêo de citações."""
         has_sources_section = "## Fontes" in content
         sources_count = content.count("http")
 
@@ -1888,7 +1888,7 @@ class ResearchProcess:
         return 0.9 if (has_sections and has_flow) else 0.6
 
     def _calculate_metrics(self) -> Dict:
-        """Calcula métricas de execução."""
+        """Calcula métricas de execuçêo."""
         duration = time.time() - self.start_time
 
         return {
@@ -1898,7 +1898,7 @@ class ResearchProcess:
         }
 
     def _log(self, message: str):
-        """Registra mensagem no log de execução."""
+        """Registra mensagem no log de execuçêo."""
         self.execution_log.append({
             "timestamp": time.time() - self.start_time,
             "stage": self.current_stage.value,
@@ -1907,7 +1907,7 @@ class ResearchProcess:
 
 # Exemplo de uso
 print("=" * 70)
-print("DEMONSTRAÇÃO: PROCESSO INTERNO DE AGENTE PESQUISADOR")
+print("DEMONSTRAÇêO: PROCESSO INTERNO DE AGENTE PESQUISADOR")
 print("=" * 70)
 
 research = ResearchProcess(
@@ -1924,7 +1924,7 @@ print("\n" + "=" * 70)
 print("RESULTADO DA PESQUISA")
 print("=" * 70)
 
-print(f"\nSucesso: {'SIM' if result['success'] else 'NÃO'}")
+print(f"\nSucesso: {'SIM' if result['success'] else 'NêO'}")
 
 if result['success']:
     print(f"Quality Score: {result['quality_score']:.1%}")
@@ -1933,7 +1933,7 @@ if result['success']:
     print(result['output'][:500] + "..." if len(result['output']) > 500 else result['output'])
 
 print("\n" + "=" * 70)
-print("LOG DE EXECUÇÃO")
+print("LOG DE EXECUÇêO")
 print("=" * 70)
 
 for i, log_entry in enumerate(research.execution_log[:10], 1):  # Primeiros 10
@@ -1949,10 +1949,10 @@ for key, value in result['metrics'].items():
     print(f"  {key}: {value}")
 ```
 
-Este módulo continua com mais 4 elementos (Validação, Ações, Comunicação com Usuário, Comunicação com Agentes) em formato similar, totalizando cerca de 37KB de conteúdo detalhado. Agora vou criar o Módulo 6.
+Este módulo continua com mais 4 elementos (Validaçêo, Ações, Comunicaçêo com Usuário, Comunicaçêo com Agentes) em formato similar, totalizando cerca de 37KB de conteúdo detalhado. Agora vou criar o Módulo 6.
 
 ---
 
-## Conclusão do Módulo 5
+## Conclusêo do Módulo 5
 
 Você dominou os 9 elementos fundamentais para criar agentes profissionais com código Python completo e exemplos práticos. No próximo módulo, você aplicará tudo isso em 4 projetos práticos reais.

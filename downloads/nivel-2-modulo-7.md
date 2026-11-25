@@ -39,7 +39,7 @@ A prova final consiste em **4 entregas obrigatorias** que demonstram seu dominio
 | Entrega | Foco | Tempo Estimado | Pontos |
 |---------|------|----------------|--------|
 | 1. Intencao Completa | Dominio tecnico das 7 etapas | 1-2h | 100 |
-| 2. Sistema de Intencao | Abstração e reutilizacao | 2-3h | 100 |
+| 2. Sistema de Intencao | Abstraçêo e reutilizacao | 2-3h | 100 |
 | 3. Processo com IA | Orquestracao multi-etapas | 2-3h | 100 |
 | 4. Caso de Uso Real | Aplicacao pratica eficaz | 2-4h | 100 |
 | **TOTAL** | - | **7-12h** | **400** |
@@ -185,7 +185,7 @@ Sua intencao sera avaliada em 4 dimensoes:
 
 ### Objetivo da Entrega
 
-Demonstrar capacidade de abstração e sistematizacao, criando conjunto de templates reutilizaveis para uma area especifica.
+Demonstrar capacidade de abstraçêo e sistematizacao, criando conjunto de templates reutilizaveis para uma area especifica.
 
 ### Instrucoes
 
@@ -248,7 +248,7 @@ Crie um sistema de **minimo 5 templates** reutilizaveis para sua area de atuacao
 
 **Desenvolvimento de Produto:**
 - Template: Especificacao de Feature
-- Template: Priorização de Backlog
+- Template: Priorizaçêo de Backlog
 - Template: Analise de Feedback de Usuarios
 - Template: Roadmap Estrategico
 - Template: Post-Mortem de Release
@@ -294,7 +294,7 @@ Crie um sistema de **minimo 5 templates** reutilizaveis para sua area de atuacao
 
 - [ ] 10pts: Templates sao faceis de adaptar para casos especificos
 - [ ] 8pts: Guia de uso ajuda a escolher template certo
-- [ ] 7pts: Balance entre abstração (generico) e especificidade (util)
+- [ ] 7pts: Balance entre abstraçêo (generico) e especificidade (util)
 
 #### 4. Profissionalismo e Documentacao (25 pontos)
 

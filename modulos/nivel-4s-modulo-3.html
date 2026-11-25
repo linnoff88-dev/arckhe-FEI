@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 3: Agentes Autônomos 2.0 (versão 2026) | FEI Nível 4S</title>
-  <meta name="description" content="Em 2026, os agentes autônomos evoluíram. Não são mais "assistentes genéricos" - são **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.">
+  <title>Módulo 3: Agentes Autônomos 2.0 (versêo 2026) | FEI Nível 4S</title>
+  <meta name="description" content="Em 2026, os agentes autônomos evoluíram. Nêo sêo mais "assistentes genéricos" - sêo **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -103,10 +103,10 @@
         </span>
       </div>
       <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-        Agentes Autônomos 2.0 (versão 2026)
+        Agentes Autônomos 2.0 (versêo 2026)
       </h1>
       <p class="text-xl text-white/90">
-        Em 2026, os agentes autônomos evoluíram. Não são mais "assistentes genéricos" - são **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.
+        Em 2026, os agentes autônomos evoluíram. Nêo sêo mais "assistentes genéricos" - sêo **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.
       </p>
     </div>
   </section>
@@ -125,9 +125,9 @@
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Introdução
+          Introduçêo
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Em 2026, os agentes autônomos evoluíram. Não são mais "assistentes genéricos" - são <strong>especialistas com papéis definidos</strong>, trabalhando em conjunto como um time de profissionais de elite.</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Em 2026, os agentes autônomos evoluíram. Nêo sêo mais "assistentes genéricos" - sêo <strong>especialistas com papéis definidos</strong>, trabalhando em conjunto como um time de profissionais de elite.</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">Este módulo ensina os <strong>6 tipos fundamentais de agentes</strong> que compõem sistemas modernos, com ênfase especial no revolucionário <strong>Agente Meta-IA</strong>.</p>
       </div>
 
@@ -136,13 +136,13 @@
           Os 6 Tipos de Agentes Autônomos 2.0
         </h2>
         <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">1. Agente Especialista</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Executa tarefas específicas com maestria. É o "profissional técnico" do sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Executa tarefas específicas com maestria. É o "profissional técnico" do sistema.</p>
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Características:</p>
 <li class="mb-2">Domínio profundo de uma área</li>
-<li class="mb-2">Execução precisa e confiável</li>
+<li class="mb-2">Execuçêo precisa e confiável</li>
 <li class="mb-2">Otimizado para velocidade</li>
 <li class="mb-2">Foco em qualidade técnica</li>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementação Completa:</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Implementaçêo Completa:</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass
 from typing import List, Dict, Protocol
@@ -163,7 +163,7 @@ class EspecialistaBase(ABC):
         pass
 
     def registrar_execucao(self, resultado: Dict):
-        &quot;&quot;&quot;Registra execução para melhorar performance&quot;&quot;&quot;
+        &quot;&quot;&quot;Registra execuçêo para melhorar performance&quot;&quot;&quot;
         self.execucoes_historicas.append(resultado)
 
         # Atualiza taxa de sucesso
@@ -171,7 +171,7 @@ class EspecialistaBase(ABC):
         self.taxa_sucesso = sucessos / len(self.execucoes_historicas)
 
 class AgenteCopywriter(EspecialistaBase):
-    &quot;&quot;&quot;Especialista em criação de conteúdo&quot;&quot;&quot;
+    &quot;&quot;&quot;Especialista em criaçêo de conteúdo&quot;&quot;&quot;
 
     def __init__(self):
         super().__init__(&quot;Copywriter Pro&quot;, &quot;criacao_conteudo&quot;)
@@ -187,15 +187,15 @@ class AgenteCopywriter(EspecialistaBase):
         if estilo not in self.estilos_conhecidos:
             return {
                 &quot;sucesso&quot;: False,
-                &quot;erro&quot;: f&quot;Estilo {estilo} não suportado&quot;
+                &quot;erro&quot;: f&quot;Estilo {estilo} nêo suportado&quot;
             }
 
-        # Simula criação de conteúdo
+        # Simula criaçêo de conteúdo
         conteudo = {
             &quot;titulo&quot;: f&quot;{topico}: Guia Completo&quot;,
-            &quot;introducao&quot;: f&quot;Introdução sobre {topico}...&quot;,
+            &quot;introducao&quot;: f&quot;Introduçêo sobre {topico}...&quot;,
             &quot;desenvolvimento&quot;: f&quot;Desenvolvimento técnico sobre {topico}...&quot;,
-            &quot;conclusao&quot;: f&quot;Conclusão e próximos passos sobre {topico}...&quot;,
+            &quot;conclusao&quot;: f&quot;Conclusêo e próximos passos sobre {topico}...&quot;,
             &quot;palavras_totais&quot;: tamanho,
             &quot;estilo_utilizado&quot;: estilo,
             &quot;tempo_execucao&quot;: &quot;2.5s&quot;
@@ -235,12 +235,12 @@ class AgenteAnalistaDados(EspecialistaBase):
             &quot;insights_principais&quot;: [
                 &quot;Tendência de crescimento de 15% ao mês&quot;,
                 &quot;Pico de atividade às quintas-feiras&quot;,
-                &quot;Taxa de conversão média de 8.5%&quot;
+                &quot;Taxa de conversêo média de 8.5%&quot;
             ],
             &quot;recomendacoes&quot;: [
                 &quot;Aumentar investimento em canais de maior ROI&quot;,
                 &quot;Focar campanhas para quinta e sexta&quot;,
-                &quot;Otimizar funil de conversão para aumentar para 10%&quot;
+                &quot;Otimizar funil de conversêo para aumentar para 10%&quot;
             ]
         }
 
@@ -266,7 +266,7 @@ class AgenteDesignerCodigo(EspecialistaBase):
         requisitos = input_data.get(&quot;requisitos&quot;, [])
         escala = input_data.get(&quot;escala&quot;, &quot;media&quot;)
 
-        # Seleciona padrão adequado
+        # Seleciona padrêo adequado
         if escala == &quot;grande&quot;:
             padrao = &quot;microservices&quot;
         elif &quot;eventos&quot; in str(requisitos).lower():
@@ -345,11 +345,11 @@ resultado_arq = arquiteto.executar_tarefa({
     &quot;escala&quot;: &quot;grande&quot;
 })
 print(f&quot;✅ {arquiteto.nome}:&quot;)
-print(f&quot;   Padrão: {resultado_arq['arquitetura']['padrao_escolhido']}&quot;)
+print(f&quot;   Padrêo: {resultado_arq['arquitetura']['padrao_escolhido']}&quot;)
 print(f&quot;   Qualidade: {resultado_arq['qualidade_design']:.2f}&quot;)
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">2. Agente Estrategista</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Cria planos de médio e longo prazo. É o "consultor" do sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Cria planos de médio e longo prazo. É o "consultor" do sistema.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from datetime import datetime, timedelta
 
@@ -393,7 +393,7 @@ class AgenteEstrategista:
         return {
             &quot;forcas&quot;: [&quot;Time experiente&quot;, &quot;Tecnologia moderna&quot;, &quot;Mercado em crescimento&quot;],
             &quot;fraquezas&quot;: [&quot;Budget limitado&quot;, &quot;Prazo apertado&quot;],
-            &quot;oportunidades&quot;: [&quot;Demanda crescente&quot;, &quot;Pouca competição&quot;],
+            &quot;oportunidades&quot;: [&quot;Demanda crescente&quot;, &quot;Pouca competiçêo&quot;],
             &quot;ameacas&quot;: [&quot;Mudanças regulatórias&quot;, &quot;Novos entrantes&quot;]
         }
 
@@ -403,22 +403,22 @@ class AgenteEstrategista:
 
         return [
             {
-                &quot;fase&quot;: &quot;Fundação&quot;,
+                &quot;fase&quot;: &quot;Fundaçêo&quot;,
                 &quot;duracao_meses&quot;: meses_por_fase,
-                &quot;objetivos&quot;: [&quot;MVP&quot;, &quot;Validação inicial&quot;, &quot;Primeiros clientes&quot;],
+                &quot;objetivos&quot;: [&quot;MVP&quot;, &quot;Validaçêo inicial&quot;, &quot;Primeiros clientes&quot;],
                 &quot;entregaveis&quot;: [&quot;Produto mínimo&quot;, &quot;10 clientes beta&quot;]
             },
             {
                 &quot;fase&quot;: &quot;Crescimento&quot;,
                 &quot;duracao_meses&quot;: meses_por_fase,
-                &quot;objetivos&quot;: [&quot;Escalar operação&quot;, &quot;Marketing&quot;, &quot;Otimização&quot;],
+                &quot;objetivos&quot;: [&quot;Escalar operaçêo&quot;, &quot;Marketing&quot;, &quot;Otimizaçêo&quot;],
                 &quot;entregaveis&quot;: [&quot;100 clientes&quot;, &quot;ROI positivo&quot;]
             },
             {
-                &quot;fase&quot;: &quot;Consolidação&quot;,
+                &quot;fase&quot;: &quot;Consolidaçêo&quot;,
                 &quot;duracao_meses&quot;: prazo_meses - (2 * meses_por_fase),
                 &quot;objetivos&quot;: [&quot;Liderança de mercado&quot;, &quot;Eficiência máxima&quot;],
-                &quot;entregaveis&quot;: [&quot;500+ clientes&quot;, &quot;Operação lucrativa&quot;]
+                &quot;entregaveis&quot;: [&quot;500+ clientes&quot;, &quot;Operaçêo lucrativa&quot;]
             }
         ]
 
@@ -438,10 +438,10 @@ class AgenteEstrategista:
                 &quot;mitigacao&quot;: &quot;Priorizar features críticas, buscar investimento&quot;
             },
             {
-                &quot;risco&quot;: &quot;Competição agressiva&quot;,
+                &quot;risco&quot;: &quot;Competiçêo agressiva&quot;,
                 &quot;probabilidade&quot;: 0.5,
                 &quot;impacto&quot;: 0.6,
-                &quot;mitigacao&quot;: &quot;Diferenciação clara, foco em nicho&quot;
+                &quot;mitigacao&quot;: &quot;Diferenciaçêo clara, foco em nicho&quot;
             }
         ]
 
@@ -490,10 +490,10 @@ for fase in plano['fases']:
 print(&quot;\nRiscos principais:&quot;)
 for risco in plano['riscos'][:2]:
     print(f&quot;  • {risco['risco']}&quot;)
-    print(f&quot;    Mitigação: {risco['mitigacao']}&quot;)
+    print(f&quot;    Mitigaçêo: {risco['mitigacao']}&quot;)
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">3. Agente Orquestrador</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Coordena vários agentes especialistas. É o "gerente de projeto" do sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Coordena vários agentes especialistas. É o "gerente de projeto" do sistema.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 class AgenteOrquestrador:
     &quot;&quot;&quot;Coordena múltiplos agentes especializados&quot;&quot;&quot;
@@ -509,7 +509,7 @@ class AgenteOrquestrador:
 
     def orquestrar_projeto_completo(self, projeto: Dict) -&gt; Dict:
         &quot;&quot;&quot;Orquestra projeto completo com múltiplos agentes&quot;&quot;&quot;
-        print(f&quot;\n🎯 Iniciando orquestração: {projeto['nome']}\n&quot;)
+        print(f&quot;\n🎯 Iniciando orquestraçêo: {projeto['nome']}\n&quot;)
 
         resultados = {}
 
@@ -524,7 +524,7 @@ class AgenteOrquestrador:
             resultados[&quot;plano&quot;] = plano
             print(f&quot;   ✅ Plano criado: {plano['probabilidade_sucesso']:.1%} de sucesso\n&quot;)
 
-        # 2. Arquiteto projeta solução
+        # 2. Arquiteto projeta soluçêo
         if &quot;arquiteto&quot; in self.agentes_disponiveis:
             print(&quot;🏗️  Fase 2: Arquitetura...&quot;)
             arquitetura = self.agentes_disponiveis[&quot;arquiteto&quot;].executar_tarefa({
@@ -534,16 +534,16 @@ class AgenteOrquestrador:
             resultados[&quot;arquitetura&quot;] = arquitetura
             print(f&quot;   ✅ Arquitetura definida: {arquitetura['arquitetura']['padrao_escolhido']}\n&quot;)
 
-        # 3. Copywriter cria documentação
+        # 3. Copywriter cria documentaçêo
         if &quot;copywriter&quot; in self.agentes_disponiveis:
-            print(&quot;📝 Fase 3: Documentação...&quot;)
+            print(&quot;📝 Fase 3: Documentaçêo...&quot;)
             docs = self.agentes_disponiveis[&quot;copywriter&quot;].executar_tarefa({
                 &quot;topico&quot;: projeto[&quot;nome&quot;],
                 &quot;estilo&quot;: &quot;tecnico&quot;,
                 &quot;palavras&quot;: 1000
             })
             resultados[&quot;documentacao&quot;] = docs
-            print(f&quot;   ✅ Documentação criada: {docs['qualidade_estimada']:.1%} qualidade\n&quot;)
+            print(f&quot;   ✅ Documentaçêo criada: {docs['qualidade_estimada']:.1%} qualidade\n&quot;)
 
         # 4. Analista valida viabilidade
         if &quot;analista&quot; in self.agentes_disponiveis:
@@ -573,7 +573,7 @@ orquestrador.registrar_agente(&quot;analista&quot;, analista)
 
 # Executa projeto completo
 resultado_projeto = orquestrador.orquestrar_projeto_completo({
-    &quot;nome&quot;: &quot;Plataforma de Educação IA&quot;,
+    &quot;nome&quot;: &quot;Plataforma de Educaçêo IA&quot;,
     &quot;objetivo&quot;: &quot;Criar plataforma de ensino de IA&quot;,
     &quot;prazo_meses&quot;: 8,
     &quot;requisitos&quot;: [&quot;escalabilidade&quot;, &quot;conteudo_adaptativo&quot;],
@@ -589,7 +589,7 @@ print(f&quot;Tempo total: {resultado_projeto['tempo_total']}&quot;)
 print(f&quot;{'='*60}&quot;)
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">4. Agente Auditor</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Verifica qualidade, riscos, falhas, redundâncias. É o "controller" do sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Verifica qualidade, riscos, falhas, redundâncias. É o "controller" do sistema.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 class AgenteAuditor:
     &quot;&quot;&quot;Audita qualidade, riscos e conformidade&quot;&quot;&quot;
@@ -658,7 +658,7 @@ class AgenteAuditor:
 
     def _verificar_consistencia(self, dados: Any) -&gt; bool:
         &quot;&quot;&quot;Verifica consistência dos dados&quot;&quot;&quot;
-        # Simula verificação
+        # Simula verificaçêo
         return True
 
     def _gerar_recomendacoes(self, problemas: List[Dict]) -&gt; List[str]:
@@ -699,7 +699,7 @@ if auditoria_copy['recomendacoes']:
         print(f&quot;  • {rec}&quot;)
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">5. Agente Memória</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Armazena, organiza e recupera conhecimento do usuário. É o "bibliotecário" do sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Armazena, organiza e recupera conhecimento do usuário. É o "bibliotecário" do sistema.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 import hashlib
 
@@ -783,7 +783,7 @@ memoria.armazenar(&quot;arquiteturas&quot;, arquitetura[&quot;arquitetura&quot;]
 memoria.armazenar(&quot;conteudos&quot;, resultado_copy[&quot;conteudo&quot;])
 
 # Recupera conhecimento
-print(&quot;\n=== RECUPERAÇÃO DE MEMÓRIA ===\n&quot;)
+print(&quot;\n=== RECUPERAÇêO DE MEMÓRIA ===\n&quot;)
 resultados = memoria.recuperar(&quot;plano estrategico sistema&quot;)
 
 print(f&quot;Encontrados {len(resultados)} itens relevantes:\n&quot;)
@@ -794,7 +794,7 @@ for i, item in enumerate(resultados, 1):
     print()
 </code></pre>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">6. Agente Meta-IA ⭐</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definição:</strong> Opera acima dos outros agentes, ajustando, corrigindo e melhorando o sistema.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Definiçêo:</strong> Opera acima dos outros agentes, ajustando, corrigindo e melhorando o sistema.</p>
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">É aqui que o mundo realmente muda.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 class AgenteMetaIA:
@@ -875,14 +875,14 @@ class AgenteMetaIA:
         return resultado
 
     def relatorio_evolutivo(self) -&gt; Dict:
-        &quot;&quot;&quot;Gera relatório de evolução do sistema&quot;&quot;&quot;
+        &quot;&quot;&quot;Gera relatório de evoluçêo do sistema&quot;&quot;&quot;
         return {
             &quot;total_melhorias&quot;: len(self.melhorias_aplicadas),
             &quot;tipos_melhoria&quot;: list(set(m[&quot;melhoria&quot;][&quot;tipo&quot;] for m in self.melhorias_aplicadas)),
             &quot;impacto_geral&quot;: &quot;Sistema 35% mais eficiente&quot;,
             &quot;proximas_acoes&quot;: [
                 &quot;Implementar auto-scaling de agentes&quot;,
-                &quot;Otimizar pipeline de comunicação&quot;,
+                &quot;Otimizar pipeline de comunicaçêo&quot;,
                 &quot;Adicionar monitoramento preditivo&quot;
             ]
         }
@@ -901,7 +901,7 @@ agentes_sistema = {
     &quot;memoria&quot;: memoria
 }
 
-print(&quot;\n=== META-IA EM AÇÃO ===\n&quot;)
+print(&quot;\n=== META-IA EM AÇêO ===\n&quot;)
 
 analise_sistema = meta_ia.analisar_sistema(agentes_sistema)
 print(f&quot;Total de agentes: {analise_sistema['total_agentes']}&quot;)
@@ -930,7 +930,7 @@ print(&quot;=&quot;*60)
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Conclusão
+          Conclusêo
         </h2>
         <p class="text-neutral-700 dark:text-neutral-300 mb-4">Você entendeu os 6 tipos fundamentais de agentes 2026 e como eles colaboram como um time de elite.</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">O que você dominou:</h3>
@@ -941,18 +941,18 @@ print(&quot;=&quot;*60)
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Agente Memória organizando conhecimento</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Agente Meta-IA melhorando o próprio sistema</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Como agentes colaboram em sistemas complexos</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementação completa de cada tipo de agente</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementaçêo completa de cada tipo de agente</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ O poder revolucionário do Meta-IA</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Próximo módulo:</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">No Módulo 4, você vai aprender sobre <strong>Loops Evolutivos de Agentes</strong>: como sistemas aprendem, analisam falhas e melhoram autonomamente ao longo do tempo.</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formação em Engenharia de Intenção</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formaçêo em Engenharia de Intençêo</p>
       </div>
 
       <!-- Conclusao -->
       <div class="bg-gradient-to-r from-nivel-4s to-orange-600 text-white rounded-xl p-8">
         <h2 class="text-3xl font-bold mb-4">Conclusao do Modulo</h2>
         <p class="text-lg mb-6">
-          Voce dominou os conceitos essenciais de Agentes Autônomos 2.0 (versão 2026) no contexto de sistemas autonomos 2026.
+          Voce dominou os conceitos essenciais de Agentes Autônomos 2.0 (versêo 2026) no contexto de sistemas autonomos 2026.
         </p>
         <div class="flex gap-4">
           <a href="nivel-4s-modulo-2.html" class="px-6 py-3 bg-white text-nivel-4s rounded-lg font-semibold hover:bg-neutral-100">← Módulo 2</a>

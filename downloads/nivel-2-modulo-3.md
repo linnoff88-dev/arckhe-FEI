@@ -501,7 +501,7 @@ Historico:
 ```
 Tenho 32 anos, trabalho em TI ha 8 anos, fiz faculdade de Engenharia
 na UFRJ, moro em Sao Paulo, trabalho remoto ha 3 anos, tenho 2 gatos,
-acordo as 7h da manha, gosto de ler ficção cientifica, minha serie
+acordo as 7h da manha, gosto de ler ficçêo cientifica, minha serie
 favorita e Black Mirror, uso Mac, tenho experiencia com Python e Java,
 ja fiz curso de React em 2020, meu hobby e fotografia...
 

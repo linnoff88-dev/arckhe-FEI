@@ -1,6 +1,6 @@
 Perfeito.
 Vou criar **um documento completo**, profundo, didático e prático —
-uma **formação estruturada** sobre a transição da Engenharia de Prompts para a Engenharia de Intenção.
+uma **formaçêo estruturada** sobre a transiçêo da Engenharia de Prompts para a Engenharia de Intençêo.
 
 Este material serve para:
 
@@ -14,23 +14,23 @@ E está pronto para virar:
 * curso
 * e-book
 * PDF
-* programa de formação
+* programa de formaçêo
 * roteiro de aula
 * workshop
 
 ---
 
-# 🚀 **FORMAÇÃO COMPLETA:
+# 🚀 **FORMAÇêO COMPLETA:
 
-A NOVA ERA — DA ENGENHARIA DE PROMPTS À ENGENHARIA DE INTENÇÃO**
+A NOVA ERA — DA ENGENHARIA DE PROMPTS À ENGENHARIA DE INTENÇêO**
 
 ---
 
-# 📘 **Módulo 1 — Entendendo a Evolução**
+# 📘 **Módulo 1 — Entendendo a Evoluçêo**
 
-## 🔎 1.1 — O que era Engenharia de Prompts (versão antiga)
+## 🔎 1.1 — O que era Engenharia de Prompts (versêo antiga)
 
-A “Engenharia de Prompts” surgiu porque os modelos antigos tinham **falhas de compreensão**.
+A “Engenharia de Prompts” surgiu porque os modelos antigos tinham **falhas de compreensêo**.
 Precisávamos de:
 
 * truques
@@ -46,7 +46,7 @@ Precisávamos de:
 **Prompt antigo 1:**
 
 > “Finja ser o melhor especialista do mundo em X.
-> Siga exatamente os passos abaixo, não improvise.
+> Siga exatamente os passos abaixo, nêo improvise.
 > 1.
 > 2.
 > 3…”
@@ -54,12 +54,12 @@ Precisávamos de:
 **Prompt antigo 2:**
 
 > “Você é obrigado a pensar passo a passo.
-> Não revele o raciocínio.
+> Nêo revele o raciocínio.
 > Siga este template enorme…”
 
 **Prompt antigo 3:**
 
-> “Responda sempre no formato JSON, sem exceção.”
+> “Responda sempre no formato JSON, sem exceçêo.”
 
 Isso funcionava.
 Porque **os modelos eram fracos**.
@@ -70,44 +70,44 @@ Porque **os modelos eram fracos**.
 
 Modelos atuais (GPT-5, Claude 3.7, Sonar, Gemini Ultra):
 
-* entendem intenção
-* possuem autocorreção
+* entendem intençêo
+* possuem autocorreçêo
 * ajustam tom e contexto
 * detectam ambiguidade
-* não dependem de truques
+* nêo dependem de truques
 * interpretam linguagem humana natural
 * produzem *planejamento interno*
 
-**Conclusão:**
+**Conclusêo:**
 👉 A engenharia de prompts evoluiu.
-👉 Agora o que importa é **clareza**, **intenção** e **objetivo**, não “macetes”.
+👉 Agora o que importa é **clareza**, **intençêo** e **objetivo**, nêo “macetes”.
 
 ---
 
-## 🌟 1.3 — O nascimento da Engenharia de Intenção
+## 🌟 1.3 — O nascimento da Engenharia de Intençêo
 
-A Engenharia de Intenção significa:
+A Engenharia de Intençêo significa:
 
 1. Definir o **objetivo real**
 2. Especificar o **porquê**
 3. Dar **contexto relevante**
 4. Estabelecer **critérios de qualidade**
-5. Delegar para a IA **o plano de ação**
-6. Revisar e refinar junto com a IA (co-criação)
+5. Delegar para a IA **o plano de açêo**
+6. Revisar e refinar junto com a IA (co-criaçêo)
 
-**É comunicação estratégica, não magia.**
+**É comunicaçêo estratégica, nêo magia.**
 
 ---
 
-# 📘 **Módulo 2 — Conceitos Fundamentais da Nova Engenharia de Intenção**
+# 📘 **Módulo 2 — Conceitos Fundamentais da Nova Engenharia de Intençêo**
 
-## 🧩 2.1 — Estrutura mestre da Engenharia de Intenção
+## 🧩 2.1 — Estrutura mestre da Engenharia de Intençêo
 
 ### **1. Objetivo**
 
 👉 O que você realmente quer.
 
-### **2. Intenção**
+### **2. Intençêo**
 
 👉 Para que serve, pra quem é, qual o impacto.
 
@@ -123,7 +123,7 @@ A Engenharia de Intenção significa:
 
 👉 Como você quer que ela pense (crítico, comparativo, iterativo, criativo).
 
-### **6. Delegação Inteligente**
+### **6. Delegaçêo Inteligente**
 
 👉 IA deve pedir mais informações quando necessário.
 
@@ -152,19 +152,19 @@ Problemas:
 
 * rígido
 * artificial
-* não adapta à intenção
+* nêo adapta à intençêo
 * exige esforço do usuário
 
 ---
 
-### 🟩 Engenharia de Intenção (moderna):
+### 🟩 Engenharia de Intençêo (moderna):
 
 > **Objetivo:** Criar um plano de marketing para um produto digital iniciante.
-> **Intenção:** O plano será usado por pequenos empresários sem experiência.
+> **Intençêo:** O plano será usado por pequenos empresários sem experiência.
 > **Critérios de qualidade:** clareza, simplicidade, foco em ações reais.
 > **Contexto:** produto de ticket baixo, público brasileiro, foco orgânico.
 > **Raciocínio:** use raciocínio crítico e ofereça 3 alternativas comparativas.
-> **Delegação:** se faltar informação, faça perguntas antes.
+> **Delegaçêo:** se faltar informaçêo, faça perguntas antes.
 > **Formato:** tabela + resumo final.
 
 Resultado:
@@ -182,8 +182,8 @@ O modelo entende exatamente **o que entregar**.
 
 ### 🟩 Método Moderno:
 
-> **Objetivo:** Escrever um e-mail claro e respeitoso para solicitar prorrogação de prazo.
-> **Intenção:** Comunicação entre colegas, tom cordial.
+> **Objetivo:** Escrever um e-mail claro e respeitoso para solicitar prorrogaçêo de prazo.
+> **Intençêo:** Comunicaçêo entre colegas, tom cordial.
 > **Critérios:** curto, direto e educado.
 > **Formato:** texto simples.
 
@@ -193,7 +193,7 @@ Muito mais natural.
 
 # 📘 **Módulo 4 — Exercícios Práticos (Muito Importante)**
 
-## 🧪 **Exercício 1 — Converter Prompts Antigos em Prompts de Intenção**
+## 🧪 **Exercício 1 — Converter Prompts Antigos em Prompts de Intençêo**
 
 Pegue estes prompts ruins e converta:
 
@@ -211,7 +211,7 @@ Pegue estes prompts ruins e converta:
 
 > “Faça um plano completo, detalhado, passo a passo…”
 
-**Reescreva usando intenção + critérios.**
+**Reescreva usando intençêo + critérios.**
 
 ### 3.
 
@@ -219,7 +219,7 @@ Pegue estes prompts ruins e converta:
 
 > “Explique isso como se eu fosse uma criança.”
 
-**Crie versão moderna com objetivo e intenção.**
+**Crie versêo moderna com objetivo e intençêo.**
 
 ---
 
@@ -236,7 +236,7 @@ Veja se ele pergunta coisas como:
 * Mercado?
 * Público?
 
-Isso é Engenharia de Intenção funcionando.
+Isso é Engenharia de Intençêo funcionando.
 
 ---
 
@@ -256,7 +256,7 @@ Observe como a resposta muda.
 
 Diga:
 
-> “Melhore a versão anterior aumentando a profundidade e reduzindo a redundância.”
+> “Melhore a versêo anterior aumentando a profundidade e reduzindo a redundância.”
 
 Isso ensina refinamento contínuo.
 
@@ -270,44 +270,44 @@ Isso ensina refinamento contínuo.
 
 ### 5.3 — Pesquisa e análise avançada
 
-### 5.4 — Programação assistida
+### 5.4 — Programaçêo assistida
 
-### 5.5 — Criação de conteúdo
+### 5.5 — Criaçêo de conteúdo
 
-### 5.6 — Resolução de problemas complexos
+### 5.6 — Resoluçêo de problemas complexos
 
 Em todos esses casos:
 
-👉 A intenção importa
+👉 A intençêo importa
 👉 O contexto importa
 👉 Os critérios importam
 
-Truques antigos não.
+Truques antigos nêo.
 
 ---
 
-# 📘 **Módulo 6 — A Síntese da Transformação**
+# 📘 **Módulo 6 — A Síntese da Transformaçêo**
 
-> 🔥 **A Engenharia de Prompts não morreu — ela virou Engenharia de Intenção.**
+> 🔥 **A Engenharia de Prompts nêo morreu — ela virou Engenharia de Intençêo.**
 >
 > Quem entende a antiga tem vantagem gigante na nova era.
 >
 > O jogo deixou de ser “escrever truques”
-> e virou **comunicar intenção com precisão**.
+> e virou **comunicar intençêo com precisêo**.
 
 ---
 
-# 📘 **Módulo 7 — Programa da Formação Completa (sugestão final)**
+# 📘 **Módulo 7 — Programa da Formaçêo Completa (sugestêo final)**
 
-1. **Introdução — A morte dos prompts antigos**
+1. **Introduçêo — A morte dos prompts antigos**
 2. **Como funciona um modelo moderno de IA**
-3. **Por que a intenção manda mais que o prompt**
-4. **Estrutura moderna de intenção**
+3. **Por que a intençêo manda mais que o prompt**
+4. **Estrutura moderna de intençêo**
 5. **Exemplos reais (15 casos)**
 6. **Exercícios progressivos (iniciante → avançado)**
 7. **Projetos práticos (4 grandes projetos)**
-8. **Avaliação final: criar um sistema de intenção completo**
-9. **Certificação** (opcional para seu programa)
+8. **Avaliaçêo final: criar um sistema de intençêo completo**
+9. **Certificaçêo** (opcional para seu programa)
 
 ---
 

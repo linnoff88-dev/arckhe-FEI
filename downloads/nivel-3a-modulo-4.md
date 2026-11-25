@@ -1,11 +1,11 @@
 # Módulo 4: 5 Modelos de Sistemas Multiagentes
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
 Você já sabe como criar agentes individuais. Agora vamos para o próximo nível: **sistemas multiagentes**.
 
@@ -13,7 +13,7 @@ A diferença é como a diferença entre um músico solo e uma orquestra. Um bom 
 
 ### Por Que Multiagentes?
 
-**Limitação de agentes únicos:**
+**Limitaçêo de agentes únicos:**
 ```
 Tarefa: "Crie estratégia completa de marketing para novo produto"
 
@@ -34,7 +34,7 @@ Agente 3 (Criativo): 40 min gerando campanhas múltiplas
 Agente 4 (Analista): 15 min definindo métricas e KPIs
 
 Resultado:
-- Cada agente faz sua especialização MUITO BEM
+- Cada agente faz sua especializaçêo MUITO BEM
 - Tempo total: ~1h45min (paralelo)
 - Qualidade: 9/10
 ```
@@ -66,7 +66,7 @@ Cada agente:
 - Processa
 - Passa para o próximo
 
-Como uma linha de produção.
+Como uma linha de produçêo.
 
 ### Quando Usar
 
@@ -78,7 +78,7 @@ Como uma linha de produção.
 
 ❌ **Evite quando:**
 - Etapas podem rodar em paralelo
-- Feedback loops são necessários
+- Feedback loops sêo necessários
 - Processo é muito exploratório
 
 ### Estrutura Visual
@@ -94,7 +94,7 @@ Como uma linha de produção.
 
 ---
 
-### EXEMPLO COMPLETO: Sistema de Criação de Artigos
+### EXEMPLO COMPLETO: Sistema de Criaçêo de Artigos
 
 **Objetivo:** Transformar tópico em artigo publicável de alta qualidade
 
@@ -138,17 +138,17 @@ Coletar informações confiáveis sobre o tópico solicitado
       "data_acesso": "timestamp"
     }
   ],
-  "gaps_identificados": ["informações que não encontrou"]
+  "gaps_identificados": ["informações que nêo encontrou"]
 }
 
-## Critérios de validação
+## Critérios de validaçêo
 ✓ Mínimo 15 fatos descobertos
 ✓ Pelo menos 5 fontes de alta credibilidade
 ✓ Todas as estatísticas com fonte
 ✓ Cobertura de 3+ subtópicos
 ```
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 class AgentePesquisador:
@@ -211,9 +211,9 @@ class AgentePesquisador:
         # Passo 5: Organizar por subtópicos
         output = self._organizar_descobertas(descobertas, tópico)
 
-        # Validação final
+        # Validaçêo final
         if not self._validar_output(output):
-            raise Exception("Output não atende critérios mínimos")
+            raise Exception("Output nêo atende critérios mínimos")
 
         return output
 
@@ -271,7 +271,7 @@ Output do Agente 1 (descobertas de pesquisa)
 3. Agrupar fatos relacionados
 4. Criar hierarquia de informações (H1, H2, H3)
 5. Definir ordem pedagógica
-6. Alocar fatos/stats para cada seção
+6. Alocar fatos/stats para cada seçêo
 
 ## Output para Agente 3
 {
@@ -281,13 +281,13 @@ Output do Agente 1 (descobertas de pesquisa)
   "tese": "string (mensagem principal)",
   "outline": [
     {
-      "tipo": "introdução",
+      "tipo": "introduçêo",
       "key_points": ["pontos a cobrir"],
       "fatos_alocar": ["ids dos fatos a incluir"],
       "tom": "string"
     },
     {
-      "tipo": "seção",
+      "tipo": "seçêo",
       "heading": "string (H2)",
       "subheadings": ["strings (H3)"],
       "key_points": ["pontos principais"],
@@ -296,7 +296,7 @@ Output do Agente 1 (descobertas de pesquisa)
     },
     // ... mais seções
     {
-      "tipo": "conclusão",
+      "tipo": "conclusêo",
       "key_points": ["pontos de fechamento"],
       "call_to_action": "string"
     }
@@ -305,15 +305,15 @@ Output do Agente 1 (descobertas de pesquisa)
   "estimativa_tempo_leitura": "6 minutos"
 }
 
-## Critérios de validação
+## Critérios de validaçêo
 ✓ Título tem < 60 caracteres
 ✓ Outline tem 3-7 seções principais
-✓ Cada seção tem 2-4 key points
-✓ Fluxo lógico (introdução → desenvolvimento → conclusão)
+✓ Cada seçêo tem 2-4 key points
+✓ Fluxo lógico (introduçêo → desenvolvimento → conclusêo)
 ✓ Todos os fatos da pesquisa foram alocados
 ```
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 class AgenteEstruturador:
@@ -336,10 +336,10 @@ class AgenteEstruturador:
         # Passo 3: Criar estrutura de seções
         seções = self._criar_seções(narrativa, descobertas)
 
-        # Passo 4: Alocar fatos para cada seção
+        # Passo 4: Alocar fatos para cada seçêo
         seções_com_fatos = self._alocar_fatos(seções, descobertas)
 
-        # Passo 5: Adicionar introdução e conclusão
+        # Passo 5: Adicionar introduçêo e conclusêo
         outline_completo = self._adicionar_intro_conclusao(
             seções_com_fatos,
             tópico
@@ -356,7 +356,7 @@ class AgenteEstruturador:
         }
 
         if not self._validar_output(output):
-            raise Exception("Outline não atende critérios")
+            raise Exception("Outline nêo atende critérios")
 
         return output
 
@@ -370,8 +370,8 @@ class AgenteEstruturador:
         Descobertas: {json.dumps(descobertas, indent=2)}
 
         Opções de narrativa:
-        1. Cronológica (evolução temporal)
-        2. Problema-Solução (desafio → como resolver)
+        1. Cronológica (evoluçêo temporal)
+        2. Problema-Soluçêo (desafio → como resolver)
         3. Comparativa (A vs B vs C)
         4. Tutorial (passo a passo)
         5. Insights (descobertas surpreendentes)
@@ -380,7 +380,7 @@ class AgenteEstruturador:
         {{
           "narrativa_escolhida": "string",
           "justificativa": "por que essa narrativa funciona",
-          "estrutura_recomendada": ["seção 1", "seção 2", ...]
+          "estrutura_recomendada": ["seçêo 1", "seçêo 2", ...]
         }}
         """
 
@@ -393,17 +393,17 @@ class AgenteEstruturador:
         estrutura = narrativa['estrutura_recomendada']
 
         seções = []
-        for i, nome_seção in enumerate(estrutura):
-            seção = {
-                "tipo": "seção",
+        for i, nome_seçêo in enumerate(estrutura):
+            seçêo = {
+                "tipo": "seçêo",
                 "ordem": i + 1,
-                "heading": nome_seção,
+                "heading": nome_seçêo,
                 "key_points": self._extrair_key_points(
-                    nome_seção,
+                    nome_seçêo,
                     descobertas
                 )
             }
-            seções.append(seção)
+            seções.append(seçêo)
 
         return seções
 
@@ -414,7 +414,7 @@ class AgenteEstruturador:
             all(
                 2 <= len(s.get('key_points', [])) <= 4
                 for s in output['outline']
-                if s['tipo'] == 'seção'
+                if s['tipo'] == 'seçêo'
             )
         )
 ```
@@ -434,11 +434,11 @@ Output do Agente 2 (outline estruturado)
 
 ## Processo
 1. Analisar outline e diretrizes
-2. Escrever introdução com hook forte
-3. Desenvolver cada seção seguindo key points
+2. Escrever introduçêo com hook forte
+3. Desenvolver cada seçêo seguindo key points
 4. Adicionar exemplos práticos
 5. Inserir transições entre seções
-6. Escrever conclusão com call-to-action
+6. Escrever conclusêo com call-to-action
 7. Auto-revisar comprimento e tom
 
 ## Output para Agente 4
@@ -450,18 +450,18 @@ Output do Agente 2 (outline estruturado)
     "seções_desenvolvidas": integer,
     "exemplos_incluídos": integer
   },
-  "notas_revisor": ["pontos que autor tem dúvida e quer revisão especial"]
+  "notas_revisor": ["pontos que autor tem dúvida e quer revisêo especial"]
 }
 
-## Critérios de validação
+## Critérios de validaçêo
 ✓ Word count dentro de ±10% do target
-✓ Cada seção tem pelo menos 1 exemplo
+✓ Cada seçêo tem pelo menos 1 exemplo
 ✓ Máximo 5 linhas por parágrafo
 ✓ Tom consistente em todo artigo
 ✓ Hook engajante nos primeiros 50 palavras
 ```
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 class AgenteEscritor:
@@ -475,21 +475,21 @@ class AgenteEscritor:
         outline = outline_output['outline']
         target_words = outline_output['target_words']
 
-        # Passo 1: Escrever introdução
-        introdução = self._escrever_introdução(
+        # Passo 1: Escrever introduçêo
+        introduçêo = self._escrever_introduçêo(
             outline_output['hook'],
             outline_output['tese']
         )
 
-        # Passo 2: Desenvolver cada seção
+        # Passo 2: Desenvolver cada seçêo
         seções_desenvolvidas = []
-        for seção in outline:
-            if seção['tipo'] == 'seção':
-                conteúdo = self._desenvolver_seção(seção)
+        for seçêo in outline:
+            if seçêo['tipo'] == 'seçêo':
+                conteúdo = self._desenvolver_seçêo(seçêo)
                 seções_desenvolvidas.append(conteúdo)
 
-        # Passo 3: Escrever conclusão
-        conclusão = self._escrever_conclusão(
+        # Passo 3: Escrever conclusêo
+        conclusêo = self._escrever_conclusêo(
             seções_desenvolvidas,
             outline[-1] if outline else None
         )
@@ -498,12 +498,12 @@ class AgenteEscritor:
         artigo = self._montar_artigo(
             outline_output['título'],
             outline_output['subtítulo'],
-            introdução,
+            introduçêo,
             seções_desenvolvidas,
-            conclusão
+            conclusêo
         )
 
-        # Passo 5: Auto-revisão
+        # Passo 5: Auto-revisêo
         artigo_revisado = self._auto_revisar(artigo, target_words)
 
         output = {
@@ -514,32 +514,32 @@ class AgenteEscritor:
                 "seções_desenvolvidas": len(seções_desenvolvidas),
                 "exemplos_incluídos": artigo_revisado.count("**Exemplo:")
             },
-            "notas_revisor": self._gerar_notas_revisão(artigo_revisado)
+            "notas_revisor": self._gerar_notas_revisêo(artigo_revisado)
         }
 
         return output
 
-    def _desenvolver_seção(self, seção):
+    def _desenvolver_seçêo(self, seçêo):
         """
         Transforma key points em prosa
         """
         prompt = f"""
-        Desenvolva esta seção do artigo:
+        Desenvolva esta seçêo do artigo:
 
-        Heading: {seção['heading']}
+        Heading: {seçêo['heading']}
         Key points a cobrir:
-        {chr(10).join(f"- {kp}" for kp in seção['key_points'])}
+        {chr(10).join(f"- {kp}" for kp in seçêo['key_points'])}
 
         Fatos para incluir:
-        {seção.get('fatos_alocar', [])}
+        {seçêo.get('fatos_alocar', [])}
 
         Diretrizes:
         - Tom conversacional mas profissional
         - Máximo 5 linhas por parágrafo
         - Incluir pelo menos 1 exemplo prático
-        - 200-300 palavras para esta seção
+        - 200-300 palavras para esta seçêo
 
-        Escreva a seção completa:
+        Escreva a seçêo completa:
         """
 
         return self.llm.generate(prompt)
@@ -572,14 +572,14 @@ class AgenteEscritor:
 # AGENTE REVISOR
 
 ## Responsabilidade
-Revisar artigo para garantir qualidade final antes de publicação
+Revisar artigo para garantir qualidade final antes de publicaçêo
 
 ## Input esperado
 Output do Agente 3 (artigo completo)
 
 ## Processo
 1. Verificar gramática e ortografia
-2. Validar clareza e coesão
+2. Validar clareza e coesêo
 3. Checar se todos os fatos têm fonte
 4. Confirmar tom consistente
 5. Validar estrutura (headings corretos)
@@ -589,7 +589,7 @@ Output do Agente 3 (artigo completo)
 
 ## Output final
 {
-  "artigo_final": "string (versão aprovada)",
+  "artigo_final": "string (versêo aprovada)",
   "score_qualidade": {
     "gramática": 0-100,
     "clareza": 0-100,
@@ -599,17 +599,17 @@ Output do Agente 3 (artigo completo)
   },
   "mudanças_aplicadas": [
     {
-      "tipo": "correção|melhoria|ajuste",
-      "descrição": "string",
+      "tipo": "correçêo|melhoria|ajuste",
+      "descriçêo": "string",
       "antes": "string",
       "depois": "string"
     }
   ],
-  "status": "aprovado|requer_revisão"
+  "status": "aprovado|requer_revisêo"
 }
 ```
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 class AgenteRevisor:
@@ -629,24 +629,24 @@ class AgenteRevisor:
         # Passo 2: Análise de legibilidade
         legibilidade_score = self.ferramentas['readability'].analyze(artigo)
 
-        # Passo 3: Validação de estrutura
+        # Passo 3: Validaçêo de estrutura
         estrutura_ok = self._validar_estrutura(artigo)
 
-        # Passo 4: Revisão de conteúdo pelo LLM
-        revisão_conteúdo = self._revisar_conteúdo(artigo)
+        # Passo 4: Revisêo de conteúdo pelo LLM
+        revisêo_conteúdo = self._revisar_conteúdo(artigo)
 
         # Passo 5: Aplicar correções
         artigo_corrigido = self._aplicar_correções(
             artigo,
             gramática_issues,
-            revisão_conteúdo
+            revisêo_conteúdo
         )
 
         # Passo 6: Calcular score de qualidade
         scores = {
             "gramática": 100 - len(gramática_issues),
-            "clareza": revisão_conteúdo['clareza_score'],
-            "engajamento": revisão_conteúdo['engajamento_score'],
+            "clareza": revisêo_conteúdo['clareza_score'],
+            "engajamento": revisêo_conteúdo['engajamento_score'],
             "legibilidade": legibilidade_score
         }
         scores['overall'] = sum(scores.values()) / len(scores)
@@ -658,21 +658,21 @@ class AgenteRevisor:
                 artigo,
                 artigo_corrigido
             ),
-            "status": "aprovado" if scores['overall'] >= 85 else "requer_revisão"
+            "status": "aprovado" if scores['overall'] >= 85 else "requer_revisêo"
         }
 
         return output
 
     def _revisar_conteúdo(self, artigo):
         """
-        LLM faz revisão de qualidade de conteúdo
+        LLM faz revisêo de qualidade de conteúdo
         """
         prompt = f"""
         Revise este artigo em 3 dimensões:
 
-        1. CLAREZA (0-100): Ideias estão claras? Há ambiguidades?
-        2. ENGAJAMENTO (0-100): É interessante de ler? Mantém atenção?
-        3. COESÃO (0-100): Transições fluem bem? Narrativa coerente?
+        1. CLAREZA (0-100): Ideias estêo claras? Há ambiguidades?
+        2. ENGAJAMENTO (0-100): É interessante de ler? Mantém atençêo?
+        3. COESêO (0-100): Transições fluem bem? Narrativa coerente?
 
         Artigo:
         {artigo}
@@ -681,9 +681,9 @@ class AgenteRevisor:
         {{
           "clareza_score": 0-100,
           "engajamento_score": 0-100,
-          "coesão_score": 0-100,
+          "coesêo_score": 0-100,
           "problemas_identificados": [
-            {{"tipo": "...", "localização": "...", "sugestão": "..."}}
+            {{"tipo": "...", "localizaçêo": "...", "sugestêo": "..."}}
           ],
           "pontos_fortes": ["..."]
         }}
@@ -728,19 +728,19 @@ class PipelineLinearCriacaoArtigo:
 
         print(f"🔍 Agente 4 (Revisor) iniciando...")
         final = self.agente_4.executar(rascunho)
-        print(f"✓ Revisão concluída: Score {final['score_qualidade']['overall']}/100")
+        print(f"✓ Revisêo concluída: Score {final['score_qualidade']['overall']}/100")
 
-        if final['status'] == "requer_revisão":
-            print("⚠️ Artigo requer nova rodada de revisão")
+        if final['status'] == "requer_revisêo":
+            print("⚠️ Artigo requer nova rodada de revisêo")
             # Poderia enviar de volta para Agente 3
         else:
-            print("✅ Artigo aprovado e pronto para publicação!")
+            print("✅ Artigo aprovado e pronto para publicaçêo!")
 
         return final
 
 # Uso
 pipeline = PipelineLinearCriacaoArtigo(llm, ferramentas)
-resultado = pipeline.executar("Impacto da IA na educação")
+resultado = pipeline.executar("Impacto da IA na educaçêo")
 ```
 
 ---
@@ -749,7 +749,7 @@ resultado = pipeline.executar("Impacto da IA na educação")
 
 ### O Que É
 
-Sistema onde múltiplos agentes trabalham simultaneamente em partes independentes, depois resultados são combinados.
+Sistema onde múltiplos agentes trabalham simultaneamente em partes independentes, depois resultados sêo combinados.
 
 ```
                     ┌─────────────┐
@@ -779,9 +779,9 @@ Sistema onde múltiplos agentes trabalham simultaneamente em partes independente
 - Múltiplas análises do mesmo input
 
 ❌ **Evite quando:**
-- Etapas são interdependentes
+- Etapas sêo interdependentes
 - Ordem importa
-- Coordenação entre agentes é complexa
+- Coordenaçêo entre agentes é complexa
 
 ---
 
@@ -871,14 +871,14 @@ class AnalistaMercado:
         Analise este produto do ponto de vista de MERCADO:
 
         Produto: {produto_info['nome']}
-        Descrição: {produto_info['descrição']}
+        Descriçêo: {produto_info['descriçêo']}
         Público-alvo: {produto_info['público']}
 
         Analise:
         1. Tamanho do mercado endereçável
         2. Principais concorrentes e seus pontos fortes
         3. Posicionamento recomendado
-        4. Oportunidades de diferenciação
+        4. Oportunidades de diferenciaçêo
         5. Riscos de mercado
 
         Retorne JSON estruturado com essas 5 dimensões.
@@ -900,7 +900,7 @@ class AnalistaTécnico:
 
         Produto: {produto_info['nome']}
         Features planejadas: {produto_info['features']}
-        Escala esperada: {produto_info.get('escala', 'não especificada')}
+        Escala esperada: {produto_info.get('escala', 'nêo especificada')}
 
         Analise:
         1. Arquitetura recomendada
@@ -932,7 +932,7 @@ class AnalistaUX:
 
         Analise:
         1. Jornada do usuário principal
-        2. Pontos de fricção potenciais
+        2. Pontos de fricçêo potenciais
         3. Oportunidades de delight
         4. Acessibilidade
         5. Mobile vs Desktop (prioridade)
@@ -955,10 +955,10 @@ class AnalistaFinanceiro:
         Analise este produto do ponto de vista FINANCEIRO:
 
         Produto: {produto_info['nome']}
-        Modelo de negócio: {produto_info.get('modelo', 'não especificado')}
+        Modelo de negócio: {produto_info.get('modelo', 'nêo especificado')}
 
         Analise:
-        1. Modelo de monetização recomendado
+        1. Modelo de monetizaçêo recomendado
         2. Estrutura de custos estimada
         3. Break-even esperado
         4. LTV vs CAC projetado
@@ -999,7 +999,7 @@ class AgregadorAnálises:
         3. Priorize recomendações por impacto
         4. Dê veredicto final: GO / NO-GO / GO COM AJUSTES
 
-        Formato: Markdown, máximo 1000 palavras, executivo (não técnico).
+        Formato: Markdown, máximo 1000 palavras, executivo (nêo técnico).
         """
 
         return self.llm.generate(prompt)
@@ -1010,11 +1010,11 @@ pipeline = PipelineParaleloAnáliseProduto(llm)
 
 produto = {
     "nome": "TaskFlow AI",
-    "descrição": "Gerenciador de projetos com IA que auto-organiza tarefas",
+    "descriçêo": "Gerenciador de projetos com IA que auto-organiza tarefas",
     "público": "Startups e pequenas empresas (5-50 pessoas)",
     "features": [
-        "Auto-priorização de tarefas baseada em IA",
-        "Integração com Slack/Discord",
+        "Auto-priorizaçêo de tarefas baseada em IA",
+        "Integraçêo com Slack/Discord",
         "Dashboards customizáveis",
         "Relatórios automáticos"
     ],
@@ -1026,7 +1026,7 @@ relatório = pipeline.executar(produto)
 print(relatório)
 ```
 
-**Vantagem:** 4 análises que levariam 2 horas sequencialmente são feitas em ~30 minutos.
+**Vantagem:** 4 análises que levariam 2 horas sequencialmente sêo feitas em ~30 minutos.
 
 ---
 
@@ -1053,14 +1053,14 @@ Sistema com um agente coordenador que gerencia especialistas, delegando tarefas 
 ### Quando Usar
 
 ✅ **Ideal para:**
-- Projetos complexos que precisam de orquestração inteligente
-- Quando ordem de execução depende de resultados intermediários
+- Projetos complexos que precisam de orquestraçêo inteligente
+- Quando ordem de execuçêo depende de resultados intermediários
 - Quando especialistas precisam de direcionamento específico
-- Quando há decisões a tomar durante execução
+- Quando há decisões a tomar durante execuçêo
 
 ❌ **Evite quando:**
 - Fluxo é totalmente previsível (use Pipeline Linear)
-- Todas as tarefas são independentes (use Paralelo)
+- Todas as tarefas sêo independentes (use Paralelo)
 - Simplicidade é prioridade
 
 ---
@@ -1107,7 +1107,7 @@ class SistemaHierárquicoMarketing:
         # Executar etapas conforme plano
         for i, etapa in enumerate(plano['etapas'], 1):
             print(f"\n--- ETAPA {i}/{len(plano['etapas'])} ---")
-            print(f"Ação: {etapa['ação']}")
+            print(f"Açêo: {etapa['açêo']}")
 
             # Coordenador decide qual especialista usar
             especialista_nome = etapa['especialista']
@@ -1135,7 +1135,7 @@ class SistemaHierárquicoMarketing:
             )
 
             if ajuste['requer_ajuste']:
-                print(f"⚠️ Plano ajustado: {ajuste['razão']}")
+                print(f"⚠️ Plano ajustado: {ajuste['razêo']}")
                 plano = ajuste['novo_plano']
 
         # Coordenador sintetiza resultado final
@@ -1168,12 +1168,12 @@ class AgenteCoordenadorMarketing:
         - analista: Define KPIs, métricas, análise de dados
         - copywriter: Escreve copies de anúncios, emails, landing pages
 
-        Crie um PLANO DE EXECUÇÃO com etapas sequenciais.
+        Crie um PLANO DE EXECUÇêO com etapas sequenciais.
 
         Cada etapa deve ter:
-        - ação: O que fazer
+        - açêo: O que fazer
         - especialista: Qual especialista é responsável
-        - input_necessário: Que informação precisa (de etapas anteriores ou do objetivo)
+        - input_necessário: Que informaçêo precisa (de etapas anteriores ou do objetivo)
         - output_key: Como salvar o resultado (para usar em etapas futuras)
         - critério_sucesso: Como saber se foi bem sucedido
 
@@ -1181,7 +1181,7 @@ class AgenteCoordenadorMarketing:
         {{
           "etapas": [
             {{
-              "ação": "...",
+              "açêo": "...",
               "especialista": "pesquisador|estrategista|...",
               "input_necessário": ["..."],
               "output_key": "string",
@@ -1199,7 +1199,7 @@ class AgenteCoordenadorMarketing:
         Prepara input específico para especialista baseado no contexto acumulado
         """
         input_data = {
-            "tarefa": etapa['ação'],
+            "tarefa": etapa['açêo'],
             "critério_sucesso": etapa['critério_sucesso']
         }
 
@@ -1233,7 +1233,7 @@ class AgenteCoordenadorMarketing:
         Retorne JSON:
         {{
           "requer_ajuste": true|false,
-          "razão": "string explicando por quê",
+          "razêo": "string explicando por quê",
           "novo_plano": {{...}} (só se requer_ajuste = true)
         }}
         """
@@ -1264,20 +1264,20 @@ class AgenteCoordenadorMarketing:
         ## 3. CONCEITO CRIATIVO
         [Ideias do criativo]
 
-        ## 4. EXECUÇÃO
+        ## 4. EXECUÇêO
         [Copies do copywriter]
 
         ## 5. MÉTRICAS DE SUCESSO
         [KPIs do analista]
 
-        ## 6. PLANO DE AÇÃO
+        ## 6. PLANO DE AÇêO
         [Timeline integrado de tudo]
         """
 
         return self.llm.generate(prompt)
 
 
-# Especialistas (implementação simplificada)
+# Especialistas (implementaçêo simplificada)
 
 class AgentePesquisadorMercado:
     def __init__(self, llm, ferramentas):
@@ -1351,11 +1351,11 @@ class AgenteAnalistaDados:
 sistema = SistemaHierárquicoMarketing(llm, ferramentas)
 
 resultado = sistema.executar(
-    "Lançar produto SaaS de gestão de projetos para startups, meta de 1000 usuários pagantes em 3 meses"
+    "Lançar produto SaaS de gestêo de projetos para startups, meta de 1000 usuários pagantes em 3 meses"
 )
 ```
 
-**Vantagem:** Coordenador adapta plano baseado em resultados intermediários (não é rígido como pipeline linear).
+**Vantagem:** Coordenador adapta plano baseado em resultados intermediários (nêo é rígido como pipeline linear).
 
 ---
 
@@ -1388,20 +1388,20 @@ Sistema onde agentes trabalham em ciclos de melhoria: criar → avaliar → melh
 ✅ **Ideal para:**
 - Tarefas criativas que precisam de refinamento
 - Quando qualidade é mais importante que velocidade
-- Otimização de textos, código, designs
-- Quando critérios de sucesso são claros
+- Otimizaçêo de textos, código, designs
+- Quando critérios de sucesso sêo claros
 
 ❌ **Evite quando:**
 - Prazo apertado (loops podem ser lentos)
-- Primeira versão "boa o suficiente"
-- Critérios de qualidade são subjetivos demais
+- Primeira versêo "boa o suficiente"
+- Critérios de qualidade sêo subjetivos demais
 
 ---
 
-### EXEMPLO COMPLETO: Sistema de Otimização de Copy
+### EXEMPLO COMPLETO: Sistema de Otimizaçêo de Copy
 
 ```python
-class SistemaIterativoOtimizaçãoCopy:
+class SistemaIterativoOtimizaçêoCopy:
     """
     Loop: Escreve copy → Avalia → Melhora → Avalia → Melhora...
     Até atingir score mínimo ou max iterações
@@ -1421,38 +1421,38 @@ class SistemaIterativoOtimizaçãoCopy:
         """
         print(f"🎯 Briefing recebido: {briefing['objetivo']}")
 
-        # Iteração 0: Criar primeira versão
-        print("\n--- ITERAÇÃO 0 (Criação inicial) ---")
+        # Iteraçêo 0: Criar primeira versêo
+        print("\n--- ITERAÇêO 0 (Criaçêo inicial) ---")
         copy_atual = self.criador.criar(briefing)
         print(f"✓ Copy inicial criada: {len(copy_atual.split())} palavras")
 
         histórico = []
-        iteração = 1
+        iteraçêo = 1
 
-        while iteração <= self.max_iterações:
-            print(f"\n--- ITERAÇÃO {iteração} ---")
+        while iteraçêo <= self.max_iterações:
+            print(f"\n--- ITERAÇêO {iteraçêo} ---")
 
-            # Avaliar versão atual
+            # Avaliar versêo atual
             print("📊 Avaliando copy...")
-            avaliação = self.avaliador.avaliar(copy_atual, briefing)
+            avaliaçêo = self.avaliador.avaliar(copy_atual, briefing)
 
-            print(f"Score: {avaliação['score_total']}/100")
-            print(f"Pontos fracos: {', '.join(avaliação['pontos_fracos'])}")
+            print(f"Score: {avaliaçêo['score_total']}/100")
+            print(f"Pontos fracos: {', '.join(avaliaçêo['pontos_fracos'])}")
 
             # Salvar no histórico
             histórico.append({
-                "iteração": iteração - 1,
+                "iteraçêo": iteraçêo - 1,
                 "copy": copy_atual,
-                "score": avaliação['score_total'],
-                "feedback": avaliação
+                "score": avaliaçêo['score_total'],
+                "feedback": avaliaçêo
             })
 
             # Verificar critério de parada
-            if avaliação['score_total'] >= self.score_mínimo:
-                print(f"✅ Score alvo atingido! ({avaliação['score_total']} >= {self.score_mínimo})")
+            if avaliaçêo['score_total'] >= self.score_mínimo:
+                print(f"✅ Score alvo atingido! ({avaliaçêo['score_total']} >= {self.score_mínimo})")
                 break
 
-            if iteração == self.max_iterações:
+            if iteraçêo == self.max_iterações:
                 print(f"⚠️ Máximo de iterações atingido ({self.max_iterações})")
                 break
 
@@ -1460,18 +1460,18 @@ class SistemaIterativoOtimizaçãoCopy:
             print("🔧 Melhorando copy...")
             copy_atual = self.melhorador.melhorar(
                 copy_atual,
-                avaliação,
+                avaliaçêo,
                 briefing
             )
-            print("✓ Nova versão gerada")
+            print("✓ Nova versêo gerada")
 
-            iteração += 1
+            iteraçêo += 1
 
         # Resultado final
         print("\n" + "="*50)
-        print("📈 EVOLUÇÃO:")
+        print("📈 EVOLUÇêO:")
         for h in histórico:
-            print(f"  Iteração {h['iteração']}: Score {h['score']}/100")
+            print(f"  Iteraçêo {h['iteraçêo']}: Score {h['score']}/100")
 
         melhoria = histórico[-1]['score'] - histórico[0]['score']
         print(f"\n📊 Melhoria total: +{melhoria} pontos")
@@ -1490,7 +1490,7 @@ class AgenteCriadorCopy:
 
     def criar(self, briefing):
         """
-        Cria primeira versão da copy
+        Cria primeira versêo da copy
         """
         prompt = f"""
         Crie copy de anúncio seguindo este briefing:
@@ -1521,7 +1521,7 @@ class AgenteAvaliadorCopy:
         self.critérios = {
             "clareza": 20,  # Mensagem clara?
             "relevância": 20,  # Relevante para público?
-            "persuasão": 20,  # Convence a agir?
+            "persuasêo": 20,  # Convence a agir?
             "criatividade": 15,  # Original e interessante?
             "aderência_briefing": 15,  # Segue o briefing?
             "gramática": 10  # Sem erros?
@@ -1544,7 +1544,7 @@ class AgenteAvaliadorCopy:
 
         1. CLAREZA (peso 20): A mensagem é clara e fácil de entender?
         2. RELEVÂNCIA (peso 20): É relevante para o público-alvo?
-        3. PERSUASÃO (peso 20): Convence o leitor a agir?
+        3. PERSUASêO (peso 20): Convence o leitor a agir?
         4. CRIATIVIDADE (peso 15): É original e cativante?
         5. ADERÊNCIA AO BRIEFING (peso 15): Segue todas as diretrizes?
         6. GRAMÁTICA (peso 10): Sem erros de português?
@@ -1552,14 +1552,14 @@ class AgenteAvaliadorCopy:
         Para cada critério, dê:
         - Score (0-100)
         - Justificativa (por que esse score)
-        - Sugestão (como melhorar especificamente)
+        - Sugestêo (como melhorar especificamente)
 
         Retorne JSON:
         {{
           "scores": {{
             "clareza": 0-100,
             "relevância": 0-100,
-            "persuasão": 0-100,
+            "persuasêo": 0-100,
             "criatividade": 0-100,
             "aderência_briefing": 0-100,
             "gramática": 0-100
@@ -1580,29 +1580,29 @@ class AgenteAvaliadorCopy:
         }}
         """
 
-        avaliação = json.loads(self.llm.generate(prompt))
+        avaliaçêo = json.loads(self.llm.generate(prompt))
 
         # Calcular score total ponderado
         score_total = sum(
-            avaliação['scores'][critério] * peso / 100
+            avaliaçêo['scores'][critério] * peso / 100
             for critério, peso in self.critérios.items()
         )
 
-        avaliação['score_total'] = round(score_total)
+        avaliaçêo['score_total'] = round(score_total)
 
-        return avaliação
+        return avaliaçêo
 
 
 class AgenteMelhoradorCopy:
     def __init__(self, llm):
         self.llm = llm
 
-    def melhorar(self, copy_atual, avaliação, briefing):
+    def melhorar(self, copy_atual, avaliaçêo, briefing):
         """
         Melhora copy focando nos pontos fracos identificados
         """
         prompt = f"""
-        Você recebeu uma copy de anúncio e feedback de avaliação.
+        Você recebeu uma copy de anúncio e feedback de avaliaçêo.
         Sua tarefa: MELHORAR a copy focando nos pontos fracos.
 
         COPY ATUAL:
@@ -1611,39 +1611,39 @@ class AgenteMelhoradorCopy:
         BRIEFING:
         {json.dumps(briefing, indent=2)}
 
-        AVALIAÇÃO:
-        Score total: {avaliação['score_total']}/100
+        AVALIAÇêO:
+        Score total: {avaliaçêo['score_total']}/100
 
         Pontos fortes (manter):
-        {chr(10).join(f"- {pf}" for pf in avaliação['pontos_fortes'])}
+        {chr(10).join(f"- {pf}" for pf in avaliaçêo['pontos_fortes'])}
 
         Pontos fracos (FOCAR AQUI):
-        {chr(10).join(f"- {pf}" for pf in avaliação['pontos_fracos'])}
+        {chr(10).join(f"- {pf}" for pf in avaliaçêo['pontos_fracos'])}
 
         Sugestões específicas:
-        {json.dumps(avaliação['sugestões'], indent=2)}
+        {json.dumps(avaliaçêo['sugestões'], indent=2)}
 
         IMPORTANTE:
         - MANTENHA o que está funcionando (pontos fortes)
         - MELHORE DRASTICAMENTE os pontos fracos
-        - NÃO mude completamente (é iteração, não reescrita do zero)
+        - NêO mude completamente (é iteraçêo, nêo reescrita do zero)
         - Foque nas sugestões com maior impacto no score
 
-        Escreva a VERSÃO MELHORADA da copy:
+        Escreva a VERSêO MELHORADA da copy:
         """
 
         return self.llm.generate(prompt)
 
 
 # Uso
-sistema = SistemaIterativoOtimizaçãoCopy(llm)
+sistema = SistemaIterativoOtimizaçêoCopy(llm)
 
 briefing = {
-    "produto": "App de meditação guiada com IA personalizada",
+    "produto": "App de meditaçêo guiada com IA personalizada",
     "público": "Profissionais estressados, 28-45 anos, urbanos",
     "objetivo": "Conseguir download gratuito do app",
-    "tom": "Empático mas moderno, não 'hippie'",
-    "restrições": "Não usar palavras: revolucionário, único, incrível"
+    "tom": "Empático mas moderno, nêo 'hippie'",
+    "restrições": "Nêo usar palavras: revolucionário, único, incrível"
 }
 
 resultado = sistema.executar(briefing)
@@ -1659,26 +1659,26 @@ print(f"Iterações necessárias: {resultado['iterações_necessárias']}")
 ```
 🎯 Briefing recebido: Conseguir download gratuito do app
 
---- ITERAÇÃO 0 (Criação inicial) ---
+--- ITERAÇêO 0 (Criaçêo inicial) ---
 ✓ Copy inicial criada: 187 palavras
 
---- ITERAÇÃO 1 ---
+--- ITERAÇêO 1 ---
 📊 Avaliando copy...
 Score: 72/100
-Pontos fracos: persuasão, criatividade
+Pontos fracos: persuasêo, criatividade
 
 🔧 Melhorando copy...
-✓ Nova versão gerada
+✓ Nova versêo gerada
 
---- ITERAÇÃO 2 ---
+--- ITERAÇêO 2 ---
 📊 Avaliando copy...
 Score: 81/100
 Pontos fracos: relevância
 
 🔧 Melhorando copy...
-✓ Nova versão gerada
+✓ Nova versêo gerada
 
---- ITERAÇÃO 3 ---
+--- ITERAÇêO 3 ---
 📊 Avaliando copy...
 Score: 88/100
 Pontos fracos: nenhum significativo
@@ -1686,10 +1686,10 @@ Pontos fracos: nenhum significativo
 ✅ Score alvo atingido! (88 >= 85)
 
 ==================================================
-📈 EVOLUÇÃO:
-  Iteração 0: Score 72/100
-  Iteração 1: Score 81/100
-  Iteração 2: Score 88/100
+📈 EVOLUÇêO:
+  Iteraçêo 0: Score 72/100
+  Iteraçêo 1: Score 81/100
+  Iteraçêo 2: Score 88/100
 
 📊 Melhoria total: +16 pontos
 ```
@@ -1700,7 +1700,7 @@ Pontos fracos: nenhum significativo
 
 ### O Que É
 
-Sistema onde agentes podem consultar uns aos outros de forma dinâmica, não seguindo hierarquia rígida.
+Sistema onde agentes podem consultar uns aos outros de forma dinâmica, nêo seguindo hierarquia rígida.
 
 ```
      ┌─────────┐
@@ -1718,10 +1718,10 @@ Sistema onde agentes podem consultar uns aos outros de forma dinâmica, não seg
 ### Quando Usar
 
 ✅ **Ideal para:**
-- Problemas complexos sem solução linear óbvia
+- Problemas complexos sem soluçêo linear óbvia
 - Quando expertise de múltiplos agentes é necessária iterativamente
 - Brainstorming ou design colaborativo
-- Tomada de decisão com múltiplas perspectivas
+- Tomada de decisêo com múltiplas perspectivas
 
 ❌ **Evite quando:**
 - Processo é bem definido (use Pipeline)
@@ -1751,8 +1751,8 @@ class SistemaCruzadoDesignProduto:
             "Marketer": self.marketer
         }
 
-        # Histórico de discussão
-        self.discussão = []
+        # Histórico de discussêo
+        self.discussêo = []
 
         # Critério de parada
         self.max_rodadas = 10
@@ -1763,24 +1763,24 @@ class SistemaCruzadoDesignProduto:
         """
         print(f"💡 Proposta inicial: {proposta_inicial}")
 
-        # PM inicia a discussão
+        # PM inicia a discussêo
         print("\n" + "="*50)
         print("RODADA 1 - PM apresenta proposta")
         print("="*50)
 
         contexto = {
             "proposta_inicial": proposta_inicial,
-            "versão_atual": proposta_inicial
+            "versêo_atual": proposta_inicial
         }
 
         proposta_pm = self.pm.analisar_e_propor(contexto)
-        self.discussão.append({
+        self.discussêo.append({
             "rodada": 1,
             "agente": "PM",
-            "contribuição": proposta_pm
+            "contribuiçêo": proposta_pm
         })
 
-        contexto["versão_atual"] = proposta_pm["proposta_refinada"]
+        contexto["versêo_atual"] = proposta_pm["proposta_refinada"]
 
         rodada = 2
         consenso_atingido = False
@@ -1798,26 +1798,26 @@ class SistemaCruzadoDesignProduto:
                     continue  # PM já falou na rodada 1
 
                 print(f"\n{nome_agente} analisando...")
-                contribuição = agente.analisar_e_contribuir(
+                contribuiçêo = agente.analisar_e_contribuir(
                     contexto,
-                    self.discussão
+                    self.discussêo
                 )
 
-                if contribuição["tem_feedback"]:
-                    print(f"✋ {nome_agente}: {contribuição['feedback_resumo']}")
+                if contribuiçêo["tem_feedback"]:
+                    print(f"✋ {nome_agente}: {contribuiçêo['feedback_resumo']}")
                     contribuições_rodada.append({
                         "agente": nome_agente,
-                        "contribuição": contribuição
+                        "contribuiçêo": contribuiçêo
                     })
                 else:
                     print(f"✓ {nome_agente}: Sem objeções")
 
             # Salvar contribuições
-            self.discussão.extend([
+            self.discussêo.extend([
                 {
                     "rodada": rodada,
                     "agente": c["agente"],
-                    "contribuição": c["contribuição"]
+                    "contribuiçêo": c["contribuiçêo"]
                 }
                 for c in contribuições_rodada
             ])
@@ -1831,67 +1831,67 @@ class SistemaCruzadoDesignProduto:
             # PM integra feedbacks
             print(f"\nPM integrando {len(contribuições_rodada)} feedbacks...")
             nova_proposta = self.pm.integrar_feedbacks(
-                contexto["versão_atual"],
+                contexto["versêo_atual"],
                 contribuições_rodada
             )
 
-            contexto["versão_atual"] = nova_proposta
+            contexto["versêo_atual"] = nova_proposta
 
             rodada += 1
 
         if not consenso_atingido:
-            print(f"\n⚠️ Máximo de rodadas atingido. Forçando decisão final...")
-            # PM toma decisão final
-            decisão_final = self.pm.decisão_final(contexto, self.discussão)
-            contexto["versão_atual"] = decisão_final
+            print(f"\n⚠️ Máximo de rodadas atingido. Forçando decisêo final...")
+            # PM toma decisêo final
+            decisêo_final = self.pm.decisêo_final(contexto, self.discussêo)
+            contexto["versêo_atual"] = decisêo_final
 
-        # Documentar decisão
+        # Documentar decisêo
         print("\n" + "="*50)
-        print("DOCUMENTANDO DECISÃO")
+        print("DOCUMENTANDO DECISêO")
         print("="*50)
 
-        documento_final = self._documentar_decisão(
-            contexto["versão_atual"],
-            self.discussão,
+        documento_final = self._documentar_decisêo(
+            contexto["versêo_atual"],
+            self.discussêo,
             consenso_atingido
         )
 
         return {
-            "decisão_final": contexto["versão_atual"],
+            "decisêo_final": contexto["versêo_atual"],
             "documento": documento_final,
             "rodadas": rodada - 1,
             "consenso": consenso_atingido,
-            "histórico_discussão": self.discussão
+            "histórico_discussêo": self.discussêo
         }
 
-    def _documentar_decisão(self, decisão, discussão, consenso):
+    def _documentar_decisêo(self, decisêo, discussêo, consenso):
         """
-        Cria documento final com decisão e contexto
+        Cria documento final com decisêo e contexto
         """
         doc = f"""
-# DECISÃO DE DESIGN: {decisão.get('nome_feature', 'Feature')}
+# DECISêO DE DESIGN: {decisêo.get('nome_feature', 'Feature')}
 
-## DECISÃO FINAL
+## DECISêO FINAL
 
-{decisão.get('descrição', '')}
+{decisêo.get('descriçêo', '')}
 
 ### Especificações
-{json.dumps(decisão.get('specs', {}), indent=2)}
+{json.dumps(decisêo.get('specs', {}), indent=2)}
 
-## PROCESSO DE DECISÃO
+## PROCESSO DE DECISêO
 
-Total de rodadas: {max(d['rodada'] for d in discussão)}
-Consenso atingido: {"Sim" if consenso else "Não (decisão do PM)"}
+Total de rodadas: {max(d['rodada'] for d in discussêo)}
+Consenso atingido: {"Sim" if consenso else "Nêo (decisêo do PM)"}
 
 ### Principais Discussões
 
 """
 
-        for d in discussão:
-            if d['contribuição'].get('tem_feedback'):
+        for d in discussêo:
+            if d['contribuiçêo'].get('tem_feedback'):
                 doc += f"""
 **Rodada {d['rodada']} - {d['agente']}:**
-{d['contribuição'].get('feedback_resumo', '')}
+{d['contribuiçêo'].get('feedback_resumo', '')}
 """
 
         return doc
@@ -1915,14 +1915,14 @@ class AgenteProductManager:
 
         Sua tarefa:
         1. Refinar a proposta com foco em valor pro usuário
-        2. Definir escopo claro (o que entra, o que não entra)
+        2. Definir escopo claro (o que entra, o que nêo entra)
         3. Listar perguntas para outros especialistas
 
         Retorne JSON:
         {{
           "proposta_refinada": {{
             "nome_feature": "...",
-            "descrição": "...",
+            "descriçêo": "...",
             "user_stories": ["...", "..."],
             "escopo": {{
               "incluído": ["...", "..."],
@@ -1942,7 +1942,7 @@ class AgenteProductManager:
         Integra feedbacks de múltiplos agentes
         """
         feedbacks_text = "\n\n".join([
-            f"{f['agente']}:\n{json.dumps(f['contribuição'], indent=2)}"
+            f"{f['agente']}:\n{json.dumps(f['contribuiçêo'], indent=2)}"
             for f in feedbacks
         ])
 
@@ -1955,12 +1955,12 @@ class AgenteProductManager:
         FEEDBACKS:
         {feedbacks_text}
 
-        Integre os feedbacks criando NOVA VERSÃO da proposta que:
+        Integre os feedbacks criando NOVA VERSêO da proposta que:
         - Endereça preocupações válidas
         - Mantém escopo gerenciável
         - Busca compromisso quando há conflito
 
-        Retorne JSON com nova versão completa da proposta.
+        Retorne JSON com nova versêo completa da proposta.
         """
 
         return json.loads(self.llm.generate(prompt))
@@ -1972,7 +1972,7 @@ class AgenteDesigner:
         self.sistema = sistema
         self.role = "UX/UI Designer"
 
-    def analisar_e_contribuir(self, contexto, discussão):
+    def analisar_e_contribuir(self, contexto, discussêo):
         """
         Designer analisa do ponto de vista de UX
         """
@@ -1986,10 +1986,10 @@ class AgenteDesigner:
         Você é o Designer UX/UI do time.
 
         PROPOSTA ATUAL:
-        {json.dumps(contexto['versão_atual'], indent=2)}
+        {json.dumps(contexto['versêo_atual'], indent=2)}
 
-        HISTÓRICO DE DISCUSSÃO:
-        {json.dumps(discussão[-3:], indent=2)}  # Últimas 3 contribuições
+        HISTÓRICO DE DISCUSSêO:
+        {json.dumps(discussêo[-3:], indent=2)}  # Últimas 3 contribuições
 
         {f"RESPOSTA DO ENGINEER: {consulta_engineer}" if consulta_engineer else ""}
 
@@ -2015,7 +2015,7 @@ class AgenteDesigner:
         """
         Designer pode consultar Engineer para validar viabilidade técnica
         """
-        # Implementação simplificada
+        # Implementaçêo simplificada
         # Em sistema real, faria chamada real ao outro agente
         return None
 
@@ -2026,7 +2026,7 @@ class AgenteEngineer:
         self.sistema = sistema
         self.role = "Tech Lead"
 
-    def analisar_e_contribuir(self, contexto, discussão):
+    def analisar_e_contribuir(self, contexto, discussêo):
         """
         Engineer analisa viabilidade técnica
         """
@@ -2034,11 +2034,11 @@ class AgenteEngineer:
         Você é o Tech Lead do time.
 
         PROPOSTA ATUAL:
-        {json.dumps(contexto['versão_atual'], indent=2)}
+        {json.dumps(contexto['versêo_atual'], indent=2)}
 
         Analise do ponto de vista técnico:
         1. É tecnicamente viável?
-        2. Complexidade de implementação?
+        2. Complexidade de implementaçêo?
         3. Riscos técnicos?
         4. Estimativa de esforço?
 
@@ -2063,7 +2063,7 @@ class AgenteMarketer:
         self.sistema = sistema
         self.role = "Marketing Lead"
 
-    def analisar_e_contribuir(self, contexto, discussão):
+    def analisar_e_contribuir(self, contexto, discussêo):
         """
         Marketer analisa posicionamento e go-to-market
         """
@@ -2071,7 +2071,7 @@ class AgenteMarketer:
         Você é o Marketing Lead do time.
 
         PROPOSTA ATUAL:
-        {json.dumps(contexto['versão_atual'], indent=2)}
+        {json.dumps(contexto['versêo_atual'], indent=2)}
 
         Analise do ponto de vista de marketing:
         1. É diferenciado competitivamente?
@@ -2083,7 +2083,7 @@ class AgenteMarketer:
         {{
           "tem_feedback": true|false,
           "feedback_resumo": "string",
-          "diferenciação": "forte|média|fraca",
+          "diferenciaçêo": "forte|média|fraca",
           "clareza_mensagem": "clara|confusa",
           "sugestões_posicionamento": ["...", "..."],
           "aprovado": true|false
@@ -2097,8 +2097,8 @@ class AgenteMarketer:
 sistema = SistemaCruzadoDesignProduto(llm)
 
 proposta = """
-Adicionar feature de 'Smart Scheduling' no app de gestão de projetos:
-IA analisa tarefas do time e sugere automaticamente melhor ordem de execução
+Adicionar feature de 'Smart Scheduling' no app de gestêo de projetos:
+IA analisa tarefas do time e sugere automaticamente melhor ordem de execuçêo
 baseado em dependências, deadlines e disponibilidade do time.
 """
 
@@ -2111,7 +2111,7 @@ print(resultado['documento'])
 
 ---
 
-## Comparação dos 5 Modelos
+## Comparaçêo dos 5 Modelos
 
 ```
 ┌─────────────┬──────────────┬─────────────┬────────────┬───────────────┐
@@ -2128,18 +2128,18 @@ print(resultado['documento'])
 ### Quando Usar Cada Um
 
 **Pipeline Linear:** Processo bem definido, etapas sequenciais claras
-- Ex: Pesquisa → Estruturação → Escrita → Revisão
+- Ex: Pesquisa → Estruturaçêo → Escrita → Revisêo
 
 **Pipeline Paralelo:** Múltiplas análises independentes do mesmo input
 - Ex: Analisar produto por 4 ângulos diferentes simultaneamente
 
-**Hierárquico:** Projetos complexos que precisam de coordenação inteligente
+**Hierárquico:** Projetos complexos que precisam de coordenaçêo inteligente
 - Ex: Campanha de marketing completa com múltiplos especialistas
 
-**Iterativo:** Otimização de qualidade por refinamento
+**Iterativo:** Otimizaçêo de qualidade por refinamento
 - Ex: Melhorar copy até atingir score alvo
 
-**Cruzado:** Problemas sem solução óbvia, requer múltiplas perspectivas
+**Cruzado:** Problemas sem soluçêo óbvia, requer múltiplas perspectivas
 - Ex: Design de produto novo com trade-offs complexos
 
 ---
@@ -2167,7 +2167,7 @@ Defina:
 1. Modelo escolhido
 2. Agentes necessários
 3. Responsabilidade de cada um
-4. Fluxo de informação
+4. Fluxo de informaçêo
 
 ### Exercício 3: Implementar Mini-Pipeline
 
@@ -2177,7 +2177,7 @@ Implemente um pipeline linear simples com 2 agentes:
 
 ---
 
-## Conclusão do Módulo 4
+## Conclusêo do Módulo 4
 
 Você agora domina os 5 modelos fundamentais de sistemas multiagentes!
 
@@ -2198,4 +2198,4 @@ Você agora domina os 5 modelos fundamentais de sistemas multiagentes!
 **Tamanho deste arquivo:** ~28KB
 **Status:** Módulo 4 completo
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo

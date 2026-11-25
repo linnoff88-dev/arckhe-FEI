@@ -1,12 +1,12 @@
-# Módulo 3: Agentes Autônomos 2.0 (versão 2026)
+# Módulo 3: Agentes Autônomos 2.0 (versêo 2026)
 
 ## Nível 4S - Sistemas Intencionais 2026
 
 ---
 
-## Introdução
+## Introduçêo
 
-Em 2026, os agentes autônomos evoluíram. Não são mais "assistentes genéricos" - são **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.
+Em 2026, os agentes autônomos evoluíram. Nêo sêo mais "assistentes genéricos" - sêo **especialistas com papéis definidos**, trabalhando em conjunto como um time de profissionais de elite.
 
 Este módulo ensina os **6 tipos fundamentais de agentes** que compõem sistemas modernos, com ênfase especial no revolucionário **Agente Meta-IA**.
 
@@ -16,15 +16,15 @@ Este módulo ensina os **6 tipos fundamentais de agentes** que compõem sistemas
 
 ### 1. Agente Especialista
 
-**Definição:** Executa tarefas específicas com maestria. É o "profissional técnico" do sistema.
+**Definiçêo:** Executa tarefas específicas com maestria. É o "profissional técnico" do sistema.
 
 **Características:**
 - Domínio profundo de uma área
-- Execução precisa e confiável
+- Execuçêo precisa e confiável
 - Otimizado para velocidade
 - Foco em qualidade técnica
 
-**Implementação Completa:**
+**Implementaçêo Completa:**
 
 ```python
 from dataclasses import dataclass
@@ -46,7 +46,7 @@ class EspecialistaBase(ABC):
         pass
 
     def registrar_execucao(self, resultado: Dict):
-        """Registra execução para melhorar performance"""
+        """Registra execuçêo para melhorar performance"""
         self.execucoes_historicas.append(resultado)
 
         # Atualiza taxa de sucesso
@@ -54,7 +54,7 @@ class EspecialistaBase(ABC):
         self.taxa_sucesso = sucessos / len(self.execucoes_historicas)
 
 class AgenteCopywriter(EspecialistaBase):
-    """Especialista em criação de conteúdo"""
+    """Especialista em criaçêo de conteúdo"""
 
     def __init__(self):
         super().__init__("Copywriter Pro", "criacao_conteudo")
@@ -70,15 +70,15 @@ class AgenteCopywriter(EspecialistaBase):
         if estilo not in self.estilos_conhecidos:
             return {
                 "sucesso": False,
-                "erro": f"Estilo {estilo} não suportado"
+                "erro": f"Estilo {estilo} nêo suportado"
             }
 
-        # Simula criação de conteúdo
+        # Simula criaçêo de conteúdo
         conteudo = {
             "titulo": f"{topico}: Guia Completo",
-            "introducao": f"Introdução sobre {topico}...",
+            "introducao": f"Introduçêo sobre {topico}...",
             "desenvolvimento": f"Desenvolvimento técnico sobre {topico}...",
-            "conclusao": f"Conclusão e próximos passos sobre {topico}...",
+            "conclusao": f"Conclusêo e próximos passos sobre {topico}...",
             "palavras_totais": tamanho,
             "estilo_utilizado": estilo,
             "tempo_execucao": "2.5s"
@@ -118,12 +118,12 @@ class AgenteAnalistaDados(EspecialistaBase):
             "insights_principais": [
                 "Tendência de crescimento de 15% ao mês",
                 "Pico de atividade às quintas-feiras",
-                "Taxa de conversão média de 8.5%"
+                "Taxa de conversêo média de 8.5%"
             ],
             "recomendacoes": [
                 "Aumentar investimento em canais de maior ROI",
                 "Focar campanhas para quinta e sexta",
-                "Otimizar funil de conversão para aumentar para 10%"
+                "Otimizar funil de conversêo para aumentar para 10%"
             ]
         }
 
@@ -149,7 +149,7 @@ class AgenteDesignerCodigo(EspecialistaBase):
         requisitos = input_data.get("requisitos", [])
         escala = input_data.get("escala", "media")
 
-        # Seleciona padrão adequado
+        # Seleciona padrêo adequado
         if escala == "grande":
             padrao = "microservices"
         elif "eventos" in str(requisitos).lower():
@@ -228,7 +228,7 @@ resultado_arq = arquiteto.executar_tarefa({
     "escala": "grande"
 })
 print(f"✅ {arquiteto.nome}:")
-print(f"   Padrão: {resultado_arq['arquitetura']['padrao_escolhido']}")
+print(f"   Padrêo: {resultado_arq['arquitetura']['padrao_escolhido']}")
 print(f"   Qualidade: {resultado_arq['qualidade_design']:.2f}")
 ```
 
@@ -236,7 +236,7 @@ print(f"   Qualidade: {resultado_arq['qualidade_design']:.2f}")
 
 ### 2. Agente Estrategista
 
-**Definição:** Cria planos de médio e longo prazo. É o "consultor" do sistema.
+**Definiçêo:** Cria planos de médio e longo prazo. É o "consultor" do sistema.
 
 ```python
 from datetime import datetime, timedelta
@@ -281,7 +281,7 @@ class AgenteEstrategista:
         return {
             "forcas": ["Time experiente", "Tecnologia moderna", "Mercado em crescimento"],
             "fraquezas": ["Budget limitado", "Prazo apertado"],
-            "oportunidades": ["Demanda crescente", "Pouca competição"],
+            "oportunidades": ["Demanda crescente", "Pouca competiçêo"],
             "ameacas": ["Mudanças regulatórias", "Novos entrantes"]
         }
 
@@ -291,22 +291,22 @@ class AgenteEstrategista:
 
         return [
             {
-                "fase": "Fundação",
+                "fase": "Fundaçêo",
                 "duracao_meses": meses_por_fase,
-                "objetivos": ["MVP", "Validação inicial", "Primeiros clientes"],
+                "objetivos": ["MVP", "Validaçêo inicial", "Primeiros clientes"],
                 "entregaveis": ["Produto mínimo", "10 clientes beta"]
             },
             {
                 "fase": "Crescimento",
                 "duracao_meses": meses_por_fase,
-                "objetivos": ["Escalar operação", "Marketing", "Otimização"],
+                "objetivos": ["Escalar operaçêo", "Marketing", "Otimizaçêo"],
                 "entregaveis": ["100 clientes", "ROI positivo"]
             },
             {
-                "fase": "Consolidação",
+                "fase": "Consolidaçêo",
                 "duracao_meses": prazo_meses - (2 * meses_por_fase),
                 "objetivos": ["Liderança de mercado", "Eficiência máxima"],
-                "entregaveis": ["500+ clientes", "Operação lucrativa"]
+                "entregaveis": ["500+ clientes", "Operaçêo lucrativa"]
             }
         ]
 
@@ -326,10 +326,10 @@ class AgenteEstrategista:
                 "mitigacao": "Priorizar features críticas, buscar investimento"
             },
             {
-                "risco": "Competição agressiva",
+                "risco": "Competiçêo agressiva",
                 "probabilidade": 0.5,
                 "impacto": 0.6,
-                "mitigacao": "Diferenciação clara, foco em nicho"
+                "mitigacao": "Diferenciaçêo clara, foco em nicho"
             }
         ]
 
@@ -378,14 +378,14 @@ for fase in plano['fases']:
 print("\nRiscos principais:")
 for risco in plano['riscos'][:2]:
     print(f"  • {risco['risco']}")
-    print(f"    Mitigação: {risco['mitigacao']}")
+    print(f"    Mitigaçêo: {risco['mitigacao']}")
 ```
 
 ---
 
 ### 3. Agente Orquestrador
 
-**Definição:** Coordena vários agentes especialistas. É o "gerente de projeto" do sistema.
+**Definiçêo:** Coordena vários agentes especialistas. É o "gerente de projeto" do sistema.
 
 ```python
 class AgenteOrquestrador:
@@ -402,7 +402,7 @@ class AgenteOrquestrador:
 
     def orquestrar_projeto_completo(self, projeto: Dict) -> Dict:
         """Orquestra projeto completo com múltiplos agentes"""
-        print(f"\n🎯 Iniciando orquestração: {projeto['nome']}\n")
+        print(f"\n🎯 Iniciando orquestraçêo: {projeto['nome']}\n")
 
         resultados = {}
 
@@ -417,7 +417,7 @@ class AgenteOrquestrador:
             resultados["plano"] = plano
             print(f"   ✅ Plano criado: {plano['probabilidade_sucesso']:.1%} de sucesso\n")
 
-        # 2. Arquiteto projeta solução
+        # 2. Arquiteto projeta soluçêo
         if "arquiteto" in self.agentes_disponiveis:
             print("🏗️  Fase 2: Arquitetura...")
             arquitetura = self.agentes_disponiveis["arquiteto"].executar_tarefa({
@@ -427,16 +427,16 @@ class AgenteOrquestrador:
             resultados["arquitetura"] = arquitetura
             print(f"   ✅ Arquitetura definida: {arquitetura['arquitetura']['padrao_escolhido']}\n")
 
-        # 3. Copywriter cria documentação
+        # 3. Copywriter cria documentaçêo
         if "copywriter" in self.agentes_disponiveis:
-            print("📝 Fase 3: Documentação...")
+            print("📝 Fase 3: Documentaçêo...")
             docs = self.agentes_disponiveis["copywriter"].executar_tarefa({
                 "topico": projeto["nome"],
                 "estilo": "tecnico",
                 "palavras": 1000
             })
             resultados["documentacao"] = docs
-            print(f"   ✅ Documentação criada: {docs['qualidade_estimada']:.1%} qualidade\n")
+            print(f"   ✅ Documentaçêo criada: {docs['qualidade_estimada']:.1%} qualidade\n")
 
         # 4. Analista valida viabilidade
         if "analista" in self.agentes_disponiveis:
@@ -466,7 +466,7 @@ orquestrador.registrar_agente("analista", analista)
 
 # Executa projeto completo
 resultado_projeto = orquestrador.orquestrar_projeto_completo({
-    "nome": "Plataforma de Educação IA",
+    "nome": "Plataforma de Educaçêo IA",
     "objetivo": "Criar plataforma de ensino de IA",
     "prazo_meses": 8,
     "requisitos": ["escalabilidade", "conteudo_adaptativo"],
@@ -486,7 +486,7 @@ print(f"{'='*60}")
 
 ### 4. Agente Auditor
 
-**Definição:** Verifica qualidade, riscos, falhas, redundâncias. É o "controller" do sistema.
+**Definiçêo:** Verifica qualidade, riscos, falhas, redundâncias. É o "controller" do sistema.
 
 ```python
 class AgenteAuditor:
@@ -556,7 +556,7 @@ class AgenteAuditor:
 
     def _verificar_consistencia(self, dados: Any) -> bool:
         """Verifica consistência dos dados"""
-        # Simula verificação
+        # Simula verificaçêo
         return True
 
     def _gerar_recomendacoes(self, problemas: List[Dict]) -> List[str]:
@@ -601,7 +601,7 @@ if auditoria_copy['recomendacoes']:
 
 ### 5. Agente Memória
 
-**Definição:** Armazena, organiza e recupera conhecimento do usuário. É o "bibliotecário" do sistema.
+**Definiçêo:** Armazena, organiza e recupera conhecimento do usuário. É o "bibliotecário" do sistema.
 
 ```python
 import hashlib
@@ -686,7 +686,7 @@ memoria.armazenar("arquiteturas", arquitetura["arquitetura"])
 memoria.armazenar("conteudos", resultado_copy["conteudo"])
 
 # Recupera conhecimento
-print("\n=== RECUPERAÇÃO DE MEMÓRIA ===\n")
+print("\n=== RECUPERAÇêO DE MEMÓRIA ===\n")
 resultados = memoria.recuperar("plano estrategico sistema")
 
 print(f"Encontrados {len(resultados)} itens relevantes:\n")
@@ -701,7 +701,7 @@ for i, item in enumerate(resultados, 1):
 
 ### 6. Agente Meta-IA ⭐
 
-**Definição:** Opera acima dos outros agentes, ajustando, corrigindo e melhorando o sistema.
+**Definiçêo:** Opera acima dos outros agentes, ajustando, corrigindo e melhorando o sistema.
 
 **É aqui que o mundo realmente muda.**
 
@@ -784,14 +784,14 @@ class AgenteMetaIA:
         return resultado
 
     def relatorio_evolutivo(self) -> Dict:
-        """Gera relatório de evolução do sistema"""
+        """Gera relatório de evoluçêo do sistema"""
         return {
             "total_melhorias": len(self.melhorias_aplicadas),
             "tipos_melhoria": list(set(m["melhoria"]["tipo"] for m in self.melhorias_aplicadas)),
             "impacto_geral": "Sistema 35% mais eficiente",
             "proximas_acoes": [
                 "Implementar auto-scaling de agentes",
-                "Otimizar pipeline de comunicação",
+                "Otimizar pipeline de comunicaçêo",
                 "Adicionar monitoramento preditivo"
             ]
         }
@@ -810,7 +810,7 @@ agentes_sistema = {
     "memoria": memoria
 }
 
-print("\n=== META-IA EM AÇÃO ===\n")
+print("\n=== META-IA EM AÇêO ===\n")
 
 analise_sistema = meta_ia.analisar_sistema(agentes_sistema)
 print(f"Total de agentes: {analise_sistema['total_agentes']}")
@@ -838,7 +838,7 @@ print("="*60)
 
 ---
 
-## Conclusão
+## Conclusêo
 
 Você entendeu os 6 tipos fundamentais de agentes 2026 e como eles colaboram como um time de elite.
 
@@ -851,7 +851,7 @@ Você entendeu os 6 tipos fundamentais de agentes 2026 e como eles colaboram com
 ✅ Agente Memória organizando conhecimento
 ✅ Agente Meta-IA melhorando o próprio sistema
 ✅ Como agentes colaboram em sistemas complexos
-✅ Implementação completa de cada tipo de agente
+✅ Implementaçêo completa de cada tipo de agente
 ✅ O poder revolucionário do Meta-IA
 
 ### Próximo módulo:
@@ -860,4 +860,4 @@ No Módulo 4, você vai aprender sobre **Loops Evolutivos de Agentes**: como sis
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

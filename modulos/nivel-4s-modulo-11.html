@@ -128,7 +128,7 @@
           Projetos Práticos para Dominar ESIA
         </h2>
         <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Cada projeto inclui código-base completo e funcional que você pode adaptar.</p>
-<h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 1: Sistema Multiagente Completo para Criação de Conteúdo</h3>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 1: Sistema Multiagente Completo para Criaçêo de Conteúdo</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Criar sistema com 5 agentes especializados que produz conteúdo de alta qualidade autonomamente.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass
@@ -140,9 +140,9 @@ class SistemaConteudoAutonomo:
     &quot;&quot;&quot;Sistema completo com 5 agentes especializados&quot;&quot;&quot;
 
     def executar_pipeline_completo(self, tema: str, publico: str) -&gt; Dict:
-        &quot;&quot;&quot;Pipeline: Pesquisa → Estrutura → Escrita → Revisão → SEO&quot;&quot;&quot;
+        &quot;&quot;&quot;Pipeline: Pesquisa → Estrutura → Escrita → Revisêo → SEO&quot;&quot;&quot;
 
-        print(f&quot;🚀 Iniciando criação de conteúdo sobre: {tema}&quot;)
+        print(f&quot;🚀 Iniciando criaçêo de conteúdo sobre: {tema}&quot;)
 
         # Agente 1: Pesquisador
         pesquisa = self._agente_pesquisador(tema, publico)
@@ -158,7 +158,7 @@ class SistemaConteudoAutonomo:
 
         # Agente 4: Revisor
         revisao = self._agente_revisor(conteudo)
-        print(f&quot;✅ Revisão completa: score {revisao['qualidade']:.2f}&quot;)
+        print(f&quot;✅ Revisêo completa: score {revisao['qualidade']:.2f}&quot;)
 
         # Agente 5: Otimizador SEO
         final = self._agente_seo(revisao, tema)
@@ -201,9 +201,9 @@ class SistemaConteudoAutonomo:
         return {
             &quot;titulo&quot;: f&quot;Guia Completo: {pesquisa['tema']}&quot;,
             &quot;secoes&quot;: [
-                {&quot;ordem&quot;: 1, &quot;titulo&quot;: &quot;Introdução&quot;, &quot;objetivo&quot;: &quot;engajar leitor&quot;},
+                {&quot;ordem&quot;: 1, &quot;titulo&quot;: &quot;Introduçêo&quot;, &quot;objetivo&quot;: &quot;engajar leitor&quot;},
                 {&quot;ordem&quot;: 2, &quot;titulo&quot;: &quot;Fundamentos&quot;, &quot;objetivo&quot;: &quot;educar&quot;},
-                {&quot;ordem&quot;: 3, &quot;titulo&quot;: &quot;Aplicação Prática&quot;, &quot;objetivo&quot;: &quot;demonstrar&quot;},
+                {&quot;ordem&quot;: 3, &quot;titulo&quot;: &quot;Aplicaçêo Prática&quot;, &quot;objetivo&quot;: &quot;demonstrar&quot;},
                 {&quot;ordem&quot;: 4, &quot;titulo&quot;: &quot;Casos Reais&quot;, &quot;objetivo&quot;: &quot;inspirar&quot;},
                 {&quot;ordem&quot;: 5, &quot;titulo&quot;: &quot;Próximos Passos&quot;, &quot;objetivo&quot;: &quot;converter&quot;}
             ],
@@ -266,7 +266,7 @@ print(f&quot;📊 Métricas: {resultado['metricas']}&quot;)
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Entrega esperada:</p>
 <li class="mb-2">[ ] Sistema com 5 agentes funcionando</li>
 <li class="mb-2">[ ] Pipeline completo end-to-end</li>
-<li class="mb-2">[ ] Demonstração gerando 3 artigos diferentes</li>
+<li class="mb-2">[ ] Demonstraçêo gerando 3 artigos diferentes</li>
 <li class="mb-2">[ ] Métricas de qualidade > 0.8</li>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 2: Agente Meta-IA que Melhora Outros Agentes</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Desenvolver agente que analisa performance de outros agentes e propõe melhorias.</p>
@@ -297,7 +297,7 @@ class AgenteMetaIA:
         # Propõe melhorias
         melhorias = self._propor_melhorias(problemas, metricas)
 
-        # Simula implementação
+        # Simula implementaçêo
         resultado_simulacao = self._simular_melhorias(metricas, melhorias)
 
         return {
@@ -334,12 +334,12 @@ class AgenteMetaIA:
         &quot;&quot;&quot;Identifica padrões no comportamento&quot;&quot;&quot;
         padroes = []
 
-        # Padrão 1: Falhas em tarefas complexas
+        # Padrêo 1: Falhas em tarefas complexas
         complexas = [t for t in tarefas if t.get(&quot;complexidade&quot;) == &quot;alta&quot;]
         if complexas and mean([t.get(&quot;sucesso&quot;, 0) for t in complexas]) &lt; 0.7:
             padroes.append(&quot;falha_tarefas_complexas&quot;)
 
-        # Padrão 2: Degradação ao longo do tempo
+        # Padrêo 2: Degradaçêo ao longo do tempo
         if len(tarefas) &gt;= 10:
             primeira_metade = tarefas[:len(tarefas)//2]
             segunda_metade = tarefas[len(tarefas)//2:]
@@ -350,7 +350,7 @@ class AgenteMetaIA:
             if qual_final &lt; qual_inicial * 0.9:
                 padroes.append(&quot;degradacao_performance&quot;)
 
-        # Padrão 3: Inconsistência
+        # Padrêo 3: Inconsistência
         qualidades = [t.get(&quot;qualidade&quot;, 0) for t in tarefas]
         if len(qualidades) &gt; 1 and stdev(qualidades) &gt; 0.2:
             padroes.append(&quot;alta_variabilidade&quot;)
@@ -381,7 +381,7 @@ class AgenteMetaIA:
             problemas.append({
                 &quot;tipo&quot;: &quot;degradacao_ao_longo_tempo&quot;,
                 &quot;severidade&quot;: &quot;alta&quot;,
-                &quot;acao&quot;: &quot;necessita manutenção ou reset&quot;
+                &quot;acao&quot;: &quot;necessita manutençêo ou reset&quot;
             })
 
         if &quot;alta_variabilidade&quot; in padroes:
@@ -401,7 +401,7 @@ class AgenteMetaIA:
             if problema[&quot;tipo&quot;] == &quot;taxa_sucesso_baixa&quot;:
                 melhorias.append({
                     &quot;problema&quot;: problema[&quot;tipo&quot;],
-                    &quot;melhoria&quot;: &quot;Adicionar validação prévia de requisitos&quot;,
+                    &quot;melhoria&quot;: &quot;Adicionar validaçêo prévia de requisitos&quot;,
                     &quot;implementacao&quot;: &quot;validar_antes_executar&quot;,
                     &quot;impacto_esperado&quot;: &quot;+15% taxa sucesso&quot;
                 })
@@ -415,7 +415,7 @@ class AgenteMetaIA:
             elif problema[&quot;tipo&quot;] == &quot;qualidade_insuficiente&quot;:
                 melhorias.append({
                     &quot;problema&quot;: problema[&quot;tipo&quot;],
-                    &quot;melhoria&quot;: &quot;Adicionar validação de qualidade intermediária&quot;,
+                    &quot;melhoria&quot;: &quot;Adicionar validaçêo de qualidade intermediária&quot;,
                     &quot;implementacao&quot;: &quot;checkpoint_qualidade_cada_etapa&quot;,
                     &quot;impacto_esperado&quot;: &quot;+0.10 qualidade média&quot;
                 })
@@ -431,7 +431,7 @@ class AgenteMetaIA:
             elif problema[&quot;tipo&quot;] == &quot;inconsistencia&quot;:
                 melhorias.append({
                     &quot;problema&quot;: problema[&quot;tipo&quot;],
-                    &quot;melhoria&quot;: &quot;Padronizar processo de execução&quot;,
+                    &quot;melhoria&quot;: &quot;Padronizar processo de execuçêo&quot;,
                     &quot;implementacao&quot;: &quot;template_execucao_obrigatorio&quot;,
                     &quot;impacto_esperado&quot;: &quot;-50% variabilidade&quot;
                 })
@@ -468,12 +468,12 @@ class AgenteMetaIA:
         }
 
     def _gerar_recomendacao(self, melhorias: List[Dict], simulacao: Dict) -&gt; str:
-        &quot;&quot;&quot;Gera recomendação executiva&quot;&quot;&quot;
+        &quot;&quot;&quot;Gera recomendaçêo executiva&quot;&quot;&quot;
         if not melhorias:
             return &quot;✅ Agente operando em performance ótima. Manter monitoramento.&quot;
 
         return f&quot;&quot;&quot;
-🎯 RECOMENDAÇÃO META-IA:
+🎯 RECOMENDAÇêO META-IA:
 
 Implementar {len(melhorias)} melhorias identificadas:
 {chr(10).join(f&quot;- {m['melhoria']}&quot; for m in melhorias[:3])}
@@ -481,7 +481,7 @@ Implementar {len(melhorias)} melhorias identificadas:
 Impacto esperado: {simulacao['ganho_estimado']}
 Viabilidade: {simulacao['viabilidade']}
 
-Ação: {&quot;Implementar imediatamente&quot; if simulacao['viabilidade'] == 'alta' else &quot;Testar em ambiente controlado primeiro&quot;}
+Açêo: {&quot;Implementar imediatamente&quot; if simulacao['viabilidade'] == 'alta' else &quot;Testar em ambiente controlado primeiro&quot;}
 &quot;&quot;&quot;
 
 # Exemplo de uso
@@ -509,9 +509,9 @@ print(f&quot;Melhorias propostas: {len(analise['melhorias_propostas'])}&quot;)
 <li class="mb-2">[ ] Meta-IA funcionando e analisando outros agentes</li>
 <li class="mb-2">[ ] Sistema detecta >= 3 tipos de problemas</li>
 <li class="mb-2">[ ] Propõe melhorias com impacto quantificado</li>
-<li class="mb-2">[ ] Demonstração com antes/depois</li>
+<li class="mb-2">[ ] Demonstraçêo com antes/depois</li>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 3: Sistema Autônomo Operando 7 Dias Contínuos</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Sistema que roda 24/7 por uma semana sem intervenção humana.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Sistema que roda 24/7 por uma semana sem intervençêo humana.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass, field
 from typing import List, Dict
@@ -532,20 +532,20 @@ class SistemaAutonomo7Dias:
         ciclo = 0
 
         print(f&quot;🚀 Sistema autônomo iniciado: {self.inicio_operacao}&quot;)
-        print(f&quot;⏰ Duração programada: {duracao_dias} dias&quot;)
-        print(f&quot;🎯 Finalização prevista: {fim_operacao}\n&quot;)
+        print(f&quot;⏰ Duraçêo programada: {duracao_dias} dias&quot;)
+        print(f&quot;🎯 Finalizaçêo prevista: {fim_operacao}\n&quot;)
 
         while datetime.now() &lt; fim_operacao and self.estado_sistema == &quot;operando&quot;:
             ciclo += 1
 
-            # Executa operação do ciclo
+            # Executa operaçêo do ciclo
             operacao = self._executar_operacao_ciclo(ciclo)
             self.operacoes_realizadas.append(operacao)
 
             # Monitora saúde
             saude = self._monitorar_saude_sistema()
 
-            # Auto-correção se necessário
+            # Auto-correçêo se necessário
             if saude[&quot;status&quot;] != &quot;saudavel&quot;:
                 self._auto_corrigir(saude)
 
@@ -553,14 +553,14 @@ class SistemaAutonomo7Dias:
             if ciclo % 100 == 0:
                 self._gerar_relatorio_intermediario(ciclo)
 
-            # Pausa entre ciclos (em produção seria baseado em eventos)
+            # Pausa entre ciclos (em produçêo seria baseado em eventos)
             time.sleep(0.01)  # Simula intervalo
 
         # Relatório final
         return self._gerar_relatorio_final()
 
     def _executar_operacao_ciclo(self, numero_ciclo: int) -&gt; Dict:
-        &quot;&quot;&quot;Executa uma operação do ciclo&quot;&quot;&quot;
+        &quot;&quot;&quot;Executa uma operaçêo do ciclo&quot;&quot;&quot;
         # Simula diferentes tipos de operações
         tipos = [&quot;monitoramento&quot;, &quot;processamento&quot;, &quot;analise&quot;, &quot;otimizacao&quot;]
         tipo = tipos[numero_ciclo % len(tipos)]
@@ -588,9 +588,9 @@ class SistemaAutonomo7Dias:
         }
 
     def _auto_corrigir(self, saude: Dict):
-        &quot;&quot;&quot;Implementa auto-correção&quot;&quot;&quot;
-        print(f&quot;⚠️ Auto-correção ativada: {saude['status']}&quot;)
-        # Implementaria lógica de correção real
+        &quot;&quot;&quot;Implementa auto-correçêo&quot;&quot;&quot;
+        print(f&quot;⚠️ Auto-correçêo ativada: {saude['status']}&quot;)
+        # Implementaria lógica de correçêo real
 
     def _gerar_relatorio_intermediario(self, ciclo: int):
         &quot;&quot;&quot;Gera relatório parcial&quot;&quot;&quot;
@@ -615,8 +615,8 @@ class SistemaAutonomo7Dias:
             &quot;conclusao&quot;: &quot;Sistema operou autonomamente com sucesso por 7 dias&quot;
         }
 
-# Demonstração (versão acelerada para teste)
-print(&quot;Demonstração do Sistema Autônomo (versão acelerada)\n&quot;)
+# Demonstraçêo (versêo acelerada para teste)
+print(&quot;Demonstraçêo do Sistema Autônomo (versêo acelerada)\n&quot;)
 sistema = SistemaAutonomo7Dias()
 sistema.estado_sistema = &quot;operando&quot;
 
@@ -638,10 +638,10 @@ print(f&quot;Disponibilidade: {relatorio['disponibilidade']}&quot;)
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Entrega esperada:</p>
 <li class="mb-2">[ ] Sistema roda por 7 dias reais ininterruptos</li>
 <li class="mb-2">[ ] Log detalhado de todas operações</li>
-<li class="mb-2">[ ] Auto-correção funcionando</li>
+<li class="mb-2">[ ] Auto-correçêo funcionando</li>
 <li class="mb-2">[ ] Relatório final com métricas de uptime</li>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 4: Agente que Aprende e Replica Seu Estilo</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Sistema que analisa seu estilo de comunicação e o replica com 90%+ precisão.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Sistema que analisa seu estilo de comunicaçêo e o replica com 90%+ precisêo.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass
 from typing import List, Dict
@@ -649,7 +649,7 @@ from collections import Counter
 
 @dataclass
 class AgenteReplicadorEstilo:
-    &quot;&quot;&quot;Aprende e replica estilo de comunicação&quot;&quot;&quot;
+    &quot;&quot;&quot;Aprende e replica estilo de comunicaçêo&quot;&quot;&quot;
 
     def analisar_estilo(self, textos_referencia: List[str]) -&gt; Dict:
         &quot;&quot;&quot;Analisa características do estilo&quot;&quot;&quot;
@@ -711,7 +711,7 @@ class AgenteReplicadorEstilo:
         }
 
     def _analisar_tom(self, textos: List[str]) -&gt; Dict:
-        &quot;&quot;&quot;Analisa tom de comunicação&quot;&quot;&quot;
+        &quot;&quot;&quot;Analisa tom de comunicaçêo&quot;&quot;&quot;
         # Análise simplificada de tom
         indicadores_formal = [&quot;portanto&quot;, &quot;assim&quot;, &quot;desta forma&quot;, &quot;ademais&quot;]
         indicadores_informal = [&quot;tipo&quot;, &quot;meio que&quot;, &quot;cara&quot;, &quot;né&quot;]
@@ -752,9 +752,9 @@ class AgenteReplicadorEstilo:
         tamanho_frase = int(perfil_estilo[&quot;estrutura&quot;][&quot;palavras_por_frase_media&quot;])
         tom = perfil_estilo[&quot;tom&quot;][&quot;formalidade&quot;]
 
-        # Geração simplificada (em produção usaria LLM com o perfil)
+        # Geraçêo simplificada (em produçêo usaria LLM com o perfil)
         if tom == &quot;informal&quot;:
-            texto = f&quot;Então, sobre {assunto}... Tipo, é importante entender que...&quot;
+            texto = f&quot;Entêo, sobre {assunto}... Tipo, é importante entender que...&quot;
         else:
             texto = f&quot;Relativamente a {assunto}, é fundamental compreender que...&quot;
 
@@ -769,8 +769,8 @@ replicador = AgenteReplicadorEstilo()
 
 # Textos de exemplo do seu estilo
 meus_textos = [
-    &quot;Sistemas intencionais são o futuro da IA. Ponto final. 🚀&quot;,
-    &quot;**ESIA** muda tudo. Não é hype, é padrão 2026.&quot;,
+    &quot;Sistemas intencionais sêo o futuro da IA. Ponto final. 🚀&quot;,
+    &quot;**ESIA** muda tudo. Nêo é hype, é padrêo 2026.&quot;,
     &quot;Você precisa entender: agentes autônomos ≠ chatbots.&quot;
 ]
 
@@ -781,14 +781,14 @@ print(f&quot;Tom: {perfil['tom']['formalidade']}&quot;)
 print(f&quot;Padrões únicos: {perfil['padroes_unicos']}&quot;)
 
 # Replica estilo
-novo_texto = replicador.replicar_estilo(&quot;delegação moderna&quot;, perfil)
+novo_texto = replicador.replicar_estilo(&quot;delegaçêo moderna&quot;, perfil)
 print(f&quot;\nTexto gerado no seu estilo:\n{novo_texto}&quot;)
 </code></pre>
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Entrega esperada:</p>
 <li class="mb-2">[ ] Análise de >= 50 textos seus</li>
 <li class="mb-2">[ ] Perfil de estilo com 10+ características</li>
-<li class="mb-2">[ ] Geração de textos com 90%+ similaridade</li>
-<li class="mb-2">[ ] Teste cego: humanos não distinguem original de réplica</li>
+<li class="mb-2">[ ] Geraçêo de textos com 90%+ similaridade</li>
+<li class="mb-2">[ ] Teste cego: humanos nêo distinguem original de réplica</li>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Projeto 5: Sistema de Inteligência Competitiva 24/7</h3>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Objetivo:</strong> Monitor contínuo de mercado, concorrência e tendências com alertas inteligentes.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
@@ -863,10 +863,10 @@ class SistemaInteligenciaCompetitiva:
                 &quot;oportunidade&quot;: &quot;Posicionar como early adopter&quot;
             },
             {
-                &quot;tendencia&quot;: &quot;Regulação de IA em discussão&quot;,
+                &quot;tendencia&quot;: &quot;Regulaçêo de IA em discussêo&quot;,
                 &quot;velocidade&quot;: &quot;moderado&quot;,
                 &quot;impacto&quot;: &quot;Compliance será diferencial&quot;,
-                &quot;acao&quot;: &quot;Preparar certificação antecipadamente&quot;
+                &quot;acao&quot;: &quot;Preparar certificaçêo antecipadamente&quot;
             }
         ]
 
@@ -878,7 +878,7 @@ class SistemaInteligenciaCompetitiva:
         if float(mercado[&quot;crescimento_anual&quot;].strip(&quot;%&quot;)) &gt; 20:
             insights.append({
                 &quot;tipo&quot;: &quot;oportunidade_mercado&quot;,
-                &quot;titulo&quot;: &quot;Mercado em expansão acelerada&quot;,
+                &quot;titulo&quot;: &quot;Mercado em expansêo acelerada&quot;,
                 &quot;descricao&quot;: f&quot;Crescimento de {mercado['crescimento_anual']} abre espaço para novos players&quot;,
                 &quot;acao_sugerida&quot;: &quot;Acelerar go-to-market&quot;
             })
@@ -904,7 +904,7 @@ class SistemaInteligenciaCompetitiva:
         return insights
 
     def _detectar_alertas_criticos(self, insights: List[Dict]) -&gt; List[Dict]:
-        &quot;&quot;&quot;Detecta situações que requerem atenção imediata&quot;&quot;&quot;
+        &quot;&quot;&quot;Detecta situações que requerem atençêo imediata&quot;&quot;&quot;
         alertas = []
 
         for insight in insights:
@@ -936,7 +936,7 @@ sistema_ic = SistemaInteligenciaCompetitiva()
 resultado = sistema_ic.monitorar_continuamente()
 
 print(&quot;📊 DASHBOARD DE INTELIGÊNCIA COMPETITIVA\n&quot;)
-print(f&quot;Última atualização: {resultado['ultima_atualizacao']}&quot;)
+print(f&quot;Última atualizaçêo: {resultado['ultima_atualizacao']}&quot;)
 print(f&quot;Insights novos: {resultado['insights_novos']}&quot;)
 print(f&quot;Alertas críticos: {resultado['alertas_criticos']}&quot;)
 print(f&quot;\n{resultado['dashboard']['resumo_executivo']}&quot;)
@@ -948,21 +948,21 @@ for acao in resultado['dashboard']['proximas_acoes']:
 <li class="mb-2">[ ] Sistema monitora >= 10 fontes diferentes</li>
 <li class="mb-2">[ ] Dashboard atualizado a cada hora</li>
 <li class="mb-2">[ ] Sistema de alertas funcionando</li>
-<li class="mb-2">[ ] Demonstração com insights reais do seu mercado</li>
+<li class="mb-2">[ ] Demonstraçêo com insights reais do seu mercado</li>
       </div>
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Conclusão dos Projetos
+          Conclusêo dos Projetos
         </h2>
         <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Completar estes 5 projetos significa que você domina:</p>
 <li class="mb-2">Sistemas multiagentes coordenados</li>
-<li class="mb-2">Meta-aprendizado e auto-otimização</li>
-<li class="mb-2">Operação autônoma contínua</li>
-<li class="mb-2">Replicação de padrões complexos</li>
+<li class="mb-2">Meta-aprendizado e auto-otimizaçêo</li>
+<li class="mb-2">Operaçêo autônoma contínua</li>
+<li class="mb-2">Replicaçêo de padrões complexos</li>
 <li class="mb-2">Inteligência competitiva automatizada</li>
 <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Você está pronto para construir sistemas de IA de nível enterprise em 2026.</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formação em Engenharia de Intenção</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formaçêo em Engenharia de Intençêo</p>
       </div>
 
       <!-- Conclusao -->

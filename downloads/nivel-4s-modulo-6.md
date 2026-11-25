@@ -12,11 +12,11 @@ Em 2026, existem **4 arquiteturas fundamentais** para coordenar múltiplos agent
 
 ## Modelo 1: Pipeline Inteligente
 
-**Conceito:** Cada agente passa para o próximo com validação interna. Processo sequencial otimizado.
+**Conceito:** Cada agente passa para o próximo com validaçêo interna. Processo sequencial otimizado.
 
 **Quando usar:** Tarefas que têm dependências claras e sequenciais
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 from dataclasses import dataclass
@@ -138,10 +138,10 @@ class AgenteRedator(AgentePipeline):
         return "conteudo" in resultado and len(resultado["conteudo"]) > 50
 
 # Exemplo de uso
-pipeline = PipelineInteligente("Criação de Conteúdo")
+pipeline = PipelineInteligente("Criaçêo de Conteúdo")
 pipeline.adicionar_agente(AgentePesquisador("Pesquisa"))
 pipeline.adicionar_agente(AgenteAnalisador("Análise"))
-pipeline.adicionar_agente(AgenteRedator("Redação"))
+pipeline.adicionar_agente(AgenteRedator("Redaçêo"))
 
 resultado = pipeline.executar({"topico": "IA em 2026"})
 print(f"Pipeline: {resultado['status']}")
@@ -244,8 +244,8 @@ forcaTarefa.adicionar_agente(AgenteParalelo(
 ))
 
 forcaTarefa.adicionar_agente(AgenteParalelo(
-    "Pesquisador Educação",
-    lambda x: {"topico": "Educação", "casos": 12}
+    "Pesquisador Educaçêo",
+    lambda x: {"topico": "Educaçêo", "casos": 12}
 ))
 
 resultado = forcaTarefa.executar_paralelo({"contexto": "IA 2026"})
@@ -256,9 +256,9 @@ print(f"Força-Tarefa: {resultado['total_agentes']} agentes executados em parale
 
 ## Modelo 3: Hierarquia
 
-**Conceito:** Agente "chefão" gerencia sub-agentes. Coordenação centralizada.
+**Conceito:** Agente "chefêo" gerencia sub-agentes. Coordenaçêo centralizada.
 
-**Quando usar:** Projetos complexos que precisam de coordenação central
+**Quando usar:** Projetos complexos que precisam de coordenaçêo central
 
 ```python
 class AgenteSubordinado:
@@ -292,7 +292,7 @@ class AgenteSupervisor:
     def delegar_tarefa(self, tarefa: Dict, agente_nome: str) -> Dict:
         """Delega tarefa para subordinado específico"""
         if agente_nome not in self.subordinados:
-            return {"erro": f"Agente {agente_nome} não encontrado"}
+            return {"erro": f"Agente {agente_nome} nêo encontrado"}
 
         agente = self.subordinados[agente_nome]
         resultado = agente.executar_tarefa(tarefa)
@@ -335,7 +335,7 @@ class AgenteSupervisor:
             if agente.especialidade == especialidade_necessaria:
                 return agente
 
-        # Se não encontrar especialista, retorna primeiro disponível
+        # Se nêo encontrar especialista, retorna primeiro disponível
         return list(self.subordinados.values())[0] if self.subordinados else None
 
 # Exemplo
@@ -366,7 +366,7 @@ print(f"Hierarquia: {resultado['total_tarefas']} tarefas delegadas")
 
 **Conceito:** Todos os agentes acessam memória central e colaboram. Inteligência coletiva.
 
-**Quando usar:** Problemas complexos que requerem colaboração dinâmica
+**Quando usar:** Problemas complexos que requerem colaboraçêo dinâmica
 
 ```python
 class MemoriaCentral:
@@ -493,7 +493,7 @@ sistema = SistemaConscienciaDistribuida()
 
 # Adiciona agentes
 a1 = sistema.adicionar_agente("Especialista IA")
-a2 = sistema.adicionar_agente("Especialista Educação")
+a2 = sistema.adicionar_agente("Especialista Educaçêo")
 a3 = sistema.adicionar_agente("Especialista UX")
 
 # Agentes contribuem conhecimento inicial
@@ -509,7 +509,7 @@ print(f"Conhecimento coletivo: {resultado['total_conhecimento']} itens")
 
 ---
 
-## Comparação dos 4 Modelos
+## Comparaçêo dos 4 Modelos
 
 | Modelo | Velocidade | Complexidade | Autonomia | Uso Ideal |
 |--------|-----------|--------------|-----------|-----------|
@@ -520,25 +520,25 @@ print(f"Conhecimento coletivo: {resultado['total_conhecimento']} itens")
 
 ---
 
-## Conclusão
+## Conclusêo
 
 Você dominou os 4 modelos fundamentais de sistemas multiagentes de 2026.
 
 ### O que você dominou:
 
-✅ Pipeline Inteligente: coordenação sequencial com validação
-✅ Força-Tarefa Paralela: execução simultânea e integração
-✅ Hierarquia: coordenação centralizada com delegação
-✅ Consciência Distribuída: colaboração via memória compartilhada
-✅ Implementação completa de cada arquitetura em Python
+✅ Pipeline Inteligente: coordenaçêo sequencial com validaçêo
+✅ Força-Tarefa Paralela: execuçêo simultânea e integraçêo
+✅ Hierarquia: coordenaçêo centralizada com delegaçêo
+✅ Consciência Distribuída: colaboraçêo via memória compartilhada
+✅ Implementaçêo completa de cada arquitetura em Python
 ✅ Quando usar cada modelo
 ✅ Vantagens e desvantagens de cada abordagem
 ✅ Como combinar modelos para sistemas híbridos
 
 ### Próximo módulo:
 
-No Módulo 7, você vai aprender **Criação de Agentes com ESIA**: os 8 componentes essenciais que todo agente avançado de 2026 deve possuir.
+No Módulo 7, você vai aprender **Criaçêo de Agentes com ESIA**: os 8 componentes essenciais que todo agente avançado de 2026 deve possuir.
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

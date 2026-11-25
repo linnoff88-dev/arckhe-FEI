@@ -1,32 +1,32 @@
 # Módulo 1: Fundamentos de Agentes Modernos
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
-Você está prestes a entrar no universo mais avançado e transformador da IA moderna: **agentes autônomos**. Este não é apenas mais um módulo teórico sobre inteligência artificial. É uma mudança fundamental de paradigma sobre como você interage com IA e, mais importante, como você constrói sistemas que trabalham para você.
+Você está prestes a entrar no universo mais avançado e transformador da IA moderna: **agentes autônomos**. Este nêo é apenas mais um módulo teórico sobre inteligência artificial. É uma mudança fundamental de paradigma sobre como você interage com IA e, mais importante, como você constrói sistemas que trabalham para você.
 
 ### O Que Torna Este Módulo Diferente
 
-Até agora, você aprendeu a criar prompts excelentes que geram resultados excelentes. Mas há uma limitação fundamental: você ainda está **pedindo** coisas para a IA, uma interação por vez.
+Até agora, você aprendeu a criar prompts excelentes que geram resultados excelentes. Mas há uma limitaçêo fundamental: você ainda está **pedindo** coisas para a IA, uma interaçêo por vez.
 
-Agentes mudam isso completamente. Com agentes, você não pede tarefas - você **delega processos inteiros**.
+Agentes mudam isso completamente. Com agentes, você nêo pede tarefas - você **delega processos inteiros**.
 
-### Por Que Agentes São a Próxima Fronteira
+### Por Que Agentes Sêo a Próxima Fronteira
 
-Em 2022-2023, a revolução foi: "IA pode responder perguntas incrivelmente bem."
+Em 2022-2023, a revoluçêo foi: "IA pode responder perguntas incrivelmente bem."
 
-Em 2024-2025, a revolução é: "IA pode executar tarefas complexas de ponta a ponta, com autonomia."
+Em 2024-2025, a revoluçêo é: "IA pode executar tarefas complexas de ponta a ponta, com autonomia."
 
 A diferença entre essas duas frases é a diferença entre um assistente inteligente e um colaborador autônomo.
 
 ### Estrutura Deste Módulo
 
 Este módulo vai cobrir:
-1. **Evolução da IA:** Do respondente ao autônomo
+1. **Evoluçêo da IA:** Do respondente ao autônomo
 2. **Taxonomia clara:** Chatbots vs Assistentes vs Agentes vs Sistemas
 3. **Arquitetura de agentes:** Como funcionam por dentro
 4. **Primeiros princípios:** O que define um agente de verdade
@@ -36,9 +36,9 @@ Este módulo vai cobrir:
 
 ---
 
-## 1. A Evolução da IA: Do Respondente ao Autônomo
+## 1. A Evoluçêo da IA: Do Respondente ao Autônomo
 
-### 1.1 A Linha do Tempo da Interação com IA
+### 1.1 A Linha do Tempo da Interaçêo com IA
 
 #### Era 1: Busca (1990-2010)
 **Paradigma:** "Eu pergunto, sistema me dá links"
@@ -47,27 +47,27 @@ Você digitava no Google: "como fazer bolo de chocolate"
 Sistema retornava: milhões de links
 Você fazia: o trabalho de ler, filtrar, sintetizar
 
-**Limitação fundamental:** Zero síntese, zero execução.
+**Limitaçêo fundamental:** Zero síntese, zero execuçêo.
 
 ---
 
 #### Era 2: Assistentes Simples (2011-2020)
-**Paradigma:** "Eu comando, sistema executa ação simples"
+**Paradigma:** "Eu comando, sistema executa açêo simples"
 
 Você dizia para Siri: "Coloca alarme para 7h"
-Sistema executava: ação direta e pontual
+Sistema executava: açêo direta e pontual
 Você fazia: todo o resto
 
-**Limitação fundamental:** Apenas comandos diretos, sem raciocínio.
+**Limitaçêo fundamental:** Apenas comandos diretos, sem raciocínio.
 
-Exemplos de limitação:
+Exemplos de limitaçêo:
 ```
-Você: "Me acorde para a reunião de amanhã"
-Siri: "Desculpe, não encontrei 'reunião de amanhã' na sua agenda"
+Você: "Me acorde para a reuniêo de amanhê"
+Siri: "Desculpe, nêo encontrei 'reuniêo de amanhê' na sua agenda"
 
-[Porque Siri não conseguia:
+[Porque Siri nêo conseguia:
 1. Checar calendário
-2. Identificar próxima reunião
+2. Identificar próxima reuniêo
 3. Calcular tempo de preparo
 4. Colocar alarme apropriado]
 ```
@@ -78,22 +78,22 @@ Siri: "Desculpe, não encontrei 'reunião de amanhã' na sua agenda"
 **Paradigma:** "Eu pergunto complexo, sistema responde complexo"
 
 Você pergunta para ChatGPT: "Explique mecânica quântica para criança de 10 anos"
-Sistema responde: explicação clara, adaptada, bem estruturada
+Sistema responde: explicaçêo clara, adaptada, bem estruturada
 Você faz: as perguntas de follow-up
 
-**Avanço:** Síntese inteligente, adaptação ao contexto, raciocínio básico.
+**Avanço:** Síntese inteligente, adaptaçêo ao contexto, raciocínio básico.
 
-**Limitação fundamental:** Apenas responde. Não age, não usa ferramentas, não executa.
+**Limitaçêo fundamental:** Apenas responde. Nêo age, nêo usa ferramentas, nêo executa.
 
-Exemplo de limitação:
+Exemplo de limitaçêo:
 ```
 Você: "Analise os últimos 100 emails da minha caixa de entrada e me
 diga quais exigem resposta urgente"
 
-ChatGPT: "Desculpe, não tenho acesso aos seus emails. Mas posso te
+ChatGPT: "Desculpe, nêo tenho acesso aos seus emails. Mas posso te
 ensinar como fazer isso manualmente..."
 
-[Consegue explicar COMO fazer, mas não consegue FAZER]
+[Consegue explicar COMO fazer, mas nêo consegue FAZER]
 ```
 
 ---
@@ -108,19 +108,19 @@ Agente:
 3. Identifica deadlines
 4. Reorganiza eventos
 5. Te manda plano proposto
-6. Implementa após aprovação
+6. Implementa após aprovaçêo
 
-**Avanço:** Autonomia, uso de ferramentas, raciocínio multi-etapas, auto-correção.
+**Avanço:** Autonomia, uso de ferramentas, raciocínio multi-etapas, auto-correçêo.
 
-**Paradigma fundamental:** Você define INTENÇÃO, não comandos.
+**Paradigma fundamental:** Você define INTENÇêO, nêo comandos.
 
 ---
 
-### 1.2 Comparação Visual das Eras
+### 1.2 Comparaçêo Visual das Eras
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    EVOLUÇÃO DO CONTROLE                         │
+│                    EVOLUÇêO DO CONTROLE                         │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  BUSCA (Google)                                                │
@@ -148,8 +148,8 @@ Agente:
 ├─────────────────────────────────────────────────────────────────┤
 │  AGENTE AUTÔNOMO (Claude/GPT-4 + Tools)                       │
 │  ════════════════════════════════════════                      │
-│  Você: 20% do trabalho (direção + supervisão)                 │
-│  IA:   80% do trabalho (execução + raciocínio)                │
+│  Você: 20% do trabalho (direçêo + supervisêo)                 │
+│  IA:   80% do trabalho (execuçêo + raciocínio)                │
 │  █████████ (você)                                              │
 │  ████████████████████████████████████ (IA)                    │
 │                                                                 │
@@ -166,8 +166,8 @@ Agente:
 ```
 Usuário: "Quanto está Bitcoin agora?"
 
-LLM: "Desculpe, meus dados vão até janeiro de 2024. Não tenho
-informação em tempo real."
+LLM: "Desculpe, meus dados vêo até janeiro de 2024. Nêo tenho
+informaçêo em tempo real."
 ```
 
 **Era 4 (Agente com ferramentas):**
@@ -182,11 +182,11 @@ Agente (processo interno):
 5. Responde: "Bitcoin está a $42,350, alta de 2.3% nas últimas 24h"
 ```
 
-**Implementação técnica:**
+**Implementaçêo técnica:**
 ```python
 # Era 3: Apenas texto
 response = llm.chat("Quanto está Bitcoin?")
-# → "Não tenho dados em tempo real"
+# → "Nêo tenho dados em tempo real"
 
 # Era 4: Agente com ferramentas
 tools = [
@@ -214,7 +214,7 @@ Conversa 1:
 Você: "Me ajuda a planejar uma viagem para Paris?"
 LLM: [resposta completa]
 
-Conversa 2 (nova sessão):
+Conversa 2 (nova sessêo):
 Você: "Adiciona museus ao roteiro"
 LLM: "Qual roteiro? Por favor me dê mais contexto"
 ```
@@ -225,13 +225,13 @@ Conversa 1:
 Você: "Me ajuda a planejar viagem para Paris?"
 Agente: [salva: destino=Paris, contexto=planejamento_viagem]
 
-Conversa 2 (mesma sessão ou persistida):
+Conversa 2 (mesma sessêo ou persistida):
 Você: "Adiciona museus ao roteiro"
 Agente: [recupera contexto: Paris, roteiro anterior]
 Agente: "Adicionei Louvre, Musée d'Orsay e Rodin ao seu roteiro de Paris"
 ```
 
-**Implementação:**
+**Implementaçêo:**
 ```python
 # Agente com memória
 class Agent:
@@ -247,7 +247,7 @@ class Agent:
             messages=[context, user_input]
         )
 
-        # Salva nova informação
+        # Salva nova informaçêo
         self.memory.add(user_input, response)
 
         return response
@@ -261,7 +261,7 @@ class Agent:
 ```
 Você: "Preciso aumentar vendas do e-commerce em 30% nos próximos 3 meses"
 
-LLM: "Aqui estão 10 estratégias para aumentar vendas:
+LLM: "Aqui estêo 10 estratégias para aumentar vendas:
 1. Otimize SEO
 2. Invista em anúncios
 3. Melhore UX do site
@@ -273,28 +273,28 @@ LLM: "Aqui estão 10 estratégias para aumentar vendas:
 Você: "Preciso aumentar vendas do e-commerce em 30% nos próximos 3 meses"
 
 Agente (raciocínio interno):
-Etapa 1: "Preciso entender situação atual"
+Etapa 1: "Preciso entender situaçêo atual"
   → Pergunta: "Qual seu faturamento atual mensal?"
 
 Etapa 2: "30% de quanto? Preciso do número base"
   → Você responde: "R$100k/mês"
   → Calcula: meta = R$130k/mês
 
-Etapa 3: "Quais são as alavancas disponíveis?"
+Etapa 3: "Quais sêo as alavancas disponíveis?"
   → Pergunta: "Qual sua margem média? Orcamento de marketing?
-               Taxa de conversão atual?"
+               Taxa de conversêo atual?"
 
 Etapa 4: "Análise de cenários"
-  → Cenário A: Aumentar tráfego 30% (mantém conversão)
-  → Cenário B: Aumentar conversão de 2% → 2.6% (mantém tráfego)
-  → Cenário C: Híbrido (15% tráfego + 13% conversão)
+  → Cenário A: Aumentar tráfego 30% (mantém conversêo)
+  → Cenário B: Aumentar conversêo de 2% → 2.6% (mantém tráfego)
+  → Cenário C: Híbrido (15% tráfego + 13% conversêo)
 
 Etapa 5: "Baseado nas suas respostas..."
   → Recomenda cenário mais viável dado suas restrições
-  → Cria plano de ação específico
+  → Cria plano de açêo específico
 ```
 
-**Implementação (ReAct pattern):**
+**Implementaçêo (ReAct pattern):**
 ```python
 class ReasoningAgent:
     def run(self, goal):
@@ -308,7 +308,7 @@ class ReasoningAgent:
 
         return self.final_answer(thought)
 
-# Exemplo de execução
+# Exemplo de execuçêo
 agent = ReasoningAgent()
 result = agent.run("Aumentar vendas 30% em 3 meses")
 
@@ -334,8 +334,8 @@ Você faz:
 2. Revisa outline
 3. Pede para IA: "Escreva intro baseado neste outline"
 4. Revisa intro
-5. Pede para IA: "Agora seção 1"
-6. Revisa seção 1
+5. Pede para IA: "Agora seçêo 1"
+6. Revisa seçêo 1
 [... 15 interações depois ...]
 17. Pede para IA: "Revise o artigo completo"
 
@@ -347,7 +347,7 @@ Tempo total: 2-3 horas (você gerenciando cada etapa)
 Tarefa: "Escrever artigo sobre IA"
 
 Você delega:
-"Escreva artigo de 1500 palavras sobre impacto da IA na educação.
+"Escreva artigo de 1500 palavras sobre impacto da IA na educaçêo.
 Público: professores de ensino médio.
 Tom: acessível mas informado.
 Inclua 3 exemplos práticos de uso em sala de aula."
@@ -357,31 +357,31 @@ Agente faz:
 2. Pesquisa exemplos relevantes (se tem acesso a ferramentas)
 3. Escreve rascunho
 4. Auto-revisa (checando: bateu 1500 palavras? Tom adequado? 3 exemplos?)
-5. Te entrega versão final
+5. Te entrega versêo final
 
 Tempo total: 15 minutos (você só revisa resultado final)
 ```
 
 **Diferença fundamental:**
 - Antes: 17 iterações com você comandando cada uma
-- Agora: 1 delegação com agente executando processo completo
+- Agora: 1 delegaçêo com agente executando processo completo
 
 ---
 
 ## 2. Taxonomia Clara: Entendendo as Categorias
 
-Um dos maiores problemas no mercado atual é a confusão terminológica. Todo mundo chama tudo de "agente". Vamos estabelecer definições claras.
+Um dos maiores problemas no mercado atual é a confusêo terminológica. Todo mundo chama tudo de "agente". Vamos estabelecer definições claras.
 
 ### 2.1 Chatbot
 
-**Definição:**
+**Definiçêo:**
 Sistema que responde perguntas baseado em scripts pré-definidos ou regras simples.
 
 **Características:**
-- Reativo (não proativo)
-- Sem raciocínio (árvore de decisão)
+- Reativo (nêo proativo)
+- Sem raciocínio (árvore de decisêo)
 - Sem memória entre sessões
-- Não usa ferramentas externas
+- Nêo usa ferramentas externas
 
 **Exemplo típico:**
 ```
@@ -390,10 +390,10 @@ Chatbot: "Nosso horário é 9h-18h de segunda a sexta"
 
 Usuário: "E no sábado?"
 Chatbot: "Nosso horário é 9h-18h de segunda a sexta"
-[Repete porque não entendeu contexto]
+[Repete porque nêo entendeu contexto]
 ```
 
-**Implementação básica:**
+**Implementaçêo básica:**
 ```python
 class Chatbot:
     def __init__(self):
@@ -409,7 +409,7 @@ class Chatbot:
             if keyword in user_input.lower():
                 return response
 
-        return "Desculpe, não entendi. Fale com atendente."
+        return "Desculpe, nêo entendi. Fale com atendente."
 ```
 
 **Quando usar:**
@@ -417,8 +417,8 @@ class Chatbot:
 - Budget extremamente limitado
 - Perguntas 100% previsíveis
 
-**Quando NÃO usar:**
-- Qualquer coisa que exija compreensão de contexto
+**Quando NêO usar:**
+- Qualquer coisa que exija compreensêo de contexto
 - Conversas multi-turn
 - Tarefas que precisam de raciocínio
 
@@ -426,12 +426,12 @@ class Chatbot:
 
 ### 2.2 Assistente de IA
 
-**Definição:**
+**Definiçêo:**
 Sistema baseado em LLM que responde perguntas complexas e mantém contexto conversacional.
 
 **Características:**
 - Compreende linguagem natural
-- Mantém contexto dentro de uma sessão
+- Mantém contexto dentro de uma sessêo
 - Raciocínio básico
 - Pode usar algumas ferramentas simples (ex: busca)
 
@@ -440,19 +440,19 @@ Sistema baseado em LLM que responde perguntas complexas e mantém contexto conve
 Usuário: "Qual a capital da França?"
 Assistente: "Paris"
 
-Usuário: "Qual a população de lá?"
+Usuário: "Qual a populaçêo de lá?"
 Assistente: "Paris tem aproximadamente 2,1 milhões de habitantes
-             na cidade, e 12 milhões na região metropolitana"
+             na cidade, e 12 milhões na regiêo metropolitana"
 [Entendeu que "lá" = Paris]
 
 Usuário: "Me recomende 3 restaurantes"
-Assistente: "Aqui estão 3 excelentes restaurantes em Paris:
+Assistente: "Aqui estêo 3 excelentes restaurantes em Paris:
 1. Le Jules Verne (alta gastronomia, Torre Eiffel)
 2. L'Ami Jean (bistro tradicional)
 3. Septime (moderno, preço médio)"
 ```
 
-**Implementação:**
+**Implementaçêo:**
 ```python
 class AIAssistant:
     def __init__(self, llm):
@@ -482,25 +482,25 @@ class AIAssistant:
 
 **Quando usar:**
 - Atendimento ao cliente que precisa entender nuances
-- Tutoria / educação
-- Busca de informação complexa
+- Tutoria / educaçêo
+- Busca de informaçêo complexa
 - Brainstorming
 
-**Limitação fundamental:**
-Assistente RESPONDE coisas. Não EXECUTA processos.
+**Limitaçêo fundamental:**
+Assistente RESPONDE coisas. Nêo EXECUTA processos.
 
 ---
 
 ### 2.3 Agente de IA
 
-**Definição:**
+**Definiçêo:**
 Sistema autônomo que recebe objetivo, planeja etapas, usa ferramentas, e executa tarefas até completar.
 
 **Características fundamentais:**
 - **Autonomia:** Decide próximos passos sem comando constante
 - **Ferramentas:** Usa APIs, bancos de dados, código
 - **Raciocínio multi-etapas:** Planeja, executa, revisa
-- **Orientado a objetivo:** Não apenas responde - completa tarefa
+- **Orientado a objetivo:** Nêo apenas responde - completa tarefa
 
 **Exemplo típico:**
 ```
@@ -524,14 +524,14 @@ Agente (processo interno):
 
 3. REVISA:
    - Checa: peguei todos os 50?
-   - Validação: action items fazem sentido?
-   - Formatação: está claro?
+   - Validaçêo: action items fazem sentido?
+   - Formataçêo: está claro?
 
 4. ENTREGA:
    "Encontrei 12 action items nos últimos 50 emails:
 
    URGENTE (hoje):
-   - Aprovar proposta do cliente X (email de João, 2h atrás)
+   - Aprovar proposta do cliente X (email de Joêo, 2h atrás)
    - Enviar relatório para diretoria (email de Maria, ontem)
 
    ESTA SEMANA:
@@ -539,7 +539,7 @@ Agente (processo interno):
    [...]"
 ```
 
-**Implementação (estrutura básica):**
+**Implementaçêo (estrutura básica):**
 ```python
 class Agent:
     def __init__(self, llm, tools):
@@ -551,7 +551,7 @@ class Agent:
         # 1. PLANEJAMENTO
         plan = self.create_plan(goal)
 
-        # 2. EXECUÇÃO COM LOOP
+        # 2. EXECUÇêO COM LOOP
         for step in plan:
             # Decide qual ferramenta usar
             tool_choice = self.llm.decide_tool(step, self.tools)
@@ -566,7 +566,7 @@ class Agent:
                 "result": result
             })
 
-            # Auto-avaliação: preciso revisar o plano?
+            # Auto-avaliaçêo: preciso revisar o plano?
             if not self.is_on_track(result, goal):
                 plan = self.revise_plan(plan, result)
 
@@ -595,19 +595,19 @@ class Agent:
 - Tarefas que exigem múltiplas etapas
 - Processos que você repete frequentemente
 - Quando precisa de acesso a dados/ferramentas externas
-- Quando quer delegar, não apenas consultar
+- Quando quer delegar, nêo apenas consultar
 
 ---
 
 ### 2.4 Sistema Multiagente
 
-**Definição:**
+**Definiçêo:**
 Múltiplos agentes especializados trabalhando juntos, cada um com papel específico.
 
 **Características:**
-- Especialização (cada agente faz uma coisa muito bem)
-- Colaboração (agentes passam informação entre si)
-- Orquestração (um agente coordenador ou pipeline definido)
+- Especializaçêo (cada agente faz uma coisa muito bem)
+- Colaboraçêo (agentes passam informaçêo entre si)
+- Orquestraçêo (um agente coordenador ou pipeline definido)
 - Escalabilidade (adiciona agentes conforme necessidade)
 
 **Exemplo típico:**
@@ -652,7 +652,7 @@ Fluxo:
    → Entrega pacote completo
 ```
 
-**Implementação (estrutura conceitual):**
+**Implementaçêo (estrutura conceitual):**
 ```python
 class MultiAgentSystem:
     def __init__(self):
@@ -674,7 +674,7 @@ class MultiAgentSystem:
         # Coordenador decide fluxo
         plan = self.coordinator.create_plan(objective)
 
-        # Execução orquestrada
+        # Execuçêo orquestrada
         results = {}
 
         # Passo 1: Pesquisa (bloqueante)
@@ -708,7 +708,7 @@ class MultiAgentSystem:
 
 **Quando usar:**
 - Projetos muito complexos (muitas dimensões)
-- Quando qualidade exige especialização profunda
+- Quando qualidade exige especializaçêo profunda
 - Quando partes podem rodar em paralelo
 - Quando quer escalabilidade (adiciona agentes conforme cresce)
 
@@ -716,12 +716,12 @@ class MultiAgentSystem:
 
 ### 2.5 Worker (Trabalhador Automatizado)
 
-**Definição:**
+**Definiçêo:**
 Agente especializado em tarefa repetitiva específica que roda continuamente.
 
 **Características:**
 - Tarefa única e bem definida
-- Execução contínua (não on-demand)
+- Execuçêo contínua (nêo on-demand)
 - Gatilhos automáticos (tempo, evento)
 - Foco em velocidade e confiabilidade
 
@@ -737,7 +737,7 @@ A cada 1 hora:
 4. Notifica time de social media
 5. Salva em banco de dados para análise
 
-Execução:
+Execuçêo:
 ┌─────────────────────────────────────────┐
 │  Loop infinito (a cada 1h)              │
 ├─────────────────────────────────────────┤
@@ -748,7 +748,7 @@ Execução:
 └─────────────────────────────────────────┘
 ```
 
-**Implementação:**
+**Implementaçêo:**
 ```python
 class SocialMonitorWorker:
     def __init__(self, brand_name):
@@ -769,23 +769,23 @@ class SocialMonitorWorker:
             for mention in mentions:
                 sentiment = self.sentiment_model.analyze(mention.text)
 
-                # 3. Decisão
+                # 3. Decisêo
                 if self.needs_response(mention, sentiment):
-                    # 4. Ação
+                    # 4. Açêo
                     self.notification_service.alert(
                         team="social_media",
-                        message=f"Menção negativa de @{mention.author}: {mention.text}",
+                        message=f"Mençêo negativa de @{mention.author}: {mention.text}",
                         priority="high" if sentiment == "very_negative" else "medium"
                     )
 
                 # 5. Log
                 self.save_to_database(mention, sentiment)
 
-            # Aguarda próxima execução
+            # Aguarda próxima execuçêo
             time.sleep(3600)  # 1 hora
 
     def needs_response(self, mention, sentiment):
-        # Lógica de decisão
+        # Lógica de decisêo
         if sentiment in ["negative", "very_negative"]:
             return True
         if mention.followers > 10000:  # Influencer
@@ -812,15 +812,15 @@ class SocialMonitorWorker:
 │ Raciocínio     │ ✗        │ Básico     │ ✓✓      │ ✓✓✓         │ ✓       │
 │ Ferramentas    │ ✗        │ Limitado   │ ✓✓      │ ✓✓✓         │ ✓✓      │
 │ Autonomia      │ ✗        │ ✗          │ ✓✓      │ ✓✓✓         │ ✓✓✓     │
-│ Memória        │ ✗        │ Sessão     │ ✓✓      │ ✓✓          │ ✓       │
+│ Memória        │ ✗        │ Sessêo     │ ✓✓      │ ✓✓          │ ✓       │
 │ Multi-etapas   │ ✗        │ ✗          │ ✓✓      │ ✓✓✓         │ ✓       │
-│ Especialização │ ✗        │ ✗          │ ✓       │ ✓✓✓         │ ✓✓✓     │
+│ Especializaçêo │ ✗        │ ✗          │ ✓       │ ✓✓✓         │ ✓✓✓     │
 │ Custo          │ $        │ $$         │ $$$     │ $$$$        │ $$      │
 │ Complexidade   │ Baixa    │ Média      │ Alta    │ Muito Alta  │ Média   │
 └────────────────┴──────────┴────────────┴─────────┴─────────────┴─────────┘
 
 Legenda:
-✗ = Não tem
+✗ = Nêo tem
 ✓ = Básico
 ✓✓ = Bom
 ✓✓✓ = Excelente
@@ -858,7 +858,7 @@ Todo agente de verdade tem 4 componentes:
 O modelo de linguagem que faz o raciocínio.
 
 **Funções:**
-- Compreender intenção do usuário
+- Compreender intençêo do usuário
 - Planejar etapas para alcançar objetivo
 - Decidir qual ferramenta usar
 - Sintetizar resultados
@@ -883,23 +883,23 @@ Tarefa sensível (dados confidenciais):
 
 ---
 
-## Conclusão do Módulo 1
+## Conclusêo do Módulo 1
 
 Você completou o módulo fundamental de agentes!
 
 ### O Que Você Aprendeu
 
-1. **Evolução da IA:** Como chegamos de busca simples até agentes autônomos
+1. **Evoluçêo da IA:** Como chegamos de busca simples até agentes autônomos
 2. **Taxonomia clara:** Diferença entre chatbot, assistente, agente e sistema multiagente
 3. **Arquitetura:** Os 4 componentes (Brain, Memory, Tools, Reasoning)
-4. **Primeiros princípios:** Autonomia, verificabilidade, especialização, resiliência
-5. **Implementação prática:** Estruturas fundamentais de agentes
+4. **Primeiros princípios:** Autonomia, verificabilidade, especializaçêo, resiliência
+5. **Implementaçêo prática:** Estruturas fundamentais de agentes
 
-**Próximo módulo:** Engenharia de Intenção aplicada a agentes especializados.
+**Próximo módulo:** Engenharia de Intençêo aplicada a agentes especializados.
 
 ---
 
 **Tamanho deste arquivo:** ~32KB
 **Status:** Módulo 1 completo e expandido
 
-© 2025 FEI - Formação em Engenharia de Intenção
+© 2025 FEI - Formaçêo em Engenharia de Intençêo

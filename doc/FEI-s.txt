@@ -1,40 +1,40 @@
 Perfeito, NEI.
 Agora **vamos além do estado da arte**.
 
-Você já tem a formação completa sobre Engenharia de Intenção.
+Você já tem a formaçêo completa sobre Engenharia de Intençêo.
 Agora entramos na **próxima era**, a que começou silenciosamente em 2025 e que domina totalmente o cenário em **2026**:
 
 # 🚀 **ENGENHARIA DE SISTEMAS INTENCIONAIS E AGENTES AUTÔNOMOS**
 
-### *(A sequência superavançada da sua formação — nível 2026)*
+### *(A sequência superavançada da sua formaçêo — nível 2026)*
 
 Este é o conteúdo que **nenhum curso do mercado ensina ainda**, porque estamos entrando na fronteira da IA moderna:
 – agentes inteligentes
 – sistemas multiagentes
-– intenção composta
+– intençêo composta
 – meta-processos
-– automação adaptativa
-– orquestração autônoma
+– automaçêo adaptativa
+– orquestraçêo autônoma
 – IA com memória, criticidade e propósito
 – loops evolutivos
-– delegação extensiva
+– delegaçêo extensiva
 – sistemas que **aprendem o usuário ao longo do tempo**
 
-Aqui está **a continuação superavançada**, pensada para 2026 e adiante.
+Aqui está **a continuaçêo superavançada**, pensada para 2026 e adiante.
 
 ---
 
 # 🔥 **CAPA DO NOVO MÓDULO SUPERVANÇADO**
 
-**FORMAÇÃO AVANÇADA**
+**FORMAÇêO AVANÇADA**
 
 # **SISTEMAS INTENCIONAIS E AGENTES AUTÔNOMOS 2026**
 
-### *A próxima revolução após a Engenharia de Intenção*
+### *A próxima revoluçêo após a Engenharia de Intençêo*
 
 ---
 
-# 📍 **VISÃO GERAL DA NOVA ERA**
+# 📍 **VISêO GERAL DA NOVA ERA**
 
 2026 marca a ruptura definitiva:
 
@@ -43,9 +43,9 @@ Aqui está **a continuação superavançada**, pensada para 2026 e adiante.
 ✔ Que executam **processos completos**
 ✔ Que coordenam **outros agentes**
 ✔ Que aprendem com o usuário
-✔ Que seguem **intenção de longo prazo**, não só comandos isolados
+✔ Que seguem **intençêo de longo prazo**, nêo só comandos isolados
 
-A Engenharia de Intenção agora se expande para:
+A Engenharia de Intençêo agora se expande para:
 
 > **Engenharia de Sistemas Intencionais Autônomos (ESIA)**
 > A disciplina que projeta, instrui e governa redes de agentes com propósito.
@@ -58,10 +58,10 @@ A Engenharia de Intenção agora se expande para:
 
 * Raciocínio contínuo
 * Memória persistente
-* Delegação interna
-* Autocorreção antes da saída
+* Delegaçêo interna
+* Autocorreçêo antes da saída
 * Planejamento de longo prazo
-* Execução baseada em intenção composta
+* Execuçêo baseada em intençêo composta
 * Capacidade de operar como um time inteiro de especialistas
 
 ## 🔹 A grande mudança:
@@ -72,7 +72,7 @@ A Engenharia de Intenção agora se expande para:
 
 # 🧬 **MÓDULO 2 — O Conceito de Sistemas Intencionais**
 
-Agora não lidamos apenas com:
+Agora nêo lidamos apenas com:
 
 * prompts
 * tarefas
@@ -82,8 +82,8 @@ E sim com:
 
 ### **Sistemas** que possuem:
 
-✔ missão
-✔ evolução própria
+✔ missêo
+✔ evoluçêo própria
 ✔ monitoramento de qualidade
 ✔ múltiplos agentes internos
 ✔ rotinas de funcionamento
@@ -94,7 +94,7 @@ E sim com:
 
 ---
 
-# 🤖 **MÓDULO 3 — Agentes Autônomos 2.0 (versão 2026)**
+# 🤖 **MÓDULO 3 — Agentes Autônomos 2.0 (versêo 2026)**
 
 ## 🔹 1. Agente Especialista (nível tradicional)
 
@@ -141,21 +141,21 @@ Eles:
 * ajustam estratégias
 * aprendem preferências
 * criam novos métodos
-* otimizam o sistema sem pedir permissão
+* otimizam o sistema sem pedir permissêo
 * automatizam o que encontram repetido
 * substituem processos fracos por melhores
 
-Esse é o coração da **ESIA — Engenharia de Sistemas Intencionais Autônomos**.
+Esse é o coraçêo da **ESIA — Engenharia de Sistemas Intencionais Autônomos**.
 
 ---
 
-# 🧠 **MÓDULO 5 — Intenção Composta e Intenção Persistente**
+# 🧠 **MÓDULO 5 — Intençêo Composta e Intençêo Persistente**
 
 Dois conceitos cruciais:
 
-## **1. Intenção Composta**
+## **1. Intençêo Composta**
 
-Uma intenção que contém:
+Uma intençêo que contém:
 
 * objetivos macro
 * metas intermediárias
@@ -165,16 +165,16 @@ Uma intenção que contém:
 * dependências
 * camadas de raciocínio
 
-## **2. Intenção Persistente**
+## **2. Intençêo Persistente**
 
 A IA mantém:
 
 * preferências
 * estilo
 * padrões
-* missão
-* visão de longo prazo
-  mesmo após dias, semanas ou meses de interação.
+* missêo
+* visêo de longo prazo
+  mesmo após dias, semanas ou meses de interaçêo.
 
 ---
 
@@ -184,7 +184,7 @@ Os quatro modelos que dominam 2026:
 
 ### **Modelo 1 — Pipeline Inteligente**
 
-Cada agente passa para o próximo com validação interna.
+Cada agente passa para o próximo com validaçêo interna.
 
 ### **Modelo 2 — Força-Tarefa Paralela**
 
@@ -192,7 +192,7 @@ Agentes trabalham simultaneamente e depois integram resultados.
 
 ### **Modelo 3 — Hierarquia**
 
-Agente “chefão” gerencia sub-agentes.
+Agente “chefêo” gerencia sub-agentes.
 
 ### **Modelo 4 — Consciência Distribuída**
 
@@ -200,20 +200,20 @@ Todos os agentes acessam memória central e colaboram.
 
 ---
 
-# 🛠️ **MÓDULO 7 — Criação de Agentes com ESIA**
+# 🛠️ **MÓDULO 7 — Criaçêo de Agentes com ESIA**
 
 Cada agente avançado deve ter:
 
-1. **Missão funcional**
-2. **Intenção estratégica**
+1. **Missêo funcional**
+2. **Intençêo estratégica**
 3. **Domínio de responsabilidade**
 4. **Limites claros**
 5. **Plano de raciocínio interno**
-6. **Protocolos de comunicação**
+6. **Protocolos de comunicaçêo**
 7. **Critérios de auditoria interna**
-8. **Modo de falha e recuperação**
+8. **Modo de falha e recuperaçêo**
 
-Isso é **padrão 2026**.
+Isso é **padrêo 2026**.
 
 ---
 
@@ -235,26 +235,26 @@ Agentes internos:
 ### **Sistema 2 — Consultoria Estratégica Autônoma**
 
 * leitura de cenário
-* previsão
+* previsêo
 * modelagem de risco
-* criação de plano
+* criaçêo de plano
 * análise de alternativas
-* recomendação final
+* recomendaçêo final
 
 ### **Sistema 3 — Criador de Curso Autônomo**
 
 * pesquisa
-* estruturação
+* estruturaçêo
 * escrita
-* revisão
-* padronização de estilo
+* revisêo
+* padronizaçêo de estilo
 
 ### **Sistema 4 — Operações Empresariais Inteligentes**
 
 * planejamento
 * monitoramento
-* correção
-* automação
+* correçêo
+* automaçêo
 
 ---
 
@@ -262,15 +262,15 @@ Agentes internos:
 
 Aqui está a chave da nova era:
 
-> Você não diz **o que fazer**.
+> Você nêo diz **o que fazer**.
 > Você diz **o que deve ser garantido**.
 
 Exemplo:
 
 ❌ “Faça um post no Instagram.”
-✔ “Mantenha minha presença ativa no Instagram com conteúdo alinhado à minha marca e programação semanal, pedindo aprovação quando houver temas sensíveis.”
+✔ “Mantenha minha presença ativa no Instagram com conteúdo alinhado à minha marca e programaçêo semanal, pedindo aprovaçêo quando houver temas sensíveis.”
 
-Delegação moderna é **intencional, contínua e evolutiva**.
+Delegaçêo moderna é **intencional, contínua e evolutiva**.
 
 ---
 
@@ -282,7 +282,7 @@ O aluno aprende a criar o componente mais importante:
 
 Responsável por:
 
-* entender intenção macro
+* entender intençêo macro
 * quebrar em objetivos
 * distribuir entre agentes
 * validar resultados
@@ -305,7 +305,7 @@ Esse agente é o “diretor”.
 
 (capaz de melhorar os outros agentes)
 
-### **Projeto 3 — Orquestrar uma operação autônoma por 7 dias**
+### **Projeto 3 — Orquestrar uma operaçêo autônoma por 7 dias**
 
 ### **Projeto 4 — Agente que aprende seu estilo e o replica**
 
@@ -321,20 +321,20 @@ Inclui:
 * limites de autonomia
 * salvaguardas
 * auditoria interna
-* protocolação de decisões
-* gestão de conflitos entre agentes
-* supervisão humana ativa
+* protocolaçêo de decisões
+* gestêo de conflitos entre agentes
+* supervisêo humana ativa
 
 ---
 
-# 🏆 **CERTIFICAÇÃO SUPERAVANÇADA (2026)**
+# 🏆 **CERTIFICAÇêO SUPERAVANÇADA (2026)**
 
 O aluno entrega:
 
 1. arquitetura completa de sistema multiagente
-2. agentes definidos com intenção composta
+2. agentes definidos com intençêo composta
 3. orquestrador operacional
-4. demonstração prática
+4. demonstraçêo prática
 5. defesa técnica
 
 ---

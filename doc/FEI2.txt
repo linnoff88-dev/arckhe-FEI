@@ -1,36 +1,36 @@
 
 
-# 🎓 **PROGRAMA COMPLETO DA FORMAÇÃO**
+# 🎓 **PROGRAMA COMPLETO DA FORMAÇêO**
 
-### **A NOVA ERA — DA ENGENHARIA DE PROMPTS À ENGENHARIA DE INTENÇÃO**
+### **A NOVA ERA — DA ENGENHARIA DE PROMPTS À ENGENHARIA DE INTENÇêO**
 
 ---
 
-# 📍 **Visão Geral da Formação**
+# 📍 **Visêo Geral da Formaçêo**
 
-A formação prepara o aluno para dominar a nova lógica dos modelos modernos de IA, ensinando a construir interações estratégicas, precisas e produtivas com sistemas inteligentes.
+A formaçêo prepara o aluno para dominar a nova lógica dos modelos modernos de IA, ensinando a construir interações estratégicas, precisas e produtivas com sistemas inteligentes.
 
 Ao final, o participante será capaz de:
 
 ✔ pensar como designer de intenções
 ✔ conduzir IA em tarefas simples e complexas
-✔ co-criar com IA com precisão, clareza e profundidade
-✔ abandonar truques antigos e usar comunicação estratégica
+✔ co-criar com IA com precisêo, clareza e profundidade
+✔ abandonar truques antigos e usar comunicaçêo estratégica
 ✔ estruturar objetivos, critérios, contexto, raciocínio e formato
-✔ aplicar Engenharia de Intenção em áreas reais: conteúdo, negócios, pesquisa, código, educação, operações e tomada de decisão
+✔ aplicar Engenharia de Intençêo em áreas reais: conteúdo, negócios, pesquisa, código, educaçêo, operações e tomada de decisêo
 
 ---
 
 # 🧭 **Estrutura do Programa**
 
-A formação está organizada em:
+A formaçêo está organizada em:
 
 * **7 Módulos**
 * **15 Casos Reais**
 * **12 Exercícios Progressivos**
 * **4 Projetos Práticos**
-* **Avaliação Final**
-* **Certificação**
+* **Avaliaçêo Final**
+* **Certificaçêo**
 
 ---
 
@@ -41,15 +41,15 @@ A formação está organizada em:
 ### **Objetivos de aprendizagem**
 
 * Entender *por que* a engenharia de prompts tradicional ficou obsoleta.
-* Reconhecer práticas antigas que não funcionam mais.
-* Compreender a evolução dos modelos de linguagem.
+* Reconhecer práticas antigas que nêo funcionam mais.
+* Compreender a evoluçêo dos modelos de linguagem.
 
 ### **Conteúdo**
 
 1. A história dos prompts: de GPT-3 a GPT-5
 2. O problema dos modelos antigos:
 
-   * baixa interpretação
+   * baixa interpretaçêo
    * dependência de truques
    * necessidade de templates rígidos
 3. Exemplos reais de prompts ultrapassados
@@ -69,14 +69,14 @@ A formação está organizada em:
 
 ### **Objetivos de aprendizagem**
 
-* Entender como modelos avançados interpretam intenção.
-* Aprender como funcionam planejamento interno, raciocínio e autocorreção.
+* Entender como modelos avançados interpretam intençêo.
+* Aprender como funcionam planejamento interno, raciocínio e autocorreçêo.
 * Identificar as vantagens de usar linguagem natural.
 
 ### **Conteúdo**
 
 1. Raciocínio estruturado interno (Chain of Thought implícito)
-2. Interpretação contextual
+2. Interpretaçêo contextual
 3. Capacidade de “adivinhar” objetivos mal formulados
 4. Por que modelos modernos preferem clareza a comandos
 5. O novo papel do usuário: comunicador estratégico
@@ -89,29 +89,29 @@ A formação está organizada em:
 
 # ━━━━━━━━━━━━━━━━━━━
 
-# 📘 **MÓDULO 3 — Fundamentos da Engenharia de Intenção**
+# 📘 **MÓDULO 3 — Fundamentos da Engenharia de Intençêo**
 
 ### **Objetivos de aprendizagem**
 
-* Aprender a estrutura moderna de intenção.
+* Aprender a estrutura moderna de intençêo.
 * Saber como comunicar objetivos de forma clara e funcional.
-* Dominar as 7 etapas da Engenharia de Intenção.
+* Dominar as 7 etapas da Engenharia de Intençêo.
 
 ### **Conteúdo**
 
 A estrutura completa:
 
 1. **Objetivo** — o que você quer
-2. **Intenção** — para quem, para quê, impacto
+2. **Intençêo** — para quem, para quê, impacto
 3. **Critérios de qualidade**
 4. **Contexto relevante (e apenas o necessário)**
 5. **Estratégia de raciocínio**
-6. **Delegação inteligente (IA deve pedir dados)**
+6. **Delegaçêo inteligente (IA deve pedir dados)**
 7. **Formato de saída**
 
 ### **Entregáveis**
 
-* Blueprint oficial da Engenharia de Intenção
+* Blueprint oficial da Engenharia de Intençêo
 * 10 prompts-modelo baseados na estrutura
 
 ---
@@ -123,7 +123,7 @@ A estrutura completa:
 ### **Objetivos de aprendizagem**
 
 * Ver a diferença clara entre métodos antigos e modernos.
-* Treinar a construção de intenções completas.
+* Treinar a construçêo de intenções completas.
 
 ### **Conteúdo**
 
@@ -133,16 +133,16 @@ A estrutura completa:
   2. E-mail profissional
   3. Roteiro de vídeo
   4. Análise crítica de concorrência
-  5. Criação de curso
+  5. Criaçêo de curso
   6. Projeto de software
   7. Pesquisa profunda
   8. Reescrita de texto
   9. Melhoria iterativa
   10. Ações para negócios
   11. Estratégias de conteúdo
-  12. Sistematização de processos
+  12. Sistematizaçêo de processos
   13. Entrevistas e diagnósticos
-  14. Criação de frameworks
+  14. Criaçêo de frameworks
   15. Planejamento estratégico
 
 ### **Entregáveis**
@@ -157,24 +157,24 @@ A estrutura completa:
 
 ### **Objetivos**
 
-* Transformar o aluno de executor → *designer de intenção*.
+* Transformar o aluno de executor → *designer de intençêo*.
 * Ensinar a IA a pedir dados antes de responder.
-* Desenvolver a habilidade de gerar instruções de alta precisão.
+* Desenvolver a habilidade de gerar instruções de alta precisêo.
 
 ### **Exercícios**
 
-1. Converter 5 prompts antigos em intenção
-2. Construir uma intenção completa do zero
+1. Converter 5 prompts antigos em intençêo
+2. Construir uma intençêo completa do zero
 3. Ensinar a IA a perguntar antes de responder
 4. Critérios de qualidade: comparar respostas
 5. Raciocínio crítico vs. criativo vs. técnico
-6. Melhoria iterativa com revisão guiada
+6. Melhoria iterativa com revisêo guiada
 7. Refinar objetivos ambíguos
 8. Criar intenções para tarefas complexas
 9. Criar intenções para tarefas pequenas
-10. Criar intenção para contexto emocional
-11. Criar intenção para análise profunda
-12. Criar intenção para decisões estratégicas
+10. Criar intençêo para contexto emocional
+11. Criar intençêo para análise profunda
+12. Criar intençêo para decisões estratégicas
 
 Cada exercício evolui lentamente o aluno.
 
@@ -186,14 +186,14 @@ Cada exercício evolui lentamente o aluno.
 
 Quatro grandes projetos:
 
-### **Projeto 1 — Criar um Sistema Pessoal de Intenção (SPI)**
+### **Projeto 1 — Criar um Sistema Pessoal de Intençêo (SPI)**
 
-O aluno monta sua própria estrutura de intenção para:
+O aluno monta sua própria estrutura de intençêo para:
 
 * trabalho
 * estudo
 * negócios
-* criação de conteúdo
+* criaçêo de conteúdo
 
 ### **Projeto 2 — Criar uma Ferramenta Baseada em IA**
 
@@ -207,14 +207,14 @@ Ex.:
 
 ### **Projeto 3 — Construir um Processo Completo com IA**
 
-Do início ao fim, usando intenção para:
+Do início ao fim, usando intençêo para:
 
 * diagnóstico
 * plano
-* execução
-* revisão
+* execuçêo
+* revisêo
 
-### **Projeto 4 — Criar Conteúdo Completo com Intenção**
+### **Projeto 4 — Criar Conteúdo Completo com Intençêo**
 
 Pode ser:
 
@@ -227,33 +227,33 @@ Pode ser:
 
 # ━━━━━━━━━━━━━━━━━━━
 
-# 📘 **MÓDULO 7 — Avaliação Final + Certificação**
+# 📘 **MÓDULO 7 — Avaliaçêo Final + Certificaçêo**
 
 ### **Prova Prática Final**
 
 O aluno deve criar:
 
-1. Uma intenção completa
-2. Um sistema de intenção
+1. Uma intençêo completa
+2. Um sistema de intençêo
 3. Um processo assistido por IA
 4. Um caso de uso real da sua área
 
-### **Critérios de avaliação**
+### **Critérios de avaliaçêo**
 
 * Clareza
 * Estrutura
 * Profundidade
 * Critérios bem definidos
-* Delegação adequada
+* Delegaçêo adequada
 * Coerência entre objetivo e formato
 
-### **Certificação (opcional)**
+### **Certificaçêo (opcional)**
 
 Emitida após análise da prova final.
 
 ---
 
-# 🎉 **PARTE EXTRA (exclusiva para sua formação)**
+# 🎉 **PARTE EXTRA (exclusiva para sua formaçêo)**
 
 ## **Biblioteca de Templates**
 
@@ -263,11 +263,11 @@ Mais de 40 modelos, incluindo:
 * planejamento
 * conteúdo
 * negócios
-* educação
+* educaçêo
 * vendas
-* gestão
+* gestêo
 * produtividade
-* tomada de decisão
+* tomada de decisêo
 
 ## **Área de Membros**
 
@@ -279,8 +279,8 @@ Mais de 40 modelos, incluindo:
 
 ## **Mentorias ao Vivo (opcional)**
 
-Sugestão de cronograma:
+Sugestêo de cronograma:
 
 * 4 encontros
 * 90 minutos cada
-* revisão de projetos e dúvidas
+* revisêo de projetos e dúvidas

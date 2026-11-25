@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 5: Intenção Composta e Persistente | FEI Nível 4S</title>
-  <meta name="description" content="Em 2026, sistemas inteligentes não lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.">
+  <title>Módulo 5: Intençêo Composta e Persistente | FEI Nível 4S</title>
+  <meta name="description" content="Em 2026, sistemas inteligentes nêo lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -103,10 +103,10 @@
         </span>
       </div>
       <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-        Intenção Composta e Persistente
+        Intençêo Composta e Persistente
       </h1>
       <p class="text-xl text-white/90">
-        Em 2026, sistemas inteligentes não lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.
+        Em 2026, sistemas inteligentes nêo lidam com **tarefas simples** - eles gerenciam **intenções complexas** que possuem **múltiplas camadas de objetivos** e **se estendem por meses**.
       </p>
     </div>
   </section>
@@ -125,20 +125,20 @@
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Introdução
+          Introduçêo
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Em 2026, sistemas inteligentes não lidam com <strong>tarefas simples</strong> - eles gerenciam <strong>intenções complexas</strong> que possuem <strong>múltiplas camadas de objetivos</strong> e <strong>se estendem por meses</strong>.</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Em 2026, sistemas inteligentes nêo lidam com <strong>tarefas simples</strong> - eles gerenciam <strong>intenções complexas</strong> que possuem <strong>múltiplas camadas de objetivos</strong> e <strong>se estendem por meses</strong>.</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Dois conceitos cruciais para 2026:</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">1. <strong>Intenção Composta:</strong> Objetivos que contêm sub-objetivos, critérios múltiplos, contextos paralelos e dependências.</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">2. <strong>Intenção Persistente:</strong> Visão de longo prazo que o sistema mantém ao longo de semanas ou meses.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">1. <strong>Intençêo Composta:</strong> Objetivos que contêm sub-objetivos, critérios múltiplos, contextos paralelos e dependências.</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">2. <strong>Intençêo Persistente:</strong> Visêo de longo prazo que o sistema mantém ao longo de semanas ou meses.</p>
       </div>
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          1. Intenção Composta
+          1. Intençêo Composta
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Uma <strong>Intenção Composta</strong> é uma instrução que contém múltiplos níveis de complexidade simultaneamente.</p>
-<h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Implementação Completa:</h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Uma <strong>Intençêo Composta</strong> é uma instruçêo que contém múltiplos níveis de complexidade simultaneamente.</p>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Implementaçêo Completa:</h3>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional
@@ -187,7 +187,7 @@ class IntencaoComposta:
         dependencias: List[str] = None,
         contextos: List[str] = None
     ):
-        &quot;&quot;&quot;Adiciona objetivo à intenção composta&quot;&quot;&quot;
+        &quot;&quot;&quot;Adiciona objetivo à intençêo composta&quot;&quot;&quot;
         objetivo = ObjetivoComposto(
             nivel=nivel,
             descricao=descricao,
@@ -206,7 +206,7 @@ class IntencaoComposta:
             self.arvore_dependencias[dep].append(id_objetivo)
 
     def validar_consistencia(self) -&gt; Dict:
-        &quot;&quot;&quot;Valida consistência da intenção composta&quot;&quot;&quot;
+        &quot;&quot;&quot;Valida consistência da intençêo composta&quot;&quot;&quot;
         problemas = []
 
         # 1. Verifica dependências circulares
@@ -218,7 +218,7 @@ class IntencaoComposta:
         for obj_id, obj in self.objetivos.items():
             for dep in obj.dependencias:
                 if dep not in self.objetivos:
-                    problemas.append(f&quot;{obj_id} depende de {dep} que não existe&quot;)
+                    problemas.append(f&quot;{obj_id} depende de {dep} que nêo existe&quot;)
 
         # 3. Verifica balanceamento de critérios
         for obj_id, obj in self.objetivos.items():
@@ -247,7 +247,7 @@ class IntencaoComposta:
         return False
 
     def calcular_ordem_execucao(self) -&gt; List[str]:
-        &quot;&quot;&quot;Calcula ordem de execução respeitando dependências&quot;&quot;&quot;
+        &quot;&quot;&quot;Calcula ordem de execuçêo respeitando dependências&quot;&quot;&quot;
         # Topological sort
         grau_entrada = {obj_id: 0 for obj_id in self.objetivos}
 
@@ -318,7 +318,7 @@ class IntencaoComposta:
         }
 
     def gerar_plano_execucao(self) -&gt; Dict:
-        &quot;&quot;&quot;Gera plano completo de execução&quot;&quot;&quot;
+        &quot;&quot;&quot;Gera plano completo de execuçêo&quot;&quot;&quot;
         validacao = self.validar_consistencia()
 
         if not validacao[&quot;valido&quot;]:
@@ -349,7 +349,7 @@ intencao = IntencaoComposta(&quot;Construir autoridade em IA Educacional&quot;)
 intencao.adicionar_objetivo(
     &quot;macro_1&quot;,
     NivelIntencao.MACRO,
-    &quot;Ser referência reconhecida em IA + Educação&quot;,
+    &quot;Ser referência reconhecida em IA + Educaçêo&quot;,
     365,
     {
         TipoCriterio.IMPACTO: 0.5,
@@ -404,7 +404,7 @@ intencao.adicionar_objetivo(
 intencao.adicionar_objetivo(
     &quot;micro_2&quot;,
     NivelIntencao.MICRO,
-    &quot;Produzir artigo científico sobre LLMs na educação&quot;,
+    &quot;Produzir artigo científico sobre LLMs na educaçêo&quot;,
     60,
     {
         TipoCriterio.QUALIDADE: 0.8,
@@ -414,12 +414,12 @@ intencao.adicionar_objetivo(
     contextos=[&quot;academicos&quot;]
 )
 
-print(&quot;=== INTENÇÃO COMPOSTA ===\n&quot;)
+print(&quot;=== INTENÇêO COMPOSTA ===\n&quot;)
 print(f&quot;Objetivo Macro: {intencao.objetivo_macro}&quot;)
 print(f&quot;Total de objetivos: {len(intencao.objetivos)}\n&quot;)
 
 # Valida consistência
-print(&quot;Validação:&quot;)
+print(&quot;Validaçêo:&quot;)
 validacao = intencao.validar_consistencia()
 print(f&quot;  Status: {'✅ Válido' if validacao['valido'] else '❌ Inválido'}&quot;)
 if not validacao['valido']:
@@ -427,11 +427,11 @@ if not validacao['valido']:
         print(f&quot;  • {problema}&quot;)
 print()
 
-# Gera plano de execução
+# Gera plano de execuçêo
 plano = intencao.gerar_plano_execucao()
 
 if plano[&quot;status&quot;] == &quot;valido&quot;:
-    print(&quot;Ordem de execução:&quot;)
+    print(&quot;Ordem de execuçêo:&quot;)
     for i, obj_id in enumerate(plano[&quot;ordem_execucao&quot;], 1):
         obj = intencao.objetivos[obj_id]
         print(f&quot;  {i}. [{obj.nivel.value.upper()}] {obj.descricao}&quot;)
@@ -451,15 +451,15 @@ if plano[&quot;status&quot;] == &quot;valido&quot;:
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          2. Intenção Persistente
+          2. Intençêo Persistente
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Intenção Persistente</strong> significa que a IA <strong>mantém objetivos de longo prazo</strong> mesmo após dias, semanas ou meses de interação.</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4"><strong>Intençêo Persistente</strong> significa que a IA <strong>mantém objetivos de longo prazo</strong> mesmo após dias, semanas ou meses de interaçêo.</p>
 <pre class="bg-neutral-800 text-neutral-100 p-6 rounded-lg overflow-x-auto mb-6"><code class="language-python">
 import json
 from collections import defaultdict
 
 class IntencaoPersistente:
-    &quot;&quot;&quot;Sistema que mantém intenção ao longo do tempo&quot;&quot;&quot;
+    &quot;&quot;&quot;Sistema que mantém intençêo ao longo do tempo&quot;&quot;&quot;
 
     def __init__(self, usuario_id: str, missao: str):
         self.usuario_id = usuario_id
@@ -504,7 +504,7 @@ class IntencaoPersistente:
         }
 
     def validar_padrao(self, nome: str, descricao: str, taxa_sucesso: float):
-        &quot;&quot;&quot;Registra padrão que funciona bem&quot;&quot;&quot;
+        &quot;&quot;&quot;Registra padrêo que funciona bem&quot;&quot;&quot;
         padrao = {
             &quot;nome&quot;: nome,
             &quot;descricao&quot;: descricao,
@@ -595,7 +595,7 @@ class IntencaoPersistente:
         # Baseado em padrões
         padroes_sucesso = [p for p in self.padroes_validados if p[&quot;taxa_sucesso&quot;] &gt; 0.8]
         if padroes_sucesso:
-            sugestoes.append(f&quot;Aplicar padrão '{padroes_sucesso[0]['nome']}' com {padroes_sucesso[0]['taxa_sucesso']:.1%} de sucesso&quot;)
+            sugestoes.append(f&quot;Aplicar padrêo '{padroes_sucesso[0]['nome']}' com {padroes_sucesso[0]['taxa_sucesso']:.1%} de sucesso&quot;)
 
         # Baseado em marcos
         if len(self.marcos_atingidos) &lt; 3:
@@ -604,7 +604,7 @@ class IntencaoPersistente:
         return sugestoes[:3]
 
     def manter_alinhamento_missao(self, acao_proposta: str) -&gt; Dict:
-        &quot;&quot;&quot;Verifica se ação está alinhada com missão&quot;&quot;&quot;
+        &quot;&quot;&quot;Verifica se açêo está alinhada com missêo&quot;&quot;&quot;
         # Análise simples de palavras-chave
         missao_palavras = set(self.missao.lower().split())
         acao_palavras = set(acao_proposta.lower().split())
@@ -616,14 +616,14 @@ class IntencaoPersistente:
             &quot;alinhado&quot;: alinhamento &gt; 0.3,
             &quot;score_alinhamento&quot;: alinhamento,
             &quot;justificativa&quot;: (
-                f&quot;Ação tem {alinhamento:.1%} de alinhamento com missão&quot; if alinhamento &gt; 0.3
-                else &quot;Ação não parece alinhada com missão principal&quot;
+                f&quot;Açêo tem {alinhamento:.1%} de alinhamento com missêo&quot; if alinhamento &gt; 0.3
+                else &quot;Açêo nêo parece alinhada com missêo principal&quot;
             )
         }
 
 
 # Exemplo de uso completo
-print(&quot;\n=== INTENÇÃO PERSISTENTE ===\n&quot;)
+print(&quot;\n=== INTENÇêO PERSISTENTE ===\n&quot;)
 
 persistencia = IntencaoPersistente(
     &quot;usuario_123&quot;,
@@ -644,7 +644,7 @@ print(&quot;Semana 1: Preferências e estilo definidos&quot;)
 print(f&quot;  • Tom: {persistencia.preferencias['tom_comunicacao']['valor_atual']}&quot;)
 print(f&quot;  • Formato: {persistencia.preferencias['formato_conteudo']['valor_atual']}\n&quot;)
 
-# Semana 4: Valida padrão que funciona
+# Semana 4: Valida padrêo que funciona
 persistencia.validar_padrao(
     &quot;casos_praticos&quot;,
     &quot;Posts com casos práticos têm 3x mais engajamento&quot;,
@@ -657,15 +657,15 @@ persistencia.adicionar_contexto(
     &quot;Casos práticos têm melhor performance&quot;
 )
 
-print(&quot;Semana 4: Padrão validado&quot;)
+print(&quot;Semana 4: Padrêo validado&quot;)
 print(f&quot;  • Casos práticos: {persistencia.padroes_validados[0]['taxa_sucesso']:.1%} sucesso\n&quot;)
 
 # Semana 8: Novo projeto
-nova_acao = &quot;Criar série de vídeos sobre transformers em educação&quot;
+nova_acao = &quot;Criar série de vídeos sobre transformers em educaçêo&quot;
 alinhamento = persistencia.manter_alinhamento_missao(nova_acao)
 
-print(&quot;Semana 8: Nova ação proposta&quot;)
-print(f&quot;  • Ação: {nova_acao}&quot;)
+print(&quot;Semana 8: Nova açêo proposta&quot;)
+print(f&quot;  • Açêo: {nova_acao}&quot;)
 print(f&quot;  • Alinhada: {'✅' if alinhamento['alinhado'] else '❌'}&quot;)
 print(f&quot;  • Score: {alinhamento['score_alinhamento']:.1%}&quot;)
 print(f&quot;  • {alinhamento['justificativa']}\n&quot;)
@@ -681,7 +681,7 @@ print(&quot;=&quot; * 60)
 relatorio = persistencia.gerar_relatorio_trimestral()
 
 print(&quot;RELATÓRIO TRIMESTRAL:&quot;)
-print(f&quot;Missão: {relatorio['missao']}&quot;)
+print(f&quot;Missêo: {relatorio['missao']}&quot;)
 print(f&quot;Dias ativo: {relatorio['dias_ativo']}&quot;)
 print(f&quot;Preferências identificadas: {relatorio['preferencias_identificadas']}&quot;)
 print(f&quot;Padrões validados: {relatorio['padroes_validados']}&quot;)
@@ -695,32 +695,32 @@ for i, passo in enumerate(relatorio['proximos_passos'], 1):
 
       <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm p-8 mb-8">
         <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
-          Conclusão
+          Conclusêo
         </h2>
-        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Você dominou os conceitos de Intenção Composta e Intenção Persistente - as capacidades que permitem sistemas manterem objetivos complexos ao longo de meses.</p>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Você dominou os conceitos de Intençêo Composta e Intençêo Persistente - as capacidades que permitem sistemas manterem objetivos complexos ao longo de meses.</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">O que você dominou:</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ 7 componentes de uma Intenção Composta (macro, intermediárias, micro, critérios, contextos, dependências, camadas)</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementação completa de sistema de intenção composta com validação</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Cálculo automático de ordem de execução respeitando dependências</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Priorização de objetivos com múltiplos critérios</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ 7 componentes de uma Intençêo Composta (macro, intermediárias, micro, critérios, contextos, dependências, camadas)</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Implementaçêo completa de sistema de intençêo composta com validaçêo</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Cálculo automático de ordem de execuçêo respeitando dependências</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Priorizaçêo de objetivos com múltiplos critérios</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Análise de contextos paralelos</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Intenção Persistente com preferências, estilo, padrões validados</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Intençêo Persistente com preferências, estilo, padrões validados</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Contexto acumulado ao longo do tempo</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Alinhamento automático de novas ações com missão</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Alinhamento automático de novas ações com missêo</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Relatórios trimestrais de progresso</p>
 <p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Como sistemas mantêm objetivos por meses</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Diferença entre comando pontual e intenção persistente</p>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Por que intenção composta e persistente revolucionam IA</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Diferença entre comando pontual e intençêo persistente</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">✅ Por que intençêo composta e persistente revolucionam IA</p>
 <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Próximo módulo:</h3>
-<p class="text-neutral-700 dark:text-neutral-300 mb-4">No Módulo 6, você vai aprender sobre <strong>Sistemas Multiagentes (2026)</strong>: os 4 modelos que dominam a coordenação de agentes em 2026, com implementações completas de cada arquitetura.</p>
-<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formação em Engenharia de Intenção</p>
+<p class="text-neutral-700 dark:text-neutral-300 mb-4">No Módulo 6, você vai aprender sobre <strong>Sistemas Multiagentes (2026)</strong>: os 4 modelos que dominam a coordenaçêo de agentes em 2026, com implementações completas de cada arquitetura.</p>
+<p class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">© 2025 FEI - Formaçêo em Engenharia de Intençêo</p>
       </div>
 
       <!-- Conclusao -->
       <div class="bg-gradient-to-r from-nivel-4s to-orange-600 text-white rounded-xl p-8">
         <h2 class="text-3xl font-bold mb-4">Conclusao do Modulo</h2>
         <p class="text-lg mb-6">
-          Voce dominou os conceitos essenciais de Intenção Composta e Persistente no contexto de sistemas autonomos 2026.
+          Voce dominou os conceitos essenciais de Intençêo Composta e Persistente no contexto de sistemas autonomos 2026.
         </p>
         <div class="flex gap-4">
           <a href="nivel-4s-modulo-4.html" class="px-6 py-3 bg-white text-nivel-4s rounded-lg font-semibold hover:bg-neutral-100">← Módulo 4</a>

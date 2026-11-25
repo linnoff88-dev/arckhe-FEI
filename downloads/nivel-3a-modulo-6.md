@@ -1,11 +1,11 @@
 # Módulo 6: 4 Projetos Práticos com Sistemas Multiagentes
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
 Teoria é fundamental, mas **prática transforma conhecimento em habilidade**. Neste módulo, você implementará 4 projetos completos usando sistemas de agentes, cada um demonstrando uma arquitetura diferente e aplicável a cenários reais de negócio.
 
@@ -15,25 +15,25 @@ Cada projeto inclui:
 - **Código Python completo e funcional**
 - **Arquitetura detalhada** do sistema multiagente
 - **Fluxo de trabalho passo a passo**
-- **Exemplos de execução** com outputs reais
+- **Exemplos de execuçêo** com outputs reais
 - **Análise de quando usar** cada arquitetura
 
 ### Estrutura dos Projetos
 
-1. **Projeto 1:** Sistema de Criação de Curso (Pipeline Linear)
+1. **Projeto 1:** Sistema de Criaçêo de Curso (Pipeline Linear)
 2. **Projeto 2:** Análise Estratégica de Negócios (Pipeline Paralelo + Integrador)
-3. **Projeto 3:** Produção de Conteúdo Diário (Ciclo Iterativo com Validação)
+3. **Projeto 3:** Produçêo de Conteúdo Diário (Ciclo Iterativo com Validaçêo)
 4. **Projeto 4:** Agente de Melhoria Contínua (Loop Autônomo)
 
 **Meta:** ~40KB de código e exemplos práticos completos.
 
 ---
 
-## Projeto 1: Sistema de Criação de Curso Completo
+## Projeto 1: Sistema de Criaçêo de Curso Completo
 
-### 1.1 Visão Geral
+### 1.1 Visêo Geral
 
-**Objetivo:** Criar um curso online completo sobre qualquer tópico, desde pesquisa até conteúdo final formatado e pronto para publicação.
+**Objetivo:** Criar um curso online completo sobre qualquer tópico, desde pesquisa até conteúdo final formatado e pronto para publicaçêo.
 
 **Arquitetura:** Pipeline Linear (Sequencial)
 
@@ -41,36 +41,36 @@ Cada projeto inclui:
 - Cada etapa depende da anterior
 - Fluxo claro e previsível
 - Fácil de debugar e otimizar
-- Ideal quando há ordem natural de execução
+- Ideal quando há ordem natural de execuçêo
 
 **Contexto Pedagógico:**
 
-A criação de um curso não é apenas uma questão técnica - é fundamentalmente um desafio pedagógico. Esta arquitetura linear reflete o processo natural de design instrucional usado por educadores profissionais:
+A criaçêo de um curso nêo é apenas uma questêo técnica - é fundamentalmente um desafio pedagógico. Esta arquitetura linear reflete o processo natural de design instrucional usado por educadores profissionais:
 
-1. **Pesquisa → Estruturação → Criação**: Este fluxo espelha o modelo ADDIE (Analysis, Design, Development, Implementation, Evaluation) amplamente usado em design instrucional.
+1. **Pesquisa → Estruturaçêo → Criaçêo**: Este fluxo espelha o modelo ADDIE (Analysis, Design, Development, Implementation, Evaluation) amplamente usado em design instrucional.
 
 2. **Por que sequencial funciona aqui:**
-   - Você não pode estruturar o que ainda não pesquisou
-   - Você não pode escrever conteúdo sem uma estrutura pedagógica clara
+   - Você nêo pode estruturar o que ainda nêo pesquisou
+   - Você nêo pode escrever conteúdo sem uma estrutura pedagógica clara
    - Cada fase enriquece e informa a próxima
-   - Permite validação em checkpoints naturais
+   - Permite validaçêo em checkpoints naturais
 
 3. **Benefícios pedagógicos desta abordagem:**
-   - **Pesquisa primeiro** garante fundamentação sólida antes de estruturar
-   - **Estruturação intermediária** força reflexão sobre progressão de aprendizado
+   - **Pesquisa primeiro** garante fundamentaçêo sólida antes de estruturar
+   - **Estruturaçêo intermediária** força reflexêo sobre progressêo de aprendizado
    - **Escrita por último** aproveita todo o contexto já estabelecido
 
-**Quando usar este padrão:**
-- Criação de conteúdo educacional (cursos, treinamentos, tutoriais)
-- Produção de documentação técnica extensa
-- Desenvolvimento de materiais que exigem pesquisa + organização + redação
-- Processos onde qualidade da fundamentação é crítica
+**Quando usar este padrêo:**
+- Criaçêo de conteúdo educacional (cursos, treinamentos, tutoriais)
+- Produçêo de documentaçêo técnica extensa
+- Desenvolvimento de materiais que exigem pesquisa + organizaçêo + redaçêo
+- Processos onde qualidade da fundamentaçêo é crítica
 
-**Quando NÃO usar:**
+**Quando NêO usar:**
 - Quando você precisa de resultados em menos de 1 minuto
 - Se as etapas podem realmente acontecer em paralelo
-- Quando uma falha intermediária deve permitir continuação parcial
-- Se o volume de processamento exige paralelização
+- Quando uma falha intermediária deve permitir continuaçêo parcial
+- Se o volume de processamento exige paralelizaçêo
 
 ### 1.2 Arquitetura do Sistema
 
@@ -84,18 +84,18 @@ A criação de um curso não é apenas uma questão técnica - é fundamentalmen
     ↓ Documento de Pesquisa
 [Agente 2: Estruturador]
     • Organiza em módulos
-    • Define progressão pedagógica
+    • Define progressêo pedagógica
     • Cria objetivos de aprendizagem
     ↓ Estrutura do Curso
 [Agente 3: Escritor]
     • Escreve conteúdo completo
     • Cria exemplos práticos
-    • Formata para publicação
+    • Formata para publicaçêo
     ↓ Curso Completo
 [Usuário] ← Curso Pronto
 ```
 
-### 1.3 Implementação Completa
+### 1.3 Implementaçêo Completa
 
 ```python
 from typing import Dict, List, Optional
@@ -103,7 +103,7 @@ from dataclasses import dataclass
 from datetime import datetime
 import json
 
-# ===== DEFINIÇÃO DOS AGENTES =====
+# ===== DEFINIÇêO DOS AGENTES =====
 
 @dataclass
 class AgentOutput:
@@ -121,7 +121,7 @@ class ResearcherAgent:
 
     def __init__(self):
         self.name = "Pesquisador de Conteúdo"
-        self.expertise = ["pesquisa acadêmica", "validação de fontes", "síntese de informação"]
+        self.expertise = ["pesquisa acadêmica", "validaçêo de fontes", "síntese de informaçêo"]
 
     def execute(self, topic: str) -> AgentOutput:
         """Executa pesquisa sobre o tópico."""
@@ -163,14 +163,14 @@ class ResearcherAgent:
 
     def _identify_subtopics(self, topic: str) -> List[str]:
         """Identifica subtópicos principais."""
-        # Simulação - em produção, usaria LLM para identificar
+        # Simulaçêo - em produçêo, usaria LLM para identificar
         subtopics_map = {
             "python": ["Sintaxe Básica", "Estruturas de Dados", "Funções",
-                      "Programação Orientada a Objetos", "Módulos e Pacotes"],
+                      "Programaçêo Orientada a Objetos", "Módulos e Pacotes"],
             "machine learning": ["Fundamentos", "Supervised Learning",
                                 "Unsupervised Learning", "Deep Learning", "Aplicações Práticas"],
-            "default": ["Introdução", "Conceitos Fundamentais", "Aplicações",
-                       "Melhores Práticas", "Conclusão"]
+            "default": ["Introduçêo", "Conceitos Fundamentais", "Aplicações",
+                       "Melhores Práticas", "Conclusêo"]
         }
 
         for key in subtopics_map:
@@ -232,7 +232,7 @@ class StructurerAgent:
 
     def __init__(self):
         self.name = "Estruturador Pedagógico"
-        self.expertise = ["design instrucional", "progressão didática", "objetivos de aprendizagem"]
+        self.expertise = ["design instrucional", "progressêo didática", "objetivos de aprendizagem"]
 
     def execute(self, research_document: Dict) -> AgentOutput:
         """Estrutura o curso baseado na pesquisa."""
@@ -244,9 +244,9 @@ class StructurerAgent:
         modules = self._create_modules(research_document)
         print(f"[{self.name}] Criados {len(modules)} módulos")
 
-        # Fase 2: Definir progressão
+        # Fase 2: Definir progressêo
         progression = self._define_progression(modules)
-        print(f"[{self.name}] Progressão didática definida")
+        print(f"[{self.name}] Progressêo didática definida")
 
         # Fase 3: Criar objetivos de aprendizagem
         learning_objectives = self._create_learning_objectives(modules)
@@ -299,7 +299,7 @@ class StructurerAgent:
         return modules
 
     def _define_progression(self, modules: List[Dict]) -> Dict:
-        """Define progressão pedagógica."""
+        """Define progressêo pedagógica."""
         return {
             "type": "linear_with_prerequisites",
             "flow": [m["id"] for m in modules],
@@ -343,7 +343,7 @@ class StructurerAgent:
         return exercises
 
     def _estimate_duration(self, modules: List[Dict]) -> str:
-        """Estima duração total do curso."""
+        """Estima duraçêo total do curso."""
         total_minutes = sum(m["duration_minutes"] for m in modules)
         hours = total_minutes // 60
         minutes = total_minutes % 60
@@ -354,7 +354,7 @@ class WriterAgent:
 
     def __init__(self):
         self.name = "Escritor de Conteúdo"
-        self.expertise = ["redação didática", "criação de exemplos", "formatação"]
+        self.expertise = ["redaçêo didática", "criaçêo de exemplos", "formataçêo"]
 
     def execute(self, course_structure: Dict, research_document: Dict) -> AgentOutput:
         """Escreve conteúdo completo do curso."""
@@ -362,9 +362,9 @@ class WriterAgent:
 
         print(f"\n[{self.name}] Escrevendo: {course_structure['title']}")
 
-        # Fase 1: Escrever introdução
+        # Fase 1: Escrever introduçêo
         introduction = self._write_introduction(course_structure, research_document)
-        print(f"[{self.name}] Introdução escrita")
+        print(f"[{self.name}] Introduçêo escrita")
 
         # Fase 2: Escrever módulos
         written_modules = []
@@ -377,9 +377,9 @@ class WriterAgent:
             written_modules.append(written_module)
             print(f"[{self.name}] ✓ Módulo {i}/{len(course_structure['modules'])} escrito")
 
-        # Fase 3: Escrever conclusão
+        # Fase 3: Escrever conclusêo
         conclusion = self._write_conclusion(course_structure)
-        print(f"[{self.name}] Conclusão escrita")
+        print(f"[{self.name}] Conclusêo escrita")
 
         # Fase 4: Formatar curso completo
         complete_course = self._format_course(
@@ -402,7 +402,7 @@ class WriterAgent:
         )
 
     def _write_introduction(self, structure: Dict, research: Dict) -> str:
-        """Escreve introdução do curso."""
+        """Escreve introduçêo do curso."""
         intro = f"""# {structure['title']}
 
 ## Bem-vindo ao curso!
@@ -417,7 +417,7 @@ Este curso está organizado em {len(structure['modules'])} módulos principais:
         for i, module in enumerate(structure['modules'], 1):
             intro += f"{i}. **{module['title']}**: {module['description']}\n"
 
-        intro += f"\n**Duração estimada:** {structure['estimated_duration']}\n"
+        intro += f"\n**Duraçêo estimada:** {structure['estimated_duration']}\n"
         intro += "\n### Pré-requisitos\n\nNenhum conhecimento prévio é necessário. Este curso foi desenvolvido para iniciantes!\n"
 
         return intro
@@ -444,7 +444,7 @@ Ao final deste módulo, você será capaz de:
 
 {concept} é um conceito fundamental que você precisa dominar. Vamos explorar em detalhes:
 
-**Definição:** {concept} refere-se a [explicação detalhada aqui].
+**Definiçêo:** {concept} refere-se a [explicaçêo detalhada aqui].
 
 **Por que é importante:** Este conceito é crucial porque permite que você [benefícios e aplicações].
 
@@ -462,7 +462,7 @@ Vamos ver {example} na prática:
 ```python
 # Código de exemplo
 def exemplo_{i}():
-    # Implementação do conceito
+    # Implementaçêo do conceito
     result = "{example}"
     return result
 
@@ -470,7 +470,7 @@ def exemplo_{i}():
 print(exemplo_{i}())
 ```
 
-**Explicação:** Este exemplo demonstra como [explicação do exemplo].
+**Explicaçêo:** Este exemplo demonstra como [explicaçêo do exemplo].
 
 """
 
@@ -496,8 +496,8 @@ print(exemplo_{i}())
         }
 
     def _write_conclusion(self, structure: Dict) -> str:
-        """Escreve conclusão do curso."""
-        conclusion = f"""# Conclusão
+        """Escreve conclusêo do curso."""
+        conclusion = f"""# Conclusêo
 
 ## Parabéns por completar o curso!
 
@@ -521,7 +521,7 @@ Agora que você completou este curso, recomendamos:
 
 ### Recursos Adicionais
 
-- Documentação oficial
+- Documentaçêo oficial
 - Comunidades online
 - Projetos open source
 
@@ -555,7 +555,7 @@ Agora que você completou este curso, recomendamos:
 # ===== ORQUESTRADOR DO PIPELINE =====
 
 class CourseCreationPipeline:
-    """Orquestra o pipeline completo de criação de curso."""
+    """Orquestra o pipeline completo de criaçêo de curso."""
 
     def __init__(self):
         self.researcher = ResearcherAgent()
@@ -568,7 +568,7 @@ class CourseCreationPipeline:
         start_time = datetime.now()
 
         print("=" * 70)
-        print(f"INICIANDO CRIAÇÃO DE CURSO: {topic}")
+        print(f"INICIANDO CRIAÇêO DE CURSO: {topic}")
         print("=" * 70)
 
         try:
@@ -579,12 +579,12 @@ class CourseCreationPipeline:
             if not research_output.success:
                 return self._create_error_result("Falha na pesquisa")
 
-            # Estágio 2: Estruturação
+            # Estágio 2: Estruturaçêo
             structure_output = self.structurer.execute(research_output.data)
             self.execution_log.append(structure_output)
 
             if not structure_output.success:
-                return self._create_error_result("Falha na estruturação")
+                return self._create_error_result("Falha na estruturaçêo")
 
             # Estágio 3: Escrita
             writing_output = self.writer.execute(
@@ -644,10 +644,10 @@ if __name__ == "__main__":
         print(f"\n✓ Curso: {result['course']['title']}")
         print(f"✓ Módulos: {result['course']['metadata']['total_modules']}")
         print(f"✓ Palavras: {result['course']['metadata']['total_words']}")
-        print(f"✓ Duração total: {result['total_duration']:.2f}s")
+        print(f"✓ Duraçêo total: {result['total_duration']:.2f}s")
         print(f"✓ Qualidade média: {result['average_quality']:.1%}")
 
-        print("\nLog de Execução:")
+        print("\nLog de Execuçêo:")
         for log in result['execution_log']:
             print(f"  • {log['agent']}: {log['duration']:.2f}s (qualidade: {log['quality']:.1%})")
 
@@ -670,14 +670,14 @@ if __name__ == "__main__":
 
 **Vantagens do Pipeline Linear:**
 - Clareza total do fluxo
-- Fácil manutenção e debug
+- Fácil manutençêo e debug
 - Resultados previsíveis
 - Cada agente pode ser otimizado independentemente
 
 **Desvantagens:**
 - Tempo total é soma de todos os estágios
 - Falha em um estágio para todo o pipeline
-- Não aproveita paralelização
+- Nêo aproveita paralelizaçêo
 
 **Quando usar:**
 - Processos com dependências sequenciais claras
@@ -694,7 +694,7 @@ if __name__ == "__main__":
 
 #### Agente 1: Pesquisador - Deep Dive
 
-O **ResearcherAgent** é o fundamento de todo o sistema. Sua função vai além de simplesmente coletar informações:
+O **ResearcherAgent** é o fundamento de todo o sistema. Sua funçêo vai além de simplesmente coletar informações:
 
 **Fluxo interno detalhado:**
 
@@ -703,8 +703,8 @@ O **ResearcherAgent** é o fundamento de todo o sistema. Sua função vai além 
    ↓
    • Analisa o tópico principal
    • Decompõe em 5-7 subtópicos lógicos
-   • Considera progressão de dificuldade
-   • DECISÃO: Como dividir conhecimento de forma pedagógica?
+   • Considera progressêo de dificuldade
+   • DECISêO: Como dividir conhecimento de forma pedagógica?
 
 2. Pesquisar Subtópico (método _research_subtopic)
    ↓
@@ -719,35 +719,35 @@ O **ResearcherAgent** é o fundamento de todo o sistema. Sua função vai além 
    ↓
    • Verifica credibilidade de cada fonte
    • Score de confiança (0.0-1.0)
-   • Data de publicação (recência)
+   • Data de publicaçêo (recência)
    • FILTRO: Apenas fontes com score > 0.7
 
 4. Criar Documento (método _create_research_document)
    ↓
    • Estrutura final em JSON
    • Metadados: total de conceitos, exemplos, nível de confiança
-   • SAÍDA: Documento pronto para estruturação
+   • SAÍDA: Documento pronto para estruturaçêo
 ```
 
 **Por que este design funciona:**
 - **Modularidade**: Cada método tem responsabilidade única
 - **Rastreabilidade**: Todo conceito tem fonte associada
-- **Validação**: Score de confiança permite filtrar informação duvidosa
+- **Validaçêo**: Score de confiança permite filtrar informaçêo duvidosa
 - **Escalabilidade**: Adicionar novos tipos de pesquisa é trivial
 
-**Em produção real, você substituiria:**
+**Em produçêo real, você substituiria:**
 ```python
-# SIMULAÇÃO (código atual)
+# SIMULAÇêO (código atual)
 def _identify_subtopics(self, topic: str) -> List[str]:
     subtopics_map = {...}  # Dicionário estático
     return subtopics_map.get(topic, default)
 
-# PRODUÇÃO (com LLM real)
+# PRODUÇêO (com LLM real)
 def _identify_subtopics(self, topic: str) -> List[str]:
     prompt = f"""Analise o tópico '{topic}' e decomponha em 5-7 subtópicos
-    que formem uma progressão pedagógica natural. Considere:
+    que formem uma progressêo pedagógica natural. Considere:
     - Iniciantes devem começar pelos fundamentos
-    - Progressão de simples → complexo
+    - Progressêo de simples → complexo
     - Cada subtópico deve ter escopo claro
 
     Retorne apenas a lista de subtópicos."""
@@ -760,13 +760,13 @@ def _identify_subtopics(self, topic: str) -> List[str]:
 
 O **StructurerAgent** transforma pesquisa bruta em uma jornada de aprendizado estruturada.
 
-**O que torna a estruturação complexa:**
+**O que torna a estruturaçêo complexa:**
 
-1. **Progressão Pedagógica**
-   - Não é apenas ordenar tópicos
+1. **Progressêo Pedagógica**
+   - Nêo é apenas ordenar tópicos
    - É construir scaffolding (andaimes) de conhecimento
    - Cada módulo deve preparar para o próximo
-   - Exemplo: Não ensine "Classes" antes de "Funções"
+   - Exemplo: Nêo ensine "Classes" antes de "Funções"
 
 2. **Objetivos de Aprendizagem (Bloom's Taxonomy)**
    ```
@@ -778,10 +778,10 @@ O **StructurerAgent** transforma pesquisa bruta em uma jornada de aprendizado es
    Nível 6 (Criar):      "Desenvolver estrutura de dados customizada"
    ```
 
-3. **Estimativa de Duração**
+3. **Estimativa de Duraçêo**
    ```python
    def _estimate_duration(self, modules: List[Dict]) -> str:
-       # Heurísticas baseadas em pesquisa de educação:
+       # Heurísticas baseadas em pesquisa de educaçêo:
        # - 1 conceito novo = ~5 min para aprender
        # - 1 exemplo prático = ~10 min para executar
        # - 1 exercício = ~15 min para completar
@@ -793,7 +793,7 @@ O **StructurerAgent** transforma pesquisa bruta em uma jornada de aprendizado es
 
            total_minutes += (concepts * 5)  # Teoria
            total_minutes += (examples * 10)  # Prática
-           total_minutes += 15  # Buffer para absorção
+           total_minutes += 15  # Buffer para absorçêo
 
        return format_duration(total_minutes)
    ```
@@ -808,11 +808,11 @@ O **WriterAgent** é onde a mágica acontece - transformar estrutura em conteúd
    ```
    Título → Objetivos → Conteúdo → Exemplos → Práticas → Resumo
 
-   Esta estrutura não é arbitrária:
+   Esta estrutura nêo é arbitrária:
    - Título: Cria expectativa
-   - Objetivos: Dá direção ("vou aprender X")
+   - Objetivos: Dá direçêo ("vou aprender X")
    - Conteúdo: Explica teoria
-   - Exemplos: Demonstra aplicação
+   - Exemplos: Demonstra aplicaçêo
    - Práticas: Reforça aprendizado
    - Resumo: Consolida memória
    ```
@@ -820,10 +820,10 @@ O **WriterAgent** é onde a mágica acontece - transformar estrutura em conteúd
 2. **Explicações em Camadas**
    ```python
    # Camada 1: O QUE
-   "Listas são estruturas de dados mutáveis"
+   "Listas sêo estruturas de dados mutáveis"
 
    # Camada 2: POR QUE
-   "São importantes porque permitem armazenar múltiplos valores"
+   "Sêo importantes porque permitem armazenar múltiplos valores"
 
    # Camada 3: COMO
    "Use listas quando: [situações específicas]"
@@ -835,11 +835,11 @@ O **WriterAgent** é onde a mágica acontece - transformar estrutura em conteúd
    ```
 
 3. **Engajamento através de linguagem**
-   - Uso de "você" (personalização)
-   - Verbos de ação ("vamos", "aprenda", "domine")
+   - Uso de "você" (personalizaçêo)
+   - Verbos de açêo ("vamos", "aprenda", "domine")
    - Perguntas retóricas (ativam pensamento)
 
-### 1.6 Fluxo de Execução Passo a Passo
+### 1.6 Fluxo de Execuçêo Passo a Passo
 
 **Vamos traçar o que acontece quando você executa:**
 ```python
@@ -847,10 +847,10 @@ pipeline = CourseCreationPipeline()
 result = pipeline.execute("Python para Iniciantes")
 ```
 
-**Timeline de Execução:**
+**Timeline de Execuçêo:**
 
 ```
-t=0.00s: [Pipeline] Inicia execução
+t=0.00s: [Pipeline] Inicia execuçêo
          ├─ Cria instâncias dos 3 agentes
          └─ Inicializa execution_log = []
 
@@ -882,7 +882,7 @@ t=1.5s:  [Researcher] Retorna AgentOutput
 
 t=1.51s: [Pipeline] Chama structurer.execute(research_output.data)
 
-t=1.52s: [Structurer] Inicia estruturação
+t=1.52s: [Structurer] Inicia estruturaçêo
          ├─ Recebe research_document
          └─ Extrai subtopics: [5 items]
 
@@ -891,7 +891,7 @@ t=2.0s:  [Structurer] Cria módulos
          │  {id, number, title, description, topics, examples, duration}
          └─ Resultado: modules = [mod1, mod2, mod3, mod4, mod5]
 
-t=2.5s:  [Structurer] Define progressão
+t=2.5s:  [Structurer] Define progressêo
          └─ Cria grafo de dependências: {mod1: [], mod2: [mod1], ...}
 
 t=2.8s:  [Structurer] Cria objetivos de aprendizagem
@@ -900,7 +900,7 @@ t=2.8s:  [Structurer] Cria objetivos de aprendizagem
 t=3.0s:  [Structurer] Sugere exercícios
          └─ 2 exercícios por módulo × 5 módulos = 10 exercícios
 
-t=3.2s:  [Structurer] Estima duração
+t=3.2s:  [Structurer] Estima duraçêo
          └─ 45min/módulo × 5 = 3h45min total
 
 t=3.5s:  [Structurer] Retorna AgentOutput
@@ -910,9 +910,9 @@ t=3.51s: [Pipeline] Chama writer.execute(structure, research)
 
 t=3.52s: [Writer] Inicia escrita
 
-t=4.0s:  [Writer] Escreve introdução
+t=4.0s:  [Writer] Escreve introduçêo
          ├─ Título do curso
-         ├─ Apresentação
+         ├─ Apresentaçêo
          ├─ Lista de módulos
          └─ Pré-requisitos
 
@@ -923,11 +923,11 @@ t=5.0s:  [Writer] Loop de escrita de módulos (para cada módulo)
          ├─ ... (total 5 iterações)
          └─ Resultado: written_modules = [mod1_full, mod2_full, ...]
 
-t=8.0s:  [Writer] Escreve conclusão
+t=8.0s:  [Writer] Escreve conclusêo
          └─ Parabéns, recap, próximos passos
 
 t=8.5s:  [Writer] Formata curso completo
-         ├─ Concatena: intro + módulos + conclusão
+         ├─ Concatena: intro + módulos + conclusêo
          ├─ Calcula metadados:
          │  • total_modules: 5
          │  • total_words: ~5000
@@ -957,14 +957,14 @@ t=9.04s: [Main] Exibe resultados e salva arquivo
    ```python
    if not research_output.success:
        return self._create_error_result("Falha na pesquisa")
-   # Pipeline PARA aqui, não continua para Structurer
+   # Pipeline PARA aqui, nêo continua para Structurer
    ```
 
 2. **Falha no Structurer (t=3.5s)**
    ```python
    if not structure_output.success:
-       return self._create_error_result("Falha na estruturação")
-   # Pipeline PARA aqui, não continua para Writer
+       return self._create_error_result("Falha na estruturaçêo")
+   # Pipeline PARA aqui, nêo continua para Writer
    # MAS: research já foi feita e está em execution_log
    ```
 
@@ -973,7 +973,7 @@ t=9.04s: [Main] Exibe resultados e salva arquivo
    if not writing_output.success:
        return self._create_error_result("Falha na escrita")
    # Pipeline PARA aqui
-   # MAS: research E structure já estão em execution_log
+   # MAS: research E structure já estêo em execution_log
    # Você pode tentar novamente só o Writer com os dados existentes
    ```
 
@@ -994,7 +994,7 @@ for log in result['execution_log']:
 # - Método _write_module está gerando texto insuficiente
 # - Método _write_content precisa de mais templates
 
-# SOLUÇÃO
+# SOLUÇêO
 def _write_module(self, module: Dict, research_data: Dict, objectives: List[str]) -> Dict:
     content = f"# Módulo {module['number']}: {module['title']}\n\n"
 
@@ -1024,17 +1024,17 @@ for log in result['execution_log']:
 
 # Identificar gargalo:
 # - Se Researcher > 10s: Método de pesquisa está lento
-# - Se Structurer > 5s: Criação de exercícios está pesada
+# - Se Structurer > 5s: Criaçêo de exercícios está pesada
 # - Se Writer > 15s: Escrita de módulos é o gargalo
 
-# SOLUÇÃO para Writer lento:
+# SOLUÇêO para Writer lento:
 class WriterAgent:
     def __init__(self):
-        # OTIMIZAÇÃO 1: Cache de templates
+        # OTIMIZAÇêO 1: Cache de templates
         self.templates_cache = self._load_templates()
 
     def _write_module(self, module: Dict, ...):
-        # OTIMIZAÇÃO 2: Usar template em vez de gerar do zero
+        # OTIMIZAÇêO 2: Usar template em vez de gerar do zero
         template = self.templates_cache['module_template']
         content = template.format(
             title=module['title'],
@@ -1053,13 +1053,13 @@ result['error'] = "Falha na pesquisa"
 
 # DIAGNÓSTICO
 # Researcher pode falhar por:
-# 1. Tópico não reconhecido (não está no subtopics_map)
-# 2. Falha na validação de fontes (nenhuma fonte com score > 0.7)
+# 1. Tópico nêo reconhecido (nêo está no subtopics_map)
+# 2. Falha na validaçêo de fontes (nenhuma fonte com score > 0.7)
 
-# SOLUÇÃO: Implementar fallback
+# SOLUÇêO: Implementar fallback
 class ResearcherAgent:
     def _identify_subtopics(self, topic: str) -> List[str]:
-        # ANTES: Se não achar, retorna default genérico
+        # ANTES: Se nêo achar, retorna default genérico
         for key in subtopics_map:
             if key in topic.lower():
                 return subtopics_map[key]
@@ -1070,7 +1070,7 @@ class ResearcherAgent:
             # Usar palavras do tópico para gerar subtópicos
             words = topic.split()
             return [
-                f"Introdução a {words[0]}",
+                f"Introduçêo a {words[0]}",
                 f"Fundamentos de {words[0]}",
                 f"{words[1] if len(words) > 1 else words[0]} Avançado",
                 # ... gerar subtópicos dinamicamente
@@ -1079,7 +1079,7 @@ class ResearcherAgent:
 
 ### 1.8 Variações e Otimizações Avançadas
 
-**Variação 1: Pipeline com Checkpoint e Recuperação**
+**Variaçêo 1: Pipeline com Checkpoint e Recuperaçêo**
 
 ```python
 class CourseCreationPipelineWithCheckpoints:
@@ -1105,7 +1105,7 @@ class CourseCreationPipelineWithCheckpoints:
                 # ... salva novo checkpoint
             # ... outras condições
 
-        # Execução normal, mas salvando checkpoints
+        # Execuçêo normal, mas salvando checkpoints
         research_output = self.researcher.execute(topic)
         self._save_checkpoint(checkpoint_file, {'research': research_output})
 
@@ -1117,9 +1117,9 @@ class CourseCreationPipelineWithCheckpoints:
         # ... continua
 ```
 
-**Quando usar:** Quando pipeline demora muito (>5min) e falhas são frequentes.
+**Quando usar:** Quando pipeline demora muito (>5min) e falhas sêo frequentes.
 
-**Variação 2: Pipeline com Validação Humana entre Etapas**
+**Variaçêo 2: Pipeline com Validaçêo Humana entre Etapas**
 
 ```python
 class CourseCreationPipelineWithHumanReview:
@@ -1127,8 +1127,8 @@ class CourseCreationPipelineWithHumanReview:
         # Etapa 1: Pesquisa
         research_output = self.researcher.execute(topic)
 
-        # VALIDAÇÃO HUMANA 1
-        print("\n=== REVISÃO DA PESQUISA ===")
+        # VALIDAÇêO HUMANA 1
+        print("\n=== REVISêO DA PESQUISA ===")
         print(f"Subtópicos identificados: {research_output.data['subtopics']}")
         approval = input("Aprovar pesquisa? (s/n): ")
 
@@ -1138,11 +1138,11 @@ class CourseCreationPipelineWithHumanReview:
             # Re-executar com feedback
             research_output = self.researcher.execute(topic, feedback=feedback)
 
-        # Etapa 2: Estruturação
+        # Etapa 2: Estruturaçêo
         structure_output = self.structurer.execute(research_output.data)
 
-        # VALIDAÇÃO HUMANA 2
-        print("\n=== REVISÃO DA ESTRUTURA ===")
+        # VALIDAÇêO HUMANA 2
+        print("\n=== REVISêO DA ESTRUTURA ===")
         for i, module in enumerate(structure_output.data['modules'], 1):
             print(f"{i}. {module['title']} ({module['duration_minutes']}min)")
         approval = input("Aprovar estrutura? (s/n): ")
@@ -1152,7 +1152,7 @@ class CourseCreationPipelineWithHumanReview:
 
 **Quando usar:** Quando qualidade é crítica e você quer revisar cada etapa antes de prosseguir.
 
-**Otimização 1: Paralelização Interna do Researcher**
+**Otimizaçêo 1: Paralelizaçêo Interna do Researcher**
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
@@ -1186,7 +1186,7 @@ class ResearcherAgent:
 
 **Ganho:** Se pesquisa de 5 subtópicos leva 5s sequencial, paralelo leva ~1s (5x mais rápido).
 
-**Otimização 2: Streaming de Output para Writer**
+**Otimizaçêo 2: Streaming de Output para Writer**
 
 ```python
 class WriterAgent:
@@ -1201,7 +1201,7 @@ class WriterAgent:
 
         # DEPOIS: Stream cada módulo conforme completa
         with open("/tmp/curso_stream.md", "w") as f:
-            # Escreve introdução
+            # Escreve introduçêo
             intro = self._write_introduction(...)
             f.write(intro)
             f.flush()  # Disponível imediatamente
@@ -1212,7 +1212,7 @@ class WriterAgent:
                 f.write(written)
                 f.flush()  # Disponível progressivamente
 
-            # Escreve conclusão
+            # Escreve conclusêo
             conclusion = self._write_conclusion(...)
             f.write(conclusion)
 
@@ -1226,9 +1226,9 @@ class WriterAgent:
 
 ## Projeto 2: Sistema de Análise Estratégica de Negócios
 
-### 2.1 Visão Geral
+### 2.1 Visêo Geral
 
-**Objetivo:** Criar análise estratégica completa de negócio com múltiplas perspectivas (mercado, estratégia, execução, métricas).
+**Objetivo:** Criar análise estratégica completa de negócio com múltiplas perspectivas (mercado, estratégia, execuçêo, métricas).
 
 **Arquitetura:** Pipeline Paralelo + Integrador
 
@@ -1245,7 +1245,7 @@ class WriterAgent:
     ↓
     ├─→ [Agente 1: Analista de Mercado] → Análise de Mercado
     ├─→ [Agente 2: Estrategista] → Análise Estratégica
-    ├─→ [Agente 3: Executivo] → Plano de Execução
+    ├─→ [Agente 3: Executivo] → Plano de Execuçêo
     └─→ [Agente 4: Analista de Métricas] → KPIs e Dashboards
     ↓
 [Agente 5: Integrador]
@@ -1257,7 +1257,7 @@ class WriterAgent:
 [Usuário] ← Plano Estratégico Completo
 ```
 
-### 2.3 Implementação Completa
+### 2.3 Implementaçêo Completa
 
 ```python
 from typing import Dict, List, Optional
@@ -1327,15 +1327,15 @@ class MarketAnalyst:
 
     def _identify_trends(self, industry: str) -> List[str]:
         return [
-            "Digitalização acelerada",
+            "Digitalizaçêo acelerada",
             "Sustentabilidade como diferencial",
-            "Personalização em escala"
+            "Personalizaçêo em escala"
         ]
 
     def _identify_opportunities(self, industry: str, target: str) -> List[str]:
         return [
-            f"Expansão em mercados emergentes de {industry}",
-            "Inovação em produtos digitais",
+            f"Expansêo em mercados emergentes de {industry}",
+            "Inovaçêo em produtos digitais",
             "Parcerias estratégicas"
         ]
 
@@ -1347,7 +1347,7 @@ class MarketAnalyst:
         ]
 
 class StrategistAgent:
-    """Estrategista - foco em posicionamento e diferenciação."""
+    """Estrategista - foco em posicionamento e diferenciaçêo."""
 
     def __init__(self):
         self.name = "Estrategista de Negócios"
@@ -1365,7 +1365,7 @@ class StrategistAgent:
         }
 
         recommendations = [
-            "Implementar estratégia de diferenciação por inovação",
+            "Implementar estratégia de diferenciaçêo por inovaçêo",
             f"Focar em {findings['value_proposition']['primary']}",
             "Desenvolver parcerias estratégicas no setor"
         ]
@@ -1393,7 +1393,7 @@ class StrategistAgent:
                 "Processo de vendas longo"
             ],
             "opportunities": [
-                "Expansão geográfica",
+                "Expansêo geográfica",
                 "Novos segmentos de mercado"
             ],
             "threats": [
@@ -1404,16 +1404,16 @@ class StrategistAgent:
 
     def _define_value_prop(self, context: Dict) -> Dict:
         return {
-            "primary": "Solução mais completa e fácil de usar do mercado",
+            "primary": "Soluçêo mais completa e fácil de usar do mercado",
             "secondary": "Suporte técnico excepcional",
             "differentiators": [
-                "Integração nativa com principais plataformas",
+                "Integraçêo nativa com principais plataformas",
                 "ROI comprovado em 6 meses"
             ]
         }
 
     def _define_positioning(self, context: Dict) -> str:
-        return "Líder em inovação e experiência do cliente no setor"
+        return "Líder em inovaçêo e experiência do cliente no setor"
 
     def _identify_advantages(self, context: Dict) -> List[str]:
         return [
@@ -1423,14 +1423,14 @@ class StrategistAgent:
         ]
 
 class ExecutionAgent:
-    """Executivo - foco em táticas e implementação."""
+    """Executivo - foco em táticas e implementaçêo."""
 
     def __init__(self):
-        self.name = "Planejador de Execução"
+        self.name = "Planejador de Execuçêo"
 
     def analyze(self, business_context: Dict) -> AnalysisOutput:
-        """Cria plano de execução tático."""
-        print(f"[{self.name}] Desenvolvendo plano de execução...")
+        """Cria plano de execuçêo tático."""
+        print(f"[{self.name}] Desenvolvendo plano de execuçêo...")
         time.sleep(0.9)  # Simula tempo de análise
 
         findings = {
@@ -1446,7 +1446,7 @@ class ExecutionAgent:
             "Revisar progresso semanalmente"
         ]
 
-        print(f"[{self.name}] ✓ Plano de execução pronto")
+        print(f"[{self.name}] ✓ Plano de execuçêo pronto")
 
         return AnalysisOutput(
             analyst_name=self.name,
@@ -1460,7 +1460,7 @@ class ExecutionAgent:
     def _create_action_plan(self, context: Dict) -> List[Dict]:
         return [
             {
-                "phase": "Fase 1: Fundação",
+                "phase": "Fase 1: Fundaçêo",
                 "duration": "Mês 1-2",
                 "actions": [
                     "Validar hipóteses com clientes atuais",
@@ -1482,7 +1482,7 @@ class ExecutionAgent:
                 "duration": "Mês 7-12",
                 "actions": [
                     "Expandir geográficamente",
-                    "Automação de processos",
+                    "Automaçêo de processos",
                     "Novos produtos/features"
                 ]
             }
@@ -1495,7 +1495,7 @@ class ExecutionAgent:
                 {"month": 2, "milestone": "MVP pronto"},
                 {"month": 4, "milestone": "100 primeiros clientes"},
                 {"month": 8, "milestone": "Break-even"},
-                {"month": 12, "milestone": "Expansão para 2 novas regiões"}
+                {"month": 12, "milestone": "Expansêo para 2 novas regiões"}
             ]
         }
 
@@ -1663,16 +1663,16 @@ class IntegratorAgent:
         return {
             "vision": "Tornar-se líder de mercado em 3 anos",
             "strategy": {
-                "year_1": "Validação e crescimento inicial (atingir R$ 350k MRR)",
-                "year_2": "Escala e expansão (atingir R$ 2M MRR)",
-                "year_3": "Consolidação e liderança (atingir R$ 5M MRR)"
+                "year_1": "Validaçêo e crescimento inicial (atingir R$ 350k MRR)",
+                "year_2": "Escala e expansêo (atingir R$ 2M MRR)",
+                "year_3": "Consolidaçêo e liderança (atingir R$ 5M MRR)"
             },
             "key_initiatives": [
                 {
                     "initiative": "Lançar MVP e validar com early adopters",
                     "owner": "Product",
                     "timeline": "Q1",
-                    "expected_impact": "Validação de product-market fit"
+                    "expected_impact": "Validaçêo de product-market fit"
                 },
                 {
                     "initiative": "Implementar estratégia de marketing de conteúdo",
@@ -1691,7 +1691,7 @@ class IntegratorAgent:
 
     def _prioritize_recommendations(self, recommendations: List[str]) -> List[Dict]:
         """Prioriza recomendações por impacto e urgência."""
-        # Simplificado - em produção, usaria scoring mais sofisticado
+        # Simplificado - em produçêo, usaria scoring mais sofisticado
         prioritized = [
             {"priority": 1, "recommendation": rec, "impact": "high", "urgency": "high"}
             for rec in recommendations[:3]
@@ -1751,8 +1751,8 @@ class BusinessAnalysisSystem:
                 except Exception as e:
                     print(f"✗ Erro na análise {analysis_type}: {str(e)}")
 
-        # Fase 2: Integração
-        print("\nFase 2: Integração")
+        # Fase 2: Integraçêo
+        print("\nFase 2: Integraçêo")
         print("-" * 70)
 
         integrated_result = self.integrator.integrate(analyses)
@@ -1781,9 +1781,9 @@ class BusinessAnalysisSystem:
         }
 
     def _calculate_parallelization_benefit(self, analyses: List[AnalysisOutput], actual_time: float) -> Dict:
-        """Calcula benefício da paralelização."""
+        """Calcula benefício da paralelizaçêo."""
         # Tempo sequencial seria a soma de todos
-        sequential_time = 1.0 + 1.2 + 0.9 + 0.8 + 0.5  # tempos estimados + integração
+        sequential_time = 1.0 + 1.2 + 0.9 + 0.8 + 0.5  # tempos estimados + integraçêo
         speedup = sequential_time / actual_time
 
         return {
@@ -1814,7 +1814,7 @@ if __name__ == "__main__":
     # Exibir resultados
     if result['success']:
         print(f"\n✓ Análise completa realizada em {result['execution_time']:.2f}s")
-        print(f"✓ Benefício da paralelização: {result['parallelization_benefit']['speedup']}")
+        print(f"✓ Benefício da paralelizaçêo: {result['parallelization_benefit']['speedup']}")
         print(f"✓ Tempo economizado: {result['parallelization_benefit']['time_saved']}")
 
         print("\nAnálises Individuais:")
@@ -1836,13 +1836,13 @@ if __name__ == "__main__":
 ### 2.4 Análise do Projeto
 
 **Vantagens do Pipeline Paralelo:**
-- Redução drástica de tempo (3-4x mais rápido)
+- Reduçêo drástica de tempo (3-4x mais rápido)
 - Análises independentes e especializadas
 - Escalável (adicionar mais agentes facilmente)
-- Falha em um agente não bloqueia os outros
+- Falha em um agente nêo bloqueia os outros
 
 **Desvantagens:**
-- Complexidade maior de coordenação
+- Complexidade maior de coordenaçêo
 - Possíveis conflitos entre análises
 - Requer integrador competente
 - Mais difícil de debugar
@@ -1850,7 +1850,7 @@ if __name__ == "__main__":
 **Quando usar:**
 - Análises independentes podem ocorrer simultaneamente
 - Velocidade é crítica
-- Múltiplas perspectivas são necessárias
+- Múltiplas perspectivas sêo necessárias
 - Sistema tem recursos computacionais adequados
 
 **Métricas típicas:**
@@ -1859,11 +1859,11 @@ if __name__ == "__main__":
 - Speedup: 3-4x
 - Confiança média: 88-92%
 
-### 2.5 Detalhes da Integração Paralela e Resolução de Conflitos
+### 2.5 Detalhes da Integraçêo Paralela e Resoluçêo de Conflitos
 
 O **IntegratorAgent** é o componente mais sofisticado deste projeto. Ele precisa consolidar 4 perspectivas diferentes em um plano coeso, identificando sinergias ocultas e resolvendo conflitos.
 
-#### Identificação de Sinergias - Como Funciona
+#### Identificaçêo de Sinergias - Como Funciona
 
 **Sinergia** acontece quando dois insights independentes, combinados, criam valor maior que a soma das partes.
 
@@ -1877,7 +1877,7 @@ market_opportunity = "Mercado de SaaS B2B crescendo 15% a.a."
 strategic_strength = "Equipe técnica experiente em integrações"
 
 # SINERGIA identificada pelo Integrador:
-synergy = "Equipe experiente + Mercado crescente = Oportunidade de criar produto de integração SaaS com alta demanda"
+synergy = "Equipe experiente + Mercado crescente = Oportunidade de criar produto de integraçêo SaaS com alta demanda"
 ```
 
 **Código que detecta isso:**
@@ -1903,7 +1903,7 @@ def _identify_synergies(self, analyses: List[AnalysisOutput]) -> List[str]:
     for quick_win in execution_data['quick_wins']:
         for kpi in metrics_data['primary_kpis']:
             if self._quick_win_impacts_kpi(quick_win, kpi):
-                synergies.append(f"Sinergia Execução+Métricas: {quick_win} acelera {kpi}")
+                synergies.append(f"Sinergia Execuçêo+Métricas: {quick_win} acelera {kpi}")
 
     # TIPO 3: Posicionamento × Tendência de Mercado
     positioning = strategy_data['positioning']
@@ -1915,7 +1915,7 @@ def _identify_synergies(self, analyses: List[AnalysisOutput]) -> List[str]:
 
 def _calculate_alignment(self, text1: str, text2: str) -> float:
     """Calcula alinhamento semântico entre dois textos."""
-    # Em produção, usaria embeddings de LLM
+    # Em produçêo, usaria embeddings de LLM
     # Aqui, simplificado com keywords
 
     keywords_match = 0
@@ -1928,7 +1928,7 @@ def _calculate_alignment(self, text1: str, text2: str) -> float:
     return keywords_match
 ```
 
-#### Resolução de Conflitos - Estratégias
+#### Resoluçêo de Conflitos - Estratégias
 
 **Conflito 1: Recomendações Contraditórias**
 
@@ -1940,7 +1940,7 @@ def _calculate_alignment(self, text1: str, text2: str) -> float:
 "Lançar rápido com preço agressivo para ganhar market share"
 
 # CONFLITO IDENTIFICADO:
-# Premium vs Preço baixo são incompatíveis!
+# Premium vs Preço baixo sêo incompatíveis!
 ```
 
 **Como o Integrador resolve:**
@@ -1961,9 +1961,9 @@ def _resolve_conflicts(self, analyses: List[AnalysisOutput]) -> List[Dict]:
 
     # Detectar oposições
     oppositions = [
-        (['premium', 'diferenciação', 'alto valor'], ['baixo custo', 'preço agressivo', 'mais barato']),
+        (['premium', 'diferenciaçêo', 'alto valor'], ['baixo custo', 'preço agressivo', 'mais barato']),
         (['rápido', 'urgente', 'imediato'], ['cuidadoso', 'planejado', 'longo prazo']),
-        (['expansão', 'crescer', 'escalar'], ['consolidar', 'focar', 'especializar'])
+        (['expansêo', 'crescer', 'escalar'], ['consolidar', 'focar', 'especializar'])
     ]
 
     for pos_keywords, neg_keywords in oppositions:
@@ -1984,26 +1984,26 @@ def _resolve_conflicts(self, analyses: List[AnalysisOutput]) -> List[Dict]:
     return conflicts
 
 def _synthesize_resolution(self, pos_recs: List[Dict], neg_recs: List[Dict]) -> str:
-    """Sintetiza resolução que equilibra ambos os lados."""
-    # Estratégia: Middle ground ou priorização baseada em contexto
+    """Sintetiza resoluçêo que equilibra ambos os lados."""
+    # Estratégia: Middle ground ou priorizaçêo baseada em contexto
 
     # Exemplo: Premium vs Low-cost
     if self._is_about_pricing(pos_recs, neg_recs):
-        return "Adotar pricing value-based: preço competitivo (não o mais baixo) com diferenciação clara de valor"
+        return "Adotar pricing value-based: preço competitivo (nêo o mais baixo) com diferenciaçêo clara de valor"
 
     # Exemplo: Rápido vs Cuidadoso
     if self._is_about_speed(pos_recs, neg_recs):
-        return "Abordagem phased: MVP rápido para validação, depois iteração cuidadosa baseada em feedback"
+        return "Abordagem phased: MVP rápido para validaçêo, depois iteraçêo cuidadosa baseada em feedback"
 
     # Fallback
     return "Balancear ambas as perspectivas com abordagem híbrida"
 ```
 
-#### Priorização de Recomendações
+#### Priorizaçêo de Recomendações
 
 Com 4 agentes gerando 3-4 recomendações cada, temos ~15 recomendações totais. Como priorizar?
 
-**Framework de priorização:**
+**Framework de priorizaçêo:**
 
 ```python
 def _prioritize_recommendations(self, recommendations: List[str]) -> List[Dict]:
@@ -2047,7 +2047,7 @@ def _prioritize_recommendations(self, recommendations: List[str]) -> List[Dict]:
     return scored_recs[:10]  # Top 10
 
 def _calculate_impact(self, recommendation: str) -> float:
-    """Calcula impacto potencial da recomendação."""
+    """Calcula impacto potencial da recomendaçêo."""
     impact = 5.0  # Base média
 
     # Indicadores de alto impacto
@@ -2072,7 +2072,7 @@ def _calculate_impact(self, recommendation: str) -> float:
     return min(10.0, max(1.0, impact))
 
 def _calculate_urgency(self, recommendation: str) -> float:
-    """Calcula urgência da recomendação."""
+    """Calcula urgência da recomendaçêo."""
     urgency = 5.0  # Base média
 
     # Indicadores de alta urgência
@@ -2097,7 +2097,7 @@ def _calculate_urgency(self, recommendation: str) -> float:
     return min(10.0, max(1.0, urgency))
 ```
 
-**Resultado da priorização:**
+**Resultado da priorizaçêo:**
 
 ```
 TOP 10 RECOMENDAÇÕES PRIORIZADAS:
@@ -2147,7 +2147,7 @@ with ThreadPoolExecutor(max_workers=4) as executor:
         except Exception as e:
             print(f"✗ Erro: {e}")
 
-# SOLUÇÃO PERMANENTE
+# SOLUÇêO PERMANENTE
 class RobustAnalyst:
     def analyze(self, context: Dict, timeout: int = 5) -> AnalysisOutput:
         # Implementar timeout interno
@@ -2178,19 +2178,19 @@ integrated_plan = result['integrated_result']['integrated_plan']
 # Contém contradições: "Focar em nicho" E "Expandir para todos os segmentos"
 
 # CAUSA
-# Integrador não detectou conflito entre recomendações
+# Integrador nêo detectou conflito entre recomendações
 
 # DIAGNÓSTICO
-# Revisar método _resolve_conflicts - não está pegando todos os casos
+# Revisar método _resolve_conflicts - nêo está pegando todos os casos
 
-# SOLUÇÃO: Adicionar validação pós-integração
+# SOLUÇêO: Adicionar validaçêo pós-integraçêo
 class IntegratorAgent:
     def integrate(self, analyses: List[AnalysisOutput]) -> Dict:
-        # ... integração normal
+        # ... integraçêo normal
 
         unified_plan = self._create_unified_plan(...)
 
-        # VALIDAÇÃO DE COERÊNCIA
+        # VALIDAÇêO DE COERÊNCIA
         coherence_check = self._validate_coherence(unified_plan)
 
         if not coherence_check['is_coherent']:
@@ -2201,7 +2201,7 @@ class IntegratorAgent:
         return {'integrated_plan': unified_plan, ...}
 
     def _validate_coherence(self, plan: Dict) -> Dict:
-        """Verifica se plano não tem contradições óbvias."""
+        """Verifica se plano nêo tem contradições óbvias."""
         issues = []
 
         initiatives = plan.get('key_initiatives', [])
@@ -2228,13 +2228,13 @@ result['parallelization_benefit']['speedup'] = "1.2x"
 # DIAGNÓSTICO
 # Verificar tempos individuais:
 for analysis in result['individual_analyses']:
-    print(f"{analysis['analyst']}: (tempo não registrado)")
+    print(f"{analysis['analyst']}: (tempo nêo registrado)")
 
-# AH! Tempos individuais não estão sendo medidos
+# AH! Tempos individuais nêo estêo sendo medidos
 
-# CAUSA: ThreadPoolExecutor não mede tempo individual de cada thread
+# CAUSA: ThreadPoolExecutor nêo mede tempo individual de cada thread
 
-# SOLUÇÃO: Instrumentar agentes
+# SOLUÇêO: Instrumentar agentes
 import time
 
 class InstrumentedAnalyst:
@@ -2259,7 +2259,7 @@ def _calculate_parallelization_benefit(self, analyses: List[AnalysisOutput], act
     # Tempo sequencial = SOMA dos tempos individuais
     sequential_time = sum(a.duration_seconds for a in analyses if a.duration_seconds)
 
-    # Tempo paralelo = MÁXIMO dos tempos individuais + overhead de integração
+    # Tempo paralelo = MÁXIMO dos tempos individuais + overhead de integraçêo
     parallel_time = max(a.duration_seconds for a in analyses if a.duration_seconds)
     integration_overhead = 0.5  # Integrador leva ~0.5s
 
@@ -2275,7 +2275,7 @@ def _calculate_parallelization_benefit(self, analyses: List[AnalysisOutput], act
     }
 ```
 
-### 2.7 Quando NÃO Usar Arquitetura Paralela
+### 2.7 Quando NêO Usar Arquitetura Paralela
 
 **Cenário 1: Tarefas têm dependências estritas**
 
@@ -2284,10 +2284,10 @@ def _calculate_parallelization_benefit(self, analyses: List[AnalysisOutput], act
 1. Coletar dados → 2. Limpar dados → 3. Treinar modelo → 4. Avaliar
 
 # Cada etapa PRECISA da anterior
-# Paralelizar não faz sentido aqui
+# Paralelizar nêo faz sentido aqui
 ```
 
-**Cenário 2: Overhead de coordenação > ganho de paralelismo**
+**Cenário 2: Overhead de coordenaçêo > ganho de paralelismo**
 
 ```python
 # Se cada análise leva 0.1s e overhead é 0.05s:
@@ -2298,7 +2298,7 @@ ganho = 0.25s (62% mais rápido) ✓ Vale a pena
 # Mas se cada análise leva 0.05s:
 sequential = 0.05 * 4 = 0.2s
 parallel = 0.05 + 0.05 = 0.1s
-ganho = 0.1s (50%) ⚠ Ganho marginal, não vale complexidade
+ganho = 0.1s (50%) ⚠ Ganho marginal, nêo vale complexidade
 ```
 
 **Regra:** Só paralelizar se cada tarefa > 0.5s.
@@ -2308,10 +2308,10 @@ ganho = 0.1s (50%) ⚠ Ganho marginal, não vale complexidade
 ```python
 # Se ordem de processamento afeta resultado:
 # Análise A influencia Análise B, que influencia C...
-# Paralelismo pode gerar resultados diferentes a cada execução
+# Paralelismo pode gerar resultados diferentes a cada execuçêo
 ```
 
-**Cenário 4: Recursos compartilhados causam contenção**
+**Cenário 4: Recursos compartilhados causam contençêo**
 
 ```python
 # Se todos os agentes precisam acessar o mesmo recurso:
@@ -2326,21 +2326,21 @@ class Analyst:
 
 ---
 
-## Projeto 3: Produção de Conteúdo Diário com Qualidade
+## Projeto 3: Produçêo de Conteúdo Diário com Qualidade
 
-### 3.1 Visão Geral
+### 3.1 Visêo Geral
 
-**Objetivo:** Produzir conteúdo de alta qualidade diariamente de forma automatizada, com ciclo de revisão iterativo.
+**Objetivo:** Produzir conteúdo de alta qualidade diariamente de forma automatizada, com ciclo de revisêo iterativo.
 
-**Arquitetura:** Ciclo Iterativo com Validação
+**Arquitetura:** Ciclo Iterativo com Validaçêo
 
 **Por que esta arquitetura:**
 - Qualidade é prioridade sobre velocidade
-- Permite refinamento até atingir padrão desejado
-- Aprende com feedback de cada iteração
-- Previne publicação de conteúdo inadequado
+- Permite refinamento até atingir padrêo desejado
+- Aprende com feedback de cada iteraçêo
+- Previne publicaçêo de conteúdo inadequado
 
-### 3.2 Implementação Completa
+### 3.2 Implementaçêo Completa
 
 ```python
 from typing import Dict, List, Optional
@@ -2350,7 +2350,7 @@ import time
 
 @dataclass
 class ContentVersion:
-    """Representa uma versão do conteúdo."""
+    """Representa uma versêo do conteúdo."""
     version_number: int
     content: str
     quality_score: float
@@ -2446,7 +2446,7 @@ class ContentQualityEvaluator:
         return min(1.0, score)
 
     def _evaluate_seo(self, content: str) -> float:
-        """Avalia otimização SEO."""
+        """Avalia otimizaçêo SEO."""
         score = 0.5  # base
 
         if len(content) > 500:  # Conteúdo substancial
@@ -2462,7 +2462,7 @@ class ContentQualityEvaluator:
             "title_quality": "Tornar título mais atrativo e específico (use números, 'como', 'guia')",
             "structure": "Adicionar mais seções (##) e separar melhor os parágrafos",
             "readability": "Simplificar linguagem, usar palavras mais curtas e frases mais diretas",
-            "engagement": "Adicionar mais elementos de interação: perguntas, 'você', CTAs",
+            "engagement": "Adicionar mais elementos de interaçêo: perguntas, 'você', CTAs",
             "seo": "Aumentar tamanho do conteúdo e adicionar mais headings"
         }
         return suggestions.get(criterion, "Melhorar qualidade geral")
@@ -2494,8 +2494,8 @@ class ContentProducerAgent:
         # Título
         content = f"# Como Dominar {topic}: Guia Completo para Iniciantes\n\n"
 
-        # Introdução
-        content += f"""## Introdução
+        # Introduçêo
+        content += f"""## Introduçêo
 
 Você quer aprender sobre {topic}? Neste guia completo, vamos explorar todos os aspectos essenciais que você precisa dominar.
 
@@ -2506,19 +2506,19 @@ Você quer aprender sobre {topic}? Neste guia completo, vamos explorar todos os 
 
 {topic} é um conceito fundamental que está revolucionando a forma como trabalhamos e criamos valor. Vamos entender em detalhes.
 
-### Definição
+### Definiçêo
 
-{topic} refere-se a [explicação detalhada aqui]. É importante porque permite que você [benefícios principais].
+{topic} refere-se a [explicaçêo detalhada aqui]. É importante porque permite que você [benefícios principais].
 
 ### Por que {topic} importa?
 
 1. **Eficiência**: Melhora drasticamente a produtividade
-2. **Inovação**: Abre novas possibilidades criativas
+2. **Inovaçêo**: Abre novas possibilidades criativas
 3. **Competitividade**: Diferencial no mercado
 
 """
 
-        # Seção prática
+        # Seçêo prática
         content += f"""## Como Aplicar {topic} na Prática
 
 Aqui está um guia passo a passo para você começar:
@@ -2532,7 +2532,7 @@ Primeiro, você precisa entender os conceitos básicos. Comece por:
 
 ### Passo 2: Prática
 
-Agora é hora de colocar a mão na massa:
+Agora é hora de colocar a mêo na massa:
 
 ```python
 # Exemplo prático
@@ -2564,10 +2564,10 @@ Para realmente dominar {topic}, você deve:
                 elif "engajamento" in improvement.lower():
                     content += "\n**E você, já está pronto para começar?**\n\nVamos juntos nessa jornada!\n"
 
-        # Conclusão
-        content += f"""## Conclusão
+        # Conclusêo
+        content += f"""## Conclusêo
 
-Agora você tem todo o conhecimento necessário para dominar {topic}. Lembre-se: a prática leva à perfeição.
+Agora você tem todo o conhecimento necessário para dominar {topic}. Lembre-se: a prática leva à perfeiçêo.
 
 **Próximos passos:**
 1. Revise este guia
@@ -2580,7 +2580,7 @@ Boa sorte em sua jornada de aprendizado!
         return content
 
 class IterativeContentPipeline:
-    """Pipeline iterativo de produção de conteúdo com validação."""
+    """Pipeline iterativo de produçêo de conteúdo com validaçêo."""
 
     def __init__(self, max_iterations: int = 3, quality_threshold: float = 0.85):
         self.producer = ContentProducerAgent()
@@ -2589,11 +2589,11 @@ class IterativeContentPipeline:
         self.versions_history: List[ContentVersion] = []
 
     def execute(self, topic: str) -> Dict:
-        """Executa produção iterativa de conteúdo."""
+        """Executa produçêo iterativa de conteúdo."""
         start_time = datetime.now()
 
         print("=" * 70)
-        print(f"PRODUÇÃO ITERATIVA DE CONTEÚDO: {topic}")
+        print(f"PRODUÇêO ITERATIVA DE CONTEÚDO: {topic}")
         print(f"Threshold de Qualidade: {self.evaluator.threshold:.0%}")
         print(f"Máximo de Iterações: {self.max_iterations}")
         print("=" * 70)
@@ -2605,7 +2605,7 @@ class IterativeContentPipeline:
             iteration += 1
 
             print(f"\n{'=' * 70}")
-            print(f"ITERAÇÃO {iteration}/{self.max_iterations}")
+            print(f"ITERAÇêO {iteration}/{self.max_iterations}")
             print('=' * 70)
 
             # Produzir conteúdo
@@ -2615,7 +2615,7 @@ class IterativeContentPipeline:
             print(f"\n[Avaliador] Avaliando qualidade...")
             evaluation = self.evaluator.evaluate(content)
 
-            # Armazenar versão
+            # Armazenar versêo
             version = ContentVersion(
                 version_number=iteration,
                 content=content,
@@ -2626,7 +2626,7 @@ class IterativeContentPipeline:
             )
             self.versions_history.append(version)
 
-            # Exibir resultados da avaliação
+            # Exibir resultados da avaliaçêo
             print(f"\n[Avaliador] Score Geral: {evaluation['overall_score']:.0%}")
             print("\nScores por Critério:")
             for criterion, score in evaluation['scores'].items():
@@ -2650,7 +2650,7 @@ class IterativeContentPipeline:
                     "duration": duration
                 }
 
-            # Se não atingiu, preparar melhorias para próxima iteração
+            # Se nêo atingiu, preparar melhorias para próxima iteraçêo
             if iteration < self.max_iterations:
                 print(f"\n[Avaliador] Qualidade insuficiente. Sugerindo melhorias:")
                 for i, improvement in enumerate(evaluation['improvements'], 1):
@@ -2660,10 +2660,10 @@ class IterativeContentPipeline:
             else:
                 print(f"\n{'=' * 70}")
                 print("⚠ MÁXIMO DE ITERAÇÕES ATINGIDO")
-                print(f"Melhor versão: Iteração {max(self.versions_history, key=lambda v: v.quality_score).version_number}")
+                print(f"Melhor versêo: Iteraçêo {max(self.versions_history, key=lambda v: v.quality_score).version_number}")
                 print('=' * 70)
 
-        # Se chegou aqui, não atingiu qualidade desejada
+        # Se chegou aqui, nêo atingiu qualidade desejada
         best_version = max(self.versions_history, key=lambda v: v.quality_score)
         duration = (datetime.now() - start_time).total_seconds()
 
@@ -2674,7 +2674,7 @@ class IterativeContentPipeline:
             "final_quality_score": best_version.quality_score,
             "versions_history": self.versions_history,
             "duration": duration,
-            "note": "Qualidade desejada não atingida, retornando melhor versão"
+            "note": "Qualidade desejada nêo atingida, retornando melhor versêo"
         }
 
 # ===== EXEMPLO DE USO =====
@@ -2694,10 +2694,10 @@ if __name__ == "__main__":
     print("RESULTADO FINAL")
     print("=" * 70)
 
-    print(f"\nSucesso: {'SIM' if result['success'] else 'NÃO'}")
+    print(f"\nSucesso: {'SIM' if result['success'] else 'NêO'}")
     print(f"Iterações necessárias: {result['iterations']}")
     print(f"Score final: {result['final_quality_score']:.0%}")
-    print(f"Duração total: {result['duration']:.2f}s")
+    print(f"Duraçêo total: {result['duration']:.2f}s")
 
     print("\nHistórico de Versões:")
     for version in result['versions_history']:
@@ -2719,48 +2719,48 @@ if __name__ == "__main__":
 
 **Vantagens do Ciclo Iterativo:**
 - Garante qualidade mínima
-- Aprende e melhora a cada iteração
+- Aprende e melhora a cada iteraçêo
 - Flexível (ajusta-se a diferentes padrões)
 - Previne conteúdo ruim
 
 **Desvantagens:**
 - Tempo variável (imprevisível)
-- Pode não atingir qualidade desejada
+- Pode nêo atingir qualidade desejada
 - Requer critérios de qualidade bem definidos
 - Consome mais recursos
 
 **Quando usar:**
 - Qualidade > velocidade
-- Padrões de qualidade são críticos
+- Padrões de qualidade sêo críticos
 - Feedback iterativo melhora resultado
 - Tempo de entrega é flexível
 
 **Métricas típicas:**
 - Iterações médias: 1-3
-- Taxa de aprovação na 1ª iteração: 40-60%
+- Taxa de aprovaçêo na 1ª iteraçêo: 40-60%
 - Qualidade final média: 88-95%
-- Tempo por iteração: 0.5-1s
+- Tempo por iteraçêo: 0.5-1s
 
-### 3.4 Deep Dive: Loop de Feedback e Validação
+### 3.4 Deep Dive: Loop de Feedback e Validaçêo
 
 O que torna este sistema diferente de um simples "gera → publica" é o **loop de feedback iterativo**. Vamos entender como funciona em detalhe.
 
-#### Anatomia de Uma Iteração
+#### Anatomia de Uma Iteraçêo
 
-Cada iteração passa por 4 fases:
+Cada iteraçêo passa por 4 fases:
 
 ```
-ITERAÇÃO N:
-1. PRODUZIR → Gera conteúdo (aplicando melhorias da iteração anterior)
+ITERAÇêO N:
+1. PRODUZIR → Gera conteúdo (aplicando melhorias da iteraçêo anterior)
 2. AVALIAR → Avalia qualidade usando múltiplos critérios
-3. DECIDIR → Aprovado? SIM → Fim | NÃO → Fase 4
-4. MELHORAR → Identifica gaps e planeja melhorias para próxima iteração
-   └─→ Volta para Fase 1 (ITERAÇÃO N+1)
+3. DECIDIR → Aprovado? SIM → Fim | NêO → Fase 4
+4. MELHORAR → Identifica gaps e planeja melhorias para próxima iteraçêo
+   └─→ Volta para Fase 1 (ITERAÇêO N+1)
 ```
 
-**Por que 4 fases são necessárias:**
+**Por que 4 fases sêo necessárias:**
 
-- **Fase 1 (Produzir)** não pode avaliar a si mesma durante produção (viés)
+- **Fase 1 (Produzir)** nêo pode avaliar a si mesma durante produçêo (viés)
 - **Fase 2 (Avaliar)** precisa ser independente e objetiva
 - **Fase 3 (Decidir)** usa threshold claro para evitar iterações desnecessárias
 - **Fase 4 (Melhorar)** traduz gaps em ações concretas
@@ -2792,7 +2792,7 @@ def evaluate(self, content: str) -> Dict:
 
 1. **title_quality**: Primeiro contato do leitor - crítico para CTR
 2. **structure**: Determina se conteúdo é escaneável/navegável
-3. **readability**: Afeta compreensão e tempo no página
+3. **readability**: Afeta compreensêo e tempo no página
 4. **engagement**: Influencia shares e comentários
 5. **seo**: Impacta descobribilidade orgânica
 
@@ -2821,19 +2821,19 @@ def _evaluate_title(self, content: str) -> float:
 
 **Por que heurísticas em vez de LLM:**
 
-- **Velocidade**: Heurísticas são instantâneas (~0.001s), LLM leva ~1s
+- **Velocidade**: Heurísticas sêo instantâneas (~0.001s), LLM leva ~1s
 - **Determinismo**: Mesmo input → mesmo output sempre
 - **Custo**: Gratuitas, LLM custa por token
 - **Explicabilidade**: Você sabe exatamente por que score é X
 
-**Trade-off:** Heurísticas são menos sofisticadas que LLM, mas 80% da qualidade com 1% do custo.
+**Trade-off:** Heurísticas sêo menos sofisticadas que LLM, mas 80% da qualidade com 1% do custo.
 
-#### Feedback Loop: Como Melhorias São Aplicadas
+#### Feedback Loop: Como Melhorias Sêo Aplicadas
 
-**Iteração 1:** Conteúdo inicial
+**Iteraçêo 1:** Conteúdo inicial
 
 ```python
-# Produção inicial (sem melhorias prévias)
+# Produçêo inicial (sem melhorias prévias)
 content_v1 = producer.produce("Machine Learning")
 
 # Resultado:
@@ -2843,7 +2843,7 @@ content_v1 = producer.produce("Machine Learning")
 Machine Learning é importante...
 """
 
-# Avaliação:
+# Avaliaçêo:
 {
     "title_quality": 0.5,  # ✗ Título genérico
     "structure": 0.6,      # ⚠ Pouca estrutura
@@ -2861,10 +2861,10 @@ improvements = [
 ]
 ```
 
-**Iteração 2:** Aplicando melhorias
+**Iteraçêo 2:** Aplicando melhorias
 
 ```python
-# Produção com melhorias
+# Produçêo com melhorias
 content_v2 = producer.produce("Machine Learning", improvements)
 
 # Resultado:
@@ -2880,7 +2880,7 @@ Você quer aprender Machine Learning? Neste guia completo...
 ## Como começar com Machine Learning?
 """
 
-# Avaliação:
+# Avaliaçêo:
 {
     "title_quality": 0.9,  # ✓ Título melhor ("Como", "Guia", "Completo")
     "structure": 0.85,     # ✓ Múltiplas seções
@@ -2896,15 +2896,15 @@ improvements = [
 ]
 ```
 
-**Iteração 3:** Refinamento final
+**Iteraçêo 3:** Refinamento final
 
 ```python
-# Produção com nova melhoria
+# Produçêo com nova melhoria
 content_v3 = producer.produce("Machine Learning", improvements)
 
 # Resultado: Conteúdo expandido com mais exemplos e explicações
 
-# Avaliação:
+# Avaliaçêo:
 {
     "title_quality": 0.9,  # ✓ Manteve
     "structure": 0.85,     # ✓ Manteve
@@ -2915,9 +2915,9 @@ content_v3 = producer.produce("Machine Learning", improvements)
 overall = 0.83 < 0.85 ✗ QUASE! (0.83 vs 0.85)
 
 # Mas... vamos aprovar?
-# NÃO! Threshold é firme. Próxima iteração...
+# NêO! Threshold é firme. Próxima iteraçêo...
 
-# Iteração 4: Pequenos ajustes finais
+# Iteraçêo 4: Pequenos ajustes finais
 overall = 0.87 >= 0.85 ✓ APROVADO!
 ```
 
@@ -2931,79 +2931,79 @@ overall = 0.87 >= 0.85 ✓ APROVADO!
 
 ```python
 # CENÁRIO 1: Convergência rápida
-Iteração 1: 0.70 → Melhorias claras
-Iteração 2: 0.88 ✓ Aprovado
+Iteraçêo 1: 0.70 → Melhorias claras
+Iteraçêo 2: 0.88 ✓ Aprovado
 
 # CENÁRIO 2: Convergência lenta
-Iteração 1: 0.75 → Melhorias
-Iteração 2: 0.78 → Mais melhorias
-Iteração 3: 0.82 → Ainda mais
-Iteração 4: 0.86 ✓ Aprovado
+Iteraçêo 1: 0.75 → Melhorias
+Iteraçêo 2: 0.78 → Mais melhorias
+Iteraçêo 3: 0.82 → Ainda mais
+Iteraçêo 4: 0.86 ✓ Aprovado
 
 # CENÁRIO 3: Divergência (PROBLEMA!)
-Iteração 1: 0.70 → Melhorias
-Iteração 2: 0.68 ✗ Piorou!
-Iteração 3: 0.72 → Recuperou um pouco
-Iteração 4: 0.70 → Oscilando
+Iteraçêo 1: 0.70 → Melhorias
+Iteraçêo 2: 0.68 ✗ Piorou!
+Iteraçêo 3: 0.72 → Recuperou um pouco
+Iteraçêo 4: 0.70 → Oscilando
 MAX_ITERATIONS atingido ⚠
 
 # CENÁRIO 4: Platô
-Iteração 1: 0.75 → Melhorias
-Iteração 2: 0.80 → Melhorias
-Iteração 3: 0.81 → Melhoria marginal
-Iteração 4: 0.81 → Não mudou (PLATÔ)
+Iteraçêo 1: 0.75 → Melhorias
+Iteraçêo 2: 0.80 → Melhorias
+Iteraçêo 3: 0.81 → Melhoria marginal
+Iteraçêo 4: 0.81 → Nêo mudou (PLATÔ)
 ```
 
 **Por que divergência acontece:**
 
 1. **Melhorias contraditórias**: "Seja mais conciso" + "Adicione mais conteúdo"
-2. **Heurísticas ruins**: Critério de avaliação não captura qualidade real
-3. **Producer bugado**: Não aplica melhorias corretamente
+2. **Heurísticas ruins**: Critério de avaliaçêo nêo captura qualidade real
+3. **Producer bugado**: Nêo aplica melhorias corretamente
 
 **Como detectar platô:**
 
 ```python
 def _detect_plateau(self, versions_history: List[ContentVersion]) -> bool:
-    """Detecta se qualidade estabilizou (não melhora mais)."""
+    """Detecta se qualidade estabilizou (nêo melhora mais)."""
     if len(versions_history) < 3:
         return False
 
     # Pegar últimas 3 iterações
     last_3_scores = [v.quality_score for v in versions_history[-3:]]
 
-    # Calcular variação
+    # Calcular variaçêo
     max_score = max(last_3_scores)
     min_score = min(last_3_scores)
     variation = max_score - min_score
 
-    # Se variação < 2%, considera platô
+    # Se variaçêo < 2%, considera platô
     return variation < 0.02
 ```
 
-**Ação quando platô detectado:**
+**Açêo quando platô detectado:**
 
 ```python
 if self._detect_plateau(self.versions_history):
-    print("⚠ Platô detectado - qualidade não melhora mais")
+    print("⚠ Platô detectado - qualidade nêo melhora mais")
 
-    # OPÇÃO 1: Aceitar melhor versão até agora
+    # OPÇêO 1: Aceitar melhor versêo até agora
     best_version = max(self.versions_history, key=lambda v: v.quality_score)
     return best_version
 
-    # OPÇÃO 2: Tentar abordagem radical diferente
+    # OPÇêO 2: Tentar abordagem radical diferente
     improvements = ["Reescrever completamente com novo ângulo"]
     # ... continua iterando
 ```
 
-### 3.5 Comparação: Iterativo vs Auto-melhorante (Projeto 4)
+### 3.5 Comparaçêo: Iterativo vs Auto-melhorante (Projeto 4)
 
-Projetos 3 e 4 são parecidos, mas têm diferenças cruciais:
+Projetos 3 e 4 sêo parecidos, mas têm diferenças cruciais:
 
 | Aspecto | Projeto 3: Iterativo | Projeto 4: Auto-melhorante |
 |---------|---------------------|----------------------------|
-| **Avaliação** | Avaliador externo | Agente se auto-avalia |
+| **Avaliaçêo** | Avaliador externo | Agente se auto-avalia |
 | **Melhorias** | Sugeridas por avaliador | Agente identifica próprios gaps |
-| **Aprendizado** | Não há (cada execução independente) | Aprende padrões ao longo do tempo |
+| **Aprendizado** | Nêo há (cada execuçêo independente) | Aprende padrões ao longo do tempo |
 | **Objetivo** | Atingir threshold fixo | Maximizar qualidade continuamente |
 | **Termina quando** | Threshold atingido ou max iterations | Meta atingida ou max cycles |
 
@@ -3011,19 +3011,19 @@ Projetos 3 e 4 são parecidos, mas têm diferenças cruciais:
 
 **Projeto 3 (Iterativo)** quando:
 - Você tem critérios de qualidade claros e objetivos
-- Avaliação pode ser automatizada com heurísticas
-- Não precisa de aprendizado entre execuções
-- Exemplo: Produção de conteúdo padronizado
+- Avaliaçêo pode ser automatizada com heurísticas
+- Nêo precisa de aprendizado entre execuções
+- Exemplo: Produçêo de conteúdo padronizado
 
 **Projeto 4 (Auto-melhorante)** quando:
 - Agente precisa aprender com experiência
-- Critérios de qualidade são subjetivos/complexos
+- Critérios de qualidade sêo subjetivos/complexos
 - Tarefa se beneficia de refinamento constante
 - Exemplo: Escrita de emails de vendas (aprende o que funciona)
 
 ### 3.6 Otimizações e Variações do Loop Iterativo
 
-**Variação 1: Iterativo com Early Stop Inteligente**
+**Variaçêo 1: Iterativo com Early Stop Inteligente**
 
 ```python
 class SmartIterativeContentPipeline:
@@ -3042,7 +3042,7 @@ class SmartIterativeContentPipeline:
                 print(f"✓ Qualidade excepcional atingida em {iteration} iterações!")
                 return {"success": True, "iterations": iteration, ...}
 
-            # EARLY STOP 2: Melhoria marginal (< 1% vs iteração anterior)
+            # EARLY STOP 2: Melhoria marginal (< 1% vs iteraçêo anterior)
             if iteration > 1:
                 prev_score = self.versions_history[-1].quality_score
                 current_score = evaluation['overall_score']
@@ -3052,10 +3052,10 @@ class SmartIterativeContentPipeline:
                     print(f"⚠ Melhoria marginal ({improvement:.1%}), parando")
                     return {"success": True, "iterations": iteration, ...}
 
-            # EARLY STOP 3: Regressão (piorou)
+            # EARLY STOP 3: Regressêo (piorou)
             if iteration > 1:
                 if current_score < prev_score:
-                    print(f"⚠ Qualidade regrediu, revertendo para versão anterior")
+                    print(f"⚠ Qualidade regrediu, revertendo para versêo anterior")
                     return {"success": True, "content": self.versions_history[-1].content, ...}
 
             # Continua normalmente...
@@ -3064,7 +3064,7 @@ class SmartIterativeContentPipeline:
         return {...}  # Max iterations atingido
 ```
 
-**Variação 2: Iterativo com Múltiplos Avaliadores**
+**Variaçêo 2: Iterativo com Múltiplos Avaliadores**
 
 ```python
 class MultiEvaluatorPipeline:
@@ -3095,7 +3095,7 @@ class MultiEvaluatorPipeline:
             # Score final = MÉDIA dos 3 avaliadores
             overall_score = sum(e['overall_score'] for e in evaluations) / len(evaluations)
 
-            # APROVAÇÃO: Todos os 3 avaliadores devem aprovar (>= 0.80)
+            # APROVAÇêO: Todos os 3 avaliadores devem aprovar (>= 0.80)
             all_approved = all(e['overall_score'] >= 0.80 for e in evaluations)
 
             if all_approved:
@@ -3113,27 +3113,27 @@ class MultiEvaluatorPipeline:
         return {...}
 ```
 
-**Benefício:** Avaliação mais robusta, menos chance de aprovação falsa positiva.
+**Benefício:** Avaliaçêo mais robusta, menos chance de aprovaçêo falsa positiva.
 
-**Trade-off:** 3x mais lento (3 avaliações por iteração).
+**Trade-off:** 3x mais lento (3 avaliações por iteraçêo).
 
 ---
 
 ## Projeto 4: Agente de Melhoria Contínua Autônomo
 
-### 4.1 Visão Geral
+### 4.1 Visêo Geral
 
-**Objetivo:** Criar um agente que melhora autonomamente seu próprio output através de auto-avaliação e refinamento.
+**Objetivo:** Criar um agente que melhora autonomamente seu próprio output através de auto-avaliaçêo e refinamento.
 
 **Arquitetura:** Loop Autônomo (Self-Improving)
 
 **Por que esta arquitetura:**
-- Maximiza qualidade sem supervisão humana
+- Maximiza qualidade sem supervisêo humana
 - Aprende com próprios erros
-- Escalável (não depende de revisão externa)
+- Escalável (nêo depende de revisêo externa)
 - Ideal para tarefas repetitivas que exigem excelência
 
-### 4.2 Implementação Completa
+### 4.2 Implementaçêo Completa
 
 ```python
 from typing import Dict, List, Optional
@@ -3183,7 +3183,7 @@ class SelfImprovingAgent:
             print(f"CICLO {cycle}/{self.max_cycles}")
             print('=' * 70)
 
-            # Fase 1: Executar ação
+            # Fase 1: Executar açêo
             print(f"\n[Ciclo {cycle}] Fase 1: Executar")
             current_output = self._perform_action(task_description, improvements)
 
@@ -3191,9 +3191,9 @@ class SelfImprovingAgent:
             print(f"[Ciclo {cycle}] Fase 2: Auto-Avaliar")
             evaluation = self._self_evaluate(current_output, task_description)
 
-            # Exibir avaliação
+            # Exibir avaliaçêo
             print(f"\nScore de Qualidade: {evaluation['quality_score']:.0%}")
-            print("\nAvaliação Detalhada:")
+            print("\nAvaliaçêo Detalhada:")
             for criterion, score in evaluation['detailed_scores'].items():
                 status = "✓" if score >= 0.9 else "⚠" if score >= 0.7 else "✗"
                 print(f"  {status} {criterion}: {score:.0%}")
@@ -3252,7 +3252,7 @@ class SelfImprovingAgent:
                 for i, improvement in enumerate(improvements, 1):
                     print(f"  {i}. {improvement}")
 
-        # Se chegou aqui, não atingiu meta
+        # Se chegou aqui, nêo atingiu meta
         best_cycle = max(self.improvement_history, key=lambda c: c.quality_progression)
         duration = (datetime.now() - start_time).total_seconds()
 
@@ -3268,12 +3268,12 @@ class SelfImprovingAgent:
             "final_quality": best_cycle.quality_progression,
             "improvement_history": self.improvement_history,
             "duration": duration,
-            "note": "Meta não atingida, retornando melhor resultado"
+            "note": "Meta nêo atingida, retornando melhor resultado"
         }
 
     def _perform_action(self, task: str, improvements: List[str] = None) -> str:
-        """Executa a ação (ex: escrever email, criar código, etc)."""
-        time.sleep(0.3)  # Simula execução
+        """Executa a açêo (ex: escrever email, criar código, etc)."""
+        time.sleep(0.3)  # Simula execuçêo
 
         # Exemplo: escrevendo email de vendas
         if "email" in task.lower():
@@ -3291,16 +3291,16 @@ class SelfImprovingAgent:
     def _write_sales_email(self, improvements: List[str] = None) -> str:
         """Escreve email de vendas (exemplo)."""
 
-        # Versão base
-        email = """Assunto: Proposta de Solução
+        # Versêo base
+        email = """Assunto: Proposta de Soluçêo
 
 Olá,
 
-Gostaríamos de apresentar nossa solução para sua empresa.
+Gostaríamos de apresentar nossa soluçêo para sua empresa.
 
 Nossa plataforma oferece recursos avançados que podem ajudar seu negócio.
 
-Ficamos à disposição para uma reunião.
+Ficamos à disposiçêo para uma reuniêo.
 
 Atenciosamente,
 Equipe de Vendas"""
@@ -3308,7 +3308,7 @@ Equipe de Vendas"""
         # Aplicar melhorias se houver
         if improvements:
             for improvement in improvements:
-                if "personalização" in improvement.lower():
+                if "personalizaçêo" in improvement.lower():
                     email = email.replace("sua empresa", "sua empresa [NOME]")
                     email = email.replace("Olá", "Olá [NOME_PROSPECT]")
 
@@ -3320,8 +3320,8 @@ Equipe de Vendas"""
 
                 if "urgência" in improvement.lower():
                     email = email.replace(
-                        "Ficamos à disposição",
-                        "Esta semana temos uma promoção especial de 20% off. Podemos agendar uma call ainda esta semana?"
+                        "Ficamos à disposiçêo",
+                        "Esta semana temos uma promoçêo especial de 20% off. Podemos agendar uma call ainda esta semana?"
                     )
 
                 if "social proof" in improvement.lower():
@@ -3329,7 +3329,7 @@ Equipe de Vendas"""
 
                 if "cta" in improvement.lower():
                     email = email.replace(
-                        "Ficamos à disposição para uma reunião",
+                        "Ficamos à disposiçêo para uma reuniêo",
                         "Clique aqui para agendar 15min na minha agenda: [LINK]"
                     )
 
@@ -3338,11 +3338,11 @@ Equipe de Vendas"""
     def _self_evaluate(self, output: str, task: str) -> Dict:
         """Auto-avalia a qualidade do output."""
 
-        # Critérios de avaliação (exemplo para email de vendas)
+        # Critérios de avaliaçêo (exemplo para email de vendas)
         scores = {
             "clareza": self._eval_clarity(output),
-            "personalização": self._eval_personalization(output),
-            "persuasão": self._eval_persuasion(output),
+            "personalizaçêo": self._eval_personalization(output),
+            "persuasêo": self._eval_persuasion(output),
             "call_to_action": self._eval_cta(output),
             "profissionalismo": self._eval_professionalism(output)
         }
@@ -3371,7 +3371,7 @@ Equipe de Vendas"""
         return min(1.0, score)
 
     def _eval_personalization(self, text: str) -> float:
-        """Avalia personalização."""
+        """Avalia personalizaçêo."""
         score = 0.3  # base baixo
 
         if "[NOME" in text:  # Tem placeholder de nome
@@ -3382,7 +3382,7 @@ Equipe de Vendas"""
         return min(1.0, score)
 
     def _eval_persuasion(self, text: str) -> float:
-        """Avalia poder de persuasão."""
+        """Avalia poder de persuasêo."""
         score = 0.4  # base
 
         # Tem números/estatísticas?
@@ -3441,10 +3441,10 @@ Equipe de Vendas"""
         improvements = []
 
         for gap in gaps:
-            if "personalização" in gap.lower():
-                improvements.append("Adicionar mais elementos de personalização ([NOME], contexto específico)")
+            if "personalizaçêo" in gap.lower():
+                improvements.append("Adicionar mais elementos de personalizaçêo ([NOME], contexto específico)")
 
-            if "persuasão" in gap.lower():
+            if "persuasêo" in gap.lower():
                 improvements.append("Incluir dados quantitativos e benefícios específicos")
                 improvements.append("Adicionar social proof (clientes, cases)")
 
@@ -3489,12 +3489,12 @@ if __name__ == "__main__":
     print("RESULTADO FINAL")
     print("=" * 70)
 
-    print(f"\nSucesso: {'SIM' if result['success'] else 'NÃO'}")
+    print(f"\nSucesso: {'SIM' if result['success'] else 'NêO'}")
     print(f"Ciclos necessários: {result['cycles_needed']}")
     print(f"Qualidade final: {result['final_quality']:.0%}")
-    print(f"Duração: {result['duration']:.2f}s")
+    print(f"Duraçêo: {result['duration']:.2f}s")
 
-    print("\nProgressão de Qualidade:")
+    print("\nProgressêo de Qualidade:")
     for cycle in result['improvement_history']:
         print(f"  Ciclo {cycle.cycle_number}: {cycle.quality_progression:.0%}")
 
@@ -3518,32 +3518,32 @@ if __name__ == "__main__":
 ### 4.3 Análise do Projeto
 
 **Vantagens do Loop Autônomo:**
-- Não requer supervisão humana contínua
+- Nêo requer supervisêo humana contínua
 - Aprende com própria experiência
 - Melhoria incremental garantida
 - Escalável para múltiplas tarefas
 
 **Desvantagens:**
 - Pode entrar em loops sem convergência
-- Requer critérios de auto-avaliação muito bons
+- Requer critérios de auto-avaliaçêo muito bons
 - Risco de overfitting em métricas erradas
 - Difícil debugar quando falha
 
 **Quando usar:**
 - Tarefas repetitivas que exigem qualidade
-- Quando supervisão humana é custosa/lenta
-- Critérios de qualidade são objetivos
+- Quando supervisêo humana é custosa/lenta
+- Critérios de qualidade sêo objetivos
 - Volume alto de execuções
 
 **Métricas típicas:**
 - Ciclos médios: 2-4
 - Melhoria média: +20-30% em qualidade
 - Taxa de convergência: 85-90%
-- Padrões aprendidos: 3-7 por execução bem-sucedida
+- Padrões aprendidos: 3-7 por execuçêo bem-sucedida
 
 ---
 
-## Comparação dos 4 Projetos
+## Comparaçêo dos 4 Projetos
 
 ### Tabela Comparativa
 
@@ -3555,7 +3555,7 @@ if __name__ == "__main__":
 | **Previsibilidade** | Alta | Média | Baixa | Baixa |
 | **Escalabilidade** | Média | Alta | Média | Alta |
 | **Custo** | Baixo | Médio | Médio-Alto | Médio |
-| **Supervisão Necessária** | Média | Alta (integração) | Média | Baixa |
+| **Supervisêo Necessária** | Média | Alta (integraçêo) | Média | Baixa |
 | **Casos de Uso** | Processos sequenciais | Análises multi-perspectiva | Conteúdo de qualidade | Tarefas repetitivas |
 
 ### Quando Usar Cada Arquitetura
@@ -3572,7 +3572,7 @@ if __name__ == "__main__":
 - ✓ Velocidade é prioridade
 - ✓ Múltiplas perspectivas necessárias
 - ✓ Recursos computacionais disponíveis
-- ✗ Quando integração é muito complexa
+- ✗ Quando integraçêo é muito complexa
 
 **Ciclo Iterativo:**
 - ✓ Qualidade > velocidade
@@ -3583,14 +3583,14 @@ if __name__ == "__main__":
 
 **Loop Autônomo:**
 - ✓ Tarefas repetitivas
-- ✓ Supervisão humana custosa
+- ✓ Supervisêo humana custosa
 - ✓ Critérios objetivos de qualidade
 - ✓ Volume alto de execuções
 - ✗ Quando julgamento humano é essencial
 
 ---
 
-## Conclusão do Módulo
+## Conclusêo do Módulo
 
 ### O Que Você Dominou
 
@@ -3599,13 +3599,13 @@ Neste módulo, você implementou 4 sistemas multiagentes completos, cada um demo
 1. **Pipeline Linear** - Para processos sequenciais estruturados
 2. **Paralelo + Integrador** - Para análises rápidas multi-perspectiva
 3. **Ciclo Iterativo** - Para garantir qualidade através de refinamento
-4. **Loop Autônomo** - Para melhoria contínua sem supervisão
+4. **Loop Autônomo** - Para melhoria contínua sem supervisêo
 
 ### Habilidades Desenvolvidas
 
 - Projetar arquiteturas multiagentes
-- Implementar coordenação entre agentes
-- Gerenciar estado e comunicação
+- Implementar coordenaçêo entre agentes
+- Gerenciar estado e comunicaçêo
 - Avaliar qualidade e convergência
 - Otimizar para velocidade ou qualidade
 - Debugging de sistemas complexos
@@ -3614,17 +3614,17 @@ Neste módulo, você implementou 4 sistemas multiagentes completos, cada um demo
 
 Todos os 4 projetos incluem:
 - ~10KB+ de código Python cada
-- Implementação completa e funcional
-- Exemplos de execução
+- Implementaçêo completa e funcional
+- Exemplos de execuçêo
 - Métricas e análise de resultados
 
-**Total:** ~40KB de código e documentação prática.
+**Total:** ~40KB de código e documentaçêo prática.
 
 ### Próximos Passos
 
-No Módulo 7, você aprenderá **Boas Práticas e Segurança** para colocar esses sistemas em produção com confiança.
+No Módulo 7, você aprenderá **Boas Práticas e Segurança** para colocar esses sistemas em produçêo com confiança.
 
 ---
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 *Nível 3A - Agentes e Sistemas Autônomos*

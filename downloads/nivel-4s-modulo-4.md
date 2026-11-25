@@ -4,11 +4,11 @@
 
 ---
 
-## O Coração da ESIA
+## O Coraçêo da ESIA
 
-**Loops Evolutivos** são o que separa sistemas estáticos de sistemas verdadeiramente inteligentes. Agentes modernos não apenas executam - eles **aprendem, analisam e melhoram continuamente**.
+**Loops Evolutivos** sêo o que separa sistemas estáticos de sistemas verdadeiramente inteligentes. Agentes modernos nêo apenas executam - eles **aprendem, analisam e melhoram continuamente**.
 
-Este é o coração da **ESIA - Engenharia de Sistemas Intencionais Autônomos**: sistemas que evoluem autonomamente baseado em resultados.
+Este é o coraçêo da **ESIA - Engenharia de Sistemas Intencionais Autônomos**: sistemas que evoluem autonomamente baseado em resultados.
 
 ---
 
@@ -18,7 +18,7 @@ Este é o coração da **ESIA - Engenharia de Sistemas Intencionais Autônomos**
 
 O agente registra quando comete erros, analisa causas e ajusta estratégias futuras.
 
-**Implementação:**
+**Implementaçêo:**
 
 ```python
 from dataclasses import dataclass
@@ -58,7 +58,7 @@ class SistemaAnaliseFalhas:
 
         self.falhas_historicas.append(falha)
 
-        # Analisa imediatamente se há padrão
+        # Analisa imediatamente se há padrêo
         if len(self.falhas_historicas) >= 3:
             self._analisar_padroes()
 
@@ -74,7 +74,7 @@ class SistemaAnaliseFalhas:
 
         # Identifica padrões recorrentes
         for tipo, falhas in falhas_por_tipo.items():
-            if len(falhas) >= 3:  # 3+ ocorrências = padrão
+            if len(falhas) >= 3:  # 3+ ocorrências = padrêo
                 # Analisa contexto comum
                 contextos = [f.contexto for f in falhas]
                 chaves_comuns = set.intersection(*[set(c.keys()) for c in contextos])
@@ -91,7 +91,7 @@ class SistemaAnaliseFalhas:
                         "identificado_em": datetime.now().isoformat()
                     }
 
-                    # Adiciona apenas se não existe
+                    # Adiciona apenas se nêo existe
                     if not any(p["tipo_falha"] == tipo for p in self.padroes_identificados):
                         self.padroes_identificados.append(padrao)
 
@@ -113,7 +113,7 @@ class SistemaAnaliseFalhas:
             elif tipo_falha == TipoFalha.QUALIDADE_BAIXA:
                 correcoes.append({
                     "padrao": tipo_falha.value,
-                    "acao": "Adicionar validação extra antes da saída",
+                    "acao": "Adicionar validaçêo extra antes da saída",
                     "justificativa": f"Qualidade consistentemente baixa",
                     "impacto_esperado": 0.8
                 })
@@ -121,15 +121,15 @@ class SistemaAnaliseFalhas:
             elif tipo_falha == TipoFalha.ERRO_VALIDACAO:
                 correcoes.append({
                     "padrao": tipo_falha.value,
-                    "acao": "Reforçar validação de entrada",
-                    "justificativa": f"Erros de validação recorrentes",
+                    "acao": "Reforçar validaçêo de entrada",
+                    "justificativa": f"Erros de validaçêo recorrentes",
                     "impacto_esperado": 0.9
                 })
 
         return correcoes
 
     def aplicar_correcao(self, correcao: Dict) -> Dict:
-        """Aplica correção e monitora resultado"""
+        """Aplica correçêo e monitora resultado"""
         resultado = {
             "correcao": correcao,
             "aplicada_em": datetime.now().isoformat(),
@@ -176,7 +176,7 @@ class SistemaAnaliseFalhas:
 sistema = SistemaAnaliseFalhas()
 
 # Simula falhas ao longo do tempo
-print("=== SIMULAÇÃO DE APRENDIZADO COM FALHAS ===\n")
+print("=== SIMULAÇêO DE APRENDIZADO COM FALHAS ===\n")
 
 # Fase 1: Múltiplos timeouts
 for i in range(4):
@@ -197,10 +197,10 @@ for corr in correcoes:
     print(f"    Justificativa: {corr['justificativa']}")
     print(f"    Impacto esperado: {corr['impacto_esperado']:.1%}\n")
 
-# Aplica correção
+# Aplica correçêo
 if correcoes:
     resultado = sistema.aplicar_correcao(correcoes[0])
-    print(f"✅ Correção aplicada: {resultado['correcao']['acao']}\n")
+    print(f"✅ Correçêo aplicada: {resultado['correcao']['acao']}\n")
 
 # Relatório
 print("="*60)
@@ -215,7 +215,7 @@ print("="*60)
 
 ### 2. Ajustam Estratégias
 
-Baseado em resultados, o agente modifica sua abordagem sem precisar de instrução humana.
+Baseado em resultados, o agente modifica sua abordagem sem precisar de instruçêo humana.
 
 ```python
 import statistics
@@ -239,11 +239,11 @@ class SistemaAjusteEstrategico:
     def executar_com_monitoramento(self, estrategia: str, contexto: Dict) -> Dict:
         """Executa e monitora resultado"""
         if estrategia not in self.estrategias:
-            raise ValueError(f"Estratégia {estrategia} não existe")
+            raise ValueError(f"Estratégia {estrategia} nêo existe")
 
         params = self.estrategias[estrategia]["parametros"]
 
-        # Simula execução com parâmetros atuais
+        # Simula execuçêo com parâmetros atuais
         resultado = {
             "performance": 0.5 + (params.get("qualidade_minima", 0.5) * 0.4),
             "tempo": 10 / params.get("agressividade", 0.5),
@@ -271,7 +271,7 @@ class SistemaAjusteEstrategico:
     def ajustar_automaticamente(self, estrategia: str) -> Dict:
         """Ajusta estratégia baseado nos resultados"""
         if estrategia not in self.estrategias:
-            return {"erro": "Estratégia não existe"}
+            return {"erro": "Estratégia nêo existe"}
 
         est = self.estrategias[estrategia]
 
@@ -301,7 +301,7 @@ class SistemaAjusteEstrategico:
             ajustes["agressividade"] = {
                 "anterior": est["parametros"]["agressividade"],
                 "novo": novo_valor,
-                "motivo": "Tempo de execução acima do aceitável"
+                "motivo": "Tempo de execuçêo acima do aceitável"
             }
             est["parametros"]["agressividade"] = novo_valor
 
@@ -392,7 +392,7 @@ class SistemaAprendizadoPreferencias:
 
         self.interacoes.append(interacao)
 
-        # Aprende após cada interação
+        # Aprende após cada interaçêo
         self._inferir_preferencias()
 
     def _inferir_preferencias(self):
@@ -429,7 +429,7 @@ class SistemaAprendizadoPreferencias:
             self.preferencias_inferidas["estilo_preferido"] = mais_comum
 
     def recomendar_opcao(self, opcoes: List[Dict]) -> Dict:
-        """Recomenda opção baseado em preferências aprendidas"""
+        """Recomenda opçêo baseado em preferências aprendidas"""
         if not self.preferencias_inferidas:
             return {
                 "recomendacao": 0,
@@ -437,7 +437,7 @@ class SistemaAprendizadoPreferencias:
                 "motivo": "Sem preferências aprendidas"
             }
 
-        # Pontua cada opção
+        # Pontua cada opçêo
         scores = []
 
         for opcao in opcoes:
@@ -517,16 +517,16 @@ for pref, valor in sistema_pref.preferencias_inferidas.items():
     print(f"   • {pref}: {valor}")
 
 # Sistema recomenda automaticamente
-print("\n--- Nova solicitação ---")
+print("\n--- Nova solicitaçêo ---")
 novas_opcoes = [
-    {"nome": "Opção A", "velocidade": 0.8, "qualidade": 0.6, "estilo": "casual"},
-    {"nome": "Opção B", "velocidade": 0.6, "qualidade": 0.95, "estilo": "detalhado"},
-    {"nome": "Opção C", "velocidade": 0.7, "qualidade": 0.7, "estilo": "balanceado"}
+    {"nome": "Opçêo A", "velocidade": 0.8, "qualidade": 0.6, "estilo": "casual"},
+    {"nome": "Opçêo B", "velocidade": 0.6, "qualidade": 0.95, "estilo": "detalhado"},
+    {"nome": "Opçêo C", "velocidade": 0.7, "qualidade": 0.7, "estilo": "balanceado"}
 ]
 
 recomendacao = sistema_pref.recomendar_opcao(novas_opcoes)
 
-print(f"Recomendação: {recomendacao['opcao']['nome']}")
+print(f"Recomendaçêo: {recomendacao['opcao']['nome']}")
 print(f"Confiança: {recomendacao['confianca']:.1%}")
 print(f"Motivo: {recomendacao['motivo']}")
 print(f"Preferências aplicadas: {', '.join(recomendacao['preferencias_aplicadas'])}")
@@ -582,11 +582,11 @@ class SistemaEvolutivoCompleto:
         if len(tarefas_recentes) < 5:
             return {"mensagem": "Dados insuficientes"}
 
-        # Simula detecção de padrão
+        # Simula detecçêo de padrêo
         padrao_detectado = {
             "tipo": "revisao_pos_geracao",
-            "frequencia": "sempre após geração de relatório",
-            "acao_automatizada": "Adicionar revisão automática",
+            "frequencia": "sempre após geraçêo de relatório",
+            "acao_automatizada": "Adicionar revisêo automática",
             "criado_em": datetime.now().isoformat()
         }
 
@@ -623,18 +623,18 @@ tentativas = [
     {"abordagem": "C", "resultado": 0.85}
 ]
 
-novo_metodo = sistema_evo.criar_novo_metodo("Otimização de busca", tentativas)
+novo_metodo = sistema_evo.criar_novo_metodo("Otimizaçêo de busca", tentativas)
 print(f"✅ Novo método criado: {novo_metodo['nome']}")
 print(f"   Performance esperada: {novo_metodo['performance_esperada']:.2f}\n")
 
 # 2. Otimiza automaticamente
 otim = sistema_evo.otimizar_sem_permissao("processamento_dados", {"tempo": 15})
-print(f"✅ Otimização aplicada: {otim['tipo']}")
+print(f"✅ Otimizaçêo aplicada: {otim['tipo']}")
 print(f"   Ganho: {otim['ganho_estimado']}\n")
 
-# 3. Automatiza repetição
+# 3. Automatiza repetiçêo
 auto = sistema_evo.automatizar_repeticao([{} for _ in range(10)])
-print(f"✅ Automação criada: {auto['acao_automatizada']}")
+print(f"✅ Automaçêo criada: {auto['acao_automatizada']}")
 print(f"   Trigger: {auto['frequencia']}\n")
 
 # 4. Substitui processo
@@ -653,20 +653,20 @@ print(f"   Ganho: {subst['ganho']:.1%}")
 
 ---
 
-## O Ciclo de Evolução
+## O Ciclo de Evoluçêo
 
-O ciclo completo de evolução de um sistema intencional:
+O ciclo completo de evoluçêo de um sistema intencional:
 
 ```python
 class CicloEvolutivo:
-    """Implementação completa do ciclo evolutivo"""
+    """Implementaçêo completa do ciclo evolutivo"""
 
     def __init__(self):
         self.ciclos_completos = 0
         self.metricas_historicas: List[Dict] = []
 
     def executar_ciclo_completo(self, tarefa: Dict) -> Dict:
-        """Executa um ciclo completo de evolução"""
+        """Executa um ciclo completo de evoluçêo"""
         print(f"\n{'='*60}")
         print(f"CICLO EVOLUTIVO #{self.ciclos_completos + 1}")
         print(f"{'='*60}\n")
@@ -703,7 +703,7 @@ class CicloEvolutivo:
 
         # 5. REPETIR COM MELHORIAS
         print("5️⃣ PREPARAR PRÓXIMO CICLO")
-        print(f"   Melhorias prontas para aplicação no próximo ciclo\n")
+        print(f"   Melhorias prontas para aplicaçêo no próximo ciclo\n")
 
         # Registra ciclo
         self.ciclos_completos += 1
@@ -722,11 +722,11 @@ class CicloEvolutivo:
         return {
             "status": "completo",
             "performance": 0.75,
-            "saida": "Resultado da execução"
+            "saida": "Resultado da execuçêo"
         }
 
     def _medir_resultados(self, resultado: Dict) -> Dict:
-        """Mede resultados da execução"""
+        """Mede resultados da execuçêo"""
         return {
             "qualidade": resultado["performance"] * 0.9,
             "velocidade": 0.8,
@@ -734,7 +734,7 @@ class CicloEvolutivo:
         }
 
     def _analisar_desvios(self, metricas: Dict, metas: Dict) -> Dict:
-        """Analisa desvios em relação às metas"""
+        """Analisa desvios em relaçêo às metas"""
         metas_padrao = {"qualidade": 0.8, "velocidade": 0.75, "eficiencia": 0.8}
         metas_finais = {**metas_padrao, **metas}
 
@@ -758,16 +758,16 @@ class CicloEvolutivo:
             if "qualidade" in desvio.lower():
                 ajustes.append("Aumentar validações de qualidade")
             elif "velocidade" in desvio.lower():
-                ajustes.append("Otimizar pipeline de execução")
+                ajustes.append("Otimizar pipeline de execuçêo")
             elif "eficiencia" in desvio.lower():
                 ajustes.append("Reduzir desperdício de recursos")
 
         return ajustes
 
     def relatorio_evolucao(self) -> Dict:
-        """Gera relatório de evolução ao longo dos ciclos"""
+        """Gera relatório de evoluçêo ao longo dos ciclos"""
         if not self.metricas_historicas:
-            return {"mensagem": "Sem dados de evolução"}
+            return {"mensagem": "Sem dados de evoluçêo"}
 
         # Analisa tendência
         primeira = self.metricas_historicas[0]
@@ -788,7 +788,7 @@ class CicloEvolutivo:
         }
 
 
-# Demonstração do ciclo evolutivo
+# Demonstraçêo do ciclo evolutivo
 ciclo = CicloEvolutivo()
 
 # Executa 3 ciclos
@@ -800,14 +800,14 @@ for i in range(3):
 
 # Relatório final
 print("\n" + "="*60)
-print("RELATÓRIO DE EVOLUÇÃO")
+print("RELATÓRIO DE EVOLUÇêO")
 print("="*60 + "\n")
 
 relatorio = ciclo.relatorio_evolucao()
 print(f"Total de ciclos: {relatorio['total_ciclos']}")
 print(f"Tendência geral: {relatorio['tendencia_geral'].upper()}\n")
 
-print("Evolução por métrica:")
+print("Evoluçêo por métrica:")
 for metrica, dados in relatorio['evolucao_metricas'].items():
     print(f"  • {metrica}:")
     print(f"    {dados['inicial']:.2f} → {dados['atual']:.2f} ({dados['melhoria']:+.1f}%)")
@@ -815,29 +815,29 @@ for metrica, dados in relatorio['evolucao_metricas'].items():
 
 ---
 
-## Conclusão
+## Conclusêo
 
 Você entendeu Loops Evolutivos - a capacidade que transforma agentes simples em sistemas verdadeiramente inteligentes.
 
 ### O que você dominou:
 
 ✅ 7 formas que agentes evoluem autonomamente (falhas, estratégias, preferências, métodos, otimizações, automações, substituições)
-✅ Sistema completo de análise de falhas com identificação de padrões
+✅ Sistema completo de análise de falhas com identificaçêo de padrões
 ✅ Ajuste automático de estratégias baseado em performance
 ✅ Aprendizado de preferências do usuário
-✅ Criação de novos métodos por experimentação
+✅ Criaçêo de novos métodos por experimentaçêo
 ✅ Otimizações automáticas dentro de limites
-✅ Automação de tarefas repetitivas
-✅ Substituição de processos fracos
-✅ O ciclo completo de evolução (Executar → Medir → Analisar → Ajustar → Repetir)
-✅ Implementação prática de cada capacidade evolutiva
-✅ Como sistemas aprendem sem intervenção humana
-✅ Por que loops evolutivos são o coração da ESIA
+✅ Automaçêo de tarefas repetitivas
+✅ Substituiçêo de processos fracos
+✅ O ciclo completo de evoluçêo (Executar → Medir → Analisar → Ajustar → Repetir)
+✅ Implementaçêo prática de cada capacidade evolutiva
+✅ Como sistemas aprendem sem intervençêo humana
+✅ Por que loops evolutivos sêo o coraçêo da ESIA
 
 ### Próximo módulo:
 
-No Módulo 5, você vai aprender sobre **Intenção Composta e Intenção Persistente**: conceitos avançados que permitem sistemas manterem objetivos complexos ao longo de semanas ou meses.
+No Módulo 5, você vai aprender sobre **Intençêo Composta e Intençêo Persistente**: conceitos avançados que permitem sistemas manterem objetivos complexos ao longo de semanas ou meses.
 
 ---
 
-**© 2025 FEI - Formação em Engenharia de Intenção**
+**© 2025 FEI - Formaçêo em Engenharia de Intençêo**

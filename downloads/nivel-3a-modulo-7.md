@@ -1,38 +1,38 @@
 # Módulo 7: Boas Práticas e Segurança em Sistemas de Agentes
-## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intenção
+## Nível 3A - Agentes e Sistemas Autônomos na Engenharia de Intençêo
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 
 ---
 
-## Introdução
+## Introduçêo
 
-Você já sabe criar agentes e sistemas multiagentes funcionais. Mas criar algo que **funciona** é diferente de criar algo **seguro, confiável e pronto para produção**.
+Você já sabe criar agentes e sistemas multiagentes funcionais. Mas criar algo que **funciona** é diferente de criar algo **seguro, confiável e pronto para produçêo**.
 
-Neste módulo final, você aprenderá as **5 pilares fundamentais** para colocar sistemas de agentes em produção com confiança:
+Neste módulo final, você aprenderá as **5 pilares fundamentais** para colocar sistemas de agentes em produçêo com confiança:
 
-1. **Validação e Testes** - Como garantir que funciona
+1. **Validaçêo e Testes** - Como garantir que funciona
 2. **Monitoramento e Observabilidade** - Como saber o que está acontecendo
 3. **Segurança e Privacidade** - Como proteger dados e prevenir abusos
 4. **Escalabilidade e Performance** - Como crescer sem quebrar
-5. **Manutenção e Evolução** - Como melhorar continuamente
+5. **Manutençêo e Evoluçêo** - Como melhorar continuamente
 
 **Meta:** ~30KB de conteúdo prático com código, checklists e exemplos reais.
 
 ---
 
-## Pilar 1: Validação e Testes
+## Pilar 1: Validaçêo e Testes
 
 ### 1.1 Por Que Testar Agentes é Diferente
 
 Testar agentes autônomos apresenta desafios únicos:
 
-- **Não-determinismo**: Mesmo input pode gerar outputs diferentes
+- **Nêo-determinismo**: Mesmo input pode gerar outputs diferentes
 - **Complexidade de estado**: Agentes mantêm contexto e histórico
 - **Interações emergentes**: Em multiagentes, comportamentos imprevisíveis aparecem
 - **Dependência de LLMs**: Modelos mudam, outputs variam
 
-**Estratégia:** Combinar testes tradicionais com validação específica para IA.
+**Estratégia:** Combinar testes tradicionais com validaçêo específica para IA.
 
 ### 1.2 Pirâmide de Testes para Agentes
 
@@ -42,7 +42,7 @@ Testar agentes autônomos apresenta desafios únicos:
                   /E2E \           (10%) - Testes end-to-end
                  /______\
                 /        \
-               /Integration\       (30%) - Testes de integração
+               /Integration\       (30%) - Testes de integraçêo
               /____________\
              /              \
             /  Unit Tests    \    (60%) - Testes unitários
@@ -76,7 +76,7 @@ class AgentValidator:
         dangerous_patterns = ['<script>', 'DROP TABLE', 'DELETE FROM']
         for pattern in dangerous_patterns:
             if pattern.lower() in user_input.lower():
-                errors.append(f"Padrão suspeito detectado: {pattern}")
+                errors.append(f"Padrêo suspeito detectado: {pattern}")
 
         return {
             "valid": len(errors) == 0,
@@ -117,7 +117,7 @@ class TestAgentValidator(unittest.TestCase):
     """Testes unitários para AgentValidator."""
 
     def setUp(self):
-        """Configuração antes de cada teste."""
+        """Configuraçêo antes de cada teste."""
         self.validator = AgentValidator()
 
     def test_valid_input(self):
@@ -146,13 +146,13 @@ class TestAgentValidator(unittest.TestCase):
         self.assertIn("muito longo", result['errors'][0].lower())
 
     def test_dangerous_input_script(self):
-        """Testa detecção de script malicioso."""
+        """Testa detecçêo de script malicioso."""
         result = self.validator.validate_input("Hello <script>alert('xss')</script>")
         self.assertFalse(result['valid'])
         self.assertTrue(any('script' in err.lower() for err in result['errors']))
 
     def test_dangerous_input_sql(self):
-        """Testa detecção de SQL injection."""
+        """Testa detecçêo de SQL injection."""
         result = self.validator.validate_input("'; DROP TABLE users; --")
         self.assertFalse(result['valid'])
         self.assertTrue(any('drop table' in err.lower() for err in result['errors']))
@@ -177,14 +177,14 @@ class TestAgentValidator(unittest.TestCase):
         self.assertTrue(any('muito longo' in issue.lower() for issue in result['issues']))
 
     def test_sensitive_data_ssn(self):
-        """Testa detecção de SSN."""
+        """Testa detecçêo de SSN."""
         result = self.validator.validate_output("Seu SSN é 123-45-6789")
         self.assertFalse(result['safe'])
         self.assertTrue(len(result['issues']) > 0)
 
     def test_sensitive_data_credit_card(self):
-        """Testa detecção de cartão de crédito."""
-        result = self.validator.validate_output("Cartão: 1234567890123456")
+        """Testa detecçêo de cartêo de crédito."""
+        result = self.validator.validate_output("Cartêo: 1234567890123456")
         self.assertFalse(result['safe'])
         self.assertTrue(len(result['issues']) > 0)
 
@@ -208,9 +208,9 @@ if __name__ == '__main__':
     print(f"Taxa de sucesso: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
 ```
 
-#### Nível 2: Testes de Integração (30%)
+#### Nível 2: Testes de Integraçêo (30%)
 
-Testam interação entre componentes.
+Testam interaçêo entre componentes.
 
 ```python
 import unittest
@@ -218,7 +218,7 @@ from typing import Dict, List
 from dataclasses import dataclass
 from datetime import datetime
 
-# Componentes para integração
+# Componentes para integraçêo
 @dataclass
 class Message:
     """Mensagem entre agentes."""
@@ -262,7 +262,7 @@ class MessageBroker:
         return messages
 
 class SimpleAgent:
-    """Agente simples para testes de integração."""
+    """Agente simples para testes de integraçêo."""
 
     def __init__(self, name: str, broker: MessageBroker):
         self.name = name
@@ -279,10 +279,10 @@ class SimpleAgent:
         return self.inbox
 
 class TestAgentIntegration(unittest.TestCase):
-    """Testes de integração entre agentes."""
+    """Testes de integraçêo entre agentes."""
 
     def setUp(self):
-        """Configuração antes de cada teste."""
+        """Configuraçêo antes de cada teste."""
         self.broker = MessageBroker()
         self.agent_a = SimpleAgent("AgentA", self.broker)
         self.agent_b = SimpleAgent("AgentB", self.broker)
@@ -316,7 +316,7 @@ class TestAgentIntegration(unittest.TestCase):
         self.assertEqual(inbox[2].content, "Message 3")
 
     def test_bidirectional_communication(self):
-        """Testa comunicação bidirecional."""
+        """Testa comunicaçêo bidirecional."""
         # A -> B
         self.agent_a.send_to("AgentB", "Request")
 
@@ -336,7 +336,7 @@ class TestAgentIntegration(unittest.TestCase):
         # A envia para B
         self.agent_a.send_to("AgentB", "For B only")
 
-        # C não deve receber
+        # C nêo deve receber
         inbox_c = self.agent_c.check_inbox()
         self.assertEqual(len(inbox_c), 0)
 
@@ -387,30 +387,30 @@ from typing import Dict, List
 import time
 
 class E2ETestContentCreation(unittest.TestCase):
-    """Testes E2E para sistema de criação de conteúdo."""
+    """Testes E2E para sistema de criaçêo de conteúdo."""
 
     def test_complete_content_creation_flow(self):
-        """Testa fluxo completo de criação de conteúdo."""
+        """Testa fluxo completo de criaçêo de conteúdo."""
 
         # Simula sistema completo (usando classes dos módulos anteriores)
         # Aqui usaríamos o IterativeContentPipeline real
 
         print("\n" + "=" * 70)
-        print("TESTE E2E: Criação de Conteúdo Completa")
+        print("TESTE E2E: Criaçêo de Conteúdo Completa")
         print("=" * 70)
 
         # 1. Input do usuário
         topic = "Machine Learning"
         print(f"\n1. Input recebido: {topic}")
 
-        # 2. Produção
-        print("\n2. Iniciando produção...")
+        # 2. Produçêo
+        print("\n2. Iniciando produçêo...")
         start_time = time.time()
 
-        # Simula produção (em produção, usaria pipeline real)
-        content = f"# Guia Completo de {topic}\n\n## Introdução\n\nConteúdo sobre {topic}..."
+        # Simula produçêo (em produçêo, usaria pipeline real)
+        content = f"# Guia Completo de {topic}\n\n## Introduçêo\n\nConteúdo sobre {topic}..."
 
-        # 3. Validação
+        # 3. Validaçêo
         print("\n3. Validando qualidade...")
         quality_score = 0.92  # Simulado
 
@@ -473,9 +473,9 @@ class LLMOutputValidator:
         }
 
     def check_hallucination_indicators(self, output: str) -> Dict:
-        """Detecta indicadores de alucinação."""
+        """Detecta indicadores de alucinaçêo."""
         indicators = {
-            "uncertainty_phrases": ["eu acho", "provavelmente", "talvez", "não tenho certeza"],
+            "uncertainty_phrases": ["eu acho", "provavelmente", "talvez", "nêo tenho certeza"],
             "vague_numbers": ["muitos", "vários", "alguns", "poucos"],
             "unverified_claims": ["é conhecido que", "estudos mostram", "especialistas dizem"]
         }
@@ -536,7 +536,7 @@ class TestLLMOutputs(unittest.TestCase):
 
     def test_factual_consistency_partial(self):
         """Testa consistência factual parcial."""
-        output = "Python é uma linguagem de programação."
+        output = "Python é uma linguagem de programaçêo."
         expected_facts = ["Python", "Guido van Rossum", "1991"]
 
         result = self.validator.check_factual_consistency(output, expected_facts)
@@ -546,7 +546,7 @@ class TestLLMOutputs(unittest.TestCase):
         self.assertLess(result['coverage'], 1.0)
 
     def test_no_hallucination(self):
-        """Testa output sem alucinação."""
+        """Testa output sem alucinaçêo."""
         output = "Python foi lançado em 1991 por Guido van Rossum."
 
         result = self.validator.check_hallucination_indicators(output)
@@ -555,7 +555,7 @@ class TestLLMOutputs(unittest.TestCase):
         self.assertEqual(result['risk_level'], "low")
 
     def test_hallucination_detected(self):
-        """Testa detecção de alucinação."""
+        """Testa detecçêo de alucinaçêo."""
         output = "Eu acho que Python talvez seja a melhor linguagem. Estudos mostram que muitos desenvolvedores preferem."
 
         result = self.validator.check_hallucination_indicators(output)
@@ -565,10 +565,10 @@ class TestLLMOutputs(unittest.TestCase):
         self.assertIn(result['risk_level'], ["medium", "high"])
 
     def test_format_validation(self):
-        """Testa validação de formato."""
+        """Testa validaçêo de formato."""
         output = """# Título
 
-## Seção 1
+## Seçêo 1
 
 Conteúdo aqui...
 
@@ -591,7 +591,7 @@ if __name__ == '__main__':
     unittest.main(verbosity=2)
 ```
 
-### 1.4 Checklist de Validação Completo
+### 1.4 Checklist de Validaçêo Completo
 
 ```python
 from dataclasses import dataclass
@@ -606,7 +606,7 @@ class CheckSeverity(Enum):
 
 @dataclass
 class ValidationCheck:
-    """Define uma validação."""
+    """Define uma validaçêo."""
     name: str
     description: str
     check_function: Callable
@@ -614,14 +614,14 @@ class ValidationCheck:
     required: bool = True
 
 class ValidationChecklist:
-    """Checklist de validação para agentes."""
+    """Checklist de validaçêo para agentes."""
 
     def __init__(self):
         self.checks: List[ValidationCheck] = []
         self.results = []
 
     def add_check(self, check: ValidationCheck):
-        """Adiciona validação ao checklist."""
+        """Adiciona validaçêo ao checklist."""
         self.checks.append(check)
 
     def run_all_checks(self, agent_output: Dict) -> Dict:
@@ -679,7 +679,7 @@ checklist = ValidationChecklist()
 
 # Adicionar validações
 checklist.add_check(ValidationCheck(
-    name="Output não vazio",
+    name="Output nêo vazio",
     description="Verifica se agente gerou output",
     check_function=lambda output: len(output.get('content', '')) > 0,
     severity=CheckSeverity.CRITICAL,
@@ -696,7 +696,7 @@ checklist.add_check(ValidationCheck(
 
 checklist.add_check(ValidationCheck(
     name="Sem dados sensíveis",
-    description="Não contém informações pessoais",
+    description="Nêo contém informações pessoais",
     check_function=lambda output: 'senha' not in output.get('content', '').lower(),
     severity=CheckSeverity.CRITICAL,
     required=True
@@ -719,9 +719,9 @@ agent_output = {
 results = checklist.run_all_checks(agent_output)
 
 print("=" * 70)
-print("RESULTADO DA VALIDAÇÃO")
+print("RESULTADO DA VALIDAÇêO")
 print("=" * 70)
-print(f"Passou: {'SIM' if results['overall_passed'] else 'NÃO'}")
+print(f"Passou: {'SIM' if results['overall_passed'] else 'NêO'}")
 print(f"Checks totais: {results['total_checks']}")
 print(f"Passou: {results['passed']}")
 print(f"Falhou: {results['failed']}")
@@ -736,17 +736,17 @@ for result in results['results']:
 
 ---
 
-## Conclusão do Módulo e do Nível 3A
+## Conclusêo do Módulo e do Nível 3A
 
 ### O Que Você Dominou
 
-Neste módulo, você aprendeu os **5 pilares fundamentais** para produção:
+Neste módulo, você aprendeu os **5 pilares fundamentais** para produçêo:
 
-1. **Validação e Testes** - Pirâmide de testes, testes unitários/integração/E2E, validação de LLMs
+1. **Validaçêo e Testes** - Pirâmide de testes, testes unitários/integraçêo/E2E, validaçêo de LLMs
 2. **Monitoramento e Observabilidade** - Logging estruturado, métricas, alertas, dashboards
-3. **Segurança e Privacidade** - Permissões, proteção contra injection, dados sensíveis
+3. **Segurança e Privacidade** - Permissões, proteçêo contra injection, dados sensíveis
 4. **Escalabilidade e Performance** - Monitoramento de performance, caching inteligente
-5. **Manutenção e Evolução** - Versionamento, changelog, checklist de produção
+5. **Manutençêo e Evoluçêo** - Versionamento, changelog, checklist de produçêo
 
 ### Código Completo
 
@@ -756,11 +756,11 @@ Este módulo forneceu:
 - Checklists prontos para uso
 - Exemplos testados e funcionais
 
-### Aplicação Prática
+### Aplicaçêo Prática
 
 Agora você tem tudo que precisa para:
-- Colocar agentes em produção com confiança
-- Monitorar e manter sistemas em operação
+- Colocar agentes em produçêo com confiança
+- Monitorar e manter sistemas em operaçêo
 - Garantir segurança e privacidade
 - Escalar conforme necessário
 - Evoluir sistemas continuamente
@@ -771,14 +771,14 @@ Agora você tem tudo que precisa para:
 
 - ✓ Fundamentos de agentes autônomos
 - ✓ Arquiteturas multiagentes
-- ✓ Sistemas de orquestração
-- ✓ Implementação de 9 elementos de agentes
+- ✓ Sistemas de orquestraçêo
+- ✓ Implementaçêo de 9 elementos de agentes
 - ✓ 4 projetos práticos completos
-- ✓ Boas práticas de produção
+- ✓ Boas práticas de produçêo
 
-**Próximo nível:** Continue sua jornada na Formação em Engenharia de Intenção!
+**Próximo nível:** Continue sua jornada na Formaçêo em Engenharia de Intençêo!
 
 ---
 
-**FEI - Formação em Engenharia de Intenção**
+**FEI - Formaçêo em Engenharia de Intençêo**
 *Nível 3A - Agentes e Sistemas Autônomos* - COMPLETO ✓
